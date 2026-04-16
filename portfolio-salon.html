@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Studio Noir – Hair & Beauty | Colorado Springs</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --cream: #f5f0ea;
+    --dark: #1a1410;
+    --mocha: #6b4f3a;
+    --rose: #c9937a;
+    --gold: #b89a6e;
+    --mist: #e8e2da;
+  }
+
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Jost', sans-serif; background: var(--cream); color: var(--dark); overflow-x: hidden; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 22px 64px;
+    background: rgba(245,240,234,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(107,79,58,0.12);
+  }
+  .logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.7rem; font-weight: 300; letter-spacing: 4px; text-transform: uppercase;
+    color: var(--dark);
+  }
+  .logo span { color: var(--rose); font-style: italic; }
+  nav ul { list-style: none; display: flex; gap: 40px; }
+  nav ul a { color: var(--mocha); text-decoration: none; font-size: 0.8rem; font-weight: 400; letter-spacing: 2px; text-transform: uppercase; transition: color 0.2s; }
+  nav ul a:hover { color: var(--rose); }
+  .book-btn {
+    background: var(--dark); color: var(--cream);
+    padding: 11px 28px; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase;
+    text-decoration: none; transition: background 0.2s;
+  }
+  .book-btn:hover { background: var(--mocha); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid; grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding-top: 80px;
+  }
+  .hero-left {
+    padding: 80px 64px;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .eyebrow {
+    font-size: 0.72rem; letter-spacing: 4px; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 24px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .eyebrow::before { content: ''; width: 32px; height: 1px; background: var(--gold); }
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 5vw, 5.5rem);
+    font-weight: 300; line-height: 1.08;
+    letter-spacing: -1px; margin-bottom: 32px;
+  }
+  .hero h1 em { color: var(--rose); font-style: italic; }
+  .hero p {
+    font-size: 0.95rem; color: var(--mocha); line-height: 1.8; max-width: 400px; margin-bottom: 48px; font-weight: 300;
+  }
+  .hero-ctas { display: flex; gap: 16px; }
+  .cta-dark {
+    background: var(--dark); color: var(--cream);
+    padding: 15px 36px; font-size: 0.78rem; letter-spacing: 2px; text-transform: uppercase;
+    text-decoration: none; transition: background 0.2s;
+  }
+  .cta-dark:hover { background: var(--mocha); }
+  .cta-outline {
+    background: transparent; color: var(--dark); border: 1px solid rgba(26,20,16,0.3);
+    padding: 15px 36px; font-size: 0.78rem; letter-spacing: 2px; text-transform: uppercase;
+    text-decoration: none; transition: border-color 0.2s;
+  }
+  .cta-outline:hover { border-color: var(--dark); }
+
+  .hero-right {
+    height: 100vh;
+    background: linear-gradient(160deg, #c9937a 0%, #6b4f3a 50%, #1a1410 100%);
+    position: relative; overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .hero-right::before {
+    content: 'STUDIO\ANOIR';
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 12vw; font-weight: 300; letter-spacing: 6px;
+    color: rgba(255,255,255,0.05);
+    position: absolute; white-space: nowrap;
+    transform: rotate(-15deg);
+  }
+  .float-card {
+    background: rgba(245,240,234,0.95); backdrop-filter: blur(10px);
+    padding: 32px 36px; position: relative; z-index: 1;
+    border-left: 3px solid var(--gold);
+  }
+  .float-card p { font-size: 0.78rem; letter-spacing: 2px; text-transform: uppercase; color: var(--mocha); margin-bottom: 8px; }
+  .float-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 400; color: var(--dark); }
+  .float-card span { font-size: 0.82rem; color: var(--gold); }
+
+  /* SERVICES */
+  .services { padding: 100px 64px; background: var(--dark); }
+  .section-tag {
+    font-size: 0.72rem; letter-spacing: 4px; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 20px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .section-tag::before { content: ''; width: 32px; height: 1px; background: var(--gold); }
+  .section-h {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+    font-weight: 300; color: var(--cream); margin-bottom: 64px;
+  }
+  .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2px; }
+  .menu-item {
+    padding: 36px 32px;
+    border: 1px solid rgba(245,240,234,0.07);
+    transition: background 0.25s;
+  }
+  .menu-item:hover { background: rgba(245,240,234,0.04); }
+  .menu-item h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 400; color: var(--cream); margin-bottom: 10px; }
+  .menu-item p { font-size: 0.85rem; color: rgba(245,240,234,0.45); line-height: 1.7; margin-bottom: 20px; }
+  .price-tag { font-size: 0.9rem; color: var(--gold); letter-spacing: 1px; }
+
+  /* ABOUT */
+  .about { padding: 100px 64px; background: var(--mist); display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  .about-visual {
+    height: 500px;
+    background: linear-gradient(135deg, var(--mocha), var(--rose));
+    border-radius: 2px;
+    display: flex; align-items: flex-end; padding: 32px;
+    position: relative; overflow: hidden;
+  }
+  .about-visual::before {
+    
+    font-size: 14rem; opacity: 0.07; position: absolute; top: -20px; right: -20px;
+  }
+  .about-tag { background: var(--cream); padding: 16px 20px; }
+  .about-tag p { font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; color: var(--mocha); }
+  .about-tag h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: var(--dark); margin-top: 4px; }
+  .about-right h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 3vw, 3rem); font-weight: 300; margin-bottom: 24px; line-height: 1.2;
+  }
+  .about-right p { font-size: 0.9rem; color: var(--mocha); line-height: 1.85; margin-bottom: 16px; font-weight: 300; }
+
+  /* BOOKING */
+  .booking { padding: 100px 64px; text-align: center; background: var(--cream); }
+  .booking h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 4vw, 4rem); font-weight: 300; margin-bottom: 20px; }
+  .booking p { font-size: 0.92rem; color: var(--mocha); margin-bottom: 48px; max-width: 440px; margin-left: auto; margin-right: auto; line-height: 1.7; }
+  .phone-big { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; color: var(--rose); margin-bottom: 16px; font-weight: 300; }
+  .hours { font-size: 0.82rem; letter-spacing: 1.5px; color: var(--mocha); opacity: 0.7; }
+
+  /* FOOTER */
+  footer {
+    background: var(--dark); padding: 40px 64px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  footer p { font-size: 0.8rem; color: rgba(245,240,234,0.3); }
+  .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: var(--cream); letter-spacing: 3px; }
+
+  @media (max-width: 768px) {
+    nav { padding: 18px 24px; }
+    nav ul { display: none; }
+    .hero { grid-template-columns: 1fr; }
+    .hero-left { padding: 60px 24px; }
+    .hero-right { height: 50vh; }
+    .services, .about, .booking { padding-left: 24px; padding-right: 24px; }
+    .about { grid-template-columns: 1fr; }
+    footer { flex-direction: column; gap: 12px; padding: 32px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Studio <span>Noir</span></div>
+  <ul>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#book">Contact</a></li>
+  </ul>
+  <a href="#book" class="book-btn">Book Now</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-left">
+    <div class="eyebrow">Colorado Springs' Premier Salon</div>
+    <h1>Where Style Becomes <em>Art</em></h1>
+    <p>Precision cuts, lived-in color, and bridal styling crafted for women who know exactly who they are — and those still becoming her.</p>
+    <div class="hero-ctas">
+      <a href="#book" class="cta-dark">Book an Appointment</a>
+      <a href="#services" class="cta-outline">Our Services</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="float-card">
+      <p>Now Accepting</p>
+      <h3>New Clients</h3>
+      <span>Limited Availability — Book Early</span>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="section-tag">What We Offer</div>
+  <div class="section-h">Our Service Menu</div>
+  <div class="menu-grid">
+    <div class="menu-item">
+      <h3>Precision Cut & Style</h3>
+      <p>Tailored to your face shape and lifestyle — not just what's trending.</p>
+      <div class="price-tag">From $65</div>
+    </div>
+    <div class="menu-item">
+      <h3>Balayage & Color</h3>
+      <p>Sun-kissed, natural dimension. Painted by hand for a look that grows in beautifully.</p>
+      <div class="price-tag">From $175</div>
+    </div>
+    <div class="menu-item">
+      <h3>Full Highlights</h3>
+      <p>Classic foil highlights — bright, blended, and built to last.</p>
+      <div class="price-tag">From $145</div>
+    </div>
+    <div class="menu-item">
+      <h3>Bridal Styling</h3>
+      <p>Trial run + wedding day styling. You'll look exactly how you imagined.</p>
+      <div class="price-tag">From $220</div>
+    </div>
+    <div class="menu-item">
+      <h3>Keratin Treatment</h3>
+      <p>Smooth, frizz-free hair for up to 4 months. Worth every minute.</p>
+      <div class="price-tag">From $250</div>
+    </div>
+    <div class="menu-item">
+      <h3>Deep Conditioning</h3>
+      <p>Restore moisture and shine with our signature treatment. Add-on to any service.</p>
+      <div class="price-tag">From $45</div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="about-visual">
+    <div class="about-tag">
+      <p>Lead Stylist</p>
+      <h4>10+ Years of Experience</h4>
+    </div>
+  </div>
+  <div class="about-right">
+    <div class="section-tag">Our Story</div>
+    <h2>Built on Craft, Driven by Confidence</h2>
+    <p>Studio Noir was founded right here in Colorado Springs with one mission: make every client feel like the best version of themselves. No assembly line. No rushing you out the door.</p>
+    <p>Every appointment is one-on-one. We listen, we consult, and we create — because your hair isn't a task to complete. It's a statement to craft.</p>
+    <a href="#book" class="cta-dark" style="display:inline-block; margin-top:32px;">Meet the Team</a>
+  </div>
+</section>
+
+<section class="booking" id="book">
+  <div class="section-tag" style="justify-content:center;">Get In Touch</div>
+  <h2>Ready to Book Your Appointment?</h2>
+  <p>Call or text us to schedule. We'll find a time that works for you — evenings and Saturdays available.</p>
+  <div class="phone-big">(719) 555-0247</div>
+  <div class="hours">Tue – Fri: 9am – 7pm &nbsp;|&nbsp; Sat: 9am – 5pm &nbsp;|&nbsp; Closed Sun & Mon</div>
+</section>
+
+<footer>
+  <p>© 2025 Studio Noir · Colorado Springs, CO · All rights reserved</p>
+  <div class="footer-logo">STUDIO NOIR</div>
+</footer>
+
+</body>
+</html>
