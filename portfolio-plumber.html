@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Peak Flow Plumbing – Colorado Springs</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --navy: #0a1628;
+    --blue: #1a4fa0;
+    --accent: #e8a020;
+    --light: #f4f6fb;
+    --white: #ffffff;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Outfit', sans-serif;
+    background: var(--navy);
+    color: var(--white);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    background: rgba(10,22,40,0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 60px;
+  }
+  .logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: 2px; color: var(--white); }
+  .logo span { color: var(--accent); }
+  nav ul { list-style: none; display: flex; gap: 36px; }
+  nav ul a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 0.9rem; font-weight: 500; letter-spacing: 0.5px; transition: color 0.2s; }
+  nav ul a:hover { color: var(--accent); }
+  .nav-cta {
+    background: var(--accent); color: var(--navy);
+    padding: 10px 24px; border-radius: 6px;
+    font-weight: 600; font-size: 0.88rem; text-decoration: none; letter-spacing: 0.5px;
+    transition: opacity 0.2s;
+  }
+  .nav-cta:hover { opacity: 0.85; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex; align-items: center;
+    padding: 120px 60px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 70% 60% at 70% 50%, rgba(26,79,160,0.35) 0%, transparent 70%);
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(232,160,32,0.12); border: 1px solid rgba(232,160,32,0.3);
+    color: var(--accent); padding: 6px 16px; border-radius: 100px;
+    font-size: 0.82rem; font-weight: 500; letter-spacing: 1px; text-transform: uppercase;
+    margin-bottom: 28px;
+    animation: fadeUp 0.7s ease both;
+  }
+  .hero h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3.5rem, 8vw, 7rem);
+    line-height: 0.95;
+    letter-spacing: 2px;
+    margin-bottom: 28px;
+    animation: fadeUp 0.7s 0.1s ease both;
+  }
+  .hero h1 span { color: var(--accent); }
+  .hero p {
+    font-size: 1.15rem; color: rgba(255,255,255,0.68); line-height: 1.7;
+    max-width: 520px; margin-bottom: 44px;
+    animation: fadeUp 0.7s 0.2s ease both;
+  }
+  .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; animation: fadeUp 0.7s 0.3s ease both; }
+  .btn-primary {
+    background: var(--accent); color: var(--navy);
+    padding: 16px 36px; border-radius: 8px;
+    font-weight: 700; font-size: 1rem; text-decoration: none;
+    transition: transform 0.2s, opacity 0.2s;
+  }
+  .btn-primary:hover { transform: translateY(-2px); opacity: 0.9; }
+  .btn-ghost {
+    background: transparent; color: var(--white);
+    padding: 16px 36px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.25);
+    font-weight: 600; font-size: 1rem; text-decoration: none;
+    transition: border-color 0.2s;
+  }
+  .btn-ghost:hover { border-color: rgba(255,255,255,0.6); }
+
+  .hero-stats {
+    display: flex; gap: 48px; margin-top: 64px;
+    animation: fadeUp 0.7s 0.4s ease both;
+  }
+  .stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 2.8rem; color: var(--accent); line-height: 1; }
+  .stat-label { font-size: 0.82rem; color: rgba(255,255,255,0.5); margin-top: 4px; letter-spacing: 0.5px; }
+
+  /* SERVICES */
+  .services { padding: 100px 60px; background: var(--light); color: var(--navy); }
+  .section-label {
+    font-size: 0.78rem; font-weight: 600; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--blue); margin-bottom: 14px;
+  }
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.4rem, 4vw, 3.5rem);
+    letter-spacing: 1px; margin-bottom: 60px;
+    color: var(--navy);
+  }
+  .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; }
+  .service-card {
+    background: var(--white); border-radius: 14px;
+    padding: 36px 30px;
+    border: 1px solid rgba(10,22,40,0.08);
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+  .service-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(10,22,40,0.1); }
+  .service-icon { font-size: 2.2rem; margin-bottom: 20px; }
+  .service-card h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 10px; }
+  .service-card p { font-size: 0.9rem; color: rgba(10,22,40,0.6); line-height: 1.65; }
+
+  /* WHY US */
+  .why { padding: 100px 60px; background: var(--navy); }
+  .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  .why-visual {
+    background: linear-gradient(135deg, var(--blue), #0d2d6e);
+    border-radius: 20px; padding: 60px 40px; text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .why-visual::before {
+    content: ''; font-size: 8rem; opacity: 0.08;
+    position: absolute; bottom: -20px; right: -10px;
+  }
+  .big-number {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 6rem; color: var(--accent); line-height: 1;
+  }
+  .why-list { list-style: none; display: flex; flex-direction: column; gap: 24px; margin-top: 40px; }
+  .why-item { display: flex; align-items: flex-start; gap: 16px; }
+  .why-check {
+    width: 28px; height: 28px; border-radius: 50%;
+    background: rgba(232,160,32,0.15); border: 1px solid var(--accent);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--accent); font-size: 0.75rem; flex-shrink: 0; margin-top: 2px;
+  }
+  .why-item h4 { font-size: 1rem; font-weight: 600; margin-bottom: 4px; }
+  .why-item p { font-size: 0.88rem; color: rgba(255,255,255,0.55); line-height: 1.6; }
+
+  /* REVIEWS */
+  .reviews { padding: 100px 60px; background: #07101f; }
+  .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-top: 60px; }
+  .review-card {
+    background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px; padding: 32px;
+  }
+  .stars { color: var(--accent); font-size: 1rem; margin-bottom: 16px; letter-spacing: 2px; }
+  .review-text { font-size: 0.95rem; color: rgba(255,255,255,0.72); line-height: 1.7; margin-bottom: 24px; }
+  .reviewer { display: flex; align-items: center; gap: 14px; }
+  .avatar {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: var(--blue); display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 1rem; color: var(--white);
+  }
+  .reviewer-name { font-weight: 600; font-size: 0.92rem; }
+  .reviewer-title { font-size: 0.78rem; color: rgba(255,255,255,0.4); margin-top: 2px; }
+
+  /* CTA */
+  .cta-section {
+    padding: 100px 60px; text-align: center;
+    background: linear-gradient(135deg, var(--blue) 0%, #0d2d6e 100%);
+    position: relative; overflow: hidden;
+  }
+  .cta-section::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(circle at 50% 0%, rgba(232,160,32,0.2), transparent 60%);
+  }
+  .cta-section h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.8rem, 5vw, 4.5rem);
+    margin-bottom: 20px; letter-spacing: 1px;
+  }
+  .cta-section p { font-size: 1.1rem; color: rgba(255,255,255,0.72); margin-bottom: 44px; max-width: 500px; margin-left: auto; margin-right: auto; }
+
+  /* FOOTER */
+  footer {
+    background: #040d1a; padding: 40px 60px;
+    display: flex; align-items: center; justify-content: space-between;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  footer p { font-size: 0.85rem; color: rgba(255,255,255,0.35); }
+  .footer-links { display: flex; gap: 28px; }
+  .footer-links a { font-size: 0.85rem; color: rgba(255,255,255,0.4); text-decoration: none; }
+  .footer-links a:hover { color: var(--accent); }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 768px) {
+    nav { padding: 16px 24px; }
+    nav ul { display: none; }
+    .hero, .services, .why, .reviews, .cta-section { padding-left: 24px; padding-right: 24px; }
+    .why-grid { grid-template-columns: 1fr; gap: 40px; }
+    .hero-stats { gap: 28px; }
+    footer { flex-direction: column; gap: 16px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Peak<span>Flow</span></div>
+  <ul>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Get a Free Quote</a>
+</nav>
+
+<section class="hero">
+  <div style="position:relative; z-index:1; max-width: 680px;">
+    <div class="hero-badge">Same-Day Service Available</div>
+    <h1>Colorado Springs' <span>Trusted</span> Plumbers</h1>
+    <p>From burst pipes to full bathroom remodels — Peak Flow Plumbing has served the Springs for over 12 years. Licensed, insured, and on call 24/7.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-primary">Call Now: (719) 555-0182</a>
+      <a href="#services" class="btn-ghost">See Our Services</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">12+</div>
+        <div class="stat-label">Years in Business</div>
+      </div>
+      <div>
+        <div class="stat-num">2.4K</div>
+        <div class="stat-label">Jobs Completed</div>
+      </div>
+      <div>
+        <div class="stat-num">24/7</div>
+        <div class="stat-label">Emergency Line</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="section-label">What We Do</div>
+  <div class="section-title">Services We Offer</div>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">01</div>
+      <h3>Leak & Pipe Repair</h3>
+      <p>Fast diagnosis and repair of leaks, burst pipes, and water damage before it gets worse.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">02</div>
+      <h3>Bathroom Remodels</h3>
+      <p>Full bathroom plumbing installs — from vanities to walk-in showers. Done right the first time.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">03</div>
+      <h3>Water Heater Install</h3>
+      <p>Tank and tankless water heater replacement and installation with same-day availability.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">04</div>
+      <h3>Drain Cleaning</h3>
+      <p>Slow drains, clogs, and sewer backups cleared quickly using professional-grade equipment.</p>
+    </div>
+  </div>
+</section>
+
+<section class="why" id="why">
+  <div class="why-grid">
+    <div class="why-visual">
+      <div class="big-number">4.9★</div>
+      <p style="color:rgba(255,255,255,0.6); margin-top:12px; font-size:0.9rem;">Average Google Review Rating</p>
+      <p style="color:rgba(255,255,255,0.4); font-size:0.8rem; margin-top:6px;">Based on 340+ reviews</p>
+    </div>
+    <div>
+      <div class="section-label">Why Choose Us</div>
+      <div class="section-title" style="color:var(--white);">We Show Up. We Fix It. Done.</div>
+      <ul class="why-list">
+        <li class="why-item">
+          <div class="why-check">✓</div>
+          <div>
+            <h4>Upfront Pricing</h4>
+            <p>No surprises on your invoice. We quote before we touch anything.</p>
+          </div>
+        </li>
+        <li class="why-item">
+          <div class="why-check">✓</div>
+          <div>
+            <h4>Licensed & Insured in Colorado</h4>
+            <p>Fully licensed plumbers — not handymen. Your home is protected.</p>
+          </div>
+        </li>
+        <li class="why-item">
+          <div class="why-check">✓</div>
+          <div>
+            <h4>Emergency Response in 60 Min</h4>
+            <p>Flooded basement at 2am? We'll be there. No extra charge for nights and weekends.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="reviews" id="reviews">
+  <div class="section-label" style="color:var(--accent);">What Clients Say</div>
+  <div class="section-title">Real Reviews from Real Neighbors</div>
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">"Woke up to a burst pipe on a Sunday. Peak Flow was at my door in under an hour. Fair price and no drama. These guys are the real deal."</p>
+      <div class="reviewer">
+        <div class="avatar">MR</div>
+        <div>
+          <div class="reviewer-name">Marcus R.</div>
+          <div class="reviewer-title">Homeowner, Briargate</div>
+        </div>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">"Had three plumbers ghost me. Peak Flow showed up on time, gave me a clear quote, and finished the water heater install in two hours. Love these guys."</p>
+      <div class="reviewer">
+        <div class="avatar">TL</div>
+        <div>
+          <div class="reviewer-name">Tanya L.</div>
+          <div class="reviewer-title">Homeowner, Fountain Valley</div>
+        </div>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">"Professional, fast, and honest. They found the issue in 10 minutes that two other plumbers missed. Bookmarked for life."</p>
+      <div class="reviewer">
+        <div class="avatar">DJ</div>
+        <div>
+          <div class="reviewer-name">DeShawn J.</div>
+          <div class="reviewer-title">Property Manager</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section" id="contact">
+  <div style="position:relative; z-index:1;">
+    <h2>Need a Plumber Today?</h2>
+    <p>Call us now for a free quote. Most jobs booked within 24 hours.</p>
+    <a href="tel:7195550182" class="btn-primary" style="font-size:1.1rem; padding:18px 48px;">(719) 555-0182</a>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Peak Flow Plumbing · Colorado Springs, CO</p>
+  <div class="footer-links">
+    <a href="#">Privacy</a>
+    <a href="#">License #CO-12345</a>
+    <a href="#">Google Reviews</a>
+  </div>
+</footer>
+
+</body>
+</html>
