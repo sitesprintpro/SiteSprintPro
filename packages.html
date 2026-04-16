@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Website Packages — SiteSprintPro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+```
+:root {
+  --navy:   #0b0f1a;
+  --navy2:  #111827;
+  --navy3:  #1a2236;
+  --border: #1f2d45;
+  --orange: #f97316;
+  --orange2:#ea6c0a;
+  --gold:   #f4c542;
+  --white:  #f0f4ff;
+  --muted:  #8a9bbf;
+  --green:  #22c55e;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--navy);
+  color: var(--white);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  line-height: 1.65;
+  min-height: 100vh;
+}
+
+/* ── NAV ── */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 2rem;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  background: rgba(11,15,26,0.96);
+  backdrop-filter: blur(8px);
+  z-index: 100;
+}
+
+.nav-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.5rem;
+  letter-spacing: 0.08em;
+  color: var(--white);
+  text-decoration: none;
+}
+
+.nav-logo span { color: var(--orange); }
+
+nav a.back {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--muted);
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+nav a.back:hover { color: var(--orange); }
+
+/* ── HERO ── */
+.hero {
+  text-align: center;
+  padding: 5rem 1.5rem 3.5rem;
+  background:
+    radial-gradient(ellipse 70% 50% at 50% 0%, rgba(249,115,22,0.12) 0%, transparent 70%),
+    var(--navy);
+}
+
+.eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 1.2rem;
+}
+
+.hero h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(3rem, 8vw, 5.5rem);
+  letter-spacing: 0.04em;
+  line-height: 1;
+  color: var(--white);
+  margin-bottom: 1.25rem;
+}
+
+.hero h1 span { color: var(--orange); }
+
+.hero p {
+  max-width: 560px;
+  margin: 0 auto 1rem;
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+.free-badge {
+  display: inline-block;
+  background: rgba(34,197,94,0.12);
+  border: 1px solid rgba(34,197,94,0.35);
+  color: var(--green);
+  font-family: 'DM Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.45rem 1rem;
+  border-radius: 2rem;
+  margin-top: 0.5rem;
+}
+
+/* ── PACKAGES GRID ── */
+.packages {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+}
+
+@media (max-width: 680px) {
+  .packages { grid-template-columns: 1fr; }
+}
+
+.card {
+  background: var(--navy2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s, border-color 0.25s;
+}
+.card:hover { transform: translateY(-4px); }
+
+.card.pro {
+  border-color: var(--orange);
+  background: linear-gradient(160deg, #1a2236 0%, #111827 100%);
+}
+
+.card-header {
+  padding: 2rem 2rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+}
+
+.card.pro .card-header {
+  background: linear-gradient(135deg, rgba(249,115,22,0.1) 0%, transparent 60%);
+}
+
+.pro-tag {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  background: var(--orange);
+  color: #fff;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.75rem;
+  border-radius: 2rem;
+}
+
+.tier-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.6rem;
+}
+
+.card.pro .tier-label { color: var(--orange); }
+
+.tier-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.4rem;
+  letter-spacing: 0.05em;
+  color: var(--white);
+  margin-bottom: 0.75rem;
+}
+
+.price {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 3.2rem;
+  letter-spacing: 0.02em;
+  color: var(--white);
+  line-height: 1;
+}
+
+.card.pro .price { color: var(--orange); }
+
+.price-note {
+  font-size: 0.78rem;
+  color: var(--muted);
+  margin-top: 0.35rem;
+  font-family: 'DM Mono', monospace;
+}
+
+.delivery {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(249,115,22,0.1);
+  border: 1px solid rgba(249,115,22,0.25);
+  color: var(--orange);
+  font-family: 'DM Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.8rem;
+  border-radius: 2rem;
+  margin-top: 1rem;
+}
+
+/* ── FEATURES LIST ── */
+.card-body {
+  padding: 1.75rem 2rem;
+  flex: 1;
+}
+
+.section-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.feature-list {
+  list-style: none;
+  margin-bottom: 1.75rem;
+}
+
+.feature-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.55rem 0;
+  font-size: 0.92rem;
+  color: var(--white);
+  border-bottom: 1px solid rgba(31,45,69,0.5);
+}
+
+.feature-list li:last-child { border-bottom: none; }
+
+.check {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  background: rgba(34,197,94,0.12);
+  border: 1px solid rgba(34,197,94,0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+}
+
+.check svg { width: 10px; height: 10px; }
+
+.check.orange-check {
+  background: rgba(249,115,22,0.12);
+  border-color: rgba(249,115,22,0.35);
+}
+
+.pro-only {
+  display: inline-block;
+  background: rgba(244,197,66,0.1);
+  border: 1px solid rgba(244,197,66,0.3);
+  color: var(--gold);
+  font-family: 'DM Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.15rem 0.5rem;
+  border-radius: 3px;
+  margin-left: 0.4rem;
+  vertical-align: middle;
+}
+
+/* ── FREE MAINTENANCE CALLOUT ── */
+.maintenance-callout {
+  background: rgba(34,197,94,0.06);
+  border: 1px solid rgba(34,197,94,0.2);
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  margin-top: 0.5rem;
+}
+
+.maintenance-callout .mc-title {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 0.35rem;
+}
+
+.maintenance-callout p {
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+/* ── CARD FOOTER ── */
+.card-footer {
+  padding: 1.5rem 2rem;
+  border-top: 1px solid var(--border);
+}
+
+.cta-btn {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 0.95rem 1rem;
+  border-radius: 6px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s;
+}
+
+.cta-basic {
+  background: transparent;
+  border: 1.5px solid var(--border);
+  color: var(--white);
+}
+.cta-basic:hover {
+  border-color: var(--white);
+  background: rgba(255,255,255,0.04);
+}
+
+.cta-pro {
+  background: var(--orange);
+  color: #fff;
+}
+.cta-pro:hover {
+  background: var(--orange2);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(249,115,22,0.35);
+}
+
+/* ── MAINTENANCE ADD-ON ── */
+.addon-section {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 1.5rem 5rem;
+}
+
+.addon-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.addon-header h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  letter-spacing: 0.05em;
+  color: var(--white);
+  margin-bottom: 0.5rem;
+}
+
+.addon-header p {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.addon-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+@media (max-width: 680px) {
+  .addon-grid { grid-template-columns: 1fr; }
+}
+
+.addon-card {
+  background: var(--navy2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.5rem;
+  text-align: center;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.addon-card:hover {
+  border-color: rgba(249,115,22,0.4);
+  transform: translateY(-2px);
+}
+
+.addon-freq {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.5rem;
+}
+
+.addon-price {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.6rem;
+  color: var(--white);
+  line-height: 1;
+  margin-bottom: 0.25rem;
+}
+
+.addon-desc {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-bottom: 1rem;
+}
+
+.addon-includes {
+  list-style: none;
+  text-align: left;
+}
+
+.addon-includes li {
+  font-size: 0.8rem;
+  color: var(--white);
+  padding: 0.3rem 0;
+  padding-left: 1.2rem;
+  position: relative;
+}
+
+.addon-includes li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--orange);
+  font-size: 0.7rem;
+}
+
+/* ── DIVIDER ── */
+.divider {
+  max-width: 980px;
+  margin: 0 auto 3rem;
+  padding: 0 1.5rem;
+  border-top: 1px solid var(--border);
+}
+
+/* ── BOTTOM CTA ── */
+.bottom-cta {
+  text-align: center;
+  padding: 4rem 1.5rem;
+  border-top: 1px solid var(--border);
+  background: linear-gradient(0deg, rgba(249,115,22,0.05) 0%, transparent 100%);
+}
+
+.bottom-cta h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  letter-spacing: 0.05em;
+  margin-bottom: 0.75rem;
+}
+
+.bottom-cta p {
+  color: var(--muted);
+  max-width: 420px;
+  margin: 0 auto 1.75rem;
+  font-size: 0.92rem;
+}
+
+.btn-group {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  background: var(--orange);
+  color: #fff;
+  padding: 0.9rem 2rem;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+.btn-primary:hover {
+  background: var(--orange2);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(249,115,22,0.3);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--white);
+  padding: 0.9rem 2rem;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 0.9rem;
+  border: 1.5px solid var(--border);
+  transition: all 0.2s;
+}
+.btn-secondary:hover { border-color: var(--white); }
+
+/* ── FOOTER ── */
+footer {
+  text-align: center;
+  padding: 2rem;
+  border-top: 1px solid var(--border);
+  font-family: 'DM Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+}
+```
+
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+
+  <nav>
+    <a href="index.html" class="nav-logo">SiteSprint<span>Pro</span></a>
+    <a href="index.html" class="back">&#8592; Back to Portfolio</a>
+  </nav>
+
+  <!-- HERO -->
+
+  <section class="hero">
+    <div class="eyebrow">Website Packages</div>
+    <h1>Simple Pricing.<br><span>Real Results.</span></h1>
+    <p>Professional websites built and delivered in days — not weeks. We write all the content. You approve and go live.</p>
+    <div class="free-badge">Every package includes 2 free maintenance services</div>
+  </section>
+
+  <!-- PACKAGE CARDS -->
+
+  <section class="packages">
+
+```
+<!-- BASIC -->
+<div class="card">
+  <div class="card-header">
+    <div class="tier-label">Tier 01</div>
+    <div class="tier-name">Basic Build</div>
+    <div class="price">$897</div>
+    <div class="price-note">50% deposit to start / 50% on delivery</div>
+    <div class="delivery">Delivered in 2–3 business days</div>
+  </div>
+
+  <div class="card-body">
+    <div class="section-label">What's included</div>
+    <ul class="feature-list">
+      <li>
+        <span class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#22c55e" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+        Up to 5 pages (Home, About, Services, Gallery, Contact)
+      </li>
+      <li>
+        <span class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#22c55e" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+        Mobile-first responsive design
+      </li>
+      <li>
+        <span class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#22c55e" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+        All content written for you
+      </li>
+      <li>
+        <span class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#22c55e" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+        Click-to-call button on every page
+      </li>
+      <li>
+        <span class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#22c55e" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+        Google Maps embed
+      </li>
+      <li>
+        <span class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#22c55e" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+        Contact form
+      </li>
+      <li>
+        <span class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#22c55e" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+        Basic on-page SEO setup
+      </li>
+      <li>
+        <span class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#22c55e" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+        Professional photography via Unsplash
+      </li>
+      <li>
+        <span class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#22c55e" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+        Custom domain connection (Namecheap + Netlify)
+      </li>
+      <li>
+        <span class="check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#22c55e" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+        Up to 2 revision rounds
+      </li>
+    </ul>
+
+    <div class="maintenance-callout">
+      <div class="mc-title">Included — 2 Free Maintenance Services</div>
+      <p>Site updates, content edits, or fixes — covered. No extra charge for the first two service requests after launch.</p>
+    </div>
+  </div>
+
+  <div class="card-footer">
+    <a href="https://forms.gle/j7YPKBFAV9veyv3E9" class="cta-btn cta-basic">Get Started — Basic</a>
+  </div>
+</div>
+
+<!-- PRO -->
+<div class="card pro">
+  <div class="card-header">
+    <div class="pro-tag">Most Popular</div>
+    <div class="tier-label">Tier 02</div>
+    <div class="tier-name">Pro Build</div>
+    <div class="price">$1,197</div>
+    <div class="price-note">50% deposit to start / 50% on delivery</div>
+    <div class="delivery">Priority delivery in 1–2 business days</div>
+  </div>
+
+  <div class="card-body">
+    <div class="section-label">Everything in Basic, plus</div>
+    <ul class="feature-list">
+      <li>
+        <span class="check orange-check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#f97316" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+        Up to 8 pages <span class="pro-only">Pro</span>
+      </li>
+      <li>
+        <span class="check orange-check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#f97316" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+        Testimonials and reviews section <span class="pro-only">Pro</span>
+      </li>
+      <li>
+        <span class="check orange-check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#f97316" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+        Photo gallery with lightbox <span class="pro-only">Pro</span>
+      </li>
+      <li>
+        <span class="check orange-check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#f97316" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+        Online booking embed (Calendly / TidyCal) <span class="pro-only">Pro</span>
+      </li>
+      <li>
+        <span class="check orange-check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#f97316" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+        Advanced on-page SEO with meta optimization <span class="pro-only">Pro</span>
+      </li>
+      <li>
+        <span class="check orange-check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#f97316" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+        Social media links and feed integration <span class="pro-only">Pro</span>
+      </li>
+      <li>
+        <span class="check orange-check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#f97316" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+        Blog or news section setup <span class="pro-only">Pro</span>
+      </li>
+      <li>
+        <span class="check orange-check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#f97316" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+        Custom branded text logo design <span class="pro-only">Pro</span>
+      </li>
+      <li>
+        <span class="check orange-check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#f97316" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+        Up to 4 revision rounds <span class="pro-only">Pro</span>
+      </li>
+      <li>
+        <span class="check orange-check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#f97316" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+        Priority build queue — guaranteed first delivery <span class="pro-only">Pro</span>
+      </li>
+    </ul>
+
+    <div class="maintenance-callout">
+      <div class="mc-title">Included — 2 Free Maintenance Services</div>
+      <p>Site updates, content edits, or fixes — covered. No extra charge for the first two service requests after launch.</p>
+    </div>
+  </div>
+
+  <div class="card-footer">
+    <a href="https://forms.gle/j7YPKBFAV9veyv3E9" class="cta-btn cta-pro">Get Started — Pro</a>
+  </div>
+</div>
+```
+
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- MAINTENANCE ADD-ON -->
+
+  <section class="addon-section">
+    <div class="addon-header">
+      <div class="eyebrow">Optional Add-On</div>
+      <h2>Site Maintenance Plans</h2>
+      <p>Pick up when you need it. No long-term contracts. Cancel or pause any time.</p>
+    </div>
+
+```
+<div class="addon-grid">
+  <div class="addon-card">
+    <div class="addon-freq">Monthly</div>
+    <div class="addon-price">$150</div>
+    <div class="addon-desc">One check-in per month</div>
+    <ul class="addon-includes">
+      <li>Content updates and edits</li>
+      <li>Performance check</li>
+      <li>Broken link review</li>
+      <li>Minor layout adjustments</li>
+    </ul>
+  </div>
+
+  <div class="addon-card" style="border-color: rgba(249,115,22,0.4);">
+    <div class="addon-freq" style="color: var(--orange);">Bi-Monthly</div>
+    <div class="addon-price" style="color: var(--orange);">$250</div>
+    <div class="addon-desc">Two check-ins per month</div>
+    <ul class="addon-includes">
+      <li>All monthly inclusions</li>
+      <li>2x priority response</li>
+      <li>SEO monitoring report</li>
+      <li>Photo or copy refresh</li>
+    </ul>
+  </div>
+
+  <div class="addon-card">
+    <div class="addon-freq">Quarterly</div>
+    <div class="addon-price">$100</div>
+    <div class="addon-desc">One check-in per quarter</div>
+    <ul class="addon-includes">
+      <li>Seasonal content update</li>
+      <li>Site health review</li>
+      <li>One revision request</li>
+      <li>Email support included</li>
+    </ul>
+  </div>
+</div>
+```
+
+  </section>
+
+  <!-- BOTTOM CTA -->
+
+  <section class="bottom-cta">
+    <div class="eyebrow">Ready to Get Online?</div>
+    <h2>Your Site. Live in Days.</h2>
+    <p>Fill out our short intake form and we handle everything else. You approve, we launch.</p>
+    <div class="btn-group">
+      <a href="https://forms.gle/j7YPKBFAV9veyv3E9" class="btn-primary">Start Your Project</a>
+      <a href="tel:3467950020" class="btn-secondary">Call 346-795-0020</a>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 SiteSprintPro LLC &nbsp;|&nbsp; Texas Registered &nbsp;|&nbsp; 346-795-0020
+  </footer>
+
+</body>
+</html>
