@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -18,199 +17,229 @@
   ::-webkit-scrollbar { width: 4px; }
   ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 2px; }
 
-nav {
-position: fixed; top: 0; width: 100%; z-index: 100;
-display: flex; align-items: center; justify-content: space-between;
-padding: 18px 60px;
-background: rgba(8,12,20,0.97); backdrop-filter: blur(16px);
-border-bottom: 1px solid var(–border);
-}
-.logo { font-family: ‘Bebas Neue’, sans-serif; font-size: 1.5rem; letter-spacing: 3px; color: var(–white); text-decoration: none; }
-.logo em { color: var(–gold); font-style: normal; }
-.nav-right { display: flex; align-items: center; gap: 22px; }
-.nav-link { color: var(–muted); text-decoration: none; font-size: 0.82rem; transition: color 0.2s; font-weight: 500; }
-.nav-link:hover { color: var(–white); }
-.nav-cta { background: var(–gold); color: var(–black); padding: 10px 24px; border-radius: 6px; font-weight: 700; font-size: 0.82rem; text-decoration: none; transition: opacity 0.2s; }
-.nav-cta:hover { opacity: 0.88; }
+  /* NAV */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 60px;
+    background: rgba(8,12,20,0.97); backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    gap: 1rem;
+  }
+  .logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; letter-spacing: 3px; color: var(--white); text-decoration: none; flex-shrink: 0; }
+  .logo em { color: var(--gold); font-style: normal; }
+  .nav-right { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+  .nav-link { color: var(--muted); text-decoration: none; font-size: 0.82rem; transition: color 0.2s; font-weight: 500; white-space: nowrap; }
+  .nav-link:hover { color: var(--white); }
+  .nav-link.active { color: var(--gold); }
+  .nav-cta { background: var(--gold); color: var(--black); padding: 10px 24px; border-radius: 6px; font-weight: 700; font-size: 0.82rem; text-decoration: none; transition: opacity 0.2s; white-space: nowrap; flex-shrink: 0; }
+  .nav-cta:hover { opacity: 0.88; }
 
-.hero {
-min-height: 65vh; display: flex; align-items: center; justify-content: center;
-text-align: center; padding: 140px 60px 80px;
-position: relative; overflow: hidden;
-}
-.hero::before {
-content: ‘’; position: absolute; inset: 0;
-background: radial-gradient(ellipse 70% 80% at 50% 40%, rgba(16,64,160,0.3) 0%, transparent 70%);
-}
-.hero-grid {
-position: absolute; inset: 0;
-background-image: linear-gradient(var(–border) 1px, transparent 1px), linear-gradient(90deg, var(–border) 1px, transparent 1px);
-background-size: 70px 70px;
-mask-image: radial-gradient(ellipse 80% 90% at 50% 50%, black 0%, transparent 75%);
-}
-.hero-content { position: relative; z-index: 2; max-width: 720px; }
-.hero-tag {
-display: inline-flex; align-items: center; gap: 8px;
-background: var(–gold-bg); border: 1px solid rgba(212,168,67,0.25);
-color: var(–gold); padding: 6px 18px; border-radius: 100px;
-font-size: 0.72rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
-margin-bottom: 28px;
-}
-.hero h1 { font-family: ‘Bebas Neue’, sans-serif; font-size: clamp(3.2rem, 6.5vw, 5.8rem); line-height: 0.95; letter-spacing: 2px; margin-bottom: 24px; }
-.hero h1 em { color: var(–gold); font-style: normal; }
-.hero-sub { font-size: 1rem; color: var(–muted); line-height: 1.8; max-width: 540px; margin: 0 auto 44px; font-weight: 300; }
-.hero-proof { display: flex; align-items: center; justify-content: center; gap: 36px; flex-wrap: wrap; }
-.proof-item { text-align: center; }
-.proof-num { font-family: ‘Bebas Neue’, sans-serif; font-size: 2.4rem; color: var(–gold); line-height: 1; }
-.proof-label { font-size: 0.7rem; color: var(–muted); margin-top: 4px; letter-spacing: 0.5px; }
-.proof-div { width: 1px; height: 40px; background: var(–border); }
+  /* HERO */
+  .hero {
+    min-height: 65vh; display: flex; align-items: center; justify-content: center;
+    text-align: center; padding: 140px 60px 80px;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse 70% 80% at 50% 40%, rgba(16,64,160,0.3) 0%, transparent 70%);
+  }
+  .hero-grid {
+    position: absolute; inset: 0;
+    background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: 70px 70px;
+    mask-image: radial-gradient(ellipse 80% 90% at 50% 50%, black 0%, transparent 75%);
+  }
+  .hero-content { position: relative; z-index: 2; max-width: 720px; }
+  .hero-tag {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--gold-bg); border: 1px solid rgba(212,168,67,0.25);
+    color: var(--gold); padding: 6px 18px; border-radius: 100px;
+    font-size: 0.72rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
+    margin-bottom: 28px;
+  }
+  .hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3.2rem, 6.5vw, 5.8rem); line-height: 0.95; letter-spacing: 2px; margin-bottom: 24px; }
+  .hero h1 em { color: var(--gold); font-style: normal; }
+  .hero-sub { font-size: 1rem; color: var(--muted); line-height: 1.8; max-width: 540px; margin: 0 auto 44px; font-weight: 300; }
+  .hero-proof { display: flex; align-items: center; justify-content: center; gap: 36px; flex-wrap: wrap; }
+  .proof-item { text-align: center; }
+  .proof-num { font-family: 'Bebas Neue', sans-serif; font-size: 2.4rem; color: var(--gold); line-height: 1; }
+  .proof-label { font-size: 0.7rem; color: var(--muted); margin-top: 4px; letter-spacing: 0.5px; }
+  .proof-div { width: 1px; height: 40px; background: var(--border); }
 
-.portfolio-section { padding: 80px 60px 100px; }
-.section-header { text-align: center; margin-bottom: 60px; }
-.section-tag {
-font-size: 0.7rem; letter-spacing: 4px; text-transform: uppercase;
-color: var(–gold); margin-bottom: 14px;
-display: flex; align-items: center; justify-content: center; gap: 12px;
-}
-.section-tag::before, .section-tag::after { content: ‘’; width: 28px; height: 1px; background: var(–gold); }
-.section-h { font-family: ‘Bebas Neue’, sans-serif; font-size: clamp(2.4rem, 4vw, 3.8rem); letter-spacing: 2px; margin-bottom: 16px; }
-.section-sub { font-size: 0.92rem; color: var(–muted); max-width: 480px; margin: 0 auto; line-height: 1.7; }
+  /* PORTFOLIO SECTION */
+  .portfolio-section { padding: 80px 60px 100px; }
+  .section-header { text-align: center; margin-bottom: 60px; }
+  .section-tag {
+    font-size: 0.7rem; letter-spacing: 4px; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 14px;
+    display: flex; align-items: center; justify-content: center; gap: 12px;
+  }
+  .section-tag::before, .section-tag::after { content: ''; width: 28px; height: 1px; background: var(--gold); }
+  .section-h { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.4rem, 4vw, 3.8rem); letter-spacing: 2px; margin-bottom: 16px; }
+  .section-sub { font-size: 0.92rem; color: var(--muted); max-width: 480px; margin: 0 auto; line-height: 1.7; }
 
-.cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
-.card {
-border-radius: 14px; overflow: hidden;
-border: 1px solid var(–border); background: var(–navy);
-display: flex; flex-direction: column;
-transition: transform 0.3s, box-shadow 0.3s;
-}
-.card:hover { transform: translateY(-6px); box-shadow: 0 28px 64px rgba(0,0,0,0.55); }
-.card.wide { grid-column: span 2; }
-.card.tall .card-img { height: 300px; }
-.card-img { height: 220px; position: relative; overflow: hidden; }
-.card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; display: block; }
-.card:hover .card-img img { transform: scale(1.05); }
-.card-img-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(8,12,20,0.1) 0%, rgba(8,12,20,0.65) 100%); }
-.card-img-label {
-position: absolute; bottom: 14px; left: 16px;
-background: var(–gold); color: var(–black);
-font-size: 0.65rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
-padding: 4px 12px; border-radius: 100px;
-}
-.card-info { padding: 22px 24px 24px; flex: 1; display: flex; flex-direction: column; justify-content: space-between; gap: 16px; }
-.card-industry { font-size: 0.65rem; letter-spacing: 2px; text-transform: uppercase; color: var(–gold); font-weight: 600; margin-bottom: 6px; }
-.card-title { font-size: 1rem; font-weight: 700; margin-bottom: 6px; line-height: 1.3; }
-.card-desc { font-size: 0.78rem; color: var(–muted); line-height: 1.65; }
-.card-link {
-display: inline-flex; align-items: center; gap: 6px;
-background: var(–gold); color: var(–black);
-padding: 10px 20px; border-radius: 6px;
-font-size: 0.78rem; font-weight: 700; text-decoration: none;
-transition: opacity 0.2s; align-self: flex-start; margin-top: 4px;
-}
-.card-link:hover { opacity: 0.88; }
+  /* CARDS GRID */
+  .cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .card {
+    border-radius: 14px; overflow: hidden;
+    border: 1px solid var(--border); background: var(--navy);
+    display: flex; flex-direction: column;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .card:hover { transform: translateY(-6px); box-shadow: 0 28px 64px rgba(0,0,0,0.55); }
+  .card.wide { grid-column: span 2; }
+  .card.tall .card-img { height: 300px; }
+  .card-img { height: 220px; position: relative; overflow: hidden; }
+  .card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; display: block; }
+  .card:hover .card-img img { transform: scale(1.05); }
+  .card-img-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(8,12,20,0.1) 0%, rgba(8,12,20,0.65) 100%); }
+  .card-img-label {
+    position: absolute; bottom: 14px; left: 16px;
+    background: var(--gold); color: var(--black);
+    font-size: 0.65rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+    padding: 4px 12px; border-radius: 100px;
+  }
+  .card-info { padding: 22px 24px 24px; flex: 1; display: flex; flex-direction: column; justify-content: space-between; gap: 16px; }
+  .card-industry { font-size: 0.65rem; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 6px; }
+  .card-title { font-size: 1rem; font-weight: 700; margin-bottom: 6px; line-height: 1.3; }
+  .card-desc { font-size: 0.78rem; color: var(--muted); line-height: 1.65; }
+  .card-link {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: var(--gold); color: var(--black);
+    padding: 10px 20px; border-radius: 6px;
+    font-size: 0.78rem; font-weight: 700; text-decoration: none;
+    transition: opacity 0.2s; align-self: flex-start; margin-top: 4px;
+  }
+  .card-link:hover { opacity: 0.88; }
 
-.pricing-section { padding: 100px 60px; background: var(–navy); }
-.pricing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 860px; margin: 0 auto; }
-.price-card {
-border-radius: 16px; padding: 40px 36px;
-border: 1px solid var(–border);
-background: rgba(255,255,255,0.02);
-position: relative; overflow: hidden;
-transition: transform 0.25s;
-}
-.price-card:hover { transform: translateY(-4px); }
-.price-card.featured { background: var(–blue); border-color: rgba(16,64,160,0.5); box-shadow: 0 20px 60px rgba(16,64,160,0.25); }
-.price-badge {
-position: absolute; top: 0; right: 0;
-background: var(–gold); color: var(–black);
-font-size: 0.62rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
-padding: 5px 16px; border-radius: 0 16px 0 10px;
-}
-.pc-tier { font-size: 0.68rem; letter-spacing: 3px; text-transform: uppercase; color: var(–gold); margin-bottom: 8px; }
-.pc-name { font-family: ‘Bebas Neue’, sans-serif; font-size: 2rem; letter-spacing: 1px; margin-bottom: 6px; }
-.pc-price { font-family: ‘Bebas Neue’, sans-serif; font-size: 4rem; color: var(–gold); line-height: 1; }
-.pc-sub { font-size: 0.75rem; color: var(–muted); margin-bottom: 6px; }
-.pc-free { font-size: 0.78rem; color: var(–gold); font-weight: 600; margin-bottom: 24px; padding-bottom: 20px; border-bottom: 1px solid var(–border); }
-.pc-features { list-style: none; display: flex; flex-direction: column; gap: 12px; }
-.pc-feature { display: flex; gap: 10px; font-size: 0.83rem; color: rgba(248,248,244,0.72); line-height: 1.4; }
-.pc-check { color: var(–gold); font-size: 0.7rem; flex-shrink: 0; margin-top: 2px; font-weight: 700; }
-.pc-pro { display: inline-block; background: rgba(212,168,67,0.15); border: 1px solid rgba(212,168,67,0.3); color: var(–gold); font-size: 0.58rem; letter-spacing: 1px; text-transform: uppercase; padding: 1px 6px; border-radius: 3px; margin-left: 4px; vertical-align: middle; }
-.pc-cta { display: block; text-align: center; margin-top: 28px; background: var(–gold); color: var(–black); padding: 14px; border-radius: 8px; font-weight: 700; font-size: 0.9rem; text-decoration: none; transition: opacity 0.2s; }
-.pc-cta:hover { opacity: 0.88; }
-.pc-cta.outline { background: transparent; color: var(–white); border: 1px solid rgba(248,248,244,0.15); }
+  /* PRICING SECTION */
+  .pricing-section { padding: 100px 60px; background: var(--navy); }
+  .pricing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 900px; margin: 0 auto; }
+  .price-card {
+    border-radius: 16px; padding: 40px 36px;
+    border: 1px solid var(--border);
+    background: rgba(255,255,255,0.02);
+    position: relative; overflow: hidden;
+    transition: transform 0.25s;
+    display: flex; flex-direction: column;
+  }
+  .price-card:hover { transform: translateY(-4px); }
+  .price-card.featured { background: var(--blue); border-color: rgba(16,64,160,0.5); box-shadow: 0 20px 60px rgba(16,64,160,0.25); }
+  .price-badge {
+    position: absolute; top: 0; right: 0;
+    background: var(--gold); color: var(--black);
+    font-size: 0.62rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 5px 16px; border-radius: 0 16px 0 10px;
+  }
+  .pc-tier { font-size: 0.68rem; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+  .pc-name { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 1px; margin-bottom: 6px; }
+  .pc-price { font-family: 'Bebas Neue', sans-serif; font-size: 4rem; color: var(--gold); line-height: 1; }
+  .pc-sub { font-size: 0.75rem; color: var(--muted); margin-bottom: 14px; }
+  .pc-free-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(212,168,67,0.1); border: 1px solid rgba(212,168,67,0.25);
+    color: var(--gold); font-size: 0.68rem; font-weight: 600; letter-spacing: 0.5px;
+    padding: 5px 12px; border-radius: 100px; margin-bottom: 24px;
+    width: fit-content;
+  }
+  .pc-divider { border: none; border-top: 1px solid var(--border); margin-bottom: 24px; }
+  .pc-features { list-style: none; display: flex; flex-direction: column; gap: 12px; flex: 1; }
+  .pc-feature { display: flex; gap: 10px; font-size: 0.83rem; color: rgba(248,248,244,0.72); line-height: 1.4; }
+  .pc-check { color: var(--gold); font-size: 0.7rem; flex-shrink: 0; margin-top: 2px; font-weight: 700; }
+  .pc-pro-tag {
+    display: inline-block; background: rgba(212,168,67,0.15); border: 1px solid rgba(212,168,67,0.3);
+    color: var(--gold); font-size: 0.58rem; letter-spacing: 1px; text-transform: uppercase;
+    padding: 1px 7px; border-radius: 3px; margin-left: 5px; vertical-align: middle;
+  }
+  .pc-cta {
+    display: block; text-align: center; margin-top: 28px;
+    background: var(--gold); color: var(--black);
+    padding: 14px; border-radius: 8px;
+    font-weight: 700; font-size: 0.9rem; text-decoration: none;
+    transition: opacity 0.2s; letter-spacing: 0.3px;
+  }
+  .pc-cta:hover { opacity: 0.88; }
+  .pc-cta.outline { background: transparent; color: var(--white); border: 1px solid var(--border); }
+  .pc-cta.outline:hover { border-color: rgba(248,248,244,0.3); }
 
-.process-section { padding: 100px 60px; background: var(–black); }
-.process-steps { display: grid; grid-template-columns: repeat(4,1fr); gap: 0; position: relative; margin-top: 20px; }
-.process-steps::before {
-content: ‘’; position: absolute;
-top: 32px; left: 8%; right: 8%; height: 1px;
-background: linear-gradient(90deg, transparent, var(–gold), transparent); opacity: 0.25;
-}
-.pstep { padding: 0 20px 0 0; }
-.pstep-num {
-width: 64px; height: 64px; border-radius: 50%;
-background: var(–gold-bg); border: 1px solid rgba(212,168,67,0.3);
-display: flex; align-items: center; justify-content: center;
-font-family: ‘Bebas Neue’, sans-serif; font-size: 1.8rem; color: var(–gold);
-margin-bottom: 24px; position: relative; z-index: 2;
-}
-.pstep-title { font-size: 0.95rem; font-weight: 700; margin-bottom: 10px; }
-.pstep-desc { font-size: 0.82rem; color: var(–muted); line-height: 1.65; }
+  /* PROCESS SECTION */
+  .process-section { padding: 100px 60px; background: var(--black); }
+  .process-steps { display: grid; grid-template-columns: repeat(4,1fr); gap: 0; position: relative; margin-top: 20px; }
+  .process-steps::before {
+    content: ''; position: absolute;
+    top: 32px; left: 8%; right: 8%; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent); opacity: 0.25;
+  }
+  .pstep { padding: 0 20px 0 0; }
+  .pstep-num {
+    width: 64px; height: 64px; border-radius: 50%;
+    background: var(--gold-bg); border: 1px solid rgba(212,168,67,0.3);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; color: var(--gold);
+    margin-bottom: 24px; position: relative; z-index: 2;
+  }
+  .pstep-title { font-size: 0.95rem; font-weight: 700; margin-bottom: 10px; }
+  .pstep-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.65; }
 
-.cta-section { padding: 110px 60px; text-align: center; position: relative; overflow: hidden; }
-.cta-section::before { content: ‘’; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(16,64,160,0.2) 0%, transparent 70%); }
-.cta-section h2 { font-family: ‘Bebas Neue’, sans-serif; font-size: clamp(2.8rem, 5vw, 4.8rem); letter-spacing: 2px; margin-bottom: 18px; position: relative; z-index: 2; }
-.cta-section h2 em { color: var(–gold); font-style: normal; }
-.cta-section p { font-size: 1rem; color: var(–muted); max-width: 480px; margin: 0 auto 44px; line-height: 1.8; position: relative; z-index: 2; }
-.cta-btns { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; position: relative; z-index: 2; }
-.btn-gold { background: var(–gold); color: var(–black); padding: 16px 42px; border-radius: 8px; font-weight: 700; font-size: 0.95rem; text-decoration: none; transition: opacity 0.2s, transform 0.2s; }
-.btn-gold:hover { opacity: 0.88; transform: translateY(-2px); }
-.btn-outline { border: 1px solid var(–border); color: var(–white); padding: 16px 42px; border-radius: 8px; font-weight: 500; font-size: 0.95rem; text-decoration: none; transition: border-color 0.2s; }
-.btn-outline:hover { border-color: rgba(248,248,244,0.3); }
+  /* CTA SECTION */
+  .cta-section { padding: 110px 60px; text-align: center; position: relative; overflow: hidden; }
+  .cta-section::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(16,64,160,0.2) 0%, transparent 70%); }
+  .cta-section h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.8rem, 5vw, 4.8rem); letter-spacing: 2px; margin-bottom: 18px; position: relative; z-index: 2; }
+  .cta-section h2 em { color: var(--gold); font-style: normal; }
+  .cta-section p { font-size: 1rem; color: var(--muted); max-width: 480px; margin: 0 auto 44px; line-height: 1.8; position: relative; z-index: 2; }
+  .cta-btns { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; position: relative; z-index: 2; }
+  .btn-gold { background: var(--gold); color: var(--black); padding: 16px 42px; border-radius: 8px; font-weight: 700; font-size: 0.95rem; text-decoration: none; transition: opacity 0.2s, transform 0.2s; }
+  .btn-gold:hover { opacity: 0.88; transform: translateY(-2px); }
+  .btn-outline { border: 1px solid var(--border); color: var(--white); padding: 16px 42px; border-radius: 8px; font-weight: 500; font-size: 0.95rem; text-decoration: none; transition: border-color 0.2s; }
+  .btn-outline:hover { border-color: rgba(248,248,244,0.3); }
 
-footer { background: #030508; padding: 32px 60px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-top: 1px solid var(–border); }
-.footer-logo { font-family: ‘Bebas Neue’, sans-serif; font-size: 1.2rem; color: var(–white); letter-spacing: 3px; }
-.footer-logo em { color: var(–gold); font-style: normal; }
-.footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
-.footer-links a { font-size: 0.75rem; color: rgba(248,248,244,0.3); text-decoration: none; transition: color 0.2s; }
-.footer-links a:hover { color: var(–gold); }
-footer p { font-size: 0.78rem; color: rgba(248,248,244,0.25); }
+  /* FOOTER */
+  footer { background: #030508; padding: 32px 60px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-top: 1px solid var(--border); }
+  .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; color: var(--white); letter-spacing: 3px; }
+  .footer-logo em { color: var(--gold); font-style: normal; }
+  .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+  .footer-links a { font-size: 0.75rem; color: rgba(248,248,244,0.3); text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--gold); }
+  footer p { font-size: 0.78rem; color: rgba(248,248,244,0.25); }
 
-@media (max-width: 900px) {
-nav { padding: 14px 24px; }
-.nav-right .nav-link { display: none; }
-.portfolio-section, .pricing-section, .process-section, .cta-section, .hero { padding-left: 24px; padding-right: 24px; }
-.cards-grid { grid-template-columns: 1fr; }
-.card.wide { grid-column: span 1; }
-.pricing-grid { grid-template-columns: 1fr; max-width: 480px; }
-.process-steps { grid-template-columns: 1fr 1fr; }
-footer { flex-direction: column; gap: 12px; text-align: center; }
-}
+  @media (max-width: 900px) {
+    nav { padding: 14px 24px; }
+    .nav-right .nav-link { display: none; }
+    .portfolio-section, .pricing-section, .process-section, .cta-section, .hero { padding-left: 24px; padding-right: 24px; }
+    .cards-grid { grid-template-columns: 1fr; }
+    .card.wide { grid-column: span 1; }
+    .pricing-grid { grid-template-columns: 1fr; max-width: 480px; }
+    .process-steps { grid-template-columns: 1fr 1fr; }
+    footer { flex-direction: column; gap: 12px; text-align: center; }
+  }
 </style>
-
 </head>
 <body>
 
+<!-- NAV -->
 <nav>
   <a href="index.html" class="logo">SiteSprint<em>Pro</em></a>
   <div class="nav-right">
-    <a href="#portfolio" class="nav-link">Portfolio</a>
+    <a href="#portfolio" class="nav-link active">Portfolio</a>
     <a href="packages.html" class="nav-link">Services</a>
     <a href="maintenance.html" class="nav-link">Maintenance</a>
     <a href="faq.html" class="nav-link">FAQ</a>
     <a href="careers.html" class="nav-link">Careers</a>
-    <a href="https://forms.gle/j7YPKBFAV9veyv3E9" target="_blank" class="nav-cta">Get Started &rarr;</a>
+    <a href="https://forms.gle/j7YPKBFAV9veyv3E9" target="_blank" class="nav-cta">Get Started &#8594;</a>
   </div>
 </nav>
 
+<!-- HERO -->
 <section class="hero">
   <div class="hero-grid"></div>
   <div class="hero-content">
     <div class="hero-tag">Live Sample Websites by Industry</div>
     <h1>Real Websites.<br>Built For <em>Local Businesses.</em></h1>
-    <p class="hero-sub">Click any site below to see it live. This is exactly what we build for businesses in Colorado Springs &mdash; clean, professional, and ready in 2&ndash;3 days.</p>
+    <p class="hero-sub">Click any site below to see it live. This is exactly what we build for businesses in Colorado Springs — clean, professional, and ready in 2–3 days.</p>
     <div class="hero-proof">
-      <div class="proof-item"><div class="proof-num">2&ndash;3</div><div class="proof-label">Day Delivery</div></div>
+      <div class="proof-item"><div class="proof-num">2–3</div><div class="proof-label">Day Delivery</div></div>
       <div class="proof-div"></div>
       <div class="proof-item"><div class="proof-num">$897</div><div class="proof-label">Starting Price</div></div>
       <div class="proof-div"></div>
@@ -221,6 +250,7 @@ footer { flex-direction: column; gap: 12px; text-align: center; }
   </div>
 </section>
 
+<!-- PORTFOLIO -->
 <section class="portfolio-section" id="portfolio">
   <div class="section-header">
     <div class="section-tag">Our Work</div>
@@ -230,149 +260,151 @@ footer { flex-direction: column; gap: 12px; text-align: center; }
 
   <div class="cards-grid">
 
-```
-<div class="card wide tall">
-  <div class="card-img">
-    <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1000&q=80&auto=format&fit=crop" alt="Professional plumber at work" loading="lazy">
-    <div class="card-img-overlay"></div>
-    <div class="card-img-label">Plumbing</div>
-  </div>
-  <div class="card-info">
-    <div>
-      <div class="card-industry">Home Services / Plumbing</div>
-      <div class="card-title">Peak Flow Plumbing &mdash; Colorado Springs</div>
-      <div class="card-desc">Bold, dark professional site with services, emergency click-to-call, Google Maps, review section, stats, and SEO. Delivered in 3 days.</div>
+    <div class="card wide tall">
+      <div class="card-img">
+        <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1000&q=80&auto=format&fit=crop" alt="Professional plumber at work" loading="lazy">
+        <div class="card-img-overlay"></div>
+        <div class="card-img-label">Plumbing</div>
+      </div>
+      <div class="card-info">
+        <div>
+          <div class="card-industry">Home Services / Plumbing</div>
+          <div class="card-title">Peak Flow Plumbing — Colorado Springs</div>
+          <div class="card-desc">Bold, dark professional site with services, emergency click-to-call, Google Maps, review section, stats, and SEO. Delivered in 3 days.</div>
+        </div>
+        <a href="portfolio-plumber.html" target="_blank" class="card-link">View Live Site &#8594;</a>
+      </div>
     </div>
-    <a href="portfolio-plumber.html" target="_blank" class="card-link">View Live Site &rarr;</a>
-  </div>
-</div>
 
-<div class="card">
-  <div class="card-img">
-    <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80&auto=format&fit=crop" alt="Restaurant fine dining food" loading="lazy">
-    <div class="card-img-overlay"></div>
-    <div class="card-img-label">Restaurant</div>
-  </div>
-  <div class="card-info">
-    <div>
-      <div class="card-industry">Restaurant &amp; Dining</div>
-      <div class="card-title">The Ember House &mdash; Wood-Fired Restaurant</div>
-      <div class="card-desc">Warm, upscale restaurant site with full menu, reservation CTA, hours, and story section. Elegant dark aesthetic.</div>
+    <div class="card">
+      <div class="card-img">
+        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80&auto=format&fit=crop" alt="Restaurant fine dining food" loading="lazy">
+        <div class="card-img-overlay"></div>
+        <div class="card-img-label">Restaurant</div>
+      </div>
+      <div class="card-info">
+        <div>
+          <div class="card-industry">Restaurant & Dining</div>
+          <div class="card-title">The Ember House — Wood-Fired Restaurant</div>
+          <div class="card-desc">Warm, upscale restaurant site with full menu, reservation CTA, hours, and story section. Elegant dark aesthetic.</div>
+        </div>
+        <a href="sample-restaurant.html" target="_blank" class="card-link">View Live Site &#8594;</a>
+      </div>
     </div>
-    <a href="sample-restaurant.html" target="_blank" class="card-link">View Live Site &rarr;</a>
-  </div>
-</div>
 
-<div class="card">
-  <div class="card-img">
-    <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=800&q=80&auto=format&fit=crop" alt="Hair salon styling beauty" loading="lazy">
-    <div class="card-img-overlay"></div>
-    <div class="card-img-label">Salon &amp; Beauty</div>
-  </div>
-  <div class="card-info">
-    <div>
-      <div class="card-industry">Hair Salon &amp; Beauty</div>
-      <div class="card-title">Studio Noir &mdash; Hair &amp; Beauty</div>
-      <div class="card-desc">Luxury, editorial salon site with full service menu, pricing, booking CTA, and stylist story section.</div>
+    <div class="card">
+      <div class="card-img">
+        <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=800&q=80&auto=format&fit=crop" alt="Hair salon styling beauty" loading="lazy">
+        <div class="card-img-overlay"></div>
+        <div class="card-img-label">Salon & Beauty</div>
+      </div>
+      <div class="card-info">
+        <div>
+          <div class="card-industry">Hair Salon & Beauty</div>
+          <div class="card-title">Studio Noir — Hair & Beauty</div>
+          <div class="card-desc">Luxury, editorial salon site with full service menu, pricing, booking CTA, and stylist story section.</div>
+        </div>
+        <a href="portfolio-salon.html" target="_blank" class="card-link">View Live Site &#8594;</a>
+      </div>
     </div>
-    <a href="portfolio-salon.html" target="_blank" class="card-link">View Live Site &rarr;</a>
-  </div>
-</div>
 
-<div class="card">
-  <div class="card-img">
-    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80&auto=format&fit=crop" alt="Lawn care landscaping green grass" loading="lazy">
-    <div class="card-img-overlay"></div>
-    <div class="card-img-label">Lawn &amp; Landscape</div>
-  </div>
-  <div class="card-info">
-    <div>
-      <div class="card-industry">Lawn Care &amp; Landscaping</div>
-      <div class="card-title">GreenEdge Lawn Co. &mdash; Colorado Springs</div>
-      <div class="card-desc">Bold, nature-forward site with service tiers, pricing, reviews, and free quote request form.</div>
+    <div class="card">
+      <div class="card-img">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80&auto=format&fit=crop" alt="Lawn care landscaping green grass" loading="lazy">
+        <div class="card-img-overlay"></div>
+        <div class="card-img-label">Lawn & Landscape</div>
+      </div>
+      <div class="card-info">
+        <div>
+          <div class="card-industry">Lawn Care & Landscaping</div>
+          <div class="card-title">GreenEdge Lawn Co. — Colorado Springs</div>
+          <div class="card-desc">Bold, nature-forward site with service tiers, pricing, reviews, and free quote request form.</div>
+        </div>
+        <a href="sample-lawncare.html" target="_blank" class="card-link">View Live Site &#8594;</a>
+      </div>
     </div>
-    <a href="sample-lawncare.html" target="_blank" class="card-link">View Live Site &rarr;</a>
-  </div>
-</div>
 
-<div class="card wide">
-  <div class="card-img">
-    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1000&q=80&auto=format&fit=crop" alt="General contractor construction home remodel" loading="lazy">
-    <div class="card-img-overlay"></div>
-    <div class="card-img-label">Contracting</div>
-  </div>
-  <div class="card-info">
-    <div>
-      <div class="card-industry">General Contractor &amp; Home Services</div>
-      <div class="card-title">Apex General Contracting &mdash; Colorado Springs</div>
-      <div class="card-desc">Industrial, trust-driven site with services, guarantee section, licenses shown, and free estimate CTA. Built to convert homeowners.</div>
+    <div class="card wide">
+      <div class="card-img">
+        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1000&q=80&auto=format&fit=crop" alt="General contractor construction home remodel" loading="lazy">
+        <div class="card-img-overlay"></div>
+        <div class="card-img-label">Contracting</div>
+      </div>
+      <div class="card-info">
+        <div>
+          <div class="card-industry">General Contractor & Home Services</div>
+          <div class="card-title">Apex General Contracting — Colorado Springs</div>
+          <div class="card-desc">Industrial, trust-driven site with services, guarantee section, licenses shown, and free estimate CTA. Built to convert homeowners.</div>
+        </div>
+        <a href="sample-contractor.html" target="_blank" class="card-link">View Live Site &#8594;</a>
+      </div>
     </div>
-    <a href="sample-contractor.html" target="_blank" class="card-link">View Live Site &rarr;</a>
-  </div>
-</div>
-```
 
   </div>
 </section>
 
+<!-- PRICING -->
 <section class="pricing-section" id="pricing">
   <div class="section-header">
     <div class="section-tag">Transparent Pricing</div>
     <div class="section-h">Two Tiers. Zero Surprises.</div>
-    <p class="section-sub">Pick the build that fits your business. Both are delivered fast and include 2 free maintenance services.</p>
+    <p class="section-sub">Pick the build that fits your business. Both deliver fast, include 2 free maintenance services, and everything is written for you.</p>
   </div>
+
   <div class="pricing-grid">
 
-```
-<div class="price-card">
-  <div class="pc-tier">Tier 01</div>
-  <div class="pc-name">Basic Build</div>
-  <div class="pc-price">$897</div>
-  <div class="pc-sub">50% deposit &middot; 50% on delivery &middot; 2&ndash;3 day turnaround</div>
-  <div class="pc-free">&#10003; 2 Free Maintenance Services Included</div>
-  <ul class="pc-features">
-    <li class="pc-feature"><span class="pc-check">&#10003;</span> Up to 5 pages &mdash; Home, Services, About, Gallery, Contact</li>
-    <li class="pc-feature"><span class="pc-check">&#10003;</span> All content &amp; copy written for you</li>
-    <li class="pc-feature"><span class="pc-check">&#10003;</span> 100% mobile-first responsive design</li>
-    <li class="pc-feature"><span class="pc-check">&#10003;</span> Click-to-call button on every page</li>
-    <li class="pc-feature"><span class="pc-check">&#10003;</span> Google Maps embed</li>
-    <li class="pc-feature"><span class="pc-check">&#10003;</span> Contact form</li>
-    <li class="pc-feature"><span class="pc-check">&#10003;</span> Basic on-page SEO setup</li>
-    <li class="pc-feature"><span class="pc-check">&#10003;</span> Professional photography sourced for you</li>
-    <li class="pc-feature"><span class="pc-check">&#10003;</span> Up to 2 revision rounds</li>
-  </ul>
-  <a href="https://forms.gle/j7YPKBFAV9veyv3E9" target="_blank" class="pc-cta outline">Get Started &mdash; Basic</a>
-</div>
+    <div class="price-card">
+      <div class="pc-tier">Tier 01</div>
+      <div class="pc-name">Basic Build</div>
+      <div class="pc-price">$897</div>
+      <div class="pc-sub">50% deposit to start &middot; 50% on delivery &middot; 2&ndash;3 day turnaround</div>
+      <div class="pc-free-badge">&#10003;&nbsp; 2 Free Maintenance Services Included</div>
+      <hr class="pc-divider">
+      <ul class="pc-features">
+        <li class="pc-feature"><span class="pc-check">&#10003;</span> Up to 5 pages — Home, Services, About, Gallery, Contact</li>
+        <li class="pc-feature"><span class="pc-check">&#10003;</span> All content and copy written for you</li>
+        <li class="pc-feature"><span class="pc-check">&#10003;</span> 100% mobile-first responsive design</li>
+        <li class="pc-feature"><span class="pc-check">&#10003;</span> Click-to-call button on every page</li>
+        <li class="pc-feature"><span class="pc-check">&#10003;</span> Google Maps embed</li>
+        <li class="pc-feature"><span class="pc-check">&#10003;</span> Contact form</li>
+        <li class="pc-feature"><span class="pc-check">&#10003;</span> Basic on-page SEO setup</li>
+        <li class="pc-feature"><span class="pc-check">&#10003;</span> Professional photography sourced for you</li>
+        <li class="pc-feature"><span class="pc-check">&#10003;</span> Up to 2 revision rounds</li>
+      </ul>
+      <a href="https://forms.gle/j7YPKBFAV9veyv3E9" target="_blank" class="pc-cta outline">Get Started — Basic</a>
+    </div>
 
-<div class="price-card featured">
-  <div class="price-badge">Most Popular</div>
-  <div class="pc-tier">Tier 02</div>
-  <div class="pc-name">Pro Build</div>
-  <div class="pc-price">$1,197</div>
-  <div class="pc-sub">50% deposit &middot; 50% on delivery &middot; Priority 1&ndash;2 day turnaround</div>
-  <div class="pc-free">&#10003; 2 Free Maintenance Services Included</div>
-  <ul class="pc-features">
-    <li class="pc-feature"><span class="pc-check">&#10003;</span> Everything in Basic, plus:</li>
-    <li class="pc-feature"><span class="pc-check">&#10003;</span> Up to 8 pages <span class="pc-pro">Pro</span></li>
-    <li class="pc-feature"><span class="pc-check">&#10003;</span> Testimonials &amp; reviews section <span class="pc-pro">Pro</span></li>
-    <li class="pc-feature"><span class="pc-check">&#10003;</span> Photo gallery with lightbox <span class="pc-pro">Pro</span></li>
-    <li class="pc-feature"><span class="pc-check">&#10003;</span> Online booking embed (Calendly / TidyCal) <span class="pc-pro">Pro</span></li>
-    <li class="pc-feature"><span class="pc-check">&#10003;</span> Advanced SEO with full meta optimization <span class="pc-pro">Pro</span></li>
-    <li class="pc-feature"><span class="pc-check">&#10003;</span> Blog or news section setup <span class="pc-pro">Pro</span></li>
-    <li class="pc-feature"><span class="pc-check">&#10003;</span> Custom branded text logo design <span class="pc-pro">Pro</span></li>
-    <li class="pc-feature"><span class="pc-check">&#10003;</span> Up to 4 revision rounds <span class="pc-pro">Pro</span></li>
-  </ul>
-  <a href="https://forms.gle/j7YPKBFAV9veyv3E9" target="_blank" class="pc-cta">Get Started &mdash; Pro &rarr;</a>
-</div>
-```
+    <div class="price-card featured">
+      <div class="price-badge">Most Popular</div>
+      <div class="pc-tier">Tier 02</div>
+      <div class="pc-name">Pro Build</div>
+      <div class="pc-price">$1,197</div>
+      <div class="pc-sub">50% deposit to start &middot; 50% on delivery &middot; Priority 1&ndash;2 day turnaround</div>
+      <div class="pc-free-badge">&#10003;&nbsp; 2 Free Maintenance Services Included</div>
+      <hr class="pc-divider">
+      <ul class="pc-features">
+        <li class="pc-feature"><span class="pc-check">&#10003;</span> Everything in Basic, plus:</li>
+        <li class="pc-feature"><span class="pc-check">&#10003;</span> Up to 8 pages <span class="pc-pro-tag">Pro</span></li>
+        <li class="pc-feature"><span class="pc-check">&#10003;</span> Testimonials and reviews section <span class="pc-pro-tag">Pro</span></li>
+        <li class="pc-feature"><span class="pc-check">&#10003;</span> Photo gallery with lightbox <span class="pc-pro-tag">Pro</span></li>
+        <li class="pc-feature"><span class="pc-check">&#10003;</span> Online booking embed (Calendly / TidyCal) <span class="pc-pro-tag">Pro</span></li>
+        <li class="pc-feature"><span class="pc-check">&#10003;</span> Advanced SEO with full meta optimization <span class="pc-pro-tag">Pro</span></li>
+        <li class="pc-feature"><span class="pc-check">&#10003;</span> Blog or news section setup <span class="pc-pro-tag">Pro</span></li>
+        <li class="pc-feature"><span class="pc-check">&#10003;</span> Custom branded text logo design <span class="pc-pro-tag">Pro</span></li>
+        <li class="pc-feature"><span class="pc-check">&#10003;</span> Up to 4 revision rounds <span class="pc-pro-tag">Pro</span></li>
+      </ul>
+      <a href="https://forms.gle/j7YPKBFAV9veyv3E9" target="_blank" class="pc-cta">Get Started — Pro &#8594;</a>
+    </div>
 
   </div>
+
   <p style="text-align:center; font-size:0.8rem; color:var(--muted); margin-top:32px;">
-    Optional maintenance plans from $100/quarter &mdash; no contracts, cancel any time.
-    <a href="maintenance.html" style="color:var(--gold); text-decoration:none; margin-left:6px;">View maintenance options &rarr;</a>
+    Optional maintenance plans from $100/quarter — no contracts, cancel any time.
+    <a href="maintenance.html" style="color:var(--gold); text-decoration:none; margin-left:6px;">View maintenance options &#8594;</a>
   </p>
 </section>
 
+<!-- PROCESS -->
 <section class="process-section">
   <div class="section-header">
     <div class="section-tag">How It Works</div>
@@ -402,15 +434,17 @@ footer { flex-direction: column; gap: 12px; text-align: center; }
   </div>
 </section>
 
+<!-- CTA / CONTACT -->
 <section class="cta-section" id="contact">
   <h2>Ready to Get Your<br>Business <em>Online?</em></h2>
-  <p>Fill out our short intake form and we have your site live in 2&ndash;3 days. Starting at $897 flat &mdash; everything included, no surprises.</p>
+  <p>Fill out our short intake form and we have your site live in 2&ndash;3 days. Starting at $897 flat — everything included, no surprises.</p>
   <div class="cta-btns">
-    <a href="https://forms.gle/j7YPKBFAV9veyv3E9" target="_blank" class="btn-gold">Get Started Today &rarr;</a>
+    <a href="https://forms.gle/j7YPKBFAV9veyv3E9" target="_blank" class="btn-gold">Get Started Today &#8594;</a>
     <a href="tel:3467950020" class="btn-outline">Call or Text Us</a>
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
   <div class="footer-logo">SiteSprint<em>Pro</em></div>
   <div class="footer-links">
@@ -420,7 +454,7 @@ footer { flex-direction: column; gap: 12px; text-align: center; }
     <a href="careers.html">Careers</a>
     <a href="tel:3467950020">346-795-0020</a>
   </div>
-  <p>&copy; 2025 SiteSprintPro &middot; Colorado Springs</p>
+  <p>&#169; 2025 SiteSprintPro &middot; Colorado Springs</p>
 </footer>
 
 </body>
