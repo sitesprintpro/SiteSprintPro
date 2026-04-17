@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAQ — SiteSprintPro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy:#0b0f1a; --navy2:#111827; --navy3:#1a2236;
+      --border:#1f2d45; --orange:#f97316; --orange2:#ea6c0a;
+      --white:#f0f4ff; --muted:#8a9bbf; --green:#22c55e;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--navy); color: var(--white); font-family: 'DM Sans', sans-serif; font-weight: 300; line-height: 1.65; }
+
+    nav {
+      display:flex; align-items:center; justify-content:space-between;
+      padding:1.1rem 2rem; border-bottom:1px solid var(--border);
+      position:sticky; top:0;
+      background:rgba(11,15,26,0.97); backdrop-filter:blur(10px); z-index:200; gap:1rem;
+    }
+    .nav-logo { font-family:'Bebas Neue',sans-serif; font-size:1.5rem; letter-spacing:0.08em; color:var(--white); text-decoration:none; }
+    .nav-logo span { color:var(--orange); }
+    .nav-links { display:flex; align-items:center; gap:0.25rem; flex-wrap:wrap; }
+    .nav-links a { font-family:'DM Mono',monospace; font-size:0.68rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--muted); text-decoration:none; padding:0.4rem 0.75rem; border-radius:4px; transition:color 0.2s,background 0.2s; }
+    .nav-links a:hover { color:var(--white); background:var(--navy3); }
+    .nav-links a.active { color:var(--orange); }
+    .nav-cta { background:var(--orange); color:#fff; padding:0.45rem 1rem; border-radius:5px; font-family:'DM Mono',monospace; font-size:0.68rem; letter-spacing:0.1em; text-transform:uppercase; text-decoration:none; font-weight:500; transition:background 0.2s; }
+    .nav-cta:hover { background:var(--orange2); }
+
+    .hero { text-align:center; padding:5rem 1.5rem 3.5rem; background:radial-gradient(ellipse 70% 50% at 50% 0%,rgba(249,115,22,0.1) 0%,transparent 70%),var(--navy); }
+    .eyebrow { font-family:'DM Mono',monospace; font-size:0.72rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--orange); margin-bottom:1rem; }
+    .hero h1 { font-family:'Bebas Neue',sans-serif; font-size:clamp(3rem,8vw,5.5rem); letter-spacing:0.04em; line-height:1; margin-bottom:1.25rem; }
+    .hero h1 span { color:var(--orange); }
+    .hero p { max-width:500px; margin:0 auto; color:var(--muted); font-size:1rem; }
+
+    /* CATEGORY TABS */
+    .cat-tabs {
+      display:flex; justify-content:center; gap:0.5rem; flex-wrap:wrap;
+      padding:2.5rem 1.5rem 0;
+    }
+    .cat-tab {
+      font-family:'DM Mono',monospace; font-size:0.67rem; letter-spacing:0.12em;
+      text-transform:uppercase; color:var(--muted); background:var(--navy2);
+      border:1px solid var(--border); border-radius:2rem; padding:0.45rem 1rem;
+      cursor:pointer; transition:all 0.2s;
+    }
+    .cat-tab:hover { color:var(--white); border-color:var(--white); }
+    .cat-tab.active { color:var(--orange); border-color:var(--orange); background:rgba(249,115,22,0.08); }
+
+    /* FAQ SECTIONS */
+    .faq-wrap { max-width:760px; margin:0 auto; padding:3rem 1.5rem 6rem; }
+
+    .faq-category { margin-bottom:3.5rem; }
+    .faq-cat-title {
+      font-family:'DM Mono',monospace; font-size:0.68rem; letter-spacing:0.2em;
+      text-transform:uppercase; color:var(--orange); margin-bottom:1.25rem;
+      padding-bottom:0.75rem; border-bottom:1px solid var(--border);
+    }
+
+    .faq-item {
+      border:1px solid var(--border);
+      border-radius:8px; margin-bottom:0.75rem;
+      background:var(--navy2);
+      overflow:hidden;
+      transition:border-color 0.2s;
+    }
+    .faq-item:hover { border-color:rgba(249,115,22,0.3); }
+    .faq-item.open { border-color:rgba(249,115,22,0.5); }
+
+    .faq-question {
+      display:flex; align-items:center; justify-content:space-between;
+      padding:1.25rem 1.5rem; cursor:pointer; gap:1rem;
+    }
+
+    .faq-q-text {
+      font-size:0.95rem; font-weight:500; line-height:1.4;
+    }
+
+    .faq-icon {
+      width:24px; height:24px; flex-shrink:0;
+      background:rgba(249,115,22,0.1); border:1px solid rgba(249,115,22,0.25);
+      border-radius:50%; display:flex; align-items:center; justify-content:center;
+      transition:transform 0.3s, background 0.2s;
+    }
+    .faq-icon svg { width:12px; height:12px; transition:transform 0.3s; }
+    .faq-item.open .faq-icon { background:var(--orange); border-color:var(--orange); }
+    .faq-item.open .faq-icon svg { transform:rotate(45deg); }
+
+    .faq-answer {
+      max-height:0; overflow:hidden;
+      transition:max-height 0.35s ease, padding 0.35s ease;
+      padding:0 1.5rem;
+    }
+    .faq-item.open .faq-answer {
+      max-height:600px;
+      padding:0 1.5rem 1.4rem;
+    }
+    .faq-answer p {
+      font-size:0.88rem; color:var(--muted); line-height:1.75;
+    }
+    .faq-answer p + p { margin-top:0.75rem; }
+    .faq-answer strong { color:var(--white); font-weight:500; }
+
+    /* BOTTOM CTA */
+    .bottom-cta { text-align:center; padding:4.5rem 1.5rem; border-top:1px solid var(--border); background:linear-gradient(0deg,rgba(249,115,22,0.05) 0%,transparent 100%); }
+    .bottom-cta h2 { font-family:'Bebas Neue',sans-serif; font-size:clamp(2rem,5vw,3.5rem); letter-spacing:0.04em; margin-bottom:0.75rem; }
+    .bottom-cta p { color:var(--muted); max-width:420px; margin:0 auto 1.75rem; font-size:0.9rem; }
+    .btn-group { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
+    .btn-primary { background:var(--orange); color:#fff; padding:0.9rem 2rem; border-radius:6px; font-weight:600; text-decoration:none; font-size:0.9rem; transition:all 0.2s; }
+    .btn-primary:hover { background:var(--orange2); transform:translateY(-2px); box-shadow:0 8px 24px rgba(249,115,22,0.3); }
+    .btn-secondary { background:transparent; color:var(--white); padding:0.9rem 2rem; border-radius:6px; font-weight:600; text-decoration:none; font-size:0.9rem; border:1.5px solid var(--border); transition:all 0.2s; }
+    .btn-secondary:hover { border-color:var(--white); }
+
+    footer { border-top:1px solid var(--border); padding:2rem 1.5rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; }
+    footer .f-logo { font-family:'Bebas Neue',sans-serif; font-size:1.2rem; letter-spacing:0.08em; }
+    footer .f-logo span { color:var(--orange); }
+    footer .f-links { display:flex; gap:1.5rem; flex-wrap:wrap; }
+    footer .f-links a { font-family:'DM Mono',monospace; font-size:0.65rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--muted); text-decoration:none; transition:color 0.2s; }
+    footer .f-links a:hover { color:var(--orange); }
+    footer .f-copy { font-family:'DM Mono',monospace; font-size:0.62rem; color:var(--muted); }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">SiteSprint<span>Pro</span></a>
+    <div class="nav-links">
+      <a href="index.html">Portfolio</a>
+      <a href="packages.html">Services</a>
+      <a href="maintenance.html">Maintenance</a>
+      <a href="faq.html" class="active">FAQ</a>
+      <a href="careers.html">Careers</a>
+    </div>
+    <a href="https://forms.gle/j7YPKBFAV9veyv3E9" class="nav-cta">Get Started</a>
+  </nav>
+
+  <section class="hero">
+    <div class="eyebrow">Frequently Asked Questions</div>
+    <h1>We Have<br><span>Answers.</span></h1>
+    <p>Everything you need to know before getting started. Still have a question? Call us directly.</p>
+  </section>
+
+  <div class="faq-wrap">
+
+    <!-- PRICING -->
+    <div class="faq-category" id="cat-pricing">
+      <div class="faq-cat-title">Pricing &amp; Payment</div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-q-text">How much does a website cost?</span>
+          <span class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+        </div>
+        <div class="faq-answer">
+          <p>We offer two packages. The <strong>Basic Build is $897</strong> and covers up to 5 pages with everything a small business needs to be found online and generate calls. The <strong>Pro Build is $1,197</strong> and includes up to 8 pages, a booking system, testimonials section, blog setup, advanced SEO, and priority delivery.</p>
+          <p>Both packages include 2 free maintenance service visits after launch. There are no hidden fees and no monthly platform charges from us.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Do I have to pay everything upfront?</span>
+          <span class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+        </div>
+        <div class="faq-answer">
+          <p>No. We split it in half. You pay <strong>50% to get started</strong> and the remaining <strong>50% when we deliver the finished site</strong> for your review. You do not pay the second half until you have seen the site and approved it.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-q-text">What payment methods do you accept?</span>
+          <span class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+        </div>
+        <div class="faq-answer">
+          <p>We accept <strong>Zelle, Venmo, and Cash App</strong>. Payment details are included on every invoice. All payments go directly to SiteSprintPro — never to a sales representative.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Are there any monthly fees after my site launches?</span>
+          <span class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+        </div>
+        <div class="faq-answer">
+          <p>No ongoing fees from us. Your only recurring cost is your domain name, purchased directly through Namecheap at roughly <strong>$12 per year</strong> — paid directly to them, not us.</p>
+          <p>We do offer optional maintenance plans starting at $100 per quarter if you want us to handle ongoing updates for you, but that is entirely your choice.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROCESS -->
+    <div class="faq-category" id="cat-process">
+      <div class="faq-cat-title">The Process</div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-q-text">How long does it actually take to build my site?</span>
+          <span class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+        </div>
+        <div class="faq-answer">
+          <p><strong>Basic builds deliver in 2–3 business days. Pro builds deliver in 1–2 business days</strong> due to priority queue access. Once you fill out our short intake form and the deposit clears, we get to work immediately.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-q-text">How much do I have to do? Do I need to write anything?</span>
+          <span class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+        </div>
+        <div class="faq-answer">
+          <p>Very little. You fill out a short intake form — 7 questions about your business — and that is it. <strong>We write all the content for you</strong>: service descriptions, about section, calls to action, headlines, everything. You review the finished site and tell us if anything needs adjusting.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Can I make changes after I see the draft?</span>
+          <span class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+        </div>
+        <div class="faq-answer">
+          <p>Yes. <strong>Basic builds include 2 revision rounds</strong> and <strong>Pro builds include 4 revision rounds</strong>. We send you a preview link first. You review it, send us your notes, and we update it before final delivery. Additional revisions after the included rounds are available at $75 per hour.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-q-text">What do I need to provide?</span>
+          <span class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+        </div>
+        <div class="faq-answer">
+          <p>Just your intake form answers. If you have photos of your business or team you would like to use, you can share them — but it is not required. <strong>If you do not have photos, we source professional imagery</strong> that fits your industry at no extra charge.</p>
+          <p>If you have an existing logo, great. If not, Pro builds include a custom text logo design.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- DOMAIN & HOSTING -->
+    <div class="faq-category" id="cat-domain">
+      <div class="faq-cat-title">Domain &amp; Hosting</div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Do I need to buy a domain name?</span>
+          <span class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+        </div>
+        <div class="faq-answer">
+          <p>Yes — and that is by design. <strong>You buy your own domain so you own it 100%</strong>. We walk you through purchasing it on Namecheap (typically around $12/year). We then connect it to your site for free. This means your website and domain always belong to you, not us.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Who hosts the website?</span>
+          <span class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+        </div>
+        <div class="faq-answer">
+          <p>Your site is hosted on <strong>Netlify</strong>, one of the most reliable and fast hosting platforms available. It is free to host static sites there, which keeps your costs at zero beyond your domain renewal each year.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-q-text">How long until my site is live after I approve it?</span>
+          <span class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+        </div>
+        <div class="faq-answer">
+          <p>Once you approve the final version and your domain is pointed to your site, <strong>allow 24–48 hours for the domain to fully propagate</strong> across the internet. This is a standard DNS process — not a delay on our end. Your site is technically live immediately, but it takes that window for the address to work everywhere globally.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- QUALITY & RESULTS -->
+    <div class="faq-category" id="cat-quality">
+      <div class="faq-cat-title">Quality &amp; Results</div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Will my site show up on Google?</span>
+          <span class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+        </div>
+        <div class="faq-answer">
+          <p>Every site we build includes <strong>basic on-page SEO from day one</strong> — proper title tags, meta descriptions, header structure, and fast load times. Pro builds include advanced SEO with full meta optimization. This gives you a strong foundation for Google to index your site. Ranking takes time and ongoing effort, but we make sure your site is set up correctly from the start.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Will it look good on a phone?</span>
+          <span class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+        </div>
+        <div class="faq-answer">
+          <p>Every site we build is <strong>mobile-first</strong>. We design and test for phones before desktops because over 60% of your customers are searching from their phone. Click-to-call buttons, maps, and contact forms are all optimized for mobile use.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-q-text">I already have a website. Is it worth replacing?</span>
+          <span class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+        </div>
+        <div class="faq-answer">
+          <p>It depends on what you have. If your current site loads slowly, breaks on mobile, has no clear call-to-action, or looks outdated — it may actually be costing you customers rather than bringing them in.</p>
+          <p>We also offer a <strong>site refresh service starting at $300</strong> if you prefer to rebuild without starting from scratch. Call us and we will take a look at what you currently have and give you an honest assessment.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Can I update the site myself after it is live?</span>
+          <span class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+        </div>
+        <div class="faq-answer">
+          <p>Our sites are hand-coded for speed and quality, so they do not use a drag-and-drop editor. For ongoing changes, you can use one of our <strong>maintenance plans</strong> — we handle any update you need. Most clients find this easier than managing a site themselves, and it keeps everything looking professional.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- TRUST & PROCESS -->
+    <div class="faq-category" id="cat-trust">
+      <div class="faq-cat-title">Trust &amp; Security</div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-q-text">What if I am not happy with what you build?</span>
+          <span class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+        </div>
+        <div class="faq-answer">
+          <p>You do not pay the second half until you have seen the site. If the draft does not meet your expectations, you use your revision rounds to get it right. We do not ask for the final payment until you are satisfied with the result.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Who do I pay — the person who called me or SiteSprintPro?</span>
+          <span class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+        </div>
+        <div class="faq-answer">
+          <p><strong>Always pay SiteSprintPro directly</strong> — never to a sales representative. Every invoice comes from us with our company information. Payment goes to our verified company accounts only. If anyone asks you to pay them personally, that is not our policy and you should contact us at 346-795-0020 immediately.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-q-text">What happens if I do not respond or go quiet after the deposit?</span>
+          <span class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+        </div>
+        <div class="faq-answer">
+          <p>We will follow up with you. If we cannot reach you within <strong>5 business days</strong> after sending a preview or request for information, your project is placed on hold until we reconnect. Your deposit is held — not forfeited. We work with your schedule.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <section class="bottom-cta">
+    <div class="eyebrow">Still Have Questions?</div>
+    <h2>Just Call Us Directly.</h2>
+    <p>We answer questions fast. If something is not covered here, reach out and we will get you an answer the same day.</p>
+    <div class="btn-group">
+      <a href="tel:3467950020" class="btn-primary">Call 346-795-0020</a>
+      <a href="https://forms.gle/j7YPKBFAV9veyv3E9" class="btn-secondary">Start Your Project</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="f-logo">SiteSprint<span>Pro</span></div>
+    <div class="f-links">
+      <a href="packages.html">Services</a>
+      <a href="maintenance.html">Maintenance</a>
+      <a href="faq.html">FAQ</a>
+      <a href="careers.html">Careers</a>
+      <a href="tel:3467950020">346-795-0020</a>
+    </div>
+    <div class="f-copy">&copy; 2025 SiteSprintPro LLC</div>
+  </footer>
+
+  <script>
+    function toggleFaq(el) {
+      const item = el.parentElement;
+      const isOpen = item.classList.contains('open');
+      // Close all
+      document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+      // Open clicked if it was closed
+      if (!isOpen) item.classList.add('open');
+    }
+  </script>
+
+</body>
+</html>
