@@ -91,6 +91,14 @@
     .menu-grid, .about-section { grid-template-columns: 1fr; }
     footer { flex-direction: column; gap: 12px; text-align: center; }
   }
+
+  .ssp-sample{position:fixed;left:12px;bottom:12px;z-index:9999;display:flex;align-items:center;gap:8px;
+    background:rgba(17,17,17,0.92);color:#fff;font:700 12px/1.3 -apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;
+    letter-spacing:.02em;padding:9px 13px;border-radius:999px;box-shadow:0 4px 18px rgba(0,0,0,.35);
+    text-decoration:none;max-width:calc(100vw - 24px)}
+  .ssp-sample b{background:#7ed957;color:#111;border-radius:999px;padding:2px 8px;font-weight:800;white-space:nowrap}
+  @media (max-width:480px){.ssp-sample{font-size:11px;padding:7px 11px}}
+  .ssp-note{font-size:.8rem;opacity:.7;margin-top:8px}
 </style>
 </head>
 <body>
@@ -149,7 +157,7 @@
     <div class="ms-tag">Our Story</div>
     <div class="ms-h">Started with a Single Wood-Fired Oven</div>
     <p>The Ember House was born from a simple belief: great food doesn't need to be complicated — it just needs to be honest. We source locally, cook over real fire, and pour heart into every plate.</p>
-    <p>Fourteen years later, we're still cooking the same way. Come hungry. Leave happy.</p>
+    <p>Same fire, same care, every night. Come hungry. Leave happy.</p>
     <a href="#contact" class="btn-amber" style="display:inline-block;margin-top:32px;">Reserve Your Table</a>
   </div>
 </section>
@@ -168,5 +176,6 @@
   <p>© 2025 The Ember House · Colorado Springs, CO</p>
   <p style="color:rgba(247,242,234,0.25);font-size:0.78rem;">Wood-fired cooking since 2011</p>
 </footer>
+<a class="ssp-sample" href="index.html" title="Back to the SiteSprintPro portfolio"><b>SAMPLE BUILD</b><span>Fictional business. Reviews and numbers are placeholders.</span></a>
 </body>
 </html>

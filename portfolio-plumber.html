@@ -216,6 +216,14 @@
     .hero-stats { gap: 28px; }
     footer { flex-direction: column; gap: 16px; text-align: center; }
   }
+
+  .ssp-sample{position:fixed;left:12px;bottom:12px;z-index:9999;display:flex;align-items:center;gap:8px;
+    background:rgba(17,17,17,0.92);color:#fff;font:700 12px/1.3 -apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;
+    letter-spacing:.02em;padding:9px 13px;border-radius:999px;box-shadow:0 4px 18px rgba(0,0,0,.35);
+    text-decoration:none;max-width:calc(100vw - 24px)}
+  .ssp-sample b{background:#7ed957;color:#111;border-radius:999px;padding:2px 8px;font-weight:800;white-space:nowrap}
+  @media (max-width:480px){.ssp-sample{font-size:11px;padding:7px 11px}}
+  .ssp-note{font-size:.8rem;opacity:.7;margin-top:8px}
 </style>
 </head>
 <body>
@@ -234,19 +242,19 @@
   <div style="position:relative; z-index:1; max-width: 680px;">
     <div class="hero-badge">Same-Day Service Available</div>
     <h1>Colorado Springs' <span>Trusted</span> Plumbers</h1>
-    <p>From burst pipes to full bathroom remodels — Peak Flow Plumbing has served the Springs for over 12 years. Licensed, insured, and on call 24/7.</p>
+    <p>From burst pipes to full bathroom remodels — Peak Flow Plumbing is licensed, insured, and on call 24/7 across Colorado Springs.</p>
     <div class="hero-btns">
       <a href="#contact" class="btn-primary">Call Now: (719) 555-0182</a>
       <a href="#services" class="btn-ghost">See Our Services</a>
     </div>
     <div class="hero-stats">
       <div>
-        <div class="stat-num">12+</div>
-        <div class="stat-label">Years in Business</div>
+        <div class="stat-num">Free</div>
+        <div class="stat-label">Estimates</div>
       </div>
       <div>
-        <div class="stat-num">2.4K</div>
-        <div class="stat-label">Jobs Completed</div>
+        <div class="stat-num">Flat</div>
+        <div class="stat-label">Upfront Pricing</div>
       </div>
       <div>
         <div class="stat-num">24/7</div>
@@ -286,9 +294,9 @@
 <section class="why" id="why">
   <div class="why-grid">
     <div class="why-visual">
-      <div class="big-number">4.9★</div>
-      <p style="color:rgba(255,255,255,0.6); margin-top:12px; font-size:0.9rem;">Average Google Review Rating</p>
-      <p style="color:rgba(255,255,255,0.4); font-size:0.8rem; margin-top:6px;">Based on 340+ reviews</p>
+      <div class="big-number">★★★★★</div>
+      <p style="color:rgba(255,255,255,0.6); margin-top:12px; font-size:0.9rem;">Your real Google rating goes here</p>
+      <p style="color:rgba(255,255,255,0.4); font-size:0.8rem; margin-top:6px;">Pulled from your Google profile, never invented</p>
     </div>
     <div>
       <div class="section-label">Why Choose Us</div>
@@ -322,16 +330,17 @@
 
 <section class="reviews" id="reviews">
   <div class="section-label" style="color:var(--accent);">What Clients Say</div>
-  <div class="section-title">Real Reviews from Real Neighbors</div>
+  <div class="section-title" style="color:var(--white);">Your Reviews, Front and Center</div>
+  <p class="ssp-note">Sample layout. On your site these are your real Google reviews, quoted word for word.</p>
   <div class="reviews-grid">
     <div class="review-card">
       <div class="stars">★★★★★</div>
       <p class="review-text">"Woke up to a burst pipe on a Sunday. Peak Flow was at my door in under an hour. Fair price and no drama. These guys are the real deal."</p>
       <div class="reviewer">
-        <div class="avatar">MR</div>
+        <div class="avatar">G</div>
         <div>
-          <div class="reviewer-name">Marcus R.</div>
-          <div class="reviewer-title">Homeowner, Briargate</div>
+          <div class="reviewer-name">Sample review</div>
+          <div class="reviewer-title">Placeholder text</div>
         </div>
       </div>
     </div>
@@ -339,10 +348,10 @@
       <div class="stars">★★★★★</div>
       <p class="review-text">"Had three plumbers ghost me. Peak Flow showed up on time, gave me a clear quote, and finished the water heater install in two hours. Love these guys."</p>
       <div class="reviewer">
-        <div class="avatar">TL</div>
+        <div class="avatar">G</div>
         <div>
-          <div class="reviewer-name">Tanya L.</div>
-          <div class="reviewer-title">Homeowner, Fountain Valley</div>
+          <div class="reviewer-name">Sample review</div>
+          <div class="reviewer-title">Placeholder text</div>
         </div>
       </div>
     </div>
@@ -350,10 +359,10 @@
       <div class="stars">★★★★★</div>
       <p class="review-text">"Professional, fast, and honest. They found the issue in 10 minutes that two other plumbers missed. Bookmarked for life."</p>
       <div class="reviewer">
-        <div class="avatar">DJ</div>
+        <div class="avatar">G</div>
         <div>
-          <div class="reviewer-name">DeShawn J.</div>
-          <div class="reviewer-title">Property Manager</div>
+          <div class="reviewer-name">Sample review</div>
+          <div class="reviewer-title">Placeholder text</div>
         </div>
       </div>
     </div>
@@ -372,10 +381,11 @@
   <p>© 2025 Peak Flow Plumbing · Colorado Springs, CO</p>
   <div class="footer-links">
     <a href="#">Privacy</a>
-    <a href="#">License #CO-12345</a>
+    <a href="#">Licensed &amp; Insured</a>
     <a href="#">Google Reviews</a>
   </div>
 </footer>
 
+<a class="ssp-sample" href="index.html" title="Back to the SiteSprintPro portfolio"><b>SAMPLE BUILD</b><span>Fictional business. Reviews and numbers are placeholders.</span></a>
 </body>
 </html>
