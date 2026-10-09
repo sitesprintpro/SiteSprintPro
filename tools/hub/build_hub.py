@@ -178,6 +178,30 @@ section{padding:clamp(72px,10vw,128px) 0}
 .steps p{color:var(--muted);max-width:36em}
 @media (max-width:760px){.steps li{grid-template-columns:minmax(0,1fr);top:calc(78px + var(--i) * 12px)}}
 
+
+/* phone hero: first light comes up behind Pikes Peak, a phone rises playing a real sample */
+.hx-bg,.hx-phone{display:none}
+@keyframes glowup{from{opacity:0}to{opacity:1}}
+@keyframes rise{from{transform:translateY(80%)}to{transform:translateY(46%)}}
+@keyframes reelup{from{transform:translateY(0)}to{transform:translateY(-76%)}}
+@media (max-width:760px){
+  .hero{min-height:calc(100svh - 64px);padding:30px 0 0;display:flex;flex-direction:column}
+  .hero .stage{display:none}
+  .hero .wrap{position:relative;z-index:1}
+  .hero h1{font-size:clamp(2.6rem,11.5vw,4.2rem);line-height:.95;letter-spacing:-.045em}
+  .hero .lede{margin:16px 0 22px}
+  .hero .btns .btn{flex:1 1 auto}
+  .hero .small-note{color:var(--muted);text-shadow:0 1px 14px rgba(0,0,0,.75)}
+  .hx-bg{display:block;position:absolute;inset:0;z-index:0}
+  .hx-bg picture{position:absolute;inset:0}
+  .hx-bg img{position:absolute;left:0;top:0;width:100%;height:124%;object-fit:cover;object-position:45% 0%}
+  .hx-bg .g img{opacity:0;animation:glowup 2.8s .35s ease-out forwards}
+  .hx-phone{display:block;position:absolute;left:50%;bottom:0;width:52%;margin-left:-26%;aspect-ratio:390/844;border-radius:40px;border:9px solid #07080a;background:#07080a;overflow:hidden;z-index:1;box-shadow:0 40px 90px -30px rgba(0,0,0,.95),0 0 0 1px var(--line2);transform:translateY(46%);animation:rise 1.4s .55s cubic-bezier(.2,.7,.1,1) both}
+  .hx-phone img{position:absolute;left:0;top:0;width:100%;height:auto;max-width:none;animation:reelup 24s 2s linear infinite alternate}
+  html.cur-in .hx-bg .g img,html.cur-in .hx-phone,html.cur-in .hx-phone img{animation-play-state:paused}
+}
+@media (max-width:760px) and (prefers-reduced-motion:reduce){.hx-bg .g img{opacity:1;animation:none}.hx-phone,.hx-phone img{animation:none}}
+
 /* towns we serve */
 .towns{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;padding:16px 0;position:relative}
 .towns .track{display:flex;width:max-content;animation:marq 48s linear infinite}
@@ -404,11 +428,11 @@ def esc(s):
 ARROW_UR = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>'
 PEAK_SEP = '<svg viewBox="0 0 14 10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M1 9 5 4l2 2 2.5-4.5L13 9"/></svg>'
 
-def peak_pic(root, name, alt, pos="46% 52%", lazy=True, cls=""):
+def peak_pic(root, name, alt, pos="46% 52%", lazy=True, cls="", phone="p"):
     """Pikes Peak photo: portrait crop on phones, wide crop elsewhere."""
     p = f"{root}assets/peak/peak-{name}"
     load = ' loading="lazy"' if lazy else ""
-    return (f'<picture class="{cls}"><source media="(max-width:700px)" srcset="{p}-p.webp">'
+    return (f'<picture class="{cls}"><source media="(max-width:700px)" srcset="{p}-{phone}.webp">'
             f'<img src="{p}-1600.webp" srcset="{p}-900.webp 900w, {p}-1600.webp 1600w, {p}-2400.webp 2400w" sizes="100vw" '
             f'alt="{alt}" width="2400" height="1260"{load} decoding="async" style="object-position:{pos}"></picture>')
 
@@ -646,7 +670,7 @@ def build():
           "areaServed": [{"@type": "City", "name": "Colorado Springs, Colorado"}, {"@type": "State", "name": "Colorado"}], "priceRange": "$697 to $1,197"}
     featured = [s[0], s[5], s[4]]
     home = f"""
-<section class="hero"><canvas class="topo" aria-hidden="true"></canvas><div class="wrap">
+<section class="hero"><canvas class="topo" aria-hidden="true"></canvas><div class="hx-bg" aria-hidden="true"><picture class="m"><source media="(max-width:760px)" srcset="assets/peak/peak-mist-p.webp"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" alt="" width="1588" height="1765"></picture><picture class="g"><source media="(max-width:760px)" srcset="assets/peak/peak-glow-p.webp"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" alt="" width="1588" height="1765"></picture></div><div class="hx-phone" aria-hidden="true"><picture><source media="(max-width:760px)" srcset="assets/reel/hvac-hero.webp"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" alt="" width="600" height="4200"></picture></div><div class="wrap">
   <div>
     <h1 class="load">Websites for Springs businesses.</h1>
     <p class="lede load d1">Live in 2 to 3 days. One flat price, no monthly fees, and the site is yours.</p>
@@ -668,7 +692,7 @@ def build():
 </div></section>
 
 <section class="ridge" aria-labelledby="ridge-h">
-  <div class="ridge-media" aria-hidden="true">{peak_pic("", "mist", "", "46% 52%", cls="r-mist")}{peak_pic("", "glow", "", "46% 52%", cls="r-glow")}</div>
+  <div class="ridge-media" aria-hidden="true">{peak_pic("", "mist", "", "46% 52%", cls="r-mist", phone="s")}{peak_pic("", "glow", "", "46% 52%", cls="r-glow", phone="s")}</div>
   <div class="wrap ridge-copy">
     <h2 id="ridge-h">Built under the Peak.</h2>
     <p>We're in Colorado Springs. We know the 10pm furnace call, the first hard freeze and Pikes Peak Regional permits. Your site will too.</p>
