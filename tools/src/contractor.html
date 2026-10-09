@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Ledgerline Builders | Remodels in Colorado Springs</title>
+<meta name="description" content="Sample build by SiteSprintPro. Kitchen, bath, basement, deck and addition remodels across Colorado Springs, quoted in writing.">
+<meta property="og:title" content="Ledgerline Builders | Sample build by SiteSprintPro">
+<meta property="og:description" content="Remodels done on schedule, priced in writing. A sample site for a fictional Colorado Springs general contractor.">
+<meta name="theme-color" content="#1d2023">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&display=swap">
+<script>
+  document.documentElement.classList.add('js');
+  setTimeout(function(){ document.documentElement.classList.add('ready'); }, 2500);
+</script>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --paper:#ecebe6; --paper-2:#e2e0d9; --paper-3:#d6d3cb;
+  --ink:#1d2023; --text:#2a2e32; --muted:#575c61;
+  --line:rgba(29,32,35,.18); --line-strong:rgba(29,32,35,.85);
+  --accent:#b8441b; --accent-2:#9c3916;
+  --on-dark:#f1efea; --on-dark-muted:rgba(241,239,234,.76); --line-dark:rgba(241,239,234,.16);
+  --font:'Archivo','Helvetica Neue',Helvetica,Arial,system-ui,-apple-system,'Segoe UI',sans-serif;
+  --gut:clamp(16px,4.5vw,56px);
+  --head-h:68px; --bar-h:0px;
+  --r:4px; --pill:999px;
+  --sec:clamp(76px,10vw,136px);
+}
+@media (max-width:760px){ :root{ --head-h:60px; --bar-h:calc(70px + env(safe-area-inset-bottom)); } }
+html{-webkit-text-size-adjust:100%;background:var(--paper)}
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+.lenis.lenis-stopped{overflow:clip}
+body{font-family:var(--font);font-size:17px;line-height:1.55;font-weight:420;color:var(--text);background:var(--paper);
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-x:clip;padding-bottom:var(--bar-h)}
+@media (min-width:1100px){ body{font-size:18px} }
+a{color:inherit;text-decoration:none}
+img,svg{display:block}
+img{max-width:100%;height:auto}
+::selection{background:var(--accent);color:var(--on-dark)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+section[id]{scroll-margin-top:calc(var(--head-h) + 8px)}
+.wrap{width:100%;max-width:1280px;margin:0 auto;padding-left:var(--gut);padding-right:var(--gut)}
+.vh{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* type */
+h1,h2,h3{font-family:var(--font);color:var(--ink);font-stretch:74%;font-weight:800;line-height:.94;letter-spacing:-.004em;text-wrap:balance}
+h2{font-size:clamp(40px,5.6vw,76px)}
+h3{font-size:clamp(25px,2.4vw,32px);font-weight:760;line-height:1}
+em{font-style:italic}
+p{max-width:62ch}
+.lede{font-size:clamp(18px,1.6vw,21px);line-height:1.5;color:var(--text);margin-top:20px;text-wrap:pretty}
+.eyebrow{font-size:13px;font-weight:650;font-stretch:112%;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-2);margin-bottom:18px}
+.ln-mask{padding-bottom:.14em;margin-bottom:-.14em}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:0 24px;border-radius:var(--r);
+  font:inherit;font-size:16.5px;font-weight:650;font-stretch:92%;letter-spacing:.01em;white-space:nowrap;cursor:pointer;
+  border:1.5px solid transparent;transition:background-color .25s,color .25s,border-color .25s,transform .25s}
+.btn svg{flex:none}
+.btn-call{background:var(--accent);color:var(--on-dark)}
+.btn-call:hover{background:var(--accent-2)}
+.btn-ghost{border-color:rgba(241,239,234,.7);color:var(--on-dark)}
+.btn-ghost:hover{background:rgba(241,239,234,.12)}
+.btn-ink{background:var(--ink);color:var(--on-dark)}
+.btn-ink:hover{background:#33383d}
+.btn-line{border-color:var(--ink);color:var(--ink)}
+.btn-line:hover{background:var(--ink);color:var(--on-dark)}
+.btn:active{transform:translateY(1px)}
+
+/* header */
+.site-head{position:fixed;inset:0 0 auto 0;z-index:60;height:var(--head-h);background:rgba(236,235,230,.96);
+  border-bottom:1px solid var(--line);-webkit-backdrop-filter:saturate(1.2) blur(10px);backdrop-filter:saturate(1.2) blur(10px)}
+.head-in{height:100%;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:flex;align-items:center;gap:11px;min-height:44px;color:var(--ink)}
+.mark{width:34px;height:34px;flex:none}
+.mark .chalk{stroke:var(--accent)}
+.brand-name{display:flex;flex-direction:column;line-height:1}
+.brand-name b{font-size:23px;font-weight:820;font-stretch:76%;letter-spacing:.005em}
+.brand-name small{font-size:9.5px;font-weight:620;font-stretch:118%;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+.nav{display:none;gap:4px;margin-left:auto}
+.nav a{display:inline-flex;align-items:center;min-height:44px;padding:0 13px;font-size:15.5px;font-weight:560;color:var(--text);position:relative}
+.nav a::after{content:'';position:absolute;left:13px;right:13px;bottom:9px;height:1.5px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .35s cubic-bezier(.2,.7,.1,1)}
+.nav a:hover::after{transform:scaleX(1)}
+@media (min-width:1000px){ .nav{display:flex} }
+.pill{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 18px;border-radius:var(--pill);background:var(--ink);color:var(--on-dark);
+  font-size:15.5px;font-weight:650;font-stretch:90%;white-space:nowrap;transition:background-color .25s}
+.pill:hover{background:var(--accent)}
+@media (max-width:380px){ .pill{padding:0 14px;font-size:14.5px} .brand-name b{font-size:21px} .mark{width:30px;height:30px} }
+
+/* hero */
+.hero{position:relative;margin-top:var(--head-h);height:min(88dvh,820px);min-height:540px;overflow:hidden;background:var(--ink);color:var(--on-dark)}
+.slides{position:absolute;inset:0}
+.slide{position:absolute;inset:0;opacity:0;z-index:0;transition:opacity 1.2s ease}
+.slide.is-active{opacity:1;z-index:2}
+.slide.is-prev{opacity:1;z-index:1;transition:none}
+.slide picture,.slide img{width:100%;height:100%}
+.slide img{object-fit:cover;transform:scale(1);transform-origin:50% 60%;will-change:transform}
+.slide.zoom img{transform:scale(1.08);transition:transform 7.9s linear}
+.hero-shade{position:absolute;inset:0;z-index:3;pointer-events:none;
+  background:linear-gradient(180deg,rgba(17,19,21,.34) 0%,rgba(17,19,21,.06) 24%,rgba(17,19,21,.42) 50%,rgba(17,19,21,.86) 82%,rgba(17,19,21,.92) 100%),
+             linear-gradient(90deg,rgba(17,19,21,.62) 0%,rgba(17,19,21,.18) 55%,rgba(17,19,21,0) 75%)}
+.hero-copy{position:absolute;left:0;right:0;bottom:clamp(36px,7vh,80px);z-index:4}
+.hero h1{color:var(--on-dark);font-size:clamp(44px,6.9vw,100px);line-height:.92;font-stretch:72%;font-weight:820;max-width:11.5em;text-wrap:initial}
+.hero h1 em{font-weight:780}
+.hero-sub{margin-top:22px;font-size:clamp(17.5px,1.5vw,20.5px);line-height:1.5;color:var(--on-dark);max-width:34em;font-weight:440}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+html.js:not(.ready) .hero h1{visibility:hidden}
+@media (max-width:760px){
+  .hero{height:calc(100dvh - var(--head-h) - var(--bar-h));min-height:470px;max-height:760px}
+  .hero-shade{background:linear-gradient(180deg,rgba(17,19,21,.42) 0%,rgba(17,19,21,.22) 20%,rgba(17,19,21,.6) 44%,rgba(17,19,21,.9) 70%,rgba(17,19,21,.94) 100%)}
+  .hero-copy{bottom:22px}
+  .hero-sub{margin-top:16px}
+  .hero-cta{margin-top:22px;display:grid;grid-template-columns:1fr;gap:10px}
+  .hero-cta .btn{width:100%}
+}
+@media (max-width:760px) and (max-height:700px){ .hero h1{font-size:42px} .hero-sub{font-size:16.5px} .hero-cta .btn-ghost{display:none} }
+
+/* trust row */
+.trust{border-bottom:1px solid var(--line)}
+.trust-in{padding-top:28px;padding-bottom:30px}
+.trust-note{font-size:14px;color:var(--muted);margin-bottom:16px}
+.trust-list{list-style:none;display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+.trust-list li{padding:4px 22px 4px 0;display:flex;flex-direction:column;gap:6px}
+.trust-list li+li{border-left:1px solid var(--line);padding-left:22px}
+.trust-list b{font-size:clamp(20px,1.9vw,25px);font-weight:760;font-stretch:78%;color:var(--ink);line-height:1.05}
+.trust-list span{font-size:14.5px;color:var(--muted);line-height:1.35}
+@media (max-width:760px){
+  .trust-list{grid-template-columns:1fr 1fr;row-gap:0}
+  .trust-list li,.trust-list li+li{border-left:0;padding:16px 12px 16px 0}
+  .trust-list li:nth-child(even){border-left:1px solid var(--line);padding-left:16px}
+  .trust-list li:nth-child(n+3){border-top:1px solid var(--line)}
+}
+
+/* services */
+.services{padding:var(--sec) 0}
+.svc-grid{display:grid;grid-template-columns:minmax(0,4.2fr) minmax(0,7.8fr);gap:clamp(40px,6vw,96px);align-items:start}
+.svc-photo{position:sticky;top:calc(var(--head-h) + 32px)}
+.svc-photo .ph{overflow:hidden;background:var(--paper-3)}
+.svc-photo img{width:100%;aspect-ratio:4/5;object-fit:cover}
+figcaption{font-size:14.5px;color:var(--muted);margin-top:12px;line-height:1.45;max-width:46ch}
+.svc-list{list-style:none;margin-top:44px}
+.svc{position:relative;display:grid;grid-template-columns:minmax(0,4fr) minmax(0,7fr);gap:12px 32px;padding:30px 0 32px}
+.svc .rule,.fact .rule{position:absolute;left:0;right:0;top:0;height:1px;background:var(--line-strong);transform-origin:left}
+.svc:last-child{border-bottom:1px solid var(--line)}
+.svc h3{padding-top:2px}
+.svc p{color:var(--text)}
+.svc .inq{margin-top:12px;font-size:15px;color:var(--muted);line-height:1.45}
+.svc .inq b{color:var(--ink);font-weight:650}
+@media (max-width:900px){
+  .svc-grid{grid-template-columns:1fr}
+  .svc-photo{position:relative;top:0}
+  .svc-photo img{aspect-ratio:4/3}
+  .svc{grid-template-columns:1fr;padding:24px 0 26px}
+}
+
+/* local */
+.local{background:var(--paper-2);padding:var(--sec) 0 calc(var(--sec) * .8)}
+.local-head{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:24px 64px;align-items:end}
+.local-head .lede{margin-top:0}
+.local-grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:0 64px;margin-top:clamp(48px,6vw,80px)}
+.fact{position:relative;padding:26px 0 30px}
+.fact .rule{height:2px;background:var(--ink)}
+.fact h3{margin-bottom:14px}
+.fact p+p{margin-top:12px}
+.fact-main{grid-row:span 2}
+.fact-main h3{font-size:clamp(30px,3.2vw,44px)}
+.fact-main p{font-size:clamp(17.5px,1.45vw,20px);line-height:1.55}
+@media (max-width:860px){
+  .local-head,.local-grid{grid-template-columns:1fr}
+  .fact-main{grid-row:auto}
+}
+
+/* season */
+.season{background:var(--paper-2);padding:0 0 var(--sec)}
+.season-grid{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,6fr);gap:clamp(36px,5vw,80px);align-items:start;padding-top:clamp(56px,7vw,96px);
+  background:linear-gradient(var(--line),var(--line)) no-repeat center top / calc(100% - 2 * var(--gut)) 1px}
+.season-photo .ph{overflow:hidden;background:var(--paper-3)}
+.season-photo img{width:100%;aspect-ratio:1/1;object-fit:cover}
+@media (max-width:860px){ .season-photo img{aspect-ratio:5/4} }
+.season h2{font-size:clamp(34px,3.7vw,52px)}
+@media (min-width:861px){ .season h2 span{display:block} }
+.season-body > p{margin-top:20px}
+.gantt{margin-top:34px}
+.g-row{margin-top:16px}
+.g-row:first-child{margin-top:0}
+.g-label{font-size:14.5px;font-weight:600;color:var(--ink);margin-bottom:7px}
+.g-track{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));height:16px;background:repeating-linear-gradient(90deg,rgba(29,32,35,.08) 0 1px,transparent 1px calc(100% / 12))}
+.g-bar{height:100%;transform-origin:left}
+.g-in{background:var(--ink)}
+.g-plan{background:repeating-linear-gradient(135deg,var(--accent) 0 2px,transparent 2px 7px);box-shadow:inset 0 0 0 1.5px var(--accent)}
+.g-out{background:var(--accent)}
+.g-months{list-style:none;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));margin-top:10px;border-top:1px solid var(--line);padding-top:8px}
+.g-months li{font-size:13px;color:var(--muted);font-weight:560}
+.g-months .s{display:none}
+.season .btn{margin-top:34px}
+@media (max-width:860px){ .season-grid{grid-template-columns:1fr} }
+@media (max-width:520px){ .g-months .l{display:none} .g-months .s{display:inline} }
+
+/* process */
+.process{padding:var(--sec) 0}
+.proc-head{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:20px 64px;align-items:end}
+.proc-head .lede{margin-top:0}
+.pair{display:grid;grid-template-columns:minmax(0,7.4fr) minmax(0,4.6fr);gap:clamp(20px,3vw,40px);margin-top:clamp(44px,6vw,80px);align-items:start}
+.pair .ph{overflow:hidden;background:var(--paper-3)}
+.pair-a img{width:100%;aspect-ratio:3/2;object-fit:cover}
+.pair-b{margin-top:clamp(40px,9vw,140px)}
+.pair-b img{width:100%;aspect-ratio:7/8;object-fit:cover}
+.pair figcaption b{color:var(--ink);font-weight:650}
+.steps-wrap{position:relative;margin-top:clamp(56px,7vw,96px);padding-top:34px}
+.steps{list-style:none;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:28px}
+.steps-track,.steps-fill{position:absolute;left:0;right:0;top:0;height:2px}
+.steps-track{background:var(--line)}
+.steps-fill{background:var(--accent);transform-origin:left}
+.step{position:relative}
+.step::before{content:'';position:absolute;left:0;top:-34px;width:2px;height:16px;background:var(--ink)}
+.step h3{font-size:clamp(23px,2vw,28px);margin-bottom:10px}
+.step p{font-size:16px;line-height:1.5}
+@media (max-width:900px){
+  .proc-head{grid-template-columns:1fr}
+  .steps-wrap{padding-top:0;padding-left:28px}
+  .steps{grid-template-columns:1fr;gap:28px}
+  .steps-track,.steps-fill{left:0;right:auto;top:0;bottom:0;width:2px;height:auto}
+  .steps-fill{transform-origin:top}
+  .step::before{left:-28px;top:10px;width:18px;height:2px}
+}
+@media (max-width:560px){
+  .pair{grid-template-columns:1fr;gap:28px}
+  .pair-b{width:100%;margin:0}
+  .pair-b img{aspect-ratio:4/3}
+  .pair figcaption{margin-top:10px}
+}
+
+/* reviews */
+.reviews{padding:var(--sec) 0;border-top:1px solid var(--line)}
+.rev-head{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:20px 64px;align-items:end}
+.sample-note{font-size:15px;color:var(--muted);border-left:2px solid var(--accent);padding-left:14px;max-width:44ch}
+.rev-grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:0 64px;margin-top:clamp(40px,5vw,64px)}
+.rev{padding:28px 0;border-top:1px solid var(--line-strong)}
+.rev-big{grid-row:span 2}
+.rev blockquote{font-size:clamp(19px,1.6vw,22px);line-height:1.45;color:var(--ink);font-style:italic;font-weight:440}
+.rev-big blockquote{font-size:clamp(26px,2.9vw,40px);line-height:1.18;font-stretch:84%;font-weight:520}
+.rev figcaption{margin-top:16px;font-size:14.5px;font-weight:600;color:var(--muted)}
+@media (max-width:860px){ .rev-head,.rev-grid{grid-template-columns:1fr} .rev-big{grid-row:auto} }
+
+/* area */
+.area{background:var(--paper-2);padding:var(--sec) 0}
+.area-grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:48px 64px;align-items:start}
+.area-grid > div > p{margin-top:18px}
+.towns{list-style:none;columns:3;column-gap:28px;margin:32px 0 34px}
+.towns li{padding:9px 0;border-bottom:1px solid var(--line);break-inside:avoid;font-weight:520;color:var(--ink)}
+.hours{border:2px solid var(--ink);padding:clamp(24px,3vw,36px)}
+.hours h3{margin-bottom:18px}
+.hours dl{display:grid;grid-template-columns:auto 1fr;gap:10px 20px}
+.hours dt{font-weight:620;color:var(--ink)}
+.hours dd{color:var(--text)}
+.hours p{margin-top:20px;font-size:15px;color:var(--muted)}
+@media (max-width:860px){ .area-grid{grid-template-columns:1fr} .towns{columns:2} }
+
+/* contact */
+.contact{padding:var(--sec) 0}
+.contact-grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:48px 72px;align-items:start}
+.contact-form > p{margin-top:16px}
+form{margin-top:32px;display:grid;grid-template-columns:1fr 1fr;gap:18px 18px}
+.field{display:flex;flex-direction:column;gap:7px}
+.field.full{grid-column:1 / -1}
+.field label{font-size:14.5px;font-weight:620;color:var(--ink)}
+.field label span{font-weight:450;color:var(--muted)}
+input,select,textarea{font:inherit;font-size:17px;color:var(--ink);background:#f6f5f1;border:1.5px solid rgba(29,32,35,.32);border-radius:var(--r);
+  min-height:54px;padding:12px 14px;width:100%;transition:border-color .2s,box-shadow .2s;-webkit-appearance:none;appearance:none}
+select{background-image:linear-gradient(45deg,transparent 50%,var(--ink) 50%),linear-gradient(135deg,var(--ink) 50%,transparent 50%);
+  background-position:calc(100% - 20px) 50%,calc(100% - 14px) 50%;background-size:6px 6px;background-repeat:no-repeat;padding-right:40px}
+textarea{min-height:128px;resize:vertical;line-height:1.5}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--ink);box-shadow:0 0 0 3px rgba(184,68,27,.25)}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.form-foot{grid-column:1 / -1;display:flex;flex-wrap:wrap;align-items:center;gap:16px 20px;margin-top:6px}
+.form-msg{font-size:15.5px;font-weight:560;color:var(--ink);min-height:1.5em}
+.form-msg.on{border-left:2px solid var(--accent);padding-left:12px}
+.call-block{position:sticky;top:calc(var(--head-h) + 32px);border-top:2px solid var(--ink);padding-top:28px}
+.call-block p{font-size:17px}
+.call-big{display:flex;flex-direction:column;gap:4px;margin:14px 0 18px;min-height:44px;color:var(--ink)}
+.call-big span{font-size:15px;font-weight:650;letter-spacing:.02em;color:var(--accent-2)}
+.call-big strong{font-size:clamp(44px,5.4vw,72px);font-weight:820;font-stretch:72%;line-height:.95;letter-spacing:-.005em;transition:color .25s}
+.call-big:hover strong{color:var(--accent)}
+.call-block .small{font-size:15px;color:var(--muted)}
+@media (max-width:860px){ .contact-grid{grid-template-columns:1fr} .call-block{position:relative;top:0} }
+@media (max-width:600px){ form{grid-template-columns:1fr} .form-foot .btn{width:100%} }
+
+/* footer */
+.foot{background:var(--ink);color:var(--on-dark-muted);padding:clamp(56px,7vw,88px) 0 28px}
+.foot-grid{display:grid;grid-template-columns:minmax(0,5fr) repeat(3,minmax(0,2.4fr));gap:36px 40px}
+.foot .brand{color:var(--on-dark)}
+.foot .brand-name small{color:var(--on-dark-muted)}
+.foot-brand p{margin-top:16px;font-size:15.5px;max-width:34ch}
+.foot h3{font-size:12.5px;font-weight:650;font-stretch:112%;letter-spacing:.16em;text-transform:uppercase;color:var(--on-dark);line-height:1.3;margin-bottom:10px}
+.foot p,.foot a{font-size:15.5px}
+.foot-link{display:inline-flex;align-items:center;min-height:44px;color:var(--on-dark);border-bottom:1px solid var(--line-dark)}
+.foot-link:hover{border-color:var(--accent)}
+.foot-legal{margin-top:48px;padding-top:18px;background:linear-gradient(var(--line-dark),var(--line-dark)) no-repeat center top / calc(100% - 2 * var(--gut)) 1px;display:flex;flex-wrap:wrap;align-items:center;gap:4px 8px}
+.foot-legal p{font-size:14.5px}
+@media (max-width:860px){ .foot-grid{grid-template-columns:1fr 1fr} .foot-brand{grid-column:1 / -1} }
+@media (max-width:420px){ .foot-grid{grid-template-columns:1fr} }
+
+/* sticky call bar (phones) */
+.callbar{display:none}
+@media (max-width:760px){
+  .callbar{display:grid;grid-template-columns:1.18fr 1fr;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:70;
+    padding:8px 10px calc(8px + env(safe-area-inset-bottom));background:rgba(236,235,230,.97);border-top:1px solid var(--line);
+    -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+  .callbar .btn{min-height:52px;padding:0 10px;font-size:15px;font-stretch:84%;gap:7px}
+}
+
+/* sample badge */
+.ssp-sample{position:fixed;left:12px;bottom:12px;z-index:9999;display:flex;align-items:center;gap:8px;background:rgba(17,17,17,0.92);color:#fff;font:700 12px/1.3 -apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;letter-spacing:.02em;padding:9px 13px;border-radius:999px;box-shadow:0 4px 18px rgba(0,0,0,.35);text-decoration:none;max-width:calc(100vw - 24px)}
+.ssp-sample b{background:#7ed957;color:#111;border-radius:999px;padding:2px 8px;font-weight:800}
+@media (max-width:760px){ .ssp-sample{top:calc(var(--head-h) + 10px);bottom:auto} }
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important}
+  .slide:not(:first-child){display:none}
+  .slide img,.slide.zoom img{transform:none!important}
+}
+
+/* SiteSprintPro: compact sample badge on phones */
+@media (max-width:760px){.ssp-sample span{display:none}.ssp-sample{padding:6px 9px;font-size:11px;box-shadow:0 2px 10px rgba(0,0,0,.25)}}
+</style>
+</head>
+<body>
+
+<header class="site-head" id="top">
+  <div class="wrap head-in">
+    <a class="brand" href="#top" aria-label="Ledgerline Builders, back to top">
+      <svg class="mark" viewBox="0 0 40 40" aria-hidden="true" fill="none">
+        <rect x="5.5" y="5.5" width="29" height="29" stroke="currentColor" stroke-width="3"/>
+        <path class="chalk" d="M0 15.5H40" stroke-width="3.2"/>
+        <path d="M11.5 17.6v6.4M17.5 17.6v3.6M23.5 17.6v6.4M29.5 17.6v3.6" stroke="currentColor" stroke-width="2.2"/>
+      </svg>
+      <span class="brand-name"><b>Ledgerline</b><small>Builders</small></span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="#services">Services</a>
+      <a href="#local">Permits</a>
+      <a href="#process">Process</a>
+      <a href="#area">Area</a>
+      <a href="#quote">Quote</a>
+    </nav>
+    <a class="pill" href="tel:+17195550163" data-tel aria-label="Call Ledgerline Builders">
+      <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25c1.1.37 2.3.57 3.6.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg>
+      <span data-phone-display>(719) 555-0163</span>
+    </a>
+  </div>
+</header>
+
+<main>
+<section class="hero" aria-label="Introduction">
+  <div class="slides">
+    <figure class="slide is-active">
+      <picture>
+        <source media="(max-width: 700px)" srcset="img/hero-framing-900.webp" width="900" height="1350">
+        <img src="img/hero-framing-1920.webp" srcset="img/hero-framing-960.webp 960w, img/hero-framing-1920.webp 1920w" sizes="100vw" width="1920" height="1080" alt="Two-story house framed in lumber and sheathing under a clear sky" fetchpriority="high" loading="eager" decoding="async">
+      </picture>
+    </figure>
+    <figure class="slide">
+      <picture>
+        <source media="(max-width: 700px)" srcset="img/hero-kitchen-900.webp" width="900" height="1350">
+        <img src="img/hero-kitchen-1920.webp" srcset="img/hero-kitchen-960.webp 960w, img/hero-kitchen-1920.webp 1920w" sizes="100vw" width="1920" height="1080" alt="Finished white kitchen with shaker cabinets, a quartz island and glass pendant lights" loading="lazy" decoding="async">
+      </picture>
+    </figure>
+    <figure class="slide">
+      <picture>
+        <source media="(max-width: 700px)" srcset="img/hero-porch-900.webp" width="900" height="1350">
+        <img src="img/hero-porch-1920.webp" srcset="img/hero-porch-960.webp 960w, img/hero-porch-1920.webp 1920w" sizes="100vw" width="1920" height="1080" alt="New covered deck with a stained ceiling, ceiling fan and black metal balusters" loading="lazy" decoding="async">
+      </picture>
+    </figure>
+    <figure class="slide">
+      <picture>
+        <source media="(max-width: 700px)" srcset="img/hero-basement-900.webp" width="900" height="1350">
+        <img src="img/hero-basement-1920.webp" srcset="img/hero-basement-960.webp 960w, img/hero-basement-1920.webp 1920w" sizes="100vw" width="1920" height="1080" alt="Finished basement family room with carpet, recessed lights and a garden-level window" loading="lazy" decoding="async">
+      </picture>
+    </figure>
+  </div>
+  <div class="hero-shade"></div>
+  <div class="hero-copy">
+    <div class="wrap">
+      <h1 id="heroTitle">Remodels done on schedule, <em>priced in writing.</em></h1>
+      <p class="hero-sub">Kitchens, baths, basements and decks across Colorado Springs. You get a written quote and a start date before demo day.</p>
+      <div class="hero-cta">
+        <a class="btn btn-call" href="tel:+17195550163" data-tel>
+          <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25c1.1.37 2.3.57 3.6.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg>
+          Call <span data-phone-display>(719) 555-0163</span>
+        </a>
+        <a class="btn btn-ghost" href="#quote">Get a written quote</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="trust" aria-label="Credentials">
+  <div class="wrap trust-in">
+    <p class="trust-note">Placeholders. A real client’s numbers and license go here.</p>
+    <ul class="trust-list">
+      <li><b>Your Google rating</b><span>Pulled from your Google profile</span></li>
+      <li><b>Years in business</b><span>Your real number</span></li>
+      <li><b>Licensed and insured</b><span>Certificate on request</span></li>
+      <li><b>PPRBD license no.</b><span>Your Regional Building license</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="wrap svc-grid">
+    <figure class="svc-photo" data-reveal>
+      <div class="ph">
+        <img src="img/svc-hands-700.webp" srcset="img/svc-hands-700.webp 1x, img/svc-hands-1400.webp 2x" width="1400" height="1750" alt="Gloved hands marking a cut line on a pine board with a carpenter's pencil" loading="lazy" decoding="async">
+      </div>
+      <figcaption>Cuts get marked on the real board, on site, not guessed from a photo.</figcaption>
+    </figure>
+    <div class="svc-body">
+      <h2 data-reveal>What we build</h2>
+      <p class="lede" data-reveal>Five kinds of work, each quoted line by line. One lead carpenter runs your job from demo to final inspection.</p>
+      <ul class="svc-list">
+        <li class="svc">
+          <span class="rule" aria-hidden="true"></span>
+          <h3 data-reveal>Kitchen remodels</h3>
+          <div data-reveal>
+            <p>Cabinets, counters, tile and lighting, plus the plumbing and electrical moves behind them. We schedule the work so your kitchen is down for as few days as possible, and you know which days ahead of time.</p>
+            <p class="inq"><b>In the quote:</b> demo, cabinets, counters, tile, fixtures, electrical, permit.</p>
+          </div>
+        </li>
+        <li class="svc">
+          <span class="rule" aria-hidden="true"></span>
+          <h3 data-reveal>Bathroom remodels</h3>
+          <div data-reveal>
+            <p>Tub-to-shower conversions, tiled showers built over a real waterproofing membrane, new vanities, and exhaust fans vented outside instead of into the attic.</p>
+            <p class="inq"><b>In the quote:</b> demo, waterproofing, tile, vanity, fixtures, fan, permit when plumbing moves.</p>
+          </div>
+        </li>
+        <li class="svc">
+          <span class="rule" aria-hidden="true"></span>
+          <h3 data-reveal>Basement finishing</h3>
+          <div data-reveal>
+            <p>Framing, insulation, drywall, and a bathroom or wet bar if you want one. A basement bedroom needs a code egress window, so we size it and permit it before the first stud goes up.</p>
+            <p class="inq"><b>In the quote:</b> framing, egress window, insulation, electrical, drywall, flooring, permit.</p>
+          </div>
+        </li>
+        <li class="svc">
+          <span class="rule" aria-hidden="true"></span>
+          <h3 data-reveal>Decks and patios</h3>
+          <div data-reveal>
+            <p>Composite or cedar decks with the ledger board flashed and bolted to the house, footings dug below the frost line, and railings built to code. Concrete and paver patios too.</p>
+            <p class="inq"><b>In the quote:</b> footings, framing, decking, railings, stairs, permit.</p>
+          </div>
+        </li>
+        <li class="svc">
+          <span class="rule" aria-hidden="true"></span>
+          <h3 data-reveal>Additions and repairs</h3>
+          <div data-reveal>
+            <p>Bump-outs, mudrooms and full room additions tied into your existing roof, plus the repairs an older house needs: rotted sills, sagging floors, siding and storm damage.</p>
+            <p class="inq"><b>In the quote:</b> foundation, framing, roofing, siding, interior finish, permit.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="local" id="local">
+  <div class="wrap">
+    <div class="local-head">
+      <div>
+        <p class="eyebrow" data-reveal>Building in El Paso County</p>
+        <h2 data-reveal>Permits, hail and March snow</h2>
+      </div>
+      <p class="lede" data-reveal>Building here means a regional building department, a long hail season and a snowiest month that lands in spring. We plan for all three before your quote is final.</p>
+    </div>
+    <div class="local-grid">
+      <article class="fact fact-main">
+        <span class="rule" aria-hidden="true"></span>
+        <h3 data-reveal>Permits go through Pikes Peak Regional</h3>
+        <div data-reveal>
+          <p>The Pikes Peak Regional Building Department issues permits and runs inspections for Colorado Springs, El Paso County, Woodland Park and several nearby towns. It also licenses the contractors allowed to pull those permits.</p>
+          <p>Remodels that move walls, plumbing or wiring, finish a basement, or add square footage need one. We pull it, book each inspection, and keep it posted on site. You never chase an inspector.</p>
+        </div>
+      </article>
+      <article class="fact">
+        <span class="rule" aria-hidden="true"></span>
+        <h3 data-reveal>Hail</h3>
+        <p data-reveal>The Front Range sees hail most summers. On additions we quote Class 4 impact-rated shingles, and we steer siding and decking toward materials that take a hit.</p>
+      </article>
+      <article class="fact">
+        <span class="rule" aria-hidden="true"></span>
+        <h3 data-reveal>Snow load</h3>
+        <p data-reveal>March is usually the snowiest month in Colorado Springs, and spring snow is wet and heavy. Roofs, decks and additions are framed to the snow loads in the regional building code.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="season" id="season" aria-labelledby="seasonTitle">
+  <div class="wrap season-grid">
+    <figure class="season-photo" data-reveal>
+      <div class="ph">
+        <img src="img/season-deck-700.webp" srcset="img/season-deck-700.webp 1x, img/season-deck-1400.webp 2x" width="1400" height="1120" alt="Wood deck with a stair down to a backyard of yellow fall trees" loading="lazy" decoding="async">
+      </div>
+    </figure>
+    <div class="season-body">
+      <h2 id="seasonTitle" data-reveal><span>Decks book up for spring.</span> <span>Plan yours this winter.</span></h2>
+      <p data-reveal>Basements, kitchens and baths are winter work: inside, heated, no weather days. Deck footings need thawed ground, so the spring calendar fills first. A deck designed and permitted over the winter gets one of the first build dates.</p>
+      <div class="gantt" role="img" aria-label="Year plan: inside work October through March, deck design and permits October through March, deck and patio builds April through September" data-reveal>
+        <div class="g-row">
+          <p class="g-label">Basements, kitchens, baths</p>
+          <div class="g-track"><span class="g-bar g-in" style="grid-column:1 / 4"></span><span class="g-bar g-in" style="grid-column:10 / 13"></span></div>
+        </div>
+        <div class="g-row">
+          <p class="g-label">Deck design and permit</p>
+          <div class="g-track"><span class="g-bar g-plan" style="grid-column:1 / 4"></span><span class="g-bar g-plan" style="grid-column:10 / 13"></span></div>
+        </div>
+        <div class="g-row">
+          <p class="g-label">Deck and patio builds</p>
+          <div class="g-track"><span class="g-bar g-out" style="grid-column:4 / 10"></span></div>
+        </div>
+        <ol class="g-months" aria-hidden="true">
+          <li><span class="l">Jan</span><span class="s">J</span></li><li><span class="l">Feb</span><span class="s">F</span></li><li><span class="l">Mar</span><span class="s">M</span></li>
+          <li><span class="l">Apr</span><span class="s">A</span></li><li><span class="l">May</span><span class="s">M</span></li><li><span class="l">Jun</span><span class="s">J</span></li>
+          <li><span class="l">Jul</span><span class="s">J</span></li><li><span class="l">Aug</span><span class="s">A</span></li><li><span class="l">Sep</span><span class="s">S</span></li>
+          <li><span class="l">Oct</span><span class="s">O</span></li><li><span class="l">Nov</span><span class="s">N</span></li><li><span class="l">Dec</span><span class="s">D</span></li>
+        </ol>
+      </div>
+      <a class="btn btn-ink" href="#quote" data-reveal>Get a written quote</a>
+    </div>
+  </div>
+</section>
+
+<section class="process" id="process">
+  <div class="wrap">
+    <div class="proc-head">
+      <h2 data-reveal>From framing to finish</h2>
+      <p class="lede" data-reveal>Five steps, the same on every job, so you always know which one you are in and what comes next.</p>
+    </div>
+    <div class="pair">
+      <figure class="pair-a" data-reveal>
+        <div class="ph"><img src="img/pair-framing-700.webp" srcset="img/pair-framing-700.webp 1x, img/pair-framing-1400.webp 2x" width="1400" height="933" alt="Two-story wood-framed addition rising beside an older white clapboard house" loading="lazy" decoding="async"></div>
+        <figcaption><b>Framing.</b> A two-story addition tied into an older house.</figcaption>
+      </figure>
+      <figure class="pair-b" data-reveal>
+        <div class="ph"><img src="img/pair-shower-700.webp" srcset="img/pair-shower-700.webp 1x, img/pair-shower-1400.webp 2x" width="1400" height="1600" alt="Finished walk-in shower with white subway tile, a patterned tile stripe and a recessed niche" loading="lazy" decoding="async"></div>
+        <figcaption><b>Finish.</b> Tile, glass and trim, ready for the final walkthrough.</figcaption>
+      </figure>
+    </div>
+    <div class="steps-wrap">
+    <span class="steps-track" aria-hidden="true"></span>
+    <span class="steps-fill" aria-hidden="true"></span>
+    <ol class="steps">
+      <li class="step" data-reveal><h3>Walkthrough</h3><p>We measure, look behind what we can, and listen. Free, and about an hour.</p></li>
+      <li class="step" data-reveal><h3>Written quote</h3><p>Line items, allowances for what you still need to pick, and a start date. Changes only happen by written change order.</p></li>
+      <li class="step" data-reveal><h3>Permit</h3><p>We file with Pikes Peak Regional and schedule the work around each inspection.</p></li>
+      <li class="step" data-reveal><h3>Build</h3><p>One lead on site every workday, and a short update every Friday: done, next, and anything you need to decide.</p></li>
+      <li class="step" data-reveal><h3>Final walkthrough</h3><p>We walk it together, finish the punch list, and close out the permit.</p></li>
+    </ol>
+    </div>
+  </div>
+</section>
+
+<section class="reviews" id="reviews">
+  <div class="wrap">
+    <div class="rev-head">
+      <h2 data-reveal>What clients say</h2>
+      <p class="sample-note" data-reveal>Sample layout. On your site these are your real Google reviews, quoted word for word.</p>
+    </div>
+    <div class="rev-grid">
+      <figure class="rev rev-big" data-reveal>
+        <blockquote>“Your strongest Google review goes here, word for word. The best ones name the project and say whether it finished when you said it would.”</blockquote>
+        <figcaption>First name, Google review</figcaption>
+      </figure>
+      <figure class="rev" data-reveal>
+        <blockquote>“A second review, ideally about the written quote: the price held, or a change was handled in writing.”</blockquote>
+        <figcaption>First name, Google review</figcaption>
+      </figure>
+      <figure class="rev" data-reveal>
+        <blockquote>“A third review about the crew: clean site, on time, easy to reach.”</blockquote>
+        <figcaption>First name, Google review</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="area" id="area">
+  <div class="wrap area-grid">
+    <div>
+      <h2 data-reveal>Where we work</h2>
+      <p data-reveal>Colorado Springs and the towns around it that permit through Pikes Peak Regional. We come to you for the walkthrough.</p>
+      <ul class="towns" data-reveal>
+        <li>Briargate</li><li>Northgate</li><li>Rockrimmon</li><li>Old Colorado City</li><li>Broadmoor</li><li>Cheyenne Mountain</li>
+        <li>Banning Lewis Ranch</li><li>Monument</li><li>Black Forest</li><li>Falcon</li><li>Fountain</li><li>Manitou Springs</li>
+        <li>Security-Widefield</li><li>Palmer Lake</li><li>Woodland Park</li>
+      </ul>
+      <a class="btn btn-line" href="https://www.google.com/maps/search/?api=1&amp;query=Colorado+Springs,+CO" target="_blank" rel="noopener" data-reveal>See the service area</a>
+    </div>
+    <aside class="hours" data-reveal>
+      <h3>Office hours</h3>
+      <dl>
+        <dt>Mon to Fri</dt><dd>7 am to 5 pm</dd>
+        <dt>Saturday</dt><dd>Walkthroughs by appointment</dd>
+        <dt>Sunday</dt><dd>Closed</dd>
+      </dl>
+      <p>Service-area business. There is no showroom to visit; we meet you at the house.</p>
+    </aside>
+  </div>
+</section>
+
+<section class="contact" id="quote">
+  <div class="wrap contact-grid">
+    <div class="contact-form">
+      <p class="eyebrow" data-reveal>Free walkthrough</p>
+      <h2 data-reveal>Get a written quote</h2>
+      <p data-reveal>Tell us about the project. We call back within one business day to set up a walkthrough.</p>
+      <form name="quote" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="quoteForm" data-reveal>
+        <input type="hidden" name="form-name" value="quote">
+        <p class="hp" aria-hidden="true"><label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+        <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
+        <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required></div>
+        <div class="field"><label for="f-email">Email <span>(optional)</span></label><input id="f-email" name="email" type="email" autocomplete="email"></div>
+        <div class="field"><label for="f-where">Neighborhood or zip</label><input id="f-where" name="location" type="text" autocomplete="postal-code"></div>
+        <div class="field"><label for="f-project">Project</label>
+          <select id="f-project" name="project">
+            <option>Kitchen remodel</option><option>Bathroom remodel</option><option>Basement finishing</option>
+            <option>Deck or patio</option><option>Addition or repair</option><option>Not sure yet</option>
+          </select></div>
+        <div class="field"><label for="f-when">Timing</label>
+          <select id="f-when" name="timing">
+            <option>This winter</option><option>Spring</option><option>Summer or later</option><option>Just pricing it out</option>
+          </select></div>
+        <div class="field full"><label for="f-msg">What are you thinking? <span>(optional)</span></label><textarea id="f-msg" name="message" rows="4"></textarea></div>
+        <div class="form-foot">
+          <button class="btn btn-call" type="submit">Get a written quote</button>
+          <p class="form-msg" id="formMsg" role="status" aria-live="polite"></p>
+        </div>
+      </form>
+    </div>
+    <aside class="call-block" data-reveal>
+      <p>Rather talk it through?</p>
+      <a class="call-big" href="tel:+17195550163" data-tel><span>Call</span><strong data-phone-display>(719) 555-0163</strong></a>
+      <p class="small">Mon to Fri, 7 am to 5 pm. After hours, leave a message and we call back the next business morning.</p>
+    </aside>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-grid">
+    <div class="foot-brand">
+      <a class="brand" href="#top" aria-label="Ledgerline Builders, back to top">
+        <svg class="mark" viewBox="0 0 40 40" aria-hidden="true" fill="none">
+          <rect x="5.5" y="5.5" width="29" height="29" stroke="currentColor" stroke-width="3"/>
+          <path class="chalk" d="M0 15.5H40" stroke-width="3.2"/>
+          <path d="M11.5 17.6v6.4M17.5 17.6v3.6M23.5 17.6v6.4M29.5 17.6v3.6" stroke="currentColor" stroke-width="2.2"/>
+        </svg>
+        <span class="brand-name"><b>Ledgerline</b><small>Builders</small></span>
+      </a>
+      <p>General contractor for kitchens, baths, basements, decks and additions.</p>
+    </div>
+    <div>
+      <h3>Phone</h3>
+      <a class="foot-link" href="tel:+17195550163" data-tel><span data-phone-display>(719) 555-0163</span></a>
+    </div>
+    <div>
+      <h3>Area</h3>
+      <p>Colorado Springs, El Paso County and Woodland Park</p>
+    </div>
+    <div>
+      <h3>Hours</h3>
+      <p>Mon to Fri, 7 am to 5 pm<br>Sat by appointment</p>
+    </div>
+  </div>
+  <div class="wrap foot-legal">
+    <p>Ledgerline Builders is a fictional business.</p>
+    <a class="foot-link" href="../index.html">Sample build by SiteSprintPro</a>
+  </div>
+</footer>
+
+<div class="callbar">
+  <a class="btn btn-call" href="tel:+17195550163" data-tel>
+    <svg width="17" height="17" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25c1.1.37 2.3.57 3.6.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg>
+    Call <span data-phone-display>(719) 555-0163</span>
+  </a>
+  <a class="btn btn-ink" href="#quote">Get a written quote</a>
+</div>
+
+<a class="ssp-sample" href="../work/index.html" title="Back to the SiteSprintPro portfolio"><b>SAMPLE BUILD</b><span>Fictional business. Reviews and numbers are placeholders.</span></a>
+
+<!--@LIBS@-->
+<script>
+function init(){
+  if (init.done) return; init.done = true;
+  var html = document.documentElement;
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var $ = function(s, c){ return (c || document).querySelector(s); };
+  var $$ = function(s, c){ return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
+
+  /* contact details from CONFIG */
+  $$('[data-tel]').forEach(function(a){ a.href = 'tel:' + CONFIG.phone; });
+  $$('[data-phone-display]').forEach(function(el){ el.textContent = CONFIG.phoneDisplay; });
+
+  /* form: sample only */
+  var form = $('#quoteForm');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var msg = $('#formMsg');
+    msg.textContent = 'Sample form. On your site this sends the lead straight to your phone and email.';
+    msg.classList.add('on');
+  });
+
+  /* hero slider: crossfade 1.2s, hold 5.5s, slow zoom, paused off screen */
+  (function(){
+    var slides = $$('.slide');
+    if (reduce || slides.length < 2) return;
+    var i = 0, timer = null, onScreen = true;
+    requestAnimationFrame(function(){ requestAnimationFrame(function(){ slides[0].classList.add('zoom'); }); });
+    function go(){
+      var prev = slides[i];
+      i = (i + 1) % slides.length;
+      var next = slides[i];
+      prev.classList.remove('is-active'); prev.classList.add('is-prev');
+      next.classList.remove('zoom'); void next.offsetWidth;
+      next.classList.add('is-active', 'zoom');
+      setTimeout(function(){ prev.classList.remove('is-prev', 'zoom'); }, 1300);
+    }
+    function start(){ if (!timer && onScreen && !document.hidden) timer = setInterval(go, 6700); }
+    function stop(){ clearInterval(timer); timer = null; }
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function(entries){ onScreen = entries[0].isIntersecting; onScreen ? start() : stop(); }).observe($('.hero'));
+    }
+    document.addEventListener('visibilitychange', function(){ document.hidden ? stop() : start(); });
+    start();
+  })();
+
+  if (!window.gsap || !window.ScrollTrigger || reduce) { html.classList.add('ready'); return; }
+
+  gsap.registerPlugin(ScrollTrigger, SplitText);
+
+  /* smooth scroll */
+  var lenis = null;
+  if (window.Lenis) {
+    lenis = new Lenis({ lerp: 0.1, smoothWheel: true });
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add(function(t){ lenis.raf(t * 1000); });
+    gsap.ticker.lagSmoothing(0);
+    document.addEventListener('click', function(e){
+      var a = e.target.closest('a[href^="#"]'); if (!a) return;
+      var id = a.getAttribute('href'); var el = id.length > 1 && document.getElementById(id.slice(1));
+      if (!el) return;
+      e.preventDefault();
+      var off = -(parseFloat(getComputedStyle(html).getPropertyValue('--head-h')) || 68) - 8;
+      lenis.scrollTo(id === '#top' ? 0 : el, { offset: off, duration: 1.3 });
+    });
+  }
+
+  /* hero headline: masked line reveal */
+  var split = SplitText.create('#heroTitle', { type: 'lines,words', mask: 'lines', linesClass: 'ln' });
+  gsap.set(split.words, { yPercent: 110 });
+  html.classList.add('ready');
+  gsap.to(split.words, { yPercent: 0, duration: 1.15, ease: 'expo.out', stagger: 0.055, delay: 0.1 });
+
+  /* section reveals: transform and opacity, staggered, once */
+  var items = $$('[data-reveal]');
+  gsap.set(items, { y: 34, autoAlpha: 0 });
+  ScrollTrigger.batch(items, { start: 'top 90%', once: true,
+    onEnter: function(els){ gsap.to(els, { y: 0, autoAlpha: 1, duration: 1, ease: 'expo.out', stagger: 0.08, overwrite: true }); } });
+
+  /* ledger rules draw in */
+  $$('.rule').forEach(function(r){
+    gsap.fromTo(r, { scaleX: 0 }, { scaleX: 1, duration: 1.1, ease: 'power3.inOut', scrollTrigger: { trigger: r, start: 'top 90%', once: true } });
+  });
+
+  /* year plan bars */
+  gsap.fromTo('.g-bar', { scaleX: 0 }, { scaleX: 1, duration: 0.9, ease: 'power3.out', stagger: 0.12,
+    scrollTrigger: { trigger: '.gantt', start: 'top 85%', once: true } });
+
+  /* process line + photo pair drift */
+  var mm = gsap.matchMedia();
+  mm.add('(min-width: 901px)', function(){
+    gsap.fromTo('.steps-fill', { scaleX: 0 }, { scaleX: 1, ease: 'none', scrollTrigger: { trigger: '.steps-wrap', start: 'top 80%', end: 'bottom 60%', scrub: true } });
+  });
+  mm.add('(max-width: 900px)', function(){
+    gsap.fromTo('.steps-fill', { scaleY: 0 }, { scaleY: 1, ease: 'none', scrollTrigger: { trigger: '.steps-wrap', start: 'top 75%', end: 'bottom 55%', scrub: true } });
+  });
+  mm.add('(min-width: 861px)', function(){
+    gsap.fromTo('.pair-a img', { scale: 1.1, yPercent: -3 }, { yPercent: 3, ease: 'none', scrollTrigger: { trigger: '.pair', start: 'top bottom', end: 'bottom top', scrub: true } });
+    gsap.fromTo('.pair-b img', { scale: 1.12, yPercent: 4 }, { yPercent: -4, ease: 'none', scrollTrigger: { trigger: '.pair', start: 'top bottom', end: 'bottom top', scrub: true } });
+  });
+
+  window.addEventListener('load', function(){ ScrollTrigger.refresh(); });
+}
+
+function boot(){
+  var go = function(){ init(); };
+  if (document.fonts && document.fonts.ready) {
+    var t = setTimeout(go, 1800);
+    document.fonts.ready.then(function(){ clearTimeout(t); go(); });
+  } else { go(); }
+}
+document.addEventListener('DOMContentLoaded', boot);
+
+var CONFIG = {
+  phone: '+17195550163',
+  phoneDisplay: '(719) 555-0163',
+  email: 'office@ledgerline.example',
+  googleFormQuote: ''
+};
+</script>
+</body>
+</html>

@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sawbuck Fire Grill | Wood-fired dinner in Old Colorado City</title>
+<meta name="description" content="Sample build by SiteSprintPro. A fictional wood-fired grill in Old Colorado City, Colorado Springs.">
+<meta property="og:title" content="Sawbuck Fire Grill | Sample build by SiteSprintPro">
+<meta property="og:description" content="Wood-fired dinner in Old Colorado City. A sample site for a fictional restaurant.">
+<meta name="theme-color" content="#161412">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&display=swap" rel="stylesheet">
+<script>
+  document.documentElement.classList.add('js');
+  setTimeout(function(){ document.documentElement.classList.add('ready'); }, 2500);
+</script>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#161412; --bg-2:#1f1c19; --bg-3:#2a2622;
+  --text:#f1ebe3; --muted:#b9b0a6; --line:rgba(241,235,227,.14); --line-2:rgba(241,235,227,.26);
+  --ember:#d9622b; --ember-hi:#e57340; --ember-ink:#1b0f08;
+  --font:'Archivo','Arial Narrow','Helvetica Neue',Arial,sans-serif;
+  --r:4px; --pill:999px;
+  --pad:clamp(16px,5vw,64px);
+  --max:1240px;
+  --hdr:68px;
+  --shadow:0 18px 40px -18px rgba(8,6,5,.75);
+}
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+.lenis.lenis-stopped{overflow:clip}
+html{-webkit-text-size-adjust:100%;background:var(--bg)}
+body{font-family:var(--font);font-size:1.0625rem;font-weight:460;line-height:1.55;background:var(--bg);color:var(--text);
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-x:clip}
+a{color:inherit;text-decoration:none}
+img,svg{display:block}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--ember-hi);outline-offset:3px}
+::selection{background:var(--ember);color:var(--ember-ink)}
+.wrap{max-width:var(--max);margin:0 auto}
+.display{font-stretch:72%;font-weight:800;text-transform:uppercase;line-height:.94;letter-spacing:-.005em}
+.display em{font-style:italic;font-weight:800}
+h2.display{font-size:clamp(2.3rem,5.4vw,4.4rem);text-wrap:balance}
+p{max-width:62ch}
+.muted{color:var(--muted)}
+.ln-mask{padding-bottom:.14em;margin-bottom:-.14em}
+.js:not(.ready) #heroTitle{visibility:hidden}
+
+/* buttons: one pill system */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 24px;border-radius:var(--pill);
+  font-weight:700;font-size:1.02rem;white-space:nowrap;transition:transform .25s ease,background-color .25s ease,border-color .25s ease}
+.btn svg{width:18px;height:18px;flex:none}
+.btn-call{background:var(--ember);color:var(--ember-ink);box-shadow:var(--shadow)}
+.btn-call:hover{background:var(--ember-hi);transform:translateY(-2px)}
+.btn-call .num{font-variant-numeric:tabular-nums;font-weight:800;padding-left:10px;border-left:1px solid rgba(27,15,8,.35)}
+.btn-ghost{border:1.5px solid var(--line-2);color:var(--text);background:rgba(22,20,18,.35)}
+.btn-ghost:hover{border-color:var(--text);transform:translateY(-2px)}
+
+/* ---------- header ---------- */
+.top-sentinel{position:absolute;top:0;left:0;width:1px;height:24px;pointer-events:none}
+.hdr{position:fixed;inset:0 0 auto 0;z-index:50;height:var(--hdr);display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding:0 var(--pad);border-bottom:1px solid transparent;transition:background-color .35s ease,border-color .35s ease}
+.hdr.solid{background:rgba(22,20,18,.92);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-color:var(--line)}
+.brand{display:flex;align-items:center;gap:10px;min-height:44px}
+.brand svg{width:36px;height:36px}
+.brand-txt{display:flex;flex-direction:column;line-height:1}
+.brand-txt b{font-stretch:72%;font-weight:850;font-size:1.45rem;text-transform:uppercase;letter-spacing:.02em}
+.brand-txt span{font-size:.66rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);margin-top:3px}
+.nav{display:flex;align-items:center;gap:6px}
+.nav-links{display:flex;list-style:none;gap:2px;margin-right:10px}
+.nav-links a{display:inline-flex;align-items:center;min-height:44px;padding:0 12px;font-weight:600;font-size:.98rem;color:var(--muted);transition:color .2s}
+.nav-links a:hover{color:var(--text)}
+.nav-num{display:inline-flex;align-items:center;min-height:44px;padding:0 12px;font-weight:700;font-variant-numeric:tabular-nums}
+.hdr .btn{min-height:44px;padding:0 18px;font-size:.95rem}
+
+/* ---------- hero ---------- */
+.hero{position:relative;height:640px;height:min(92dvh,860px);min-height:560px;overflow:hidden;background:var(--bg)}
+.slides{position:absolute;inset:0}
+.slide{position:absolute;inset:0;opacity:0}
+.slide:first-child{opacity:1}
+.slide picture{display:block;width:100%;height:100%}
+.slide img{width:100%;height:100%}
+.slide img{object-fit:cover;transform-origin:50% 45%}
+.hero::after{content:'';position:absolute;inset:0;pointer-events:none;z-index:1;
+  background:
+    linear-gradient(180deg,rgba(16,13,11,.66) 0%,rgba(16,13,11,0) 20%),
+    linear-gradient(0deg,rgba(16,13,11,.96) 0%,rgba(16,13,11,.9) 30%,rgba(16,13,11,.74) 52%,rgba(16,13,11,.3) 72%,rgba(16,13,11,0) 86%)}
+.hero-copy{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:0 var(--pad) clamp(28px,5.5vh,60px)}
+.hero-copy .wrap{max-width:var(--max)}
+.hero h1{font-size:clamp(2.75rem,11.6vw,6.3rem);max-width:13.5em;text-wrap:balance;text-shadow:0 2px 24px rgba(10,8,6,.45)}
+.hero h1 em{color:var(--ember-hi)}
+.hero-sub{margin-top:18px;font-size:clamp(1.05rem,1.5vw,1.22rem);font-weight:500;max-width:44ch;color:#ece5dc}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.hero-where{display:flex;flex-wrap:wrap;align-items:center;gap:4px 14px;margin-top:14px;color:var(--muted);font-size:.98rem}
+.link-dir{display:inline-flex;align-items:center;gap:8px;min-height:44px;font-weight:700;color:var(--text);border-bottom:1.5px solid transparent}
+.link-dir svg{width:18px;height:18px;color:var(--ember-hi)}
+.link-dir:hover span{text-decoration:underline;text-underline-offset:4px}
+@media (min-width:900px){
+  .hero::after{background:
+    linear-gradient(180deg,rgba(16,13,11,.66) 0%,rgba(16,13,11,0) 20%),
+    linear-gradient(90deg,rgba(16,13,11,.78) 0%,rgba(16,13,11,.35) 45%,rgba(16,13,11,0) 70%),
+    linear-gradient(0deg,rgba(16,13,11,.92) 0%,rgba(16,13,11,.7) 30%,rgba(16,13,11,0) 66%)}
+}
+
+/* ---------- trust row ---------- */
+.trust{padding:30px var(--pad) 34px;border-bottom:1px solid var(--line)}
+.trust-note{font-size:.9rem;color:var(--muted);margin-bottom:14px}
+.trust ul{list-style:none;display:grid;grid-template-columns:1fr 1fr}
+.trust li{padding:16px 16px 16px 0}
+.trust li:nth-child(even){padding-left:16px;border-left:1px solid var(--line)}
+.trust li:nth-child(n+3){border-top:1px solid var(--line)}
+.slot{display:inline-block;border:1.5px dashed rgba(229,115,64,.7);border-radius:var(--r);padding:4px 10px;font-weight:750;font-size:1.02rem;line-height:1.3}
+.trust small{display:block;margin-top:8px;color:var(--muted);font-size:.9rem;line-height:1.4}
+@media (min-width:900px){
+  .trust ul{grid-template-columns:repeat(4,1fr)}
+  .trust li,.trust li:nth-child(even){padding:6px 24px;border-left:1px solid var(--line)}
+  .trust li:first-child{padding-left:0;border-left:0}
+  .trust li:nth-child(n+3){border-top:0}
+}
+
+/* ---------- menu ---------- */
+.menu{padding:clamp(72px,10vw,136px) var(--pad)}
+.menu-grid{display:grid;grid-template-columns:1fr;gap:36px}
+.menu-photo img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:var(--r)}
+.label{font-size:.8rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--ember-hi);margin-bottom:14px}
+.menu-intro{margin-top:16px;color:var(--muted)}
+.cats{display:grid;grid-template-columns:1fr;gap:44px;margin-top:40px}
+.cat h3{font-stretch:72%;font-weight:800;text-transform:uppercase;font-size:1.6rem;letter-spacing:.01em;color:var(--ember-hi);padding-bottom:10px;border-bottom:1.5px solid var(--line-2)}
+.items{list-style:none}
+.item{display:grid;grid-template-columns:1fr auto;column-gap:16px;padding:14px 0;border-bottom:1px solid var(--line)}
+.item b{font-weight:700;font-size:1.08rem;line-height:1.3}
+.item span{grid-column:1;color:var(--muted);font-size:.96rem;line-height:1.4;margin-top:2px}
+.item i{grid-row:1;grid-column:2;font-style:normal;font-weight:750;font-variant-numeric:tabular-nums}
+.fire .item b{font-size:1.2rem}
+.drinks-photo img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:var(--r)}
+.menu-foot{margin-top:28px;font-size:.92rem;color:var(--muted)}
+@media (min-width:700px){
+  .cats{grid-template-columns:1fr 1fr;gap:52px 40px}
+  .fire{grid-column:1/-1}
+  .fire .items{display:grid;grid-template-columns:1fr 1fr;column-gap:40px}
+  .drinks-photo img{aspect-ratio:4/5;height:100%}
+}
+@media (min-width:1000px){
+  .menu-grid{grid-template-columns:5fr 7fr;gap:72px;align-items:start}
+  .menu-photo{position:sticky;top:calc(var(--hdr) + 28px)}
+  .menu-photo img{aspect-ratio:4/5}
+}
+
+/* ---------- local ---------- */
+.local{padding:clamp(72px,10vw,136px) var(--pad);background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.local-grid{display:grid;grid-template-columns:1fr;gap:36px}
+.local-lede{margin-top:20px;font-size:1.12rem}
+.stops{list-style:none;border-bottom:1px solid var(--line)}
+.stops li{display:grid;grid-template-columns:1fr;gap:6px;padding:22px 0;border-top:1px solid var(--line)}
+.stops strong{font-stretch:72%;font-weight:800;text-transform:uppercase;font-size:clamp(1.55rem,3vw,2.1rem);line-height:1}
+.stops p{color:var(--muted)}
+.tip{display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px;margin-top:26px}
+.tip p{font-weight:600}
+@media (min-width:1000px){
+  .local-grid{grid-template-columns:5fr 7fr;gap:72px;align-items:end}
+  .stops li{grid-template-columns:minmax(220px,2fr) 3fr;gap:24px;align-items:baseline}
+}
+
+/* ---------- why ---------- */
+.band{position:relative;height:clamp(220px,36vw,500px);overflow:hidden;background:var(--bg)}
+.band picture{display:block}
+.band img{position:absolute;left:0;top:-8%;width:100%;height:116%;object-fit:cover}
+.why{padding:clamp(64px,9vw,120px) var(--pad) clamp(72px,10vw,136px)}
+.why-grid{display:grid;grid-template-columns:1fr;gap:36px}
+.points{list-style:none;display:grid;grid-template-columns:1fr;gap:34px}
+.points li{border-top:2px solid var(--ember);padding-top:18px}
+.points h3{font-size:1.3rem;font-weight:750;line-height:1.25;margin-bottom:8px}
+.points p{color:var(--muted)}
+@media (min-width:760px){
+  .points{grid-template-columns:1fr 1fr;gap:48px 40px}
+  .points li:nth-child(even){margin-top:56px}
+}
+@media (min-width:1000px){
+  .why-grid{grid-template-columns:4fr 8fr;gap:72px}
+  .why-grid h2{position:sticky;top:calc(var(--hdr) + 28px);align-self:start}
+}
+
+/* ---------- reviews ---------- */
+.reviews{padding:clamp(72px,10vw,136px) var(--pad);border-top:1px solid var(--line)}
+.rev-note{margin-top:14px;color:var(--muted);font-size:.95rem}
+.rev-grid{display:grid;grid-template-columns:1fr;gap:28px;margin-top:40px}
+.rev{margin:0}
+.rev blockquote{font-style:italic;font-weight:560;line-height:1.4}
+.rev figcaption{margin-top:14px;font-size:.92rem;font-weight:700;color:var(--muted)}
+.rev-main blockquote{font-size:clamp(1.45rem,2.6vw,2.15rem);line-height:1.3;max-width:28ch}
+.rev-side{display:grid;gap:28px}
+.rev-side .rev{border-left:2px solid var(--line-2);padding-left:20px}
+.rev-side blockquote{font-size:1.12rem}
+@media (min-width:900px){
+  .rev-grid{grid-template-columns:7fr 5fr;gap:64px;align-items:start}
+}
+
+/* ---------- hours ---------- */
+.hours{padding:clamp(72px,10vw,136px) var(--pad);background:var(--bg-2);border-top:1px solid var(--line)}
+.hours-grid{display:grid;grid-template-columns:1fr;gap:40px;margin-top:40px}
+table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+th,td{text-align:left;padding:13px 0;border-bottom:1px solid var(--line);font-size:1.02rem}
+th{font-weight:700}
+td{text-align:right;color:var(--muted);font-weight:600}
+tr.today th,tr.today td{color:var(--text)}
+tr.today th::after{content:'Today';margin-left:10px;font-size:.78rem;font-weight:700;color:var(--ember-hi);text-transform:uppercase;letter-spacing:.08em}
+.hours-note{margin-top:14px;font-size:.95rem;color:var(--muted)}
+.place{margin-top:28px}
+.place h3,.notes h3{font-size:1.18rem;font-weight:750;margin-bottom:6px}
+.place p,.notes p{color:var(--muted)}
+.place .btn{margin-top:16px}
+.notes{display:grid;gap:30px;align-content:start}
+.notes .call-inline{display:inline-flex;align-items:center;min-height:44px;font-weight:700;color:var(--text);text-decoration:underline;text-decoration-color:var(--ember);text-underline-offset:5px;text-decoration-thickness:2px}
+.room img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:var(--r)}
+@media (min-width:760px){
+  .hours-grid{grid-template-columns:1fr 1fr}
+  .room{grid-column:1/-1}
+  .room img{aspect-ratio:16/9}
+}
+@media (min-width:1100px){
+  .hours-grid{grid-template-columns:4fr 4fr 4fr;gap:56px}
+  .room{grid-column:auto}
+  .room img{aspect-ratio:4/5}
+}
+
+/* ---------- book ---------- */
+.callband{background:var(--ember);color:var(--ember-ink);padding:clamp(52px,7vw,96px) var(--pad)}
+.callband h2{font-size:clamp(1.9rem,4vw,3rem)}
+.bignum{display:inline-flex;align-items:center;min-height:44px;margin-top:10px;font-stretch:72%;font-weight:850;font-size:clamp(3rem,13.5vw,9.5rem);line-height:.95;letter-spacing:-.01em;font-variant-numeric:tabular-nums;color:var(--ember-ink)}
+.bignum:hover{text-decoration:underline;text-decoration-thickness:4px;text-underline-offset:10px}
+.callband p{margin-top:12px;font-weight:600;max-width:52ch}
+.formsec{padding:clamp(64px,9vw,120px) var(--pad)}
+.form-grid{display:grid;grid-template-columns:1fr;gap:32px}
+.form-grid h3{font-stretch:72%;font-weight:800;text-transform:uppercase;font-size:clamp(1.8rem,3.4vw,2.6rem);line-height:1}
+.form-grid .intro p{margin-top:14px;color:var(--muted)}
+form{background:var(--bg-2);border:1px solid var(--line);border-radius:var(--r);padding:clamp(20px,3vw,32px)}
+.f-grid{display:grid;grid-template-columns:1fr;gap:18px}
+.field label{display:block;font-size:.92rem;font-weight:700;margin-bottom:7px}
+.field input,.field select,.field textarea{width:100%;min-height:50px;padding:12px 14px;font-size:17px;line-height:1.3;background:var(--bg);border:1px solid var(--line-2);border-radius:var(--r);color:var(--text)}
+.field select{appearance:none;-webkit-appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),linear-gradient(135deg,var(--muted) 50%,transparent 50%);background-position:calc(100% - 20px) 50%,calc(100% - 14px) 50%;background-size:6px 6px;background-repeat:no-repeat;padding-right:40px}
+.field input::placeholder,.field textarea::placeholder{color:#8f877e}
+.field input:focus,.field select:focus,.field textarea:focus{outline:2px solid var(--ember);outline-offset:0;border-color:transparent}
+.field textarea{min-height:110px;resize:vertical}
+.field input[type=date]{color-scheme:dark}
+.f-wide{grid-column:1/-1}
+.hp{display:none}
+form .btn-call{width:100%;margin-top:22px;border:0;cursor:pointer;font-size:1.06rem}
+.form-msg{margin-top:16px;padding:14px 16px;border-left:2px solid var(--ember);background:var(--bg-3);font-weight:600}
+.form-msg[hidden]{display:none}
+@media (min-width:600px){ .f-grid{grid-template-columns:1fr 1fr} }
+@media (min-width:1000px){ .form-grid{grid-template-columns:5fr 7fr;gap:72px} }
+
+/* ---------- footer ---------- */
+.foot{padding:56px var(--pad) 40px;border-top:1px solid var(--line);background:var(--bg)}
+.foot-grid{display:grid;grid-template-columns:1fr;gap:32px}
+.foot h4{font-size:.95rem;font-weight:750;margin-bottom:10px}
+.foot p,.foot li{color:var(--muted);font-size:.98rem}
+.foot ul{list-style:none}
+.foot a{display:inline-flex;align-items:center;min-height:44px;color:var(--text);font-weight:600}
+.foot a:hover{color:var(--ember-hi)}
+.foot .brand{margin-bottom:8px}
+.fineprint{margin-top:36px;padding-top:20px;border-top:1px solid var(--line);font-size:.92rem;color:var(--muted);display:flex;flex-wrap:wrap;align-items:center;gap:0 6px}
+.fineprint a{text-decoration:underline;text-underline-offset:4px}
+@media (min-width:760px){ .foot-grid{grid-template-columns:repeat(2,1fr)} }
+@media (min-width:1100px){ .foot-grid{grid-template-columns:4fr 3fr 3fr 2fr} }
+
+/* ---------- phone call bar ---------- */
+.callbar{display:none}
+@media (max-width:760px){
+  :root{--hdr:64px}
+  .nav-links,.nav-num{display:none}
+  .brand svg{width:32px;height:32px}
+  .brand-txt b{font-size:1.3rem}
+  body{padding-bottom:calc(76px + env(safe-area-inset-bottom))}
+  .callbar{display:grid;grid-template-columns:1.6fr 1fr;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:60;
+    padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(22,20,18,.96);border-top:1px solid var(--line);
+    -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+  .callbar .btn{min-height:52px;padding:0 14px}
+  .hero-ctas .btn{flex:1 1 100%}
+}
+
+/* ---------- reduced motion ---------- */
+@media (prefers-reduced-motion: reduce){
+  .slide:not(:first-child){display:none}
+  *,*::before,*::after{transition:none!important;animation:none!important;scroll-behavior:auto!important}
+}
+
+/* sample badge (kept exactly) */
+.ssp-sample{position:fixed;left:12px;bottom:12px;z-index:9999;display:flex;align-items:center;gap:8px;background:rgba(17,17,17,0.92);color:#fff;font:700 12px/1.3 -apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;letter-spacing:.02em;padding:9px 13px;border-radius:999px;box-shadow:0 4px 18px rgba(0,0,0,.35);text-decoration:none;max-width:calc(100vw - 24px)}
+.ssp-sample b{background:#7ed957;color:#111;border-radius:999px;padding:2px 8px;font-weight:800}
+@media (max-width:760px){ .ssp-sample{top:calc(var(--hdr) + 8px);bottom:auto} }
+
+/* SiteSprintPro: compact sample badge on phones */
+@media (max-width:760px){.ssp-sample span{display:none}.ssp-sample{padding:6px 9px;font-size:11px;box-shadow:0 2px 10px rgba(0,0,0,.25)}}
+</style>
+</head>
+<body>
+<div class="top-sentinel" id="topSentinel" aria-hidden="true"></div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></symbol>
+    <symbol id="i-mark" viewBox="0 0 40 40">
+      <path d="M8 36 26 8M32 36 14 8" fill="none" stroke="currentColor" stroke-width="3.6" stroke-linecap="round"/>
+      <path d="M5 36h8M27 36h8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" opacity=".55"/>
+      <circle cx="20" cy="10.6" r="5.4" fill="#d9622b"/>
+      <circle cx="20" cy="10.6" r="2.9" fill="none" stroke="#1b0f08" stroke-width="1.2" opacity=".7"/>
+      <circle cx="20" cy="10.6" r=".9" fill="#1b0f08" opacity=".7"/>
+    </symbol>
+  </defs>
+</svg>
+
+<header class="hdr" id="hdr">
+  <a class="brand" href="#top" aria-label="Sawbuck Fire Grill, back to top">
+    <svg aria-hidden="true"><use href="#i-mark"/></svg>
+    <span class="brand-txt"><b>Sawbuck</b><span>Fire Grill</span></span>
+  </a>
+  <nav class="nav" aria-label="Main">
+    <ul class="nav-links">
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#hours">Hours</a></li>
+      <li><a href="#book">Reservations</a></li>
+    </ul>
+    <a class="nav-num" href="tel:+17195550191" data-tel data-phone-display>(719) 555-0191</a>
+    <a class="btn btn-call" href="tel:+17195550191" data-tel><svg aria-hidden="true"><use href="#i-phone"/></svg>Call to book</a>
+  </nav>
+</header>
+
+<main>
+<section class="hero" id="top" aria-label="Sawbuck Fire Grill">
+  <div class="slides">
+    <div class="slide"><picture>
+      <source media="(max-width: 700px)" srcset="img/hero-fire-portrait.webp" width="900" height="1350">
+      <img src="img/hero-fire-1920.webp" srcset="img/hero-fire-960.webp 960w, img/hero-fire-1920.webp 1920w" sizes="100vw" width="1920" height="1080" alt="Meat searing on an iron grate over an open wood fire" fetchpriority="high">
+    </picture></div>
+    <div class="slide"><picture>
+      <source media="(max-width: 700px)" srcset="img/hero-plate-portrait.webp" width="900" height="1350">
+      <img src="img/hero-plate-1920.webp" srcset="img/hero-plate-960.webp 960w, img/hero-plate-1920.webp 1920w" sizes="100vw" width="1920" height="1080" alt="Sliced steak on a dark plate with a small dish of sauce" loading="lazy" decoding="async">
+    </picture></div>
+    <div class="slide"><picture>
+      <source media="(max-width: 700px)" srcset="img/hero-room-portrait.webp" width="900" height="1350">
+      <img src="img/hero-room-1920.webp" srcset="img/hero-room-960.webp 960w, img/hero-room-1920.webp 1920w" sizes="100vw" width="1920" height="1080" alt="The dining room set for dinner, warm lights over wood tables" loading="lazy" decoding="async">
+    </picture></div>
+    <div class="slide"><picture>
+      <source media="(max-width: 700px)" srcset="img/hero-grill-portrait.webp" width="900" height="1350">
+      <img src="img/hero-grill-1920.webp" srcset="img/hero-grill-960.webp 960w, img/hero-grill-1920.webp 1920w" sizes="100vw" width="1920" height="1080" alt="A bone-in steak turned with tongs over glowing coals" loading="lazy" decoding="async">
+    </picture></div>
+  </div>
+  <div class="hero-copy">
+    <div class="wrap">
+      <h1 class="display" id="heroTitle"><em>Wood-fired</em> dinner in Old Colorado City</h1>
+      <p class="hero-sub">Steaks, chops and Colorado trout cooked over split oak. Dinner Tuesday to Sunday, bar seats held for walk-ins.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-call" href="tel:+17195550191" data-tel><svg aria-hidden="true"><use href="#i-phone"/></svg>Call to book <span class="num" data-phone-display>(719) 555-0191</span></a>
+        <a class="btn btn-ghost" href="#menu">See the menu</a>
+      </div>
+      <div class="hero-where">
+        <a class="link-dir" href="https://www.google.com/maps/search/?api=1&amp;query=Old+Colorado+City,+Colorado+Springs,+CO" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-pin"/></svg><span>Directions</span></a>
+        <span>Old Colorado City, Colorado Springs</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="trust" aria-label="Placeholders for your details">
+  <div class="wrap">
+    <p class="trust-note">Placeholders. Your real details go here.</p>
+    <ul>
+      <li data-reveal><span class="slot">Your Google rating</span><small>Stars and review count, linked to your profile</small></li>
+      <li data-reveal><span class="slot">Years in business</span><small>The year you opened the doors</small></li>
+      <li data-reveal><span class="slot">Where your beef comes from</span><small>The ranch or supplier you buy from</small></li>
+      <li data-reveal><span class="slot">Largest party you seat</span><small>So groups know before they call</small></li>
+    </ul>
+  </div>
+</section>
+
+<section class="menu" id="menu">
+  <div class="wrap menu-grid">
+    <div class="menu-photo" data-reveal>
+      <picture><source media="(max-width: 700px)" srcset="img/menu-steak-700.webp" width="700" height="875"><img src="img/menu-steak-1400.webp" width="1400" height="1750" alt="Sliced steak, pink in the middle, on a wooden board with coarse salt" loading="lazy" decoding="async"></picture>
+    </div>
+    <div>
+      <p class="label">Sample menu</p>
+      <h2 class="display">Dinner menu</h2>
+      <p class="menu-intro">Short on purpose and built around the fire. It changes with the season, so call if you want to know what is on tonight.</p>
+      <div class="cats">
+        <div class="cat fire" data-reveal>
+          <h3>From the fire</h3>
+          <ul class="items">
+            <li class="item"><b>12 oz New York strip</b><i>$42</i><span>Herb butter, charred lemon</span></li>
+            <li class="item"><b>8 oz filet</b><i>$48</i><span>Red wine sauce, roasted shallot</span></li>
+            <li class="item"><b>Bone-in pork chop</b><i>$31</i><span>Apple mustard, grilled onions</span></li>
+            <li class="item"><b>Colorado lamb chops</b><i>$39</i><span>Mint and parsley salsa verde</span></li>
+            <li class="item"><b>Colorado trout</b><i>$28</i><span>Brown butter, almonds, lemon</span></li>
+            <li class="item"><b>Fire-grilled burger</b><i>$19</i><span>Aged cheddar, house pickles, fries</span></li>
+          </ul>
+        </div>
+        <div class="cat" data-reveal>
+          <h3>Starters</h3>
+          <ul class="items">
+            <li class="item"><b>Roasted bone marrow</b><i>$16</i><span>Grilled bread, parsley, shallot</span></li>
+            <li class="item"><b>Smoked trout dip</b><i>$14</i><span>Pickled onion, crackers</span></li>
+            <li class="item"><b>Charred Brussels sprouts</b><i>$12</i><span>Honey, chile, lime</span></li>
+            <li class="item"><b>Grilled flatbread</b><i>$11</i><span>Whipped feta, roasted garlic</span></li>
+          </ul>
+        </div>
+        <div class="cat" data-reveal>
+          <h3>Sides</h3>
+          <ul class="items">
+            <li class="item"><b>Fire-roasted potatoes</b><i>$9</i><span>Garlic aioli</span></li>
+            <li class="item"><b>Grilled corn</b><i>$9</i><span>Chile butter, cotija</span></li>
+            <li class="item"><b>Charred broccolini</b><i>$9</i><span>Lemon, chile flake</span></li>
+            <li class="item"><b>Smoked mac and cheese</b><i>$10</i><span>Sharp cheddar, toasted crumbs</span></li>
+          </ul>
+        </div>
+        <div class="cat" data-reveal>
+          <h3>Drinks</h3>
+          <ul class="items">
+            <li class="item"><b>House old fashioned</b><i>$13</i><span>Colorado whiskey, orange</span></li>
+            <li class="item"><b>Smoked Manhattan</b><i>$14</i><span>Rye, sweet vermouth, oak smoke</span></li>
+            <li class="item"><b>Colorado draft beer</b><i>$7</i><span>Ask what is pouring tonight</span></li>
+            <li class="item"><b>Wine by the glass</b><i>$10 to $15</i><span>Red, white and rosé</span></li>
+            <li class="item"><b>Grilled lemonade</b><i>$6</i><span>No alcohol, lemons charred on the grill</span></li>
+          </ul>
+        </div>
+        <div class="drinks-photo" data-reveal>
+          <picture><source media="(max-width: 700px)" srcset="img/bar-glass-700.webp" width="700" height="875"><img src="img/bar-glass-1400.webp" width="1400" height="1750" alt="A whiskey cocktail in a ribbed glass on the corner of a wood bar" loading="lazy" decoding="async"></picture>
+        </div>
+      </div>
+      <p class="menu-foot">Sample menu and prices. Your real menu goes here.</p>
+    </div>
+  </div>
+</section>
+
+<section class="local" id="local">
+  <div class="wrap local-grid">
+    <div data-reveal>
+      <h2 class="display">Dinner after Garden of the Gods</h2>
+      <p class="local-lede">Old Colorado City sits a few minutes from Garden of the Gods and Manitou Springs. If you spent the day on the trails or drove up Pikes Peak, we are on your way back into town.</p>
+    </div>
+    <div>
+      <ul class="stops">
+        <li data-reveal><strong>Garden of the Gods</strong><p>Just north of the neighborhood. Come straight from the trailhead, hiking clothes are fine.</p></li>
+        <li data-reveal><strong>Manitou Springs</strong><p>Straight west on Colorado Avenue, which turns into Manitou Avenue at the town line.</p></li>
+        <li data-reveal><strong>Pikes Peak</strong><p>The highway starts in Cascade, up US 24, and the Cog Railway leaves from Manitou. Both routes come back down past Old Colorado City.</p></li>
+      </ul>
+      <div class="tip" data-reveal>
+        <p>Heading down the mountain? Call and we will tell you the wait.</p>
+        <a class="btn btn-ghost" href="tel:+17195550191" data-tel><svg aria-hidden="true"><use href="#i-phone"/></svg>Call to book</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="band" aria-hidden="true">
+  <picture><source media="(max-width: 700px)" srcset="img/embers-700.webp" width="700" height="394"><img src="img/embers-1400.webp" width="1400" height="788" alt="" loading="lazy" decoding="async"></picture>
+</div>
+
+<section class="why" id="why">
+  <div class="wrap why-grid">
+    <h2 class="display" data-reveal>How dinner works here</h2>
+    <ul class="points">
+      <li data-reveal><h3>Split oak, every night</h3><p>We light the oak in the afternoon so the coals are ready by open. Steaks, chops and fish all cook over it. No gas grill.</p></li>
+      <li data-reveal><h3>Cooked to your temperature</h3><p>Every steak rests before it leaves the kitchen. Ask and we slice it for the table.</p></li>
+      <li data-reveal><h3>The bar is first come</h3><p>We never book the bar seats, so a dinner you decide on at 6 pm is still on the table.</p></li>
+      <li data-reveal><h3>Kids and hiking boots welcome</h3><p>High chairs, a short kids list, and nobody minds a little trail dust.</p></li>
+    </ul>
+  </div>
+</section>
+
+<section class="reviews" id="reviews">
+  <div class="wrap">
+    <h2 class="display" data-reveal>What guests say</h2>
+    <p class="rev-note" data-reveal>Sample layout. On your site these are your real Google reviews, quoted word for word.</p>
+    <div class="rev-grid">
+      <figure class="rev rev-main" data-reveal>
+        <blockquote>&ldquo;A guest&rsquo;s review of dinner here, quoted exactly as written on Google. The strongest ones name a dish.&rdquo;</blockquote>
+        <figcaption>First name, Google review</figcaption>
+      </figure>
+      <div class="rev-side">
+        <figure class="rev" data-reveal>
+          <blockquote>&ldquo;A review from someone who came in after a hike or a day in Manitou, word for word.&rdquo;</blockquote>
+          <figcaption>First name, Google review</figcaption>
+        </figure>
+        <figure class="rev" data-reveal>
+          <blockquote>&ldquo;A review about a birthday, a big group or the back room, word for word.&rdquo;</blockquote>
+          <figcaption>First name, Google review</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hours" id="hours">
+  <div class="wrap">
+    <h2 class="display" data-reveal>Hours and location</h2>
+    <div class="hours-grid">
+      <div data-reveal>
+        <table aria-label="Dinner hours">
+          <tbody>
+            <tr data-days="1"><th scope="row">Monday</th><td>Closed</td></tr>
+            <tr data-days="2,3,4"><th scope="row">Tuesday to Thursday</th><td>4 to 9 pm</td></tr>
+            <tr data-days="5,6"><th scope="row">Friday and Saturday</th><td>4 to 10 pm</td></tr>
+            <tr data-days="0"><th scope="row">Sunday</th><td>4 to 9 pm</td></tr>
+          </tbody>
+        </table>
+        <p class="hours-note">Last seating 30 minutes before close.</p>
+        <div class="place">
+          <h3>Old Colorado City, Colorado Springs</h3>
+          <p>Street parking and public lots close by.</p>
+          <a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&amp;query=Old+Colorado+City,+Colorado+Springs,+CO" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-pin"/></svg>Directions</a>
+        </div>
+      </div>
+      <div class="notes" data-reveal>
+        <div>
+          <h3>Reservations and large parties</h3>
+          <p>We take reservations by phone. The bar is first come. For 8 or more, call at least two days ahead so we can set one long table.</p>
+          <a class="call-inline" href="tel:+17195550191" data-tel data-phone-display>(719) 555-0191</a>
+        </div>
+        <div>
+          <h3>Private events</h3>
+          <p>The back room takes birthdays, rehearsal dinners and work dinners. Call to ask about open dates.</p>
+        </div>
+      </div>
+      <div class="room" data-reveal>
+        <picture><source media="(max-width: 700px)" srcset="img/room-back-700.webp" width="700" height="875"><img src="img/room-back-1400.webp" width="1400" height="1750" alt="A long banquette and marble tables in the back room" loading="lazy" decoding="async"></picture>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="book" id="book">
+  <div class="callband">
+    <div class="wrap" data-reveal>
+      <h2 class="display">Call to book</h2>
+      <a class="bignum" href="tel:+17195550191" data-tel data-phone-display>(719) 555-0191</a>
+      <p>We answer from 2 pm, Tuesday to Sunday. Same-night tables are often open early in the week.</p>
+    </div>
+  </div>
+  <div class="formsec">
+    <div class="wrap form-grid">
+      <div class="intro" data-reveal>
+        <h3>Or send a request</h3>
+        <p>Tell us the night, the time and how many. We call back to confirm before the table is held.</p>
+      </div>
+      <form name="booking" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="bookForm" data-reveal>
+        <input type="hidden" name="form-name" value="booking">
+        <p class="hp"><label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+        <div class="f-grid">
+          <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
+          <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required></div>
+          <div class="field"><label for="f-date">Date</label><input id="f-date" name="date" type="date" required></div>
+          <div class="field"><label for="f-time">Time</label>
+            <select id="f-time" name="time" required>
+              <option value="">Pick a time</option>
+              <option>4:00 pm</option><option>4:30 pm</option><option>5:00 pm</option><option>5:30 pm</option>
+              <option>6:00 pm</option><option>6:30 pm</option><option>7:00 pm</option><option>7:30 pm</option>
+              <option>8:00 pm</option><option>8:30 pm</option><option>9:00 pm (Fri and Sat)</option>
+            </select></div>
+          <div class="field"><label for="f-party">Party size</label>
+            <select id="f-party" name="party" required>
+              <option value="">How many</option>
+              <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option>
+              <option>8 or more</option>
+            </select></div>
+          <div class="field"><label for="f-occasion">Occasion (optional)</label><input id="f-occasion" name="occasion" type="text" placeholder="Birthday, anniversary"></div>
+          <div class="field f-wide"><label for="f-notes">Anything we should know</label><textarea id="f-notes" name="notes" rows="3" placeholder="High chair, allergies, coming from a hike"></textarea></div>
+        </div>
+        <button class="btn btn-call" type="submit">Request a table</button>
+        <p class="form-msg" id="formMsg" role="status" hidden></p>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="#top" aria-label="Sawbuck Fire Grill, back to top">
+          <svg aria-hidden="true"><use href="#i-mark"/></svg>
+          <span class="brand-txt"><b>Sawbuck</b><span>Fire Grill</span></span>
+        </a>
+        <p>Wood-fired grill in Old Colorado City, Colorado Springs, CO</p>
+        <a href="tel:+17195550191" data-tel data-phone-display>(719) 555-0191</a>
+      </div>
+      <div>
+        <h4>Hours</h4>
+        <ul>
+          <li>Tuesday to Thursday, 4 to 9 pm</li>
+          <li>Friday and Saturday, 4 to 10 pm</li>
+          <li>Sunday, 4 to 9 pm</li>
+          <li>Closed Monday</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Quick links</h4>
+        <ul>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#book">Reservations</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&amp;query=Old+Colorado+City,+Colorado+Springs,+CO" target="_blank" rel="noopener">Directions</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Groups</h4>
+        <p>Parties of 8 or more and private events, call to plan.</p>
+      </div>
+    </div>
+    <p class="fineprint"><span>Sawbuck Fire Grill is a fictional business.</span> <a href="../index.html">Sample build by SiteSprintPro.</a></p>
+  </div>
+</footer>
+
+<nav class="callbar" aria-label="Quick actions">
+  <a class="btn btn-call" href="tel:+17195550191" data-tel><svg aria-hidden="true"><use href="#i-phone"/></svg>Call to book</a>
+  <a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&amp;query=Old+Colorado+City,+Colorado+Springs,+CO" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-pin"/></svg>Directions</a>
+</nav>
+
+<a class="ssp-sample" href="../work/index.html" title="Back to the SiteSprintPro portfolio"><b>SAMPLE BUILD</b><span>Fictional business. Reviews and numbers are placeholders.</span></a>
+
+<!--@LIBS@-->
+<script>
+function init(){
+  var html = document.documentElement;
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var $ = function(s, c){ return (c || document).querySelector(s); };
+  var $$ = function(s, c){ return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
+
+  /* contact details from CONFIG */
+  $$('[data-tel]').forEach(function(a){ a.href = 'tel:' + CONFIG.phone; });
+  $$('[data-phone-display]').forEach(function(el){ el.textContent = CONFIG.phoneDisplay; });
+  $$('a[href*="google.com/maps"]').forEach(function(a){ a.href = CONFIG.directions; });
+
+  /* mark today's hours */
+  var day = String(new Date().getDay());
+  $$('tr[data-days]').forEach(function(tr){ if (tr.getAttribute('data-days').split(',').indexOf(day) > -1) tr.classList.add('today'); });
+
+  /* form: sample only */
+  var form = $('#bookForm'), msg = $('#formMsg');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    msg.textContent = 'Sample form. On your site this sends the lead straight to your phone and email.';
+    msg.hidden = false;
+  });
+
+  /* header turns solid once the page moves */
+  var hdr = $('#hdr');
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function(e){ hdr.classList.toggle('solid', !e[0].isIntersecting); }).observe($('#topSentinel'));
+  } else { hdr.classList.add('solid'); }
+
+  if (reduce || !window.gsap || !window.ScrollTrigger || !window.SplitText || !window.Lenis) {
+    html.classList.add('ready');
+    return;
+  }
+
+  gsap.registerPlugin(ScrollTrigger, SplitText);
+
+  /* smooth scroll */
+  var lenis = new Lenis({ lerp: 0.1, smoothWheel: true });
+  lenis.on('scroll', ScrollTrigger.update);
+  gsap.ticker.add(function(t){ lenis.raf(t * 1000); });
+  gsap.ticker.lagSmoothing(0);
+  document.addEventListener('click', function(e){
+    var a = e.target.closest('a[href^="#"]'); if (!a) return;
+    var id = a.getAttribute('href'); var el = id.length > 1 && document.getElementById(id.slice(1));
+    if (!el) return;
+    e.preventDefault();
+    lenis.scrollTo(id === '#top' ? 0 : el, { offset: -(hdr.offsetHeight - 1), duration: 1.2 });
+  });
+
+  /* hero headline: masked word rise */
+  var split = SplitText.create('#heroTitle', { type: 'lines,words', mask: 'lines', linesClass: 'ln' });
+  html.classList.add('ready');
+  gsap.timeline({ defaults: { ease: 'expo.out' } })
+    .from(split.words, { yPercent: 110, duration: 1.2, stagger: 0.06 })
+    .from('.hero-sub', { y: 18, autoAlpha: 0, duration: 1 }, 0.35)
+    .from('.hero-ctas > *', { y: 18, autoAlpha: 0, duration: 1, stagger: 0.08 }, 0.45)
+    .from('.hero-where', { autoAlpha: 0, duration: 1 }, 0.65);
+
+  /* hero slider: hold 5.5 s, crossfade 1.2 s, slow zoom, paused off screen */
+  (function(){
+    var slides = $$('.slide'); if (slides.length < 2) return;
+    var HOLD = 5.5, FADE = 1.2, cur = 0, timer = null, fade = null, zooms = [];
+    function zoom(s){ return gsap.fromTo(s.querySelector('img'), { scale: 1 }, { scale: 1.08, duration: HOLD + FADE * 2, ease: 'none' }); }
+    gsap.set(slides, { autoAlpha: 0, zIndex: 0 });
+    gsap.set(slides[0], { autoAlpha: 1, zIndex: 1 });
+    zooms.push(zoom(slides[0]));
+    function next(){
+      var prev = slides[cur]; cur = (cur + 1) % slides.length; var s = slides[cur];
+      gsap.set(prev, { zIndex: 1 }); gsap.set(s, { zIndex: 2 });
+      zooms.push(zoom(s)); if (zooms.length > 2) zooms.shift();
+      fade = gsap.fromTo(s, { autoAlpha: 0 }, { autoAlpha: 1, duration: FADE, ease: 'power1.inOut',
+        onComplete: function(){ gsap.set(prev, { autoAlpha: 0, zIndex: 0 }); } });
+      timer = gsap.delayedCall(HOLD + FADE, next);
+    }
+    timer = gsap.delayedCall(HOLD, next);
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function(e){
+        var on = e[0].isIntersecting;
+        [timer, fade].concat(zooms).forEach(function(t){ if (t) { on ? t.resume() : t.pause(); } });
+      }).observe($('.hero'));
+    }
+  })();
+
+  /* reveals: transform and opacity, once */
+  gsap.set('[data-reveal]', { y: 28, autoAlpha: 0 });
+  ScrollTrigger.batch('[data-reveal]', { start: 'top 90%', once: true,
+    onEnter: function(els){ gsap.to(els, { y: 0, autoAlpha: 1, duration: 1, ease: 'expo.out', stagger: 0.08, overwrite: true }); } });
+
+  /* menu rows settle in after their list appears */
+  $$('.cat').forEach(function(cat){
+    gsap.from(cat.querySelectorAll('.item'), { y: 14, autoAlpha: 0, duration: 0.8, ease: 'power3.out', stagger: 0.05,
+      scrollTrigger: { trigger: cat, start: 'top 85%', once: true } });
+  });
+
+  /* embers band drifts slower than the page */
+  gsap.fromTo('.band img', { yPercent: -6 }, { yPercent: 6, ease: 'none',
+    scrollTrigger: { trigger: '.band', start: 'top bottom', end: 'bottom top', scrub: true } });
+
+  ScrollTrigger.refresh();
+}
+
+var CONFIG = {
+  phone: '+17195550191',
+  phoneDisplay: '(719) 555-0191',
+  email: 'hello@example.com',
+  directions: 'https://www.google.com/maps/search/?api=1&query=Old+Colorado+City,+Colorado+Springs,+CO',
+  googleFormQuote: '', googleFormHOA: '', googleFormApply: ''
+};
+if (document.fonts && document.fonts.ready) { document.fonts.ready.then(init); } else { init(); }
+</script>
+</body>
+</html>

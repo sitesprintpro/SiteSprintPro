@@ -1,510 +1,388 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SiteSprintPro – Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SiteSprintPro | Websites for Colorado Springs businesses</title>
+<meta name="description" content="Websites for Colorado Springs businesses. Live in 2 to 3 days, one flat price, no monthly fees, and you own it.">
+<link rel="canonical" href="https://sitesprintpro.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SiteSprintPro">
+<meta property="og:title" content="SiteSprintPro | Websites for Colorado Springs businesses">
+<meta property="og:description" content="Websites for Colorado Springs businesses. Live in 2 to 3 days, one flat price, no monthly fees, and you own it.">
+<meta property="og:url" content="https://sitesprintpro.com/">
+<meta property="og:image" content="https://sitesprintpro.com/assets/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#121417">
+<link rel="icon" href="data:image/svg+xml,&lt;svg viewBox=&#x27;0 0 32 32&#x27; aria-hidden=&#x27;true&#x27;&gt;&lt;rect x=&#x27;1&#x27; y=&#x27;1&#x27; width=&#x27;30&#x27; height=&#x27;30&#x27; rx=&#x27;8&#x27; fill=&#x27;%231e2227&#x27; stroke=&#x27;rgba(237,234,228,.22)&#x27;/&gt;&lt;path d=&#x27;M7 20.5h7.5M9 15.5h11M11 10.5h14&#x27; stroke=&#x27;%23edeae4&#x27; stroke-width=&#x27;2.4&#x27; stroke-linecap=&#x27;round&#x27;/&gt;&lt;path d=&#x27;M18.5 20.5l3 0 4-4&#x27; stroke=&#x27;%23e2622a&#x27; stroke-width=&#x27;2.4&#x27; stroke-linecap=&#x27;round&#x27; stroke-linejoin=&#x27;round&#x27; fill=&#x27;none&#x27;/&gt;&lt;/svg&gt;">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:ital,wght@0,400..900;1,400..900&display=swap">
+<script>document.documentElement.className+=' js';</script>
 <style>
-  :root {
-    --black: #080c14; --navy: #0b1523; --blue: #1040a0;
-    --gold: #f97316; --gold-bg: rgba(249,115,22,0.1);
-    --white: #f8f8f4; --muted: rgba(248,248,244,0.5); --border: rgba(248,248,244,0.07);
-  }
-  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body { font-family: 'DM Sans', sans-serif; background: var(--black); color: var(--white); overflow-x: hidden; }
-  ::-webkit-scrollbar { width: 4px; }
-  ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 2px; }
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#121417;--bg2:#171a1e;--bg3:#1e2227;--line:rgba(237,234,228,.12);--line2:rgba(237,234,228,.22);
+  --text:#edeae4;--muted:rgba(237,234,228,.68);--faint:rgba(237,234,228,.5);
+  --accent:#e2622a;--accent2:#f07a45;--accent-ink:#1c0d05;
+  --r1:8px;--r2:16px;--r3:999px;
+  --pad:clamp(20px,5vw,64px);--max:1240px;
+  --font:'Schibsted Grotesk',ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
+}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:clip}
+a{color:inherit}
+img{display:block;max-width:100%;height:auto}
+:focus-visible{outline:2px solid var(--accent2);outline-offset:3px;border-radius:4px}
+::selection{background:var(--accent);color:var(--accent-ink)}
+.wrap{width:100%;max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
+.skip{position:absolute;left:-9999px}.skip:focus{left:12px;top:12px;z-index:200;background:var(--text);color:var(--bg);padding:10px 14px;border-radius:var(--r1)}
 
-  /* NAV */
-  nav {
-    position: fixed; top: 0; width: 100%; z-index: 300;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 18px 60px;
-    background: rgba(8,12,20,0.97); backdrop-filter: blur(16px);
-    border-bottom: 1px solid var(--border);
-    gap: 1rem;
-  }
-  .logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; letter-spacing: 3px; color: var(--white); text-decoration: none; flex-shrink: 0; }
-  .logo em { color: var(--gold); font-style: normal; }
-  .nav-right { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
-  .nav-link { color: var(--muted); text-decoration: none; font-size: 0.82rem; transition: color 0.2s; font-weight: 500; white-space: nowrap; }
-  .nav-link:hover { color: var(--white); }
-  .nav-link.active { color: var(--gold); }
-  .nav-cta { background: var(--gold); color: var(--black); padding: 10px 24px; border-radius: 6px; font-weight: 700; font-size: 0.82rem; text-decoration: none; transition: opacity 0.2s; white-space: nowrap; flex-shrink: 0; }
-  .nav-cta:hover { opacity: 0.88; }
-  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; z-index: 301; }
-  .hamburger span { display: block; width: 26px; height: 2px; background: var(--white); border-radius: 2px; transition: all 0.3s; }
-  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-  .hamburger.open span:nth-child(2) { opacity: 0; }
-  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-  .mobile-menu {
-    display: none; position: fixed; inset: 0; width: 100%; height: 100vh;
-    background: #080c14; z-index: 200;
-    flex-direction: column; align-items: center; justify-content: center; gap: 4px;
-  }
-  .mobile-menu.open { display: flex; }
-  .mobile-menu a {
-    font-family: 'Bebas Neue', sans-serif; font-size: 2.4rem; letter-spacing: 3px;
-    color: var(--muted); text-decoration: none; transition: color 0.2s; padding: 8px 0;
-  }
-  .mobile-menu a:hover, .mobile-menu a.active { color: var(--white); }
-  .mobile-menu .mobile-cta {
-    margin-top: 24px; background: var(--gold); color: var(--black) !important;
-    padding: 14px 44px; border-radius: 8px;
-    font-family: 'DM Sans', sans-serif; font-size: 1rem; font-weight: 700; letter-spacing: 0;
-  }
+/* header */
+.hdr{position:sticky;top:0;z-index:50;background:rgba(18,20,23,.86);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.hdr .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;height:64px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:800;font-size:1.12rem;letter-spacing:-.02em;min-height:44px}
+.brand svg{width:30px;height:30px;flex:none}
+.brand b{color:var(--accent2);font-weight:800}
+.nav{display:flex;align-items:center;gap:6px;list-style:none}
+.nav a{display:inline-flex;align-items:center;min-height:44px;padding:0 12px;text-decoration:none;color:var(--muted);font-weight:600;font-size:.95rem;border-radius:var(--r1)}
+.nav a:hover,.nav a[aria-current=page]{color:var(--text)}
+.nav a[aria-current=page]{text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:6px;text-decoration-thickness:2px}
+.call-pill{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 16px;border-radius:var(--r3);background:var(--text);color:var(--bg);text-decoration:none;font-weight:700;font-size:.95rem;white-space:nowrap}
+.call-pill svg{width:16px;height:16px}
+@media (max-width:900px){.nav{display:none}}
+@media (max-width:420px){.call-pill .num{display:none}}
 
-  /* HERO */
-  .hero {
-    min-height: 65vh; display: flex; align-items: center; justify-content: center;
-    text-align: center; padding: 140px 60px 80px;
-    position: relative; overflow: hidden;
-  }
-  .hero::before {
-    content: ''; position: absolute; inset: 0;
-    background: radial-gradient(ellipse 70% 80% at 50% 40%, rgba(16,64,160,0.3) 0%, transparent 70%);
-  }
-  .hero-grid {
-    position: absolute; inset: 0;
-    background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px);
-    background-size: 70px 70px;
-    mask-image: radial-gradient(ellipse 80% 90% at 50% 50%, black 0%, transparent 75%);
-  }
-  .hero-content { position: relative; z-index: 2; max-width: 720px; }
-  .hero-tag {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: var(--gold-bg); border: 1px solid rgba(249,115,22,0.25);
-    color: var(--gold); padding: 6px 18px; border-radius: 100px;
-    font-size: 0.72rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
-    margin-bottom: 28px;
-  }
-  .hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3.2rem, 6.5vw, 5.8rem); line-height: 0.95; letter-spacing: 2px; margin-bottom: 24px; }
-  .hero h1 em { color: var(--gold); font-style: normal; }
-  .hero-sub { font-size: 1rem; color: var(--muted); line-height: 1.8; max-width: 540px; margin: 0 auto 44px; font-weight: 300; }
-  .hero-proof { display: flex; align-items: center; justify-content: center; gap: 36px; flex-wrap: wrap; }
-  .proof-item { text-align: center; }
-  .proof-num { font-family: 'Bebas Neue', sans-serif; font-size: 2.4rem; color: var(--gold); line-height: 1; }
-  .proof-label { font-size: 0.7rem; color: var(--muted); margin-top: 4px; letter-spacing: 0.5px; }
-  .proof-div { width: 1px; height: 40px; background: var(--border); }
+/* buttons */
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 24px;border-radius:var(--r1);text-decoration:none;font-weight:700;font-size:1rem;border:1px solid transparent;white-space:nowrap;cursor:pointer;font-family:inherit;transition:transform .2s,background .2s,border-color .2s}
+.btn svg{width:18px;height:18px;flex:none}
+.btn-hot{background:var(--accent);color:var(--accent-ink)}
+.btn-hot:hover{background:var(--accent2);transform:translateY(-1px)}
+.btn-line{border-color:var(--line2);color:var(--text);background:transparent}
+.btn-line:hover{border-color:var(--text)}
+.small-note{color:var(--faint);font-size:.9rem;margin-top:14px}
 
-  /* PORTFOLIO SECTION */
-  .portfolio-section { padding: 80px 60px 100px; }
-  .section-header { text-align: center; margin-bottom: 60px; }
-  .section-tag {
-    font-size: 0.7rem; letter-spacing: 4px; text-transform: uppercase;
-    color: var(--gold); margin-bottom: 14px;
-    display: flex; align-items: center; justify-content: center; gap: 12px;
-  }
-  .section-tag::before, .section-tag::after { content: ''; width: 28px; height: 1px; background: var(--gold); }
-  .section-h { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.4rem, 4vw, 3.8rem); letter-spacing: 2px; margin-bottom: 16px; }
-  .section-sub { font-size: 0.92rem; color: var(--muted); max-width: 480px; margin: 0 auto; line-height: 1.7; }
+/* type */
+h1,h2,h3{letter-spacing:-.025em;line-height:1.04;font-weight:800}
+h1{font-size:clamp(2.6rem,5.6vw,5rem);letter-spacing:-.04em;line-height:.98}
+h2{font-size:clamp(1.8rem,3.2vw,2.7rem)}
+h3{font-size:1.25rem;line-height:1.2}
+.lede{color:var(--muted);font-size:clamp(1.05rem,1.5vw,1.22rem);max-width:34em}
+em{font-style:italic}
+.eyebrow{display:inline-block;font-size:.8rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent2);margin-bottom:18px}
 
-  /* CARDS GRID */
-  .cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
-  .card {
-    border-radius: 14px; overflow: hidden;
-    border: 1px solid var(--border); background: var(--navy);
-    display: flex; flex-direction: column;
-    transition: transform 0.3s, box-shadow 0.3s;
-  }
-  .card:hover { transform: translateY(-6px); box-shadow: 0 28px 64px rgba(0,0,0,0.55); }
-  .card.wide { grid-column: span 2; }
-  .card.tall .card-img { height: 300px; }
-  .card-img { height: 220px; position: relative; overflow: hidden; }
-  .card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; display: block; }
-  .card:hover .card-img img { transform: scale(1.05); }
-  .card-img-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(8,12,20,0.1) 0%, rgba(8,12,20,0.65) 100%); }
-  .card-img-label {
-    position: absolute; bottom: 14px; left: 16px;
-    background: var(--gold); color: var(--black);
-    font-size: 0.65rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
-    padding: 4px 12px; border-radius: 100px;
-  }
-  .card-info { padding: 22px 24px 24px; flex: 1; display: flex; flex-direction: column; justify-content: space-between; gap: 16px; }
-  .card-industry { font-size: 0.65rem; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 6px; }
-  .card-title { font-size: 1rem; font-weight: 700; margin-bottom: 6px; line-height: 1.3; }
-  .card-desc { font-size: 0.78rem; color: var(--muted); line-height: 1.65; }
-  .card-link {
-    display: inline-flex; align-items: center; gap: 6px;
-    background: var(--gold); color: var(--black);
-    padding: 10px 20px; border-radius: 6px;
-    font-size: 0.78rem; font-weight: 700; text-decoration: none;
-    transition: opacity 0.2s; align-self: flex-start; margin-top: 4px;
-  }
-  .card-link:hover { opacity: 0.88; }
+section{padding:clamp(72px,10vw,128px) 0}
+.sec-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.8fr);gap:24px 48px;align-items:end;margin-bottom:clamp(36px,5vw,60px)}
+@media (max-width:800px){.sec-head{grid-template-columns:minmax(0,1fr)}}
 
-  /* PRICING SECTION */
-  .pricing-section { padding: 100px 60px; background: var(--navy); }
-  .pricing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 900px; margin: 0 auto; }
-  .price-card {
-    border-radius: 16px; padding: 40px 36px;
-    border: 1px solid var(--border);
-    background: rgba(255,255,255,0.02);
-    position: relative; overflow: hidden;
-    transition: transform 0.25s;
-    display: flex; flex-direction: column;
-  }
-  .price-card:hover { transform: translateY(-4px); }
-  .price-card.featured { background: var(--blue); border-color: rgba(16,64,160,0.5); box-shadow: 0 20px 60px rgba(16,64,160,0.25); }
-  .price-badge {
-    position: absolute; top: 0; right: 0;
-    background: var(--gold); color: var(--black);
-    font-size: 0.62rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
-    padding: 5px 16px; border-radius: 0 16px 0 10px;
-  }
-  .pc-tier { font-size: 0.68rem; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
-  .pc-name { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 1px; margin-bottom: 6px; }
-  .pc-price { font-family: 'Bebas Neue', sans-serif; font-size: 4rem; color: var(--gold); line-height: 1; }
-  .pc-sub { font-size: 0.75rem; color: var(--muted); margin-bottom: 14px; }
-  .pc-free-badge {
-    display: inline-flex; align-items: center; gap: 6px;
-    background: rgba(249,115,22,0.1); border: 1px solid rgba(249,115,22,0.25);
-    color: var(--gold); font-size: 0.68rem; font-weight: 600; letter-spacing: 0.5px;
-    padding: 5px 12px; border-radius: 100px; margin-bottom: 24px;
-    width: fit-content;
-  }
-  .pc-divider { border: none; border-top: 1px solid var(--border); margin-bottom: 24px; }
-  .pc-features { list-style: none; display: flex; flex-direction: column; gap: 12px; flex: 1; }
-  .pc-feature { display: flex; gap: 10px; font-size: 0.83rem; color: rgba(248,248,244,0.72); line-height: 1.4; }
-  .pc-check { color: var(--gold); font-size: 0.7rem; flex-shrink: 0; margin-top: 2px; font-weight: 700; }
-  .pc-pro-tag {
-    display: inline-block; background: rgba(249,115,22,0.15); border: 1px solid rgba(249,115,22,0.3);
-    color: var(--gold); font-size: 0.58rem; letter-spacing: 1px; text-transform: uppercase;
-    padding: 1px 7px; border-radius: 3px; margin-left: 5px; vertical-align: middle;
-  }
-  .pc-cta {
-    display: block; text-align: center; margin-top: 28px;
-    background: var(--gold); color: var(--black);
-    padding: 14px; border-radius: 8px;
-    font-weight: 700; font-size: 0.9rem; text-decoration: none;
-    transition: opacity 0.2s; letter-spacing: 0.3px;
-  }
-  .pc-cta:hover { opacity: 0.88; }
-  .pc-cta.outline { background: transparent; color: var(--white); border: 1px solid var(--border); }
-  .pc-cta.outline:hover { border-color: rgba(248,248,244,0.3); }
+/* hero */
+.hero{padding:clamp(48px,7vw,96px) 0 clamp(64px,8vw,104px);position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:-20% -10% auto auto;width:70vw;height:70vw;max-width:900px;max-height:900px;background:radial-gradient(closest-side,rgba(226,98,42,.16),transparent 70%);pointer-events:none}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:clamp(32px,5vw,72px);align-items:center;position:relative}
+.hero h1{font-size:clamp(2.6rem,3.9vw,3.9rem)}
+.hero .lede{margin:24px 0 32px}
+.stage{position:relative;aspect-ratio:1/1.02;max-width:560px;justify-self:end;width:100%}
+.stage .desk{position:absolute;right:0;top:4%;width:88%;border-radius:var(--r2);overflow:hidden;border:1px solid var(--line2);background:var(--bg3);box-shadow:0 30px 80px -30px rgba(0,0,0,.8);aspect-ratio:16/10}
+.stage .phone{position:absolute;left:0;bottom:0;width:41%;aspect-ratio:390/844;border-radius:28px;border:7px solid #0a0b0d;background:#0a0b0d;overflow:hidden;box-shadow:0 30px 70px -20px rgba(0,0,0,.85),0 0 0 1px var(--line2)}
+.stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;opacity:0;transition:opacity .9s ease}
+.stage img.on{opacity:1}
+.stage-cap{position:absolute;right:0;bottom:2%;width:52%;font-size:.92rem;color:var(--muted)}
+.stage-cap b{display:block;color:var(--text);font-size:1rem}
+.stage-cap a{display:inline-flex;align-items:center;min-height:44px;color:var(--accent2);font-weight:700;text-decoration:none}
+@media (max-width:900px){
+  .hero .wrap{grid-template-columns:minmax(0,1fr)}
+  .stage{justify-self:stretch;max-width:520px;margin:8px auto 0}
+}
 
-  /* PROCESS SECTION */
-  .process-section { padding: 100px 60px; background: var(--black); }
-  .process-steps { display: grid; grid-template-columns: repeat(4,1fr); gap: 0; position: relative; margin-top: 20px; }
-  .process-steps::before {
-    content: ''; position: absolute;
-    top: 32px; left: 8%; right: 8%; height: 1px;
-    background: linear-gradient(90deg, transparent, var(--gold), transparent); opacity: 0.25;
-  }
-  .pstep { padding: 0 20px 0 0; }
-  .pstep-num {
-    width: 64px; height: 64px; border-radius: 50%;
-    background: var(--gold-bg); border: 1px solid rgba(249,115,22,0.3);
-    display: flex; align-items: center; justify-content: center;
-    font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; color: var(--gold);
-    margin-bottom: 24px; position: relative; z-index: 2;
-  }
-  .pstep-title { font-size: 0.95rem; font-weight: 700; margin-bottom: 10px; }
-  .pstep-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.65; }
+/* work grid */
+.work{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:20px}
+.card{grid-column:span 6;position:relative;display:flex;flex-direction:column;border:1px solid var(--line);border-radius:var(--r2);background:var(--bg2);text-decoration:none;overflow:hidden;transition:border-color .3s,transform .3s}
+.card:hover{border-color:var(--line2);transform:translateY(-3px)}
+.card.w7{grid-column:span 7}.card.w5{grid-column:span 5}
+.shot{position:relative;aspect-ratio:16/10;overflow:hidden;background:var(--bg3)}
+.shot .d{width:100%;height:100%;object-fit:cover;object-position:top;transition:transform .8s cubic-bezier(.2,.7,.1,1)}
+.card:hover .shot .d{transform:scale(1.03)}
+.shot .p{position:absolute;right:4%;bottom:-18%;width:24%;aspect-ratio:390/844;object-fit:cover;object-position:top;border-radius:14px;border:4px solid #0a0b0d;box-shadow:0 18px 40px -10px rgba(0,0,0,.8)}
+.card-body{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:6px 16px;padding:18px 20px 20px}
+.card-body .niche{font-size:.82rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent2)}
+.card-body h3{flex-basis:100%;font-size:1.3rem}
+.card-body p{flex-basis:100%;color:var(--muted);font-size:.97rem}
+.card-body .go{display:inline-flex;align-items:center;gap:6px;min-height:44px;font-weight:700}
+.card-actions{display:flex;flex-wrap:wrap;gap:10px;padding:0 20px 20px}
+.card-actions .btn{min-height:46px;padding:0 18px;font-size:.95rem}
+@media (max-width:860px){.card,.card.w7,.card.w5{grid-column:1/-1}}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+.filters button{min-height:44px;padding:0 18px;border-radius:var(--r3);border:1px solid var(--line2);background:transparent;color:var(--muted);font:600 .95rem var(--font);cursor:pointer}
+.filters button[aria-pressed=true]{background:var(--text);color:var(--bg);border-color:var(--text)}
+.sample-note{color:var(--faint);font-size:.92rem;margin-top:18px}
 
-  /* CTA SECTION */
-  .cta-section { padding: 110px 60px; text-align: center; position: relative; overflow: hidden; }
-  .cta-section::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(16,64,160,0.2) 0%, transparent 70%); }
-  .cta-section h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.8rem, 5vw, 4.8rem); letter-spacing: 2px; margin-bottom: 18px; position: relative; z-index: 2; }
-  .cta-section h2 em { color: var(--gold); font-style: normal; }
-  .cta-section p { font-size: 1rem; color: var(--muted); max-width: 480px; margin: 0 auto 44px; line-height: 1.8; position: relative; z-index: 2; }
-  .cta-btns { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; position: relative; z-index: 2; }
-  .btn-gold { background: var(--gold); color: var(--black); padding: 16px 42px; border-radius: 8px; font-weight: 700; font-size: 0.95rem; text-decoration: none; transition: opacity 0.2s, transform 0.2s; }
-  .btn-gold:hover { opacity: 0.88; transform: translateY(-2px); }
-  .btn-outline { border: 1px solid var(--border); color: var(--white); padding: 16px 42px; border-radius: 8px; font-weight: 500; font-size: 0.95rem; text-decoration: none; transition: border-color 0.2s; }
-  .btn-outline:hover { border-color: rgba(248,248,244,0.3); }
+/* steps */
+.steps{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-top:1px solid var(--line)}
+.steps li{padding:28px 28px 8px 0;position:relative}
+.steps li+li{padding-left:28px;border-left:1px solid var(--line)}
+.steps h3{margin-bottom:10px}
+.steps p{color:var(--muted)}
+.steps .when{display:block;margin-top:14px;font-size:.88rem;font-weight:700;color:var(--accent2)}
+@media (max-width:860px){.steps{grid-template-columns:minmax(0,1fr)}.steps li,.steps li+li{padding:24px 0;border-left:0;border-bottom:1px solid var(--line)}}
 
-  /* FOOTER */
-  footer { background: #030508; padding: 32px 60px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-top: 1px solid var(--border); }
-  .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; color: var(--white); letter-spacing: 3px; }
-  .footer-logo em { color: var(--gold); font-style: normal; }
-  .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
-  .footer-links a { font-size: 0.75rem; color: rgba(248,248,244,0.3); text-decoration: none; transition: color 0.2s; }
-  .footer-links a:hover { color: var(--gold); }
-  footer p { font-size: 0.78rem; color: rgba(248,248,244,0.25); }
+/* pricing */
+.prices{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:20px}
+.price{border:1px solid var(--line);border-radius:var(--r2);padding:28px;background:var(--bg2)}
+.price.main{grid-row:span 2;border-color:rgba(226,98,42,.55);background:linear-gradient(180deg,rgba(226,98,42,.10),rgba(226,98,42,0) 55%),var(--bg2)}
+.price .tag{display:inline-block;font-size:.8rem;font-weight:700;color:var(--accent-ink);background:var(--accent2);border-radius:var(--r3);padding:4px 10px;margin-bottom:14px}
+.price h3{font-size:1.15rem;color:var(--muted);font-weight:700}
+.price .amt{font-size:clamp(2.6rem,5vw,3.6rem);font-weight:850;letter-spacing:-.04em;line-height:1;margin:8px 0 6px}
+.price .amt small{font-size:1rem;font-weight:600;color:var(--muted);letter-spacing:0;margin-left:6px}
+.price ul{list-style:none;margin-top:18px;display:grid;gap:10px}
+.price li{display:flex;gap:10px;color:var(--muted)}
+.price li::before{content:'';flex:none;width:7px;height:7px;margin-top:.62em;border-radius:2px;background:var(--accent2)}
+.price .btn{margin-top:22px}
+.price-extra{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:10px 28px;color:var(--muted);padding:6px 2px 0}
+.price-extra b{color:var(--text)}
+@media (max-width:860px){.prices{grid-template-columns:minmax(0,1fr)}.price.main{grid-row:auto}}
+.terms{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 40px;list-style:none;margin-top:12px}
+.terms li{padding:16px 0;border-bottom:1px solid var(--line);color:var(--muted)}
+.terms li b{color:var(--text)}
+@media (max-width:760px){.terms{grid-template-columns:minmax(0,1fr)}}
+.cost-table{width:100%;border-collapse:collapse;margin-top:8px}
+.cost-table th,.cost-table td{text-align:left;padding:16px 12px 16px 0;border-bottom:1px solid var(--line);vertical-align:top}
+.cost-table th{font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);font-weight:700}
+.cost-table td:first-child{font-weight:700}
+.cost-table td.n{white-space:nowrap;font-weight:800}
+.cost-table td.s{color:var(--muted)}
 
-  @media (max-width: 900px) {
-    nav { padding: 14px 24px; }
-    .nav-right { display: none; }
-    .hamburger { display: flex; }
-    .portfolio-section, .pricing-section, .process-section, .cta-section, .hero { padding-left: 24px; padding-right: 24px; }
-    .cards-grid { grid-template-columns: 1fr; }
-    .card.wide { grid-column: span 1; }
-    .pricing-grid { grid-template-columns: 1fr; max-width: 480px; }
-    .process-steps { grid-template-columns: 1fr 1fr; }
-    footer { flex-direction: column; gap: 12px; text-align: center; }
-  }
+/* features list */
+.feat{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 48px;list-style:none}
+.feat li{display:grid;grid-template-columns:28px minmax(0,1fr);gap:14px;padding:22px 0;border-bottom:1px solid var(--line)}
+.feat svg{width:24px;height:24px;color:var(--accent2);margin-top:2px}
+.feat b{display:block;font-size:1.08rem;margin-bottom:4px}
+.feat span{color:var(--muted)}
+@media (max-width:760px){.feat{grid-template-columns:minmax(0,1fr)}}
+
+/* founder */
+.founder.solo{grid-template-columns:minmax(0,1fr);max-width:820px}
+.founder{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(28px,5vw,72px);align-items:center}
+.portrait[hidden]{display:none}
+.portrait{position:relative;aspect-ratio:4/5;border-radius:var(--r2);overflow:hidden;background:var(--bg3);border:1px solid var(--line)}
+.portrait img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}
+.portrait .art{position:absolute;inset:0}
+.founder blockquote{font-size:clamp(1.35rem,2.4vw,1.8rem);font-weight:650;letter-spacing:-.02em;line-height:1.3;margin:18px 0 22px}
+.founder p{color:var(--muted);max-width:34em}
+.founder .sig{color:var(--text);font-weight:700;margin-top:18px}
+@media (max-width:860px){.founder{grid-template-columns:minmax(0,1fr)}.portrait{max-width:420px;aspect-ratio:16/10}}
+
+/* faq */
+.faq{border-top:1px solid var(--line);max-width:900px}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:64px;padding:16px 0;cursor:pointer;font-weight:700;font-size:1.1rem}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:'';flex:none;width:12px;height:12px;border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);transform:rotate(45deg) translateY(-3px);transition:transform .25s}
+.faq details[open] summary::after{transform:rotate(225deg) translateY(-3px)}
+.faq .ans{padding:0 0 22px;color:var(--muted);max-width:44em}
+.faq .ans p+p{margin-top:10px}
+
+/* cta band */
+.band{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:linear-gradient(120deg,rgba(226,98,42,.14),rgba(226,98,42,0) 60%),var(--bg2)}
+.band .wrap{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:28px;align-items:center}
+.band .big-tel{font-size:clamp(2rem,4.5vw,3.4rem);font-weight:850;letter-spacing:-.03em;text-decoration:none;display:inline-flex;min-height:56px;align-items:center}
+@media (max-width:860px){.band .wrap{grid-template-columns:minmax(0,1fr)}}
+
+/* page head */
+.phead{padding:clamp(56px,8vw,104px) 0 clamp(28px,4vw,48px)}
+.phead h1{font-size:clamp(2.4rem,5.4vw,4.4rem)}
+.phead .lede{margin-top:18px}
+
+/* form */
+.form-wrap{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(28px,5vw,64px);align-items:start}
+@media (max-width:900px){.form-wrap{grid-template-columns:minmax(0,1fr)}}
+form.ask{display:grid;gap:18px;padding:clamp(20px,3vw,32px);border:1px solid var(--line);border-radius:var(--r2);background:var(--bg2)}
+.fld{display:grid;gap:8px}
+.fld>label,.fld legend{font-weight:700;font-size:.98rem}
+.fld .hint{color:var(--faint);font-weight:500;font-size:.9rem}
+.fld input[type=text],.fld input[type=tel],.fld input[type=email],.fld select{width:100%;min-height:52px;font:500 16px var(--font);color:var(--text);background:var(--bg);border:1px solid var(--line2);border-radius:var(--r1);padding:0 14px}
+.fld select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),linear-gradient(135deg,var(--muted) 50%,transparent 50%);background-position:calc(100% - 20px) 50%,calc(100% - 14px) 50%;background-size:6px 6px;background-repeat:no-repeat}
+.fld select option{color:#111}
+.fld input:focus,.fld select:focus{outline:none;border-color:var(--accent2)}
+fieldset.fld{border:0}
+.choices{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.choices label{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 16px;border:1px solid var(--line2);border-radius:var(--r1);cursor:pointer;font-size:16px;font-weight:600}
+.choices input{accent-color:var(--accent);width:18px;height:18px}
+.choices label:has(input:checked){border-color:var(--accent2);background:rgba(226,98,42,.08)}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.form-msg{min-height:1.4em;color:var(--accent2);font-weight:600}
+.privacy-line{color:var(--faint);font-size:.9rem}
+.side-card{border:1px solid var(--line);border-radius:var(--r2);padding:24px;display:grid;gap:14px}
+.side-card .big-tel{font-size:1.8rem;font-weight:850;letter-spacing:-.02em;text-decoration:none;min-height:48px;display:inline-flex;align-items:center}
+
+/* prose */
+.prose{max-width:46em;color:var(--muted)}
+.prose h2{color:var(--text);font-size:1.6rem;margin:40px 0 12px}
+.prose p+p{margin-top:12px}
+.prose ul{margin:12px 0 0 20px}
+.prose li{margin:6px 0}
+
+/* footer */
+.foot{border-top:1px solid var(--line);padding:56px 0 40px;color:var(--muted);font-size:.95rem}
+.foot .wrap{display:grid;grid-template-columns:minmax(0,1.4fr) repeat(2,minmax(0,1fr));gap:32px}
+.foot h4{color:var(--text);font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px}
+.foot ul{list-style:none}
+.foot li a{display:inline-flex;align-items:center;min-height:44px;text-decoration:none}
+.foot li a:hover{color:var(--text)}
+.foot .base{grid-column:1/-1;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;border-top:1px solid var(--line);padding-top:22px;margin-top:8px;color:var(--faint);font-size:.88rem}
+@media (max-width:760px){.foot .wrap{grid-template-columns:minmax(0,1fr)}}
+
+/* phone call bar */
+.callbar{display:none}
+@media (max-width:760px){
+  .callbar{position:fixed;left:0;right:0;bottom:0;z-index:60;display:flex;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(18,20,23,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid var(--line)}
+  .callbar a{flex:1;min-height:50px;display:flex;align-items:center;justify-content:center;gap:8px;border-radius:var(--r1);font-weight:700;text-decoration:none}
+  .callbar .c1{background:var(--accent);color:var(--accent-ink)}
+  .callbar .c2{border:1px solid var(--line2)}
+  .callbar svg{width:18px;height:18px}
+  body{padding-bottom:calc(74px + env(safe-area-inset-bottom))}
+}
+
+/* motion */
+.js [data-r]{opacity:0;transform:translateY(22px)}
+.js [data-r].in{opacity:1;transform:none;transition:opacity .8s cubic-bezier(.2,.7,.1,1),transform .8s cubic-bezier(.2,.7,.1,1)}
+.js .load{opacity:0;transform:translateY(16px);animation:up .9s cubic-bezier(.2,.7,.1,1) forwards}
+.js .load.d1{animation-delay:.08s}.js .load.d2{animation-delay:.16s}.js .load.d3{animation-delay:.24s}.js .load.d4{animation-delay:.34s}
+@keyframes up{to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){
+  .js [data-r],.js .load{opacity:1;transform:none;animation:none;transition:none}
+  .stage img{transition:none}
+}
 </style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfessionalService", "name": "SiteSprintPro", "description": "Websites for Colorado Springs small businesses.", "url": "https://sitesprintpro.com/", "telephone": "+17194287932", "email": "sitesprintproteam@gmail.com", "areaServed": {"@type": "City", "name": "Colorado Springs, Colorado"}, "priceRange": "$697 to $1,197"}</script>
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="hdr"><div class="wrap">
+  <a class="brand" href="index.html" aria-label="SiteSprintPro home"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="1" y="1" width="30" height="30" rx="8" fill="#1e2227" stroke="rgba(237,234,228,.22)"/><path d="M7 20.5h7.5M9 15.5h11M11 10.5h14" stroke="#edeae4" stroke-width="2.4" stroke-linecap="round"/><path d="M18.5 20.5l3 0 4-4" stroke="#e2622a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg><span>SiteSprint<b>Pro</b></span></a>
+  <nav aria-label="Main"><ul class="nav"><li><a href="work/index.html">Work</a></li><li><a href="pricing/index.html">Pricing</a></li><li><a href="about/index.html">About</a></li><li><a href="faq/index.html">FAQ</a></li><li><a href="start/index.html">Get started</a></li></ul></nav>
+  <a class="call-pill" href="tel:+17194287932"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg><span class="num">(719) 428-7932</span><span class="sr-only" style="position:absolute;left:-9999px">Call</span></a>
+</div></header>
+<main id="main">
 
-<!-- MOBILE MENU -->
-<div class="mobile-menu" id="mobileMenu">
-  <a href="index.html" class="active" onclick="closeMenu()">Portfolio</a>
-  <a href="packages.html" onclick="closeMenu()">Services</a>
-  <a href="maintenance.html" onclick="closeMenu()">Maintenance</a>
-  <a href="faq.html" onclick="closeMenu()">FAQ</a>
-  <a href="careers.html" onclick="closeMenu()">Careers</a>
-  <a href="https://forms.gle/j7YPKBFAV9veyv3E9" target="_blank" class="mobile-cta" onclick="closeMenu()">Get Started &rarr;</a>
+<section class="hero"><div class="wrap">
+  <div>
+    <span class="eyebrow load">Colorado Springs web design</span>
+    <h1 class="load d1">Websites for Springs businesses.</h1>
+    <p class="lede load d2">Live in 2 to 3 days. One flat price, no monthly fees, and the site is yours.</p>
+    <div class="btns load d3"><a class="btn btn-hot" href="tel:+17194287932"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>Call (719) 428-7932</a><a class="btn btn-line" href="work/index.html">See the work <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:18px;height:18px"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+    <p class="small-note load d4">Or text the same number. I answer it myself.</p>
+  </div>
+  <div class="stage load d2" aria-label="Sample sites, cycling">
+    <div class="desk"><img src="assets/shots/hvac-desktop.webp" width="1200" height="750" alt="" class="on"  decoding="async"><img src="assets/shots/plumbing-desktop.webp" width="1200" height="750" alt="" class="" loading=lazy decoding="async"><img src="assets/shots/contractor-desktop.webp" width="1200" height="750" alt="" class="" loading=lazy decoding="async"><img src="assets/shots/lawn-desktop.webp" width="1200" height="750" alt="" class="" loading=lazy decoding="async"><img src="assets/shots/salon-desktop.webp" width="1200" height="750" alt="" class="" loading=lazy decoding="async"><img src="assets/shots/restaurant-desktop.webp" width="1200" height="750" alt="" class="" loading=lazy decoding="async"></div>
+    <div class="phone"><img src="assets/shots/hvac-phone.webp" width="600" height="1298" alt="" class="on"  decoding="async"><img src="assets/shots/plumbing-phone.webp" width="600" height="1298" alt="" class="" loading=lazy decoding="async"><img src="assets/shots/contractor-phone.webp" width="600" height="1298" alt="" class="" loading=lazy decoding="async"><img src="assets/shots/lawn-phone.webp" width="600" height="1298" alt="" class="" loading=lazy decoding="async"><img src="assets/shots/salon-phone.webp" width="600" height="1298" alt="" class="" loading=lazy decoding="async"><img src="assets/shots/restaurant-phone.webp" width="600" height="1298" alt="" class="" loading=lazy decoding="async"></div>
+    <div class="stage-cap" aria-live="polite"><span id="capNiche">HVAC sample</span><b id="capName">Kestrel Heating &amp; Air</b><a id="capLink" href="hvac/index.html">Open it <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:18px;height:18px"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+  </div>
+</div></section>
+
+<section id="work" style="padding-top:0"><div class="wrap">
+  <div class="sec-head"><h2 data-r>Find the one closest to your business.</h2><p class="lede" data-r>Six sample sites, all live. Open one on your phone, that's how your customers will see yours.</p></div>
+  <div class="work"><a class="card w7" href="hvac/index.html" data-r><div class="shot"><img class="d" src="assets/shots/hvac-desktop.webp" width="1200" height="750" alt="Kestrel Heating &amp; Air sample site on a laptop" loading="lazy" decoding="async"><img class="p" src="assets/shots/hvac-phone.webp" width="600" height="1298" alt="" loading="lazy" decoding="async"></div><div class="card-body"><span class="niche">HVAC</span><span class=go>Open the site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:18px;height:18px"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><h3>Kestrel Heating &amp; Air</h3><p>Furnace and AC repair. Winter photo hero, the 6,035 ft altitude section, tune-up booking.</p></div></a><a class="card w5" href="plumbing/index.html" data-r><div class="shot"><img class="d" src="assets/shots/plumbing-desktop.webp" width="1200" height="750" alt="Dipper Plumbing sample site on a laptop" loading="lazy" decoding="async"><img class="p" src="assets/shots/plumbing-phone.webp" width="600" height="1298" alt="" loading="lazy" decoding="async"></div><div class="card-body"><span class="niche">Plumbing</span><span class=go>Open the site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:18px;height:18px"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><h3>Dipper Plumbing</h3><p>Burst pipes and water heaters. Text-a-photo button and a before-the-freeze checklist.</p></div></a><a class="card w5" href="contractor/index.html" data-r><div class="shot"><img class="d" src="assets/shots/contractor-desktop.webp" width="1200" height="750" alt="Ledgerline Builders sample site on a laptop" loading="lazy" decoding="async"><img class="p" src="assets/shots/contractor-phone.webp" width="600" height="1298" alt="" loading="lazy" decoding="async"></div><div class="card-body"><span class="niche">Contractor</span><span class=go>Open the site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:18px;height:18px"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><h3>Ledgerline Builders</h3><p>Remodels and decks. Permits through Pikes Peak Regional, a season planner, written quotes.</p></div></a><a class="card w7" href="lawn/index.html" data-r><div class="shot"><img class="d" src="assets/shots/lawn-desktop.webp" width="1200" height="750" alt="Shortgrass Lawn Co sample site on a laptop" loading="lazy" decoding="async"><img class="p" src="assets/shots/lawn-phone.webp" width="600" height="1298" alt="" loading="lazy" decoding="async"></div><div class="card-body"><span class="niche">Lawn care</span><span class=go>Open the site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:18px;height:18px"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><h3>Shortgrass Lawn Co</h3><p>Mowing, aeration, sprinkler blowouts. A fall checklist and a service-area map.</p></div></a><a class="card " href="salon/index.html" data-r><div class="shot"><img class="d" src="assets/shots/salon-desktop.webp" width="1200" height="750" alt="Oriel Hair Studio sample site on a laptop" loading="lazy" decoding="async"><img class="p" src="assets/shots/salon-phone.webp" width="600" height="1298" alt="" loading="lazy" decoding="async"></div><div class="card-body"><span class="niche">Salon</span><span class=go>Open the site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:18px;height:18px"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><h3>Oriel Hair Studio</h3><p>Cuts and color downtown. Editorial look, sample pricing, hours and a booking request.</p></div></a><a class="card " href="restaurant/index.html" data-r><div class="shot"><img class="d" src="assets/shots/restaurant-desktop.webp" width="1200" height="750" alt="Sawbuck Fire Grill sample site on a laptop" loading="lazy" decoding="async"><img class="p" src="assets/shots/restaurant-phone.webp" width="600" height="1298" alt="" loading="lazy" decoding="async"></div><div class="card-body"><span class="niche">Restaurant</span><span class=go>Open the site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:18px;height:18px"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><h3>Sawbuck Fire Grill</h3><p>Wood-fired dinner in Old Colorado City. Full sample menu, hours, table requests.</p></div></a></div>
+  <p class="sample-note">Every sample is a fictional business, built to show what yours would look like. Reviews and numbers on them are placeholders.</p>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap">
+  <div class="sec-head"><h2 data-r>How it works</h2><p class="lede" data-r>Three steps, and you deal with one person the whole way.</p></div>
+  <ol class="steps">
+    <li data-r><h3>Call, text, or send the form.</h3><p>Tell me what you do and where. I send back the sample closest to your business and a flat quote.</p><span class="when">Same day</span></li>
+    <li data-r><h3>Half down, and I build it.</h3><p>Your services, hours, real Google reviews and photos. You check it on your phone and tell me what to change.</p><span class="when">2 to 3 days</span></li>
+    <li data-r><h3>It goes live on your domain.</h3><p>Tap to call everywhere, a form that reaches your inbox, connected to your Google profile. Then it's yours.</p><span class="when">You own it</span></li>
+  </ol>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap">
+  <div class="sec-head"><h2 data-r>One price. No monthly.</h2><p class="lede" data-r>Half to start, half when you approve it. All the writing is included.</p></div>
+  <div class="prices">
+    <div class="price main" data-r><span class="tag">Most picked</span><h3>Standard</h3><div class="amt">$897</div><ul><li>Up to 5 pages, live in 2 to 3 days</li><li>All the writing done for you</li><li>Tap to call, quote form, Google-ready setup</li><li>2 rounds of changes, plus 2 free updates after launch</li></ul><a class="btn btn-hot" href="start/index.html">Get started</a></div>
+    <div class="price" data-r><h3>Pro</h3><div class="amt">$1,197</div><ul><li>Up to 8 pages, priority 1 to 2 days</li><li>Gallery, booking link, reviews section</li><li>4 rounds of changes</li></ul></div>
+    <div class="price" data-r><h3>Facebook-only businesses</h3><div class="amt">$697</div><ul><li>For businesses whose only page today is Facebook or Instagram</li></ul></div>
+    <div class="price-extra"><span><b>$300 to $400</b> to refresh a site you already have</span><span><b>$100 a quarter</b> optional care plan</span><span><b>About $12 a year</b> for your domain</span><a href="pricing/index.html" style="display:inline-flex;align-items:center;gap:6px;min-height:44px;color:var(--accent2);font-weight:700;text-decoration:none">Full pricing <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:18px;height:18px"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+  </div>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap">
+  <div class="sec-head"><h2 data-r>In every site</h2><p class="lede" data-r>The parts that turn a visit into a phone call.</p></div>
+  <ul class="feat"><li data-r><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><div><b>Tap to call on every page</b><span>Your number is one tap from anywhere on the site, with a call bar that stays on screen on phones.</span></div></li><li data-r><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><div><b>Built for phones first</b><span>Most people find you on a phone. Every site is checked on four phone sizes before you see it.</span></div></li><li data-r><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><div><b>Your real Google reviews</b><span>Quoted word for word with first names. Nothing invented, ever.</span></div></li><li data-r><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><div><b>Leads that reach you</b><span>A quote or booking form that lands in your email the second someone sends it.</span></div></li><li data-r><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><div><b>Set up for Google</b><span>Your name, number, hours and service area written the way search engines read them, and linked to your Google profile.</span></div></li><li data-r><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><div><b>Yours to keep</b><span>No monthly platform, no lock-in. You own the site, the files and the domain.</span></div></li></ul>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap founder solo">
+  <div class="portrait" data-r hidden>
+    
+    <svg class="art" viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs><linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a3038"/><stop offset="1" stop-color="#16191d"/></linearGradient></defs><rect width="400" height="500" fill="url(#sky)"/><path d="M0 380 L70 330 L120 350 L190 250 L230 285 L270 215 L320 290 L400 250 L400 500 L0 500Z" fill="#1d2126"/><path d="M190 250 L230 285 L270 215 L320 290" fill="none" stroke="#e2622a" stroke-width="3" stroke-linejoin="round"/></svg>
+  </div>
+  <div>
+    <span class="eyebrow" data-r>Who builds it</span>
+    <h2 data-r>You call me. I build it.</h2>
+    <blockquote data-r>No call center, no sales team, no outsourcing. The person who answers is the person who builds your site.</blockquote>
+    <p data-r>I live in Colorado Springs and build every site myself. Most businesses here run on referrals and a Google listing, and when that listing has no website, the call goes to whoever looks more legit. I build the site that makes you the obvious call.</p>
+    <p class="sig" data-r>Don, SiteSprintPro</p>
+    <div class="btns" style="margin-top:22px" data-r><a class="btn btn-hot" href="tel:+17194287932"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>Call (719) 428-7932</a><a class="btn btn-line" href="about/index.html">More about me</a></div>
+  </div>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap">
+  <div class="sec-head"><h2 data-r>Questions owners ask</h2><p class="lede" data-r><a href="faq/index.html" style="display:inline-flex;align-items:center;gap:6px;min-height:44px;color:var(--accent2);font-weight:700;text-decoration:none">All questions <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:18px;height:18px"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p></div>
+  <div class="faq"><details data-r><summary>Do I own the website?</summary><div class="ans"><p>Yes. Once the balance is paid, the site, the files and the domain are yours. If you ever want to leave, you take everything with you.</p></div></details><details data-r><summary>Are there monthly fees?</summary><div class="ans"><p>No. The only recurring cost is your domain name, about $12 a year, paid to the registrar. A care plan is optional: $100 a quarter if you want me to handle changes.</p></div></details><details data-r><summary>How fast is it?</summary><div class="ans"><p>Standard sites go live 2 to 3 days after the deposit and your info. Pro builds get priority, usually 1 to 2 days.</p></div></details><details data-r><summary>What do you need from me?</summary><div class="ans"><p>Your services, hours, service area, your logo if you have one, and 10 to 20 photos from your phone of real work, your crew or your space. I write all the words.</p></div></details><details data-r><summary>I already have a website. Can you fix it?</summary><div class="ans"><p>Often, yes. A refresh of an existing site is $300 to $400 when the bones are good. If it&#x27;s cheaper to rebuild, I&#x27;ll tell you.</p></div></details></div>
+</div></section>
+
+<section class="band"><div class="wrap">
+  <div><h2 data-r>Want to see yours?</h2><p class="lede" data-r style="margin-top:14px">Call or text, or send the one-minute form. I'll send the closest sample and a flat price the same day.</p></div>
+  <div data-r><a class="big-tel" href="tel:+17194287932">(719) 428-7932</a><div class="btns" style="margin-top:14px"><a class="btn btn-hot" href="start/index.html">Get started</a><a class="btn btn-line" href="sms:+17194287932"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg>Text me</a></div></div>
+</div></section>
+
+</main>
+<footer class="foot"><div class="wrap">
+  <div>
+    <a class="brand" href="index.html"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="1" y="1" width="30" height="30" rx="8" fill="#1e2227" stroke="rgba(237,234,228,.22)"/><path d="M7 20.5h7.5M9 15.5h11M11 10.5h14" stroke="#edeae4" stroke-width="2.4" stroke-linecap="round"/><path d="M18.5 20.5l3 0 4-4" stroke="#e2622a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg><span>SiteSprint<b>Pro</b></span></a>
+    <p style="margin-top:12px;max-width:30em">Websites for Colorado Springs businesses. Built by one person, live in 2 to 3 days, yours to keep.</p>
+  </div>
+  <div><h4>Site</h4><ul>
+    <li><a href="work/index.html">Sample sites</a></li>
+    <li><a href="pricing/index.html">Pricing</a></li>
+    <li><a href="about/index.html">About</a></li>
+    <li><a href="faq/index.html">FAQ</a></li>
+  </ul></div>
+  <div><h4>Contact</h4><ul>
+    <li><a href="tel:+17194287932">Call (719) 428-7932</a></li>
+    <li><a href="sms:+17194287932">Text (719) 428-7932</a></li>
+    <li><a href="mailto:sitesprintproteam@gmail.com">sitesprintproteam@gmail.com</a></li>
+    <li><a href="start/index.html">Get started</a></li>
+  </ul></div>
+  <div class="base"><span>Colorado Springs, Colorado</span><span><a href="privacy/index.html" style="display:inline-flex;min-height:44px;align-items:center">Privacy</a></span><span>&copy; 2026 SiteSprintPro</span></div>
+</div></footer>
+<div class="callbar" aria-label="Quick contact">
+  <a class="c1" href="tel:+17194287932"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>Call</a>
+  <a class="c2" href="sms:+17194287932"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg>Text</a>
+  <a class="c2" href="start/index.html">Get started</a>
 </div>
-
-<!-- NAV -->
-<nav>
-  <a href="index.html" class="logo">SiteSprint<em>Pro</em></a>
-  <div class="nav-right">
-    <a href="#portfolio" class="nav-link active">Portfolio</a>
-    <a href="packages.html" class="nav-link">Services</a>
-    <a href="maintenance.html" class="nav-link">Maintenance</a>
-    <a href="faq.html" class="nav-link">FAQ</a>
-    <a href="careers.html" class="nav-link">Careers</a>
-    <a href="https://forms.gle/j7YPKBFAV9veyv3E9" target="_blank" class="nav-cta">Get Started &#8594;</a>
-  </div>
-  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
-
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-grid"></div>
-  <div class="hero-content">
-    <div class="hero-tag">Live Sample Websites by Industry</div>
-    <h1>Real Websites.<br>Built For <em>Local Businesses.</em></h1>
-    <p class="hero-sub">Click any site below to see it live. This is exactly what we build for businesses in Colorado Springs — clean, professional, and ready in 2–3 days.</p>
-    <div class="hero-proof">
-      <div class="proof-item"><div class="proof-num">2–3</div><div class="proof-label">Day Delivery</div></div>
-      <div class="proof-div"></div>
-      <div class="proof-item"><div class="proof-num">$897</div><div class="proof-label">Starting Price</div></div>
-      <div class="proof-div"></div>
-      <div class="proof-item"><div class="proof-num">100%</div><div class="proof-label">Mobile Ready</div></div>
-      <div class="proof-div"></div>
-      <div class="proof-item"><div class="proof-num">$0</div><div class="proof-label">Writing Fees</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- PORTFOLIO -->
-<section class="portfolio-section" id="portfolio">
-  <div class="section-header">
-    <div class="section-tag">Our Work</div>
-    <div class="section-h">Sample Sites By Industry</div>
-    <p class="section-sub">Every site below is fully live. Each is a sample build for a fictional business, so reviews and numbers are placeholders. Yours uses your real ones.</p>
-  </div>
-
-  <div class="cards-grid">
-
-    <div class="card wide tall">
-      <div class="card-img">
-        <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1000&q=80&auto=format&fit=crop" alt="Professional plumber at work" loading="lazy">
-        <div class="card-img-overlay"></div>
-        <div class="card-img-label">Plumbing</div>
-      </div>
-      <div class="card-info">
-        <div>
-          <div class="card-industry">Home Services / Plumbing</div>
-          <div class="card-title">Peak Flow Plumbing — Colorado Springs</div>
-          <div class="card-desc">Bold, dark professional site with services, emergency click-to-call, Google Maps, review section, stats, and SEO.</div>
-        </div>
-        <a href="portfolio-plumber.html" target="_blank" class="card-link">View Live Site &#8594;</a>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-img">
-        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80&auto=format&fit=crop" alt="Restaurant fine dining food" loading="lazy">
-        <div class="card-img-overlay"></div>
-        <div class="card-img-label">Restaurant</div>
-      </div>
-      <div class="card-info">
-        <div>
-          <div class="card-industry">Restaurant & Dining</div>
-          <div class="card-title">The Ember House — Wood-Fired Restaurant</div>
-          <div class="card-desc">Warm, upscale restaurant site with full menu, reservation CTA, hours, and story section. Elegant dark aesthetic.</div>
-        </div>
-        <a href="sample-restaurant.html" target="_blank" class="card-link">View Live Site &#8594;</a>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-img">
-        <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=800&q=80&auto=format&fit=crop" alt="Hair salon styling beauty" loading="lazy">
-        <div class="card-img-overlay"></div>
-        <div class="card-img-label">Salon & Beauty</div>
-      </div>
-      <div class="card-info">
-        <div>
-          <div class="card-industry">Hair Salon & Beauty</div>
-          <div class="card-title">Studio Noir — Hair & Beauty</div>
-          <div class="card-desc">Luxury, editorial salon site with full service menu, pricing, booking CTA, and stylist story section.</div>
-        </div>
-        <a href="portfolio-salon.html" target="_blank" class="card-link">View Live Site &#8594;</a>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-img">
-        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80&auto=format&fit=crop" alt="Lawn care landscaping green grass" loading="lazy">
-        <div class="card-img-overlay"></div>
-        <div class="card-img-label">Lawn & Landscape</div>
-      </div>
-      <div class="card-info">
-        <div>
-          <div class="card-industry">Lawn Care & Landscaping</div>
-          <div class="card-title">GreenEdge Lawn Co. — Colorado Springs</div>
-          <div class="card-desc">Bold, nature-forward site with service tiers, pricing, reviews, and free quote request form.</div>
-        </div>
-        <a href="sample-lawncare.html" target="_blank" class="card-link">View Live Site &#8594;</a>
-      </div>
-    </div>
-
-    <div class="card wide">
-      <div class="card-img">
-        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1000&q=80&auto=format&fit=crop" alt="General contractor construction home remodel" loading="lazy">
-        <div class="card-img-overlay"></div>
-        <div class="card-img-label">Contracting</div>
-      </div>
-      <div class="card-info">
-        <div>
-          <div class="card-industry">General Contractor & Home Services</div>
-          <div class="card-title">Apex General Contracting — Colorado Springs</div>
-          <div class="card-desc">Industrial, trust-driven site with services, guarantee section, licenses shown, and free estimate CTA. Built to convert homeowners.</div>
-        </div>
-        <a href="sample-contractor.html" target="_blank" class="card-link">View Live Site &#8594;</a>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- PRICING -->
-<section class="pricing-section" id="pricing">
-  <div class="section-header">
-    <div class="section-tag">Transparent Pricing</div>
-    <div class="section-h">Two Tiers. Zero Surprises.</div>
-    <p class="section-sub">Pick the build that fits your business. Both deliver fast, include 2 free maintenance services, and everything is written for you.</p>
-  </div>
-
-  <div class="pricing-grid">
-
-    <div class="price-card">
-      <div class="pc-tier">Tier 01</div>
-      <div class="pc-name">Basic Build</div>
-      <div class="pc-price">$897</div>
-      <div class="pc-sub">50% deposit to start &middot; 50% on delivery &middot; 2&ndash;3 day turnaround</div>
-      <div class="pc-free-badge">&#10003;&nbsp; 2 Free Maintenance Services Included</div>
-      <hr class="pc-divider">
-      <ul class="pc-features">
-        <li class="pc-feature"><span class="pc-check">&#10003;</span> Up to 5 pages — Home, Services, About, Gallery, Contact</li>
-        <li class="pc-feature"><span class="pc-check">&#10003;</span> All content and copy written for you</li>
-        <li class="pc-feature"><span class="pc-check">&#10003;</span> 100% mobile-first responsive design</li>
-        <li class="pc-feature"><span class="pc-check">&#10003;</span> Click-to-call button on every page</li>
-        <li class="pc-feature"><span class="pc-check">&#10003;</span> Google Maps embed</li>
-        <li class="pc-feature"><span class="pc-check">&#10003;</span> Contact form</li>
-        <li class="pc-feature"><span class="pc-check">&#10003;</span> Basic on-page SEO setup</li>
-        <li class="pc-feature"><span class="pc-check">&#10003;</span> Professional photography sourced for you</li>
-        <li class="pc-feature"><span class="pc-check">&#10003;</span> Up to 2 revision rounds</li>
-      </ul>
-      <a href="https://forms.gle/j7YPKBFAV9veyv3E9" target="_blank" class="pc-cta outline">Get Started — Basic</a>
-    </div>
-
-    <div class="price-card featured">
-      <div class="price-badge">Most Popular</div>
-      <div class="pc-tier">Tier 02</div>
-      <div class="pc-name">Pro Build</div>
-      <div class="pc-price">$1,197</div>
-      <div class="pc-sub">50% deposit to start &middot; 50% on delivery &middot; Priority 1&ndash;2 day turnaround</div>
-      <div class="pc-free-badge">&#10003;&nbsp; 2 Free Maintenance Services Included</div>
-      <hr class="pc-divider">
-      <ul class="pc-features">
-        <li class="pc-feature"><span class="pc-check">&#10003;</span> Everything in Basic, plus:</li>
-        <li class="pc-feature"><span class="pc-check">&#10003;</span> Up to 8 pages <span class="pc-pro-tag">Pro</span></li>
-        <li class="pc-feature"><span class="pc-check">&#10003;</span> Testimonials and reviews section <span class="pc-pro-tag">Pro</span></li>
-        <li class="pc-feature"><span class="pc-check">&#10003;</span> Photo gallery with lightbox <span class="pc-pro-tag">Pro</span></li>
-        <li class="pc-feature"><span class="pc-check">&#10003;</span> Online booking embed (Calendly / TidyCal) <span class="pc-pro-tag">Pro</span></li>
-        <li class="pc-feature"><span class="pc-check">&#10003;</span> Advanced SEO with full meta optimization <span class="pc-pro-tag">Pro</span></li>
-        <li class="pc-feature"><span class="pc-check">&#10003;</span> Blog or news section setup <span class="pc-pro-tag">Pro</span></li>
-        <li class="pc-feature"><span class="pc-check">&#10003;</span> Custom branded text logo design <span class="pc-pro-tag">Pro</span></li>
-        <li class="pc-feature"><span class="pc-check">&#10003;</span> Up to 4 revision rounds <span class="pc-pro-tag">Pro</span></li>
-      </ul>
-      <a href="https://forms.gle/j7YPKBFAV9veyv3E9" target="_blank" class="pc-cta">Get Started — Pro &#8594;</a>
-    </div>
-
-  </div>
-
-  <p style="text-align:center; font-size:0.8rem; color:var(--muted); margin-top:32px;">
-    Optional maintenance plans from $100/quarter — no contracts, cancel any time.
-    <a href="maintenance.html" style="color:var(--gold); text-decoration:none; margin-left:6px;">View maintenance options &#8594;</a>
-  </p>
-</section>
-
-<!-- PROCESS -->
-<section class="process-section">
-  <div class="section-header">
-    <div class="section-tag">How It Works</div>
-    <div class="section-h">From Zero to Live in 4 Steps</div>
-  </div>
-  <div class="process-steps">
-    <div class="pstep">
-      <div class="pstep-num">1</div>
-      <div class="pstep-title">Reach Out</div>
-      <div class="pstep-desc">Call, text, or fill out our form. We will make sure we are the right fit before you spend anything.</div>
-    </div>
-    <div class="pstep">
-      <div class="pstep-num">2</div>
-      <div class="pstep-title">Fill Out Intake Form</div>
-      <div class="pstep-desc">A short 5-minute form about your business. We handle all the writing from there.</div>
-    </div>
-    <div class="pstep">
-      <div class="pstep-num">3</div>
-      <div class="pstep-title">Review Your Draft</div>
-      <div class="pstep-desc">Draft delivered in 1&ndash;3 days. You review, request changes, and we refine until it is right.</div>
-    </div>
-    <div class="pstep">
-      <div class="pstep-num">4</div>
-      <div class="pstep-title">Go Live on Google</div>
-      <div class="pstep-desc">Final approval, your site launches. Customers can now find and trust your business online.</div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA / CONTACT -->
-<section class="cta-section" id="contact">
-  <h2>Ready to Get Your<br>Business <em>Online?</em></h2>
-  <p>Fill out our short intake form and we have your site live in 2&ndash;3 days. Starting at $897 flat — everything included, no surprises.</p>
-  <div class="cta-btns">
-    <a href="https://forms.gle/j7YPKBFAV9veyv3E9" target="_blank" class="btn-gold">Get Started Today &#8594;</a>
-    <a href="tel:3467950020" class="btn-outline">Call or Text Us</a>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-logo">SiteSprint<em>Pro</em></div>
-  <div class="footer-links">
-    <a href="packages.html">Services</a>
-    <a href="maintenance.html">Maintenance</a>
-    <a href="faq.html">FAQ</a>
-    <a href="careers.html">Careers</a>
-    <a href="tel:3467950020">346-795-0020</a>
-  </div>
-  <p>&#169; 2025 SiteSprintPro &middot; Colorado Springs</p>
-</footer>
-
 <script>
-  function toggleMenu() {
-    var menu = document.getElementById('mobileMenu');
-    var btn = document.getElementById('hamburger');
-    menu.classList.toggle('open');
-    btn.classList.toggle('open');
-    document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
-  }
-  function closeMenu() {
-    document.getElementById('mobileMenu').classList.remove('open');
-    document.getElementById('hamburger').classList.remove('open');
-    document.body.style.overflow = '';
-  }
+(function(){
+  var io = 'IntersectionObserver' in window ? new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }); }, {rootMargin:'0px 0px -8% 0px'}) : null;
+  document.querySelectorAll('[data-r]').forEach(function(el){ io ? io.observe(el) : el.classList.add('in'); });
+  setTimeout(function(){ document.querySelectorAll('[data-r]').forEach(function(el){ if(el.getBoundingClientRect().top < innerHeight) el.classList.add('in'); }); }, 60);
+})();
+
+(function(){
+  var S = [["hvac", "HVAC", "Kestrel Heating & Air"], ["plumbing", "Plumbing", "Dipper Plumbing"], ["contractor", "Contractor", "Ledgerline Builders"], ["lawn", "Lawn care", "Shortgrass Lawn Co"], ["salon", "Salon", "Oriel Hair Studio"], ["restaurant", "Restaurant", "Sawbuck Fire Grill"]], i = 0, reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var d = document.querySelectorAll('.stage .desk img'), p = document.querySelectorAll('.stage .phone img');
+  var n = document.getElementById('capNiche'), nm = document.getElementById('capName'), l = document.getElementById('capLink');
+  if (!d.length || reduce) return;
+  var visible = true;
+  if ('IntersectionObserver' in window) new IntersectionObserver(function(e){ visible = e[0].isIntersecting; }).observe(document.querySelector('.stage'));
+  setInterval(function(){
+    if (!visible || document.hidden) return;
+    d[i].classList.remove('on'); p[i].classList.remove('on');
+    i = (i + 1) % S.length;
+    d[i].classList.add('on'); p[i].classList.add('on');
+    n.textContent = S[i][1] + ' sample'; nm.textContent = S[i][2]; l.setAttribute('href', S[i][0] + '/index.html');
+  }, 3600);
+})();
+
 </script>
 </body>
 </html>

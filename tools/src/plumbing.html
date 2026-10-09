@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Dipper Plumbing | Plumber in Colorado Springs</title>
+<meta name="description" content="Sample build by SiteSprintPro. Leaks, burst pipes, water heaters, drains and sewer lines across Colorado Springs. A plumber answers, day or night.">
+<meta property="og:title" content="Dipper Plumbing | Sample build by SiteSprintPro">
+<meta property="og:description" content="A sample site for a fictional Colorado Springs plumber. Call, text a photo, or book a visit.">
+<meta name="theme-color" content="#14202a">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&display=swap">
+<script>
+  document.documentElement.classList.add('js');
+  setTimeout(function(){ document.documentElement.classList.add('ready'); }, 2500);
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --paper:#f1f3f2; --paper-2:#e5e9e8; --card:#f8f9f8;
+  --ink:#14202a; --ink-2:#1a2833; --ink-soft:#4b5963;
+  --line:rgba(20,32,42,.14); --line-dark:rgba(238,241,240,.16);
+  --copper:#ad4a21; --copper-dk:#8a3714; --copper-hi:#d9774a;
+  --on-dark:#eef1f0; --on-dark-soft:rgba(238,241,240,.76);
+  --shade:14,22,30;
+  --font:'Archivo','Helvetica Neue',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
+  --r-s:6px; --r-m:14px; --r-pill:999px;
+  --pad:clamp(16px,4.5vw,64px);
+  --max:1240px;
+  --hdr:64px;
+  --sec:clamp(72px,9vw,128px);
+}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:80px}
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+.lenis.lenis-stopped{overflow:clip}
+body{font-family:var(--font);font-weight:450;font-size:1.0625rem;line-height:1.6;color:var(--ink);background:var(--paper);
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-x:clip}
+img,svg{display:block}
+img{max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+button{font:inherit}
+h1,h2,h3{font-stretch:78%;font-weight:800;line-height:1;letter-spacing:-.005em;text-wrap:balance}
+h2{font-size:clamp(2.2rem,4.6vw,3.9rem);line-height:.98}
+p{text-wrap:pretty}
+:focus-visible{outline:3px solid var(--copper-hi);outline-offset:3px}
+::selection{background:var(--copper);color:#f7f5f2}
+.wrap{width:100%;max-width:calc(var(--max) + 2 * var(--pad));margin:0 auto;padding:0 var(--pad)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.hidden{display:none}
+.ln-mask{padding-bottom:.14em;margin-bottom:-.14em;padding-right:.12em;margin-right:-.12em}
+
+/* only the hero headline waits for JS, and never longer than 2.5s */
+html.js:not(.ready) #heroTitle{visibility:hidden}
+
+/* ---------- header ---------- */
+.hdr{position:fixed;inset:0 0 auto 0;z-index:50;padding-top:env(safe-area-inset-top);color:var(--on-dark);--mark:var(--copper-hi);
+  transition:background-color .35s,color .35s,box-shadow .35s}
+.hdr.solid{background:rgba(241,243,242,.95);color:var(--ink);--mark:var(--copper);
+  box-shadow:0 1px 0 var(--line),0 10px 28px -20px rgba(20,32,42,.5);-webkit-backdrop-filter:saturate(1.2) blur(10px);backdrop-filter:saturate(1.2) blur(10px)}
+.hdr-in{height:var(--hdr);display:flex;align-items:center;gap:20px}
+.brand{display:flex;align-items:center;gap:10px;min-height:44px;margin-right:auto}
+.mark{width:36px;height:36px;flex:none}
+.pipe{stroke:var(--mark)}
+.brand-name{display:flex;flex-direction:column;font-stretch:78%;font-weight:800;font-size:1.45rem;line-height:.86;letter-spacing:.01em}
+.brand-name small{font-stretch:100%;font-weight:650;font-size:.6rem;letter-spacing:.24em;text-transform:uppercase;margin-top:4px;opacity:.82}
+.nav{display:flex;gap:2px}
+.nav a{display:inline-flex;align-items:center;min-height:44px;padding:0 12px;font-weight:560;font-size:.96rem;border-radius:var(--r-s);transition:background-color .2s}
+.nav a:hover{background:rgba(127,138,140,.16)}
+.hdr-call{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 18px 0 15px;border-radius:var(--r-pill);background:var(--copper);color:#f7f5f2;
+  font-weight:750;font-size:1rem;white-space:nowrap;font-variant-numeric:tabular-nums;transition:background-color .2s}
+.hdr-call:hover{background:var(--copper-dk)}
+.hdr-call svg{width:17px;height:17px}
+
+/* ---------- hero ---------- */
+.hero{position:relative;height:780px;height:min(92dvh,860px);min-height:580px;display:flex;align-items:flex-end;color:var(--on-dark);background:var(--ink);overflow:hidden;isolation:isolate}
+.slides,.slide{position:absolute;inset:0}
+.slides{z-index:-2}
+.slide{opacity:0}
+.slide:first-child{opacity:1}
+.slide picture,.slide img{width:100%;height:100%}
+.slide img{object-fit:cover;transform-origin:62% 50%}
+.hero-shade{position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:
+    linear-gradient(180deg,rgba(var(--shade),.6) 0,rgba(var(--shade),0) 24%),
+    linear-gradient(90deg,rgba(var(--shade),.88) 0%,rgba(var(--shade),.8) 48%,rgba(var(--shade),.46) 72%,rgba(var(--shade),.16) 100%),
+    linear-gradient(0deg,rgba(var(--shade),.55) 0,rgba(var(--shade),0) 42%)}
+.hero-in{width:100%;padding-top:calc(var(--hdr) + 40px);padding-bottom:clamp(44px,7vw,92px)}
+.kicker{display:flex;align-items:center;gap:12px;font-size:.78rem;font-weight:700;letter-spacing:.17em;text-transform:uppercase;color:var(--on-dark-soft);margin-bottom:20px}
+.kicker::before{content:'';width:28px;height:2px;background:var(--copper-hi)}
+.hero h1{font-size:clamp(3.4rem,7.4vw,6.6rem);line-height:.93;margin-bottom:24px;letter-spacing:-.01em}
+.hero h1 em{font-style:italic}
+.hero-sub{max-width:31ch;font-size:clamp(1.08rem,1.45vw,1.28rem);line-height:1.5;color:#e3e8e7;margin-bottom:30px;font-weight:500}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:12px}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 24px;border-radius:var(--r-pill);
+  font-weight:700;font-size:1.06rem;white-space:nowrap;cursor:pointer;border:0;transition:transform .25s cubic-bezier(.2,.7,.2,1),background-color .25s,border-color .25s,color .25s}
+.btn:hover{transform:translateY(-2px)}
+.btn svg{width:20px;height:20px;flex:none}
+.btn-call{background:var(--copper);color:#f7f5f2;min-height:62px;padding:0 30px 0 26px;font-size:1.22rem;box-shadow:0 18px 36px -18px rgba(8,14,20,.75)}
+.btn-call:hover{background:var(--copper-dk)}
+.btn-call .num{font-stretch:88%;font-weight:800;font-variant-numeric:tabular-nums;letter-spacing:.01em}
+.btn-ghost{color:var(--on-dark);border:1.5px solid rgba(238,241,240,.55);background:rgba(var(--shade),.28)}
+.btn-ghost:hover{border-color:var(--on-dark)}
+.btn-light{background:var(--on-dark);color:var(--ink)}
+.btn-line{border:1.5px solid var(--ink);color:var(--ink);background:transparent}
+.btn-line:hover{background:var(--ink);color:var(--on-dark)}
+.btn-dark{background:var(--ink);color:var(--on-dark)}
+
+/* ---------- trust row ---------- */
+.trust{border-bottom:1px solid var(--line)}
+.trust-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+.t-item{display:grid;gap:8px;align-content:start;padding:30px 24px 22px;border-left:1px solid var(--line)}
+.t-item:first-child{border-left:0;padding-left:0}
+.t-val{justify-self:start;display:inline-flex;align-items:center;gap:8px;font-stretch:80%;font-weight:800;font-size:1.5rem;line-height:1.15}
+.t-val svg{width:20px;height:20px;color:var(--copper);flex:none}
+.t-val.ph{border:1.5px dashed rgba(20,32,42,.38);border-radius:var(--r-s);padding:3px 11px 3px 9px;color:var(--ink-soft)}
+.t-lbl{font-size:.93rem;line-height:1.4;color:var(--ink-soft)}
+.t-note{font-size:.86rem;color:var(--ink-soft);padding-bottom:20px}
+
+/* ---------- services ---------- */
+.svc{padding:var(--sec) 0}
+.svc-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,6vw,96px);align-items:start}
+.svc-side{position:sticky;top:calc(var(--hdr) + 32px)}
+.svc-side h2{margin-bottom:16px}
+.lede{color:var(--ink-soft);max-width:36ch;font-size:1.12rem;margin-bottom:30px}
+.photo{border-radius:var(--r-m);overflow:hidden;background:var(--paper-2);box-shadow:0 26px 50px -30px rgba(20,32,42,.5)}
+.photo img{width:100%;height:100%;object-fit:cover}
+.svc-photo{aspect-ratio:7/8}
+.svc-list{list-style:none;border-top:1px solid var(--line)}
+.svc-item{display:grid;gap:10px;padding:30px 0 32px;border-bottom:1px solid var(--line)}
+.svc-head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 16px}
+.svc-item h3{font-size:clamp(1.7rem,2.7vw,2.35rem)}
+.tag{display:inline-flex;align-items:center;min-height:28px;padding:0 12px;border-radius:var(--r-pill);font-size:.84rem;font-weight:700;background:rgba(173,74,33,.11);color:var(--copper-dk);white-space:nowrap}
+.svc-item p{max-width:58ch;color:var(--ink-soft)}
+.svc-item p.svc-meta{color:var(--ink);font-weight:620;font-size:1rem}
+
+/* ---------- freeze (the one dark band) ---------- */
+.freeze{background:var(--ink-2);color:var(--on-dark);padding:var(--sec) 0}
+.freeze-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(32px,6vw,88px);align-items:center}
+.freeze-photo{aspect-ratio:4/5;box-shadow:0 30px 60px -30px rgba(4,8,12,.8);background:#22323e}
+.freeze-photo img{object-position:50% 40%}
+.freeze h2{margin-bottom:18px;max-width:13ch}
+.hook{color:var(--on-dark-soft);font-size:1.12rem;max-width:48ch;margin-bottom:28px}
+.hook strong{color:var(--on-dark);font-weight:700}
+.checklist{list-style:none;border-top:1px solid var(--line-dark)}
+.chk{position:relative;display:grid;grid-template-columns:28px minmax(0,1fr);gap:16px;padding:17px 4px 18px;border-bottom:1px solid var(--line-dark);cursor:pointer;-webkit-tap-highlight-color:transparent}
+.chk input{position:absolute;left:4px;top:20px;width:1px;height:1px;opacity:0;margin:0;border-radius:0}
+.box{width:28px;height:28px;margin-top:1px;border-radius:var(--r-s);border:2px solid rgba(238,241,240,.55);display:grid;place-items:center;transition:background-color .25s,border-color .25s}
+.box svg{width:16px;height:16px;color:var(--ink-2);transform:scale(0);transition:transform .32s cubic-bezier(.3,1.6,.5,1)}
+.chk:hover .box{border-color:var(--on-dark)}
+.chk input:checked + .box{background:var(--copper-hi);border-color:var(--copper-hi)}
+.chk input:checked + .box svg{transform:scale(1)}
+.chk input:focus-visible + .box{outline:3px solid var(--copper-hi);outline-offset:3px}
+.chk-text b{display:block;font-weight:700;font-size:1.1rem;line-height:1.35;color:var(--on-dark)}
+.chk-text span{display:block;margin-top:4px;color:var(--on-dark-soft);font-size:.99rem;line-height:1.55}
+.chk input:checked ~ .chk-text b{text-decoration:line-through;text-decoration-color:var(--copper-hi);text-decoration-thickness:2px}
+.freeze-foot{display:flex;align-items:center;gap:16px;margin-top:22px}
+.meter{flex:1;height:6px;border-radius:var(--r-pill);background:rgba(238,241,240,.14);overflow:hidden}
+.meter i{display:block;height:100%;background:var(--copper-hi);transform:scaleX(0);transform-origin:left;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.count{font-weight:650;font-size:.95rem;color:var(--on-dark);white-space:nowrap;font-variant-numeric:tabular-nums}
+.freeze-cta{display:flex;flex-wrap:wrap;align-items:center;gap:12px 18px;margin-top:30px;color:var(--on-dark-soft)}
+
+/* ---------- how a call goes ---------- */
+.how{padding:var(--sec) 0}
+.how h2{max-width:15ch;margin-bottom:clamp(36px,5vw,64px)}
+.steps{position:relative;list-style:none;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(20px,3vw,44px);padding-top:30px}
+.steps-line{position:absolute;left:0;right:0;top:0;height:3px;background:var(--line)}
+.steps-line i{position:absolute;inset:0;background:var(--copper);transform-origin:left}
+.step{position:relative}
+.step::before{content:'';position:absolute;left:0;top:-36px;width:3px;height:15px;background:var(--copper)}
+.step h3{font-size:clamp(1.45rem,2.1vw,1.85rem);margin-bottom:10px}
+.step p{color:var(--ink-soft)}
+
+/* ---------- reviews ---------- */
+.reviews{padding:var(--sec) 0;background:var(--paper-2)}
+.rev-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px 40px;align-items:end;margin-bottom:clamp(30px,4vw,48px)}
+.rev-note{justify-self:end;display:flex;gap:10px;align-items:flex-start;max-width:46ch;padding:12px 14px;border-radius:var(--r-s);background:var(--card);border:1px solid var(--line);font-size:.95rem;line-height:1.45;color:var(--ink-soft)}
+.rev-note b{color:var(--copper-dk)}
+.rev-grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:20px}
+.rev{display:flex;flex-direction:column;justify-content:space-between;gap:26px;padding:clamp(24px,3vw,40px);border-radius:var(--r-m);background:var(--card);border:1px solid var(--line)}
+.rev-lg{grid-row:span 2}
+.qmark{width:34px;height:26px;color:var(--copper);margin-bottom:18px}
+.rev blockquote p{font-style:italic;font-weight:560;font-size:clamp(1.12rem,1.5vw,1.3rem);line-height:1.45}
+.rev-lg blockquote p{font-stretch:86%;font-weight:700;font-size:clamp(1.55rem,2.9vw,2.45rem);line-height:1.16;max-width:20ch}
+.rev figcaption{display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:.93rem;font-weight:650;color:var(--ink-soft)}
+
+/* ---------- area ---------- */
+.area{padding:var(--sec) 0}
+.area-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr) minmax(0,.9fr);gap:clamp(28px,4vw,64px);align-items:start}
+.area-intro h2{margin-bottom:16px}
+.area-intro p{color:var(--ink-soft);max-width:36ch;margin-bottom:26px}
+.towns{list-style:none;columns:2;column-gap:28px;border-top:1px solid var(--line)}
+.towns li{padding:10px 0;border-bottom:1px solid var(--line);break-inside:avoid;font-weight:560}
+.towns li.ask{color:var(--ink-soft);font-weight:450}
+.hours{padding:24px;border-radius:var(--r-m);background:var(--card);border:1px solid var(--line)}
+.hours h3{font-stretch:100%;font-size:1.05rem;font-weight:750;margin-bottom:6px}
+.hours div{display:grid;gap:2px;padding:12px 0;border-bottom:1px solid var(--line)}
+.hours div:last-child{border-bottom:0;padding-bottom:0}
+.hours dt{font-weight:700}
+.hours dd{color:var(--ink-soft)}
+
+/* ---------- contact ---------- */
+.contact{padding:var(--sec) 0;border-top:1px solid var(--line)}
+.contact-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(36px,6vw,96px);align-items:start}
+.contact h2{max-width:12ch}
+.bignum{display:inline-flex;align-items:center;gap:14px;margin:22px 0 18px;min-height:64px;font-stretch:76%;font-weight:800;font-size:clamp(2.7rem,7.2vw,5.6rem);line-height:1;letter-spacing:-.005em;color:var(--copper);font-variant-numeric:tabular-nums;white-space:nowrap;transition:color .2s}
+.bignum:hover{color:var(--copper-dk)}
+.bignum svg{width:.56em;height:.56em;flex:none}
+.contact-call > p{color:var(--ink-soft);max-width:40ch;margin-bottom:24px}
+.form{position:relative;display:grid;gap:16px;padding:clamp(22px,3vw,36px);border-radius:var(--r-m);background:var(--card);border:1px solid var(--line);box-shadow:0 34px 64px -44px rgba(20,32,42,.55)}
+.form h3{font-stretch:84%;font-size:1.7rem}
+.form-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px}
+.field{display:grid;gap:6px}
+.field label{font-weight:650;font-size:.95rem}
+.field label i{font-style:normal;font-weight:450;color:var(--ink-soft)}
+.field input,.field select,.field textarea{width:100%;min-height:52px;padding:12px 14px;font:inherit;font-size:17px;font-weight:450;color:var(--ink);background:var(--paper);
+  border:1.5px solid rgba(20,32,42,.24);border-radius:var(--r-s);-webkit-appearance:none;appearance:none;transition:border-color .2s,background-color .2s}
+.field select{padding-right:44px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2314202a' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;background-size:18px}
+.field textarea{min-height:108px;resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--copper);background:var(--card)}
+.form .btn{width:100%;margin-top:4px}
+.form-msg{min-height:1.5em;font-weight:650;color:var(--copper-dk);line-height:1.45}
+.form-msg:empty{display:none}
+
+/* ---------- footer ---------- */
+.foot{padding:56px 0 28px;border-top:1px solid var(--line);background:var(--paper)}
+.foot-grid{display:grid;grid-template-columns:minmax(0,1.5fr) repeat(3,minmax(0,1fr));gap:32px}
+.foot .brand{color:var(--ink);--mark:var(--copper);margin:0 0 10px}
+.foot-brand p{color:var(--ink-soft);font-size:.96rem;max-width:34ch}
+.foot h3{font-stretch:100%;font-size:.98rem;font-weight:750;margin-bottom:6px}
+.foot-col a{display:flex;align-items:center;min-height:44px;font-weight:620}
+.foot-col a:hover{color:var(--copper)}
+.foot-col p{color:var(--ink-soft);font-size:.96rem;line-height:1.5;padding:4px 0}
+.foot-base{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:4px 24px;margin-top:40px;padding-top:14px;border-top:1px solid var(--line);font-size:.92rem;color:var(--ink-soft)}
+.foot-base a{display:inline-flex;align-items:center;min-height:44px;color:var(--ink);font-weight:620;text-decoration:underline;text-decoration-color:var(--copper);text-underline-offset:4px}
+
+/* ---------- phone call bar ---------- */
+.callbar{display:none}
+
+/* ---------- SAMPLE BUILD badge (exact) ---------- */
+.ssp-sample{position:fixed;left:12px;bottom:12px;z-index:9999;display:flex;align-items:center;gap:8px;background:rgba(17,17,17,0.92);color:#fff;font:700 12px/1.3 -apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;letter-spacing:.02em;padding:9px 13px;border-radius:999px;box-shadow:0 4px 18px rgba(0,0,0,.35);text-decoration:none;max-width:calc(100vw - 24px)}
+.ssp-sample b{background:#7ed957;color:#111;border-radius:999px;padding:2px 8px;font-weight:800}
+
+/* ---------- responsive ---------- */
+@media (max-width:1000px){
+  .area-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  .area-intro{grid-column:1/-1}
+}
+@media (max-width:900px){
+  .nav{display:none}
+  .svc-grid,.freeze-grid,.contact-grid{grid-template-columns:minmax(0,1fr)}
+  .svc-side{position:static}
+  .svc-photo{aspect-ratio:4/3}
+  .freeze-photo{aspect-ratio:16/11}
+  .steps{grid-template-columns:minmax(0,1fr) minmax(0,1fr);row-gap:36px}
+  .rev-head{grid-template-columns:minmax(0,1fr)}
+  .rev-note{justify-self:start}
+  .rev-grid{grid-template-columns:minmax(0,1fr)}
+  .rev-lg{grid-row:auto}
+}
+@media (max-width:760px){
+  :root{--hdr:60px}
+  .trust-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .t-item{padding:20px 0 18px 16px}
+  .t-item:nth-child(odd){border-left:0;padding-left:0}
+  .t-item:nth-child(n+3){border-top:1px solid var(--line)}
+  .t-val{font-size:1.32rem}
+  .steps{grid-template-columns:minmax(0,1fr);padding:0 0 0 30px;row-gap:30px}
+  .steps-line{left:0;top:6px;bottom:6px;right:auto;width:3px;height:auto}
+  .steps-line i{transform-origin:top}
+  .step::before{left:-36px;top:.42em;width:15px;height:3px}
+  .towns{columns:2;column-gap:18px}
+  .area-grid{grid-template-columns:minmax(0,1fr)}
+  .form-row{grid-template-columns:minmax(0,1fr)}
+  .foot-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px 20px}
+  .foot-brand{grid-column:1/-1}
+  .callbar{position:fixed;left:0;right:0;bottom:0;z-index:60;display:flex;gap:8px;padding:10px 10px calc(10px + env(safe-area-inset-bottom));
+    background:rgba(241,243,242,.97);box-shadow:0 -1px 0 var(--line),0 -12px 30px -20px rgba(20,32,42,.5);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+  .callbar a{display:flex;align-items:center;justify-content:center;gap:8px;min-height:52px;border-radius:var(--r-pill);font-weight:750;font-size:1rem;white-space:nowrap}
+  .callbar svg{width:19px;height:19px;flex:none}
+  .cb-call{flex:1;background:var(--copper);color:#f7f5f2}
+  .cb-call .num{font-variant-numeric:tabular-nums}
+  .cb-text{padding:0 16px;border:1.5px solid var(--ink);color:var(--ink)}
+  body{padding-bottom:calc(72px + env(safe-area-inset-bottom))}
+  .ssp-sample{bottom:auto;top:calc(var(--hdr) + 8px + env(safe-area-inset-top));font-size:11px;padding:7px 11px}
+  .ssp-sample span{display:none}
+}
+@media (max-width:700px){
+  .hero{height:min(90dvh,800px);min-height:600px}
+  .hero-shade{background:linear-gradient(180deg,rgba(var(--shade),.62) 0,rgba(var(--shade),.12) 18%,rgba(var(--shade),.3) 36%,rgba(var(--shade),.84) 58%,rgba(var(--shade),.94) 100%)}
+  .hero h1{font-size:clamp(2.45rem,11.2vw,3.4rem);margin-bottom:18px}
+  .hero-sub{margin-bottom:24px}
+  .hero-ctas{flex-direction:column;align-items:stretch}
+  .hero-ctas .btn{width:100%}
+  .kicker{margin-bottom:14px}
+}
+@media (max-width:389px){
+  .cb-text{width:56px;padding:0}
+  .cb-text .lbl{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  .hdr-call{padding:0 14px 0 12px;font-size:.95rem}
+  .brand-name{font-size:1.3rem}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .slide:not(:first-child){display:none}
+  .slide img{transform:none!important}
+}
+
+/* SiteSprintPro: compact sample badge on phones */
+@media (max-width:760px){.ssp-sample span{display:none}.ssp-sample{padding:6px 9px;font-size:11px;box-shadow:0 2px 10px rgba(0,0,0,.25)}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></symbol>
+  <symbol id="i-camera" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 8.2c0-.7.6-1.2 1.2-1.2h2.8l1.7-2.5h5.6L16.5 7h2.8c.7 0 1.2.5 1.2 1.2v10.1c0 .7-.5 1.2-1.2 1.2H4.7c-.6 0-1.2-.5-1.2-1.2z"/><circle cx="12" cy="13" r="3.6"/></g></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M12 3l2.7 5.6 6.1.8-4.4 4.2 1.1 6.1L12 16.8l-5.5 2.9 1.1-6.1-4.4-4.2 6.1-.8z"/></symbol>
+  <symbol id="i-cal" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3.5" y="5" width="17" height="15.5" rx="1.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></g></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7.5 3v5.5c0 4.6-3.2 8.2-7.5 9.5-4.3-1.3-7.5-4.9-7.5-9.5V6z"/><path d="M8.6 12.2l2.3 2.3 4.5-4.6"/></g></symbol>
+  <symbol id="i-doc" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h9l4 4v14H6z"/><path d="M14.5 3v4.5H19M9.5 12h6M9.5 16h6"/></g></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/></g></symbol>
+  <symbol id="i-mark" viewBox="0 0 40 40">
+    <path class="pipe" d="M7 8.6v10.8" fill="none" stroke-width="3.4" stroke-linecap="round"/>
+    <path class="pipe" d="M9.6 14H19a8 8 0 0 1 8 8v2.4" fill="none" stroke-width="5.4" stroke-linecap="round"/>
+    <path class="pipe" d="M22.6 26.6h8.8" fill="none" stroke-width="3" stroke-linecap="round"/>
+    <path d="M27 30c-2.2 2.9-3.4 4.6-3.4 6.1a3.4 3.4 0 0 0 6.8 0c0-1.5-1.2-3.2-3.4-6.1z" fill="currentColor"/>
+  </symbol>
+</svg>
+
+<header class="hdr" id="hdr">
+  <div class="wrap hdr-in">
+    <a class="brand" href="#top" aria-label="Dipper Plumbing, back to top">
+      <svg class="mark" aria-hidden="true"><use href="#i-mark"/></svg>
+      <span class="brand-name">Dipper<small>Plumbing</small></span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="#services">Services</a>
+      <a href="#freeze">Freeze prep</a>
+      <a href="#area">Service area</a>
+      <a href="#contact">Book a visit</a>
+    </nav>
+    <a class="hdr-call" data-tel href="tel:+17195550118" aria-label="Call Dipper Plumbing">
+      <svg aria-hidden="true"><use href="#i-phone"/></svg><span data-phone-display>(719) 555-0118</span>
+    </a>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero" id="hero" aria-labelledby="heroTitle">
+  <div class="slides">
+    <div class="slide">
+      <picture>
+        <source media="(max-width: 700px)" srcset="img/hero-1-p.webp" width="900" height="1350">
+        <source srcset="img/hero-1-960.webp 960w, img/hero-1.webp 1920w" sizes="100vw" width="1920" height="1080">
+        <img src="img/hero-1.webp" width="1920" height="1080" alt="A plumber's hands tightening a fitting on a water line" fetchpriority="high" loading="eager" decoding="async">
+      </picture>
+    </div>
+    <div class="slide">
+      <picture>
+        <source media="(max-width: 700px)" srcset="img/hero-2-p.webp" width="900" height="1350">
+        <source srcset="img/hero-2-960.webp 960w, img/hero-2.webp 1920w" sizes="100vw" width="1920" height="1080">
+        <img src="img/hero-2.webp" width="1920" height="1080" alt="New copper water line with a soldered tee fitting" loading="lazy" fetchpriority="low" decoding="async">
+      </picture>
+    </div>
+    <div class="slide">
+      <picture>
+        <source media="(max-width: 700px)" srcset="img/hero-3-p.webp" width="900" height="1350">
+        <source srcset="img/hero-3-960.webp 960w, img/hero-3.webp 1920w" sizes="100vw" width="1920" height="1080">
+        <img src="img/hero-3.webp" width="1920" height="1080" alt="Water running from a chrome bathroom faucet into a clean sink" loading="lazy" fetchpriority="low" decoding="async">
+      </picture>
+    </div>
+    <div class="slide">
+      <picture>
+        <source media="(max-width: 700px)" srcset="img/hero-4-p.webp" width="900" height="1350">
+        <source srcset="img/hero-4-960.webp 960w, img/hero-4.webp 1920w" sizes="100vw" width="1920" height="1080">
+        <img src="img/hero-4.webp" width="1920" height="1080" alt="A dry, clean farmhouse kitchen sink under a row of windows" loading="lazy" fetchpriority="low" decoding="async">
+      </picture>
+    </div>
+  </div>
+  <div class="hero-shade" aria-hidden="true"></div>
+  <div class="wrap hero-in">
+    <p class="kicker">Plumbing for Colorado Springs</p>
+    <h1 id="heroTitle">Water on the floor?<br> <em>We pick up.</em></h1>
+    <p class="hero-sub">A plumber answers, day or night, and gets the water stopped today. You see the price before work starts.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-call" data-tel href="tel:+17195550118">
+        <svg aria-hidden="true"><use href="#i-phone"/></svg>Call <span class="num" data-phone-display>(719) 555-0118</span>
+      </a>
+      <a class="btn btn-ghost" data-sms href="sms:+17195550118">
+        <svg aria-hidden="true"><use href="#i-camera"/></svg>Text us a photo
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="trust" aria-label="Why people call us">
+  <div class="wrap trust-grid">
+    <div class="t-item">
+      <span class="t-val ph"><svg aria-hidden="true"><use href="#i-star"/></svg>Your rating</span>
+      <span class="t-lbl">Google rating, pulled from your profile</span>
+    </div>
+    <div class="t-item">
+      <span class="t-val ph"><svg aria-hidden="true"><use href="#i-cal"/></svg>Your years</span>
+      <span class="t-lbl">Years in business</span>
+    </div>
+    <div class="t-item">
+      <span class="t-val ph"><svg aria-hidden="true"><use href="#i-shield"/></svg>License no.</span>
+      <span class="t-lbl">State plumbing license, licensed and insured</span>
+    </div>
+    <div class="t-item">
+      <span class="t-val"><svg aria-hidden="true"><use href="#i-doc"/></svg>Upfront</span>
+      <span class="t-lbl">Written price before any work starts</span>
+    </div>
+  </div>
+  <p class="wrap t-note">Dashed boxes are placeholders. A real site shows the owner's actual rating, years and license number.</p>
+</section>
+
+<section class="svc" id="services" aria-labelledby="svcTitle">
+  <div class="wrap svc-grid">
+    <div class="svc-side">
+      <h2 id="svcTitle" data-reveal>What we fix</h2>
+      <p class="lede" data-reveal>Five kinds of calls, start to finish. If it carries water into your house or out of it, it is our job.</p>
+      <figure class="photo svc-photo" data-reveal>
+        <img src="img/services.webp" srcset="img/services-700.webp 700w, img/services.webp 1400w" sizes="(max-width: 900px) 92vw, 40vw" width="1400" height="1600" alt="Finished bathroom vanity with two matte black faucets" loading="lazy" decoding="async">
+      </figure>
+    </div>
+    <ul class="svc-list">
+      <li class="svc-item" data-reveal>
+        <div class="svc-head"><h3>Leaks, burst and frozen pipes</h3><span class="tag">Any hour, 7 days</span></div>
+        <p>Water where it should not be. We find where it is coming from, stop it, and repair the line, from a pinhole under a sink to a split pipe inside a wall.</p>
+        <p class="svc-meta">Frozen pipes thawed slowly, then checked for splits before the water goes back on.</p>
+      </li>
+      <li class="svc-item" data-reveal>
+        <div class="svc-head"><h3>Water heaters</h3><span class="tag">Tank and tankless</span></div>
+        <p>No hot water, rusty water, a tank that drips or rumbles. Repaired when that makes sense, replaced when it does not, and the old tank hauled away.</p>
+        <p class="svc-meta">Gas and electric, sized to how many showers your house runs in a morning.</p>
+      </li>
+      <li class="svc-item" data-reveal>
+        <div class="svc-head"><h3>Drain cleaning</h3></div>
+        <p>Kitchen sinks, tubs, showers, laundry and main lines. Cleared with the right cable or water jetter for the pipe, then tested with running water before we leave.</p>
+      </li>
+      <li class="svc-item" data-reveal>
+        <div class="svc-head"><h3>Sewer camera inspection</h3><span class="tag">You keep the video</span></div>
+        <p>A camera down the line shows roots, sags and breaks before anyone digs. You watch it with us, and the recording is yours.</p>
+        <p class="svc-meta">Worth doing before you buy an older house.</p>
+      </li>
+      <li class="svc-item" data-reveal>
+        <div class="svc-head"><h3>Fixtures and repipes</h3></div>
+        <p>Faucets, toilets, disposals, shutoff valves and outdoor spigots installed right. Whole-house repipes in PEX or copper when the old lines are done.</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="freeze" id="freeze" aria-labelledby="freezeTitle">
+  <div class="wrap freeze-grid">
+    <figure class="photo freeze-photo" data-reveal>
+      <img src="img/freeze.webp" srcset="img/freeze-700.webp 700w, img/freeze.webp 1400w" sizes="(max-width: 900px) 92vw, 42vw" width="1400" height="1750" alt="An outdoor spigot dripping in falling snow" loading="lazy" decoding="async">
+    </figure>
+    <div class="freeze-body">
+      <h2 id="freezeTitle" data-reveal>Before the first hard freeze</h2>
+      <p class="hook" data-reveal><strong>The first hard freeze is when &ldquo;burst pipe&rdquo; gets Googled at 2am.</strong> Front Range weather swings fast, and a sunny 60&deg; afternoon can drop below freezing by morning. Do this list on a warm weekend, not the night it snows.</p>
+      <ul class="checklist" data-reveal>
+        <li><label class="chk"><input type="checkbox" name="freeze-hoses"><span class="box" aria-hidden="true"><svg><use href="#i-check"/></svg></span><span class="chk-text"><b>Disconnect garden hoses</b><span>A hose left on holds water in the spigot. That is where it freezes and splits, often inside the wall where you cannot see it.</span></span></label></li>
+        <li><label class="chk"><input type="checkbox" name="freeze-spigots"><span class="box" aria-hidden="true"><svg><use href="#i-check"/></svg></span><span class="chk-text"><b>Shut off and drain outdoor spigots</b><span>If there is an inside shutoff for the spigot, close it, then open the outside tap until it stops dripping.</span></span></label></li>
+        <li><label class="chk"><input type="checkbox" name="freeze-insulate"><span class="box" aria-hidden="true"><svg><use href="#i-check"/></svg></span><span class="chk-text"><b>Insulate pipes in crawlspaces and garages</b><span>Foam sleeves from any hardware store. Start with pipes on outside walls and anything near a garage door.</span></span></label></li>
+        <li><label class="chk"><input type="checkbox" name="freeze-main"><span class="box" aria-hidden="true"><svg><use href="#i-check"/></svg></span><span class="chk-text"><b>Know where your main water shutoff is</b><span>Usually where the line enters the house: basement, crawlspace or a utility closet. Find it now and make sure it turns.</span></span></label></li>
+        <li><label class="chk"><input type="checkbox" name="freeze-cabinets"><span class="box" aria-hidden="true"><svg><use href="#i-check"/></svg></span><span class="chk-text"><b>Open cabinet doors on the coldest nights</b><span>Sinks on outside walls get cold first. Open doors let warm room air reach the pipes.</span></span></label></li>
+      </ul>
+      <div class="freeze-foot">
+        <div class="meter" aria-hidden="true"><i id="meterFill"></i></div>
+        <p class="count" id="freezeCount" role="status">0 of 5 done</p>
+      </div>
+      <div class="freeze-cta" data-reveal>
+        <span>Rather have a plumber walk the house with you?</span>
+        <a class="btn btn-light" href="#contact">Book a visit<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="how" id="how" aria-labelledby="howTitle">
+  <div class="wrap">
+    <h2 id="howTitle" data-reveal>What happens when you call</h2>
+    <ol class="steps">
+      <li class="steps-line" aria-hidden="true"><i id="stepsFill"></i></li>
+      <li class="step" data-reveal><h3>A plumber answers.</h3><p>Not a call center. Tell us what you see, and we will tell you which valve to shut while we drive over.</p></li>
+      <li class="step" data-reveal><h3>We stop the water first.</h3><p>Then we find the cause. Shoe covers on and drop cloths down before any tool comes out.</p></li>
+      <li class="step" data-reveal><h3>You see the price.</h3><p>In writing, before work starts. Nothing happens until you say yes.</p></li>
+      <li class="step" data-reveal><h3>Fixed and cleaned up.</h3><p>We run the water with you watching, show you the old part, and leave the space clean.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="reviews" id="reviews" aria-labelledby="revTitle">
+  <div class="wrap">
+    <div class="rev-head">
+      <h2 id="revTitle" data-reveal>What customers say</h2>
+      <p class="rev-note" data-reveal><b>Sample layout.</b> On your site these are your real Google reviews, quoted word for word.</p>
+    </div>
+    <div class="rev-grid">
+      <figure class="rev rev-lg" data-reveal>
+        <div>
+          <svg class="qmark" viewBox="0 0 34 26" aria-hidden="true"><path fill="currentColor" d="M0 26V15.6C0 6.9 4.6 1.6 13 0l1.6 3.9C9.6 5.4 7.3 8.4 7 12.6h6.6V26zm19.4 0V15.6C19.4 6.9 24 1.6 32.4 0L34 3.9c-5 1.5-7.3 4.5-7.6 8.7H33V26z"/></svg>
+          <blockquote><p>Your strongest Google review goes here, word for word. Usually the one about a 2am call that got answered.</p></blockquote>
+        </div>
+        <figcaption><span>First name, Google review</span><span class="tag">Sample</span></figcaption>
+      </figure>
+      <figure class="rev" data-reveal>
+        <blockquote><p>The review that mentions your plumber by name and how fast they showed up.</p></blockquote>
+        <figcaption><span>First name, Google review</span><span class="tag">Sample</span></figcaption>
+      </figure>
+      <figure class="rev" data-reveal>
+        <blockquote><p>The one about a fair price from someone who expected to get taken.</p></blockquote>
+        <figcaption><span>First name, Google review</span><span class="tag">Sample</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="area" id="area" aria-labelledby="areaTitle">
+  <div class="wrap area-grid">
+    <div class="area-intro">
+      <h2 id="areaTitle" data-reveal>Where we work</h2>
+      <p data-reveal>We come to you. Colorado Springs and the towns around it, north to Monument, south to Fountain and east to Falcon.</p>
+      <a class="btn btn-line" data-maps href="https://www.google.com/maps/search/?api=1&amp;query=Colorado+Springs,+CO" target="_blank" rel="noopener" data-reveal>
+        <svg aria-hidden="true"><use href="#i-pin"/></svg>See the service area
+      </a>
+    </div>
+    <ul class="towns" data-reveal aria-label="Neighborhoods and towns we serve">
+      <li>Briargate</li><li>Northgate</li><li>Rockrimmon</li><li>Old Colorado City</li><li>Manitou Springs</li><li>Broadmoor</li>
+      <li>Cimarron Hills</li><li>Security-Widefield</li><li>Fountain</li><li>Falcon</li><li>Black Forest</li><li>Monument</li>
+      <li class="ask">Not listed? Call and ask.</li>
+    </ul>
+    <div class="hours" data-reveal>
+      <h3>Hours</h3>
+      <dl>
+        <div><dt>Leaks and burst pipes</dt><dd>Any hour, 7 days</dd></div>
+        <div><dt>Scheduled work</dt><dd>Monday to Saturday, 7am to 6pm</dd></div>
+        <div><dt>Sunday</dt><dd>Emergency calls only</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact" aria-labelledby="contactTitle">
+  <div class="wrap contact-grid">
+    <div class="contact-call">
+      <h2 id="contactTitle" data-reveal>Talk to a plumber</h2>
+      <a class="bignum" data-tel href="tel:+17195550118" aria-label="Call Dipper Plumbing" data-reveal>
+        <svg aria-hidden="true"><use href="#i-phone"/></svg><span data-phone-display>(719) 555-0118</span>
+      </a>
+      <p data-reveal>Leaks and burst pipes, any hour. Not sure what you are looking at? Send a photo and we reply with what we see and what to do next.</p>
+      <a class="btn btn-dark" data-sms href="sms:+17195550118" data-reveal><svg aria-hidden="true"><use href="#i-camera"/></svg>Text us a photo</a>
+    </div>
+    <form class="form" id="quoteForm" name="booking" method="POST" data-netlify="true" netlify-honeypot="bot-field" data-reveal>
+      <h3>Book a visit</h3>
+      <input type="hidden" name="form-name" value="booking">
+      <p class="hidden"><label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+      <div class="form-row">
+        <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
+        <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required></div>
+      </div>
+      <div class="field"><label for="f-where">Neighborhood or address</label><input id="f-where" name="address" type="text" autocomplete="street-address"></div>
+      <div class="field"><label for="f-issue">What is going on?</label>
+        <select id="f-issue" name="issue">
+          <option>Leak or burst pipe</option>
+          <option>No hot water</option>
+          <option>Slow or clogged drain</option>
+          <option>Sewer camera inspection</option>
+          <option>Fixture or repipe quote</option>
+          <option>Something else</option>
+        </select>
+      </div>
+      <div class="field"><label for="f-msg">Details <i>(optional)</i></label><textarea id="f-msg" name="message" rows="3"></textarea></div>
+      <button class="btn btn-call" type="submit">Book a visit<svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+      <p class="form-msg" id="formMsg" role="status"></p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-grid">
+    <div class="foot-brand">
+      <a class="brand" href="#top" aria-label="Dipper Plumbing, back to top">
+        <svg class="mark" aria-hidden="true"><use href="#i-mark"/></svg>
+        <span class="brand-name">Dipper<small>Plumbing</small></span>
+      </a>
+      <p>Leaks, water heaters, drains, sewer lines and fixtures for homes across Colorado Springs.</p>
+    </div>
+    <div class="foot-col">
+      <h3>Call or text</h3>
+      <a data-tel href="tel:+17195550118"><span data-phone-display>(719) 555-0118</span></a>
+      <a data-sms href="sms:+17195550118">Text us a photo</a>
+    </div>
+    <div class="foot-col">
+      <h3>Hours</h3>
+      <p>Leaks and burst pipes any hour, 7 days</p>
+      <p>Scheduled work Monday to Saturday, 7am to 6pm</p>
+    </div>
+    <div class="foot-col">
+      <h3>Area</h3>
+      <p>Colorado Springs and El Paso County</p>
+      <a data-maps href="https://www.google.com/maps/search/?api=1&amp;query=Colorado+Springs,+CO" target="_blank" rel="noopener">See the service area</a>
+    </div>
+  </div>
+  <div class="wrap foot-base">
+    <p>Dipper Plumbing is a fictional business. <a href="../index.html">Sample build by SiteSprintPro.</a></p>
+    <p>Licensed and insured</p>
+  </div>
+</footer>
+
+<div class="callbar" aria-label="Quick contact">
+  <a class="cb-call" data-tel href="tel:+17195550118"><svg aria-hidden="true"><use href="#i-phone"/></svg>Call now</a>
+  <a class="cb-text" data-sms href="sms:+17195550118" aria-label="Text us a photo"><svg aria-hidden="true"><use href="#i-camera"/></svg><span class="lbl">Text a photo</span></a>
+</div>
+
+<a class="ssp-sample" href="../work/index.html" title="Back to the SiteSprintPro portfolio"><b>SAMPLE BUILD</b><span>Fictional business. Reviews and numbers are placeholders.</span></a>
+
+<!--@LIBS@-->
+<script>
+function init(){
+  var html = document.documentElement;
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var $ = function(s, c){ return (c || document).querySelector(s); };
+  var $$ = function(s, c){ return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
+
+  /* contact details come from CONFIG */
+  $$('[data-tel]').forEach(function(a){ a.href = 'tel:' + CONFIG.phone; });
+  $$('[data-sms]').forEach(function(a){ a.href = 'sms:' + CONFIG.sms; });
+  $$('[data-phone-display]').forEach(function(el){ el.textContent = CONFIG.phoneDisplay; });
+  $$('[data-maps]').forEach(function(a){ a.href = CONFIG.mapsUrl; });
+
+  /* header turns solid once the hero top leaves the screen (no scroll listener) */
+  var hdr = $('#hdr'), hero = $('#hero');
+  var sentinel = document.createElement('div');
+  sentinel.style.cssText = 'position:absolute;top:0;left:0;width:1px;height:40px;pointer-events:none';
+  hero.appendChild(sentinel);
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function(e){ hdr.classList.toggle('solid', !e[0].isIntersecting); }).observe(sentinel);
+  } else { hdr.classList.add('solid'); }
+
+  /* booking form: sample only */
+  $('#quoteForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    $('#formMsg').textContent = 'Sample form. On your site this sends the lead straight to your phone and email.';
+  });
+
+  /* freeze checklist, remembered on this device when storage allows */
+  var KEY = 'dipper-freeze-v1', boxes = $$('.checklist input'), count = $('#freezeCount'), fill = $('#meterFill');
+  function tally(save){
+    var n = boxes.filter(function(b){ return b.checked; }).length;
+    count.textContent = n === boxes.length ? 'All 5 done' : n + ' of ' + boxes.length + ' done';
+    fill.style.transform = 'scaleX(' + (n / boxes.length) + ')';
+    if (save) { try { localStorage.setItem(KEY, JSON.stringify(boxes.map(function(b){ return b.checked; }))); } catch (err) {} }
+  }
+  try { var saved = JSON.parse(localStorage.getItem(KEY) || 'null'); if (saved) boxes.forEach(function(b, i){ b.checked = !!saved[i]; }); } catch (err) {}
+  boxes.forEach(function(b){ b.addEventListener('change', function(){ tally(true); }); });
+  tally(false);
+
+  if (!window.gsap || !window.ScrollTrigger || !window.SplitText || !window.Lenis || reduce) {
+    html.classList.add('ready');
+    return;
+  }
+
+  gsap.registerPlugin(ScrollTrigger, SplitText);
+
+  /* smooth scroll */
+  var lenis = new Lenis({ lerp: 0.1, smoothWheel: true });
+  lenis.on('scroll', ScrollTrigger.update);
+  gsap.ticker.add(function(t){ lenis.raf(t * 1000); });
+  gsap.ticker.lagSmoothing(0);
+  document.addEventListener('click', function(e){
+    var a = e.target.closest('a[href^="#"]'); if (!a) return;
+    var id = a.getAttribute('href'), el = id.length > 1 ? document.getElementById(id.slice(1)) : null; if (!el) return;
+    e.preventDefault();
+    lenis.scrollTo(el, { offset: el.id === 'top' ? 0 : -(hdr.offsetHeight + 12), duration: 1.2 });
+  });
+
+  /* hero headline: masked line reveal, words rise */
+  var split = SplitText.create('#heroTitle', { type: 'lines,words', mask: 'lines', linesClass: 'ln' });
+  var intro = gsap.timeline({ defaults: { ease: 'expo.out' } });
+  intro.from(split.words, { yPercent: 110, duration: 1.15, stagger: 0.07 }, 0.1);
+  html.classList.add('ready');
+
+  /* hero slider: 5.5s hold, 1.2s crossfade, slow 1.0 to 1.08 zoom, paused off screen */
+  var slides = $$('.slide'), n = slides.length;
+  if (n > 1) {
+    var master = gsap.timeline({ autoRemoveChildren: true });
+    gsap.set(slides, { autoAlpha: 0, zIndex: 0 });
+    gsap.set(slides[0], { autoAlpha: 1, zIndex: 2 });
+    var cycle = function(i, first){
+      var s = slides[i], img = s.querySelector('img'), prev = slides[(i - 1 + n) % n];
+      var t = gsap.timeline();
+      if (first) {
+        t.fromTo(img, { scale: 1 }, { scale: 1.08, duration: 6.7, ease: 'none' }, 0);
+      } else {
+        t.set(slides, { zIndex: 0 }, 0).set(prev, { zIndex: 1 }, 0).set(s, { zIndex: 2 }, 0)
+         .fromTo(s, { autoAlpha: 0 }, { autoAlpha: 1, duration: 1.2, ease: 'power1.inOut' }, 0)
+         .fromTo(img, { scale: 1 }, { scale: 1.08, duration: 7.9, ease: 'none' }, 0)
+         .set(prev, { autoAlpha: 0 }, 1.2);
+      }
+      t.call(function(){ cycle((i + 1) % n, false); }, null, first ? 5.5 : 6.7);
+      master.add(t, master.time());
+    };
+    cycle(0, true);
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function(e){ if (e[0].isIntersecting) master.resume(); else master.pause(); }).observe(hero);
+    }
+  }
+
+  /* reveals: transform and opacity only, staggered, once */
+  var reveals = $$('[data-reveal]');
+  gsap.set(reveals, { y: 30, autoAlpha: 0 });
+  ScrollTrigger.batch(reveals, { start: 'top 90%', once: true,
+    onEnter: function(batch){ gsap.to(batch, { y: 0, autoAlpha: 1, duration: 0.95, ease: 'power3.out', stagger: 0.08, overwrite: true }); } });
+
+  /* photos settle as they arrive */
+  $$('.photo img').forEach(function(img){
+    gsap.from(img, { scale: 1.14, duration: 1.6, ease: 'power3.out', scrollTrigger: { trigger: img.parentNode, start: 'top 90%', once: true } });
+  });
+
+  /* the steps line draws once */
+  var mm = gsap.matchMedia();
+  mm.add('(min-width: 761px)', function(){
+    gsap.from('#stepsFill', { scaleX: 0, duration: 1.6, ease: 'power2.inOut', scrollTrigger: { trigger: '.steps', start: 'top 82%', once: true } });
+  });
+  mm.add('(max-width: 760px)', function(){
+    gsap.from('#stepsFill', { scaleY: 0, duration: 1.6, ease: 'power2.inOut', scrollTrigger: { trigger: '.steps', start: 'top 75%', once: true } });
+  });
+
+  window.addEventListener('load', function(){ ScrollTrigger.refresh(); });
+}
+
+var CONFIG = {
+  phone: '+17195550118',
+  phoneDisplay: '(719) 555-0118',
+  sms: '+17195550118',
+  email: 'hello@example.com',
+  mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Colorado+Springs,+CO',
+  googleFormQuote: '', googleFormHOA: '', googleFormApply: ''
+};
+if (document.fonts && document.fonts.ready) { document.fonts.ready.then(init); } else { init(); }
+</script>
+</body>
+</html>

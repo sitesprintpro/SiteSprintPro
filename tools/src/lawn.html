@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Shortgrass Lawn Co | Lawn Care in Colorado Springs</title>
+<meta name="description" content="Sample build by SiteSprintPro. Weekly mowing, aeration, sprinkler blowouts and seasonal cleanups across Colorado Springs.">
+<meta property="og:title" content="Shortgrass Lawn Co | Sample build by SiteSprintPro">
+<meta property="og:description" content="Lawn care across Colorado Springs. A sample site for a fictional lawn and landscape crew.">
+<meta name="theme-color" content="#f2f4ee">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2316291f'/%3E%3Cpath d='M0 21L32 13V32H0Z' fill='%234f7d3a'/%3E%3Cpath d='M0 21L32 13' stroke='%23a3d66f' stroke-width='2.4'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&display=swap">
+<script>
+  document.documentElement.classList.add('js');
+  setTimeout(function(){ document.documentElement.classList.add('ready'); }, 2500);
+</script>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --paper:#f2f4ee; --paper-2:#e7ebe1; --paper-3:#dce3d3;
+  --ink:#14221a; --ink-soft:#43544a; --line:rgba(20,34,26,.14); --line-2:rgba(20,34,26,.24);
+  --pine:#16291f; --pine-2:#1f3529; --on-pine:#eef2ea; --on-pine-soft:rgba(238,242,234,.76); --line-pine:rgba(238,242,234,.18);
+  --accent:#a3d66f;
+  --r-lg:16px; --r-sm:8px; --r-pill:999px;
+  --font:'Archivo',ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+  --pad:clamp(16px,4vw,56px);
+  --max:1240px;
+  --hdr:72px;
+  --ease:cubic-bezier(.2,.7,.2,1);
+}
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+.lenis.lenis-stopped{overflow:clip}
+html{-webkit-text-size-adjust:100%}
+body{font-family:var(--font);font-size:17px;line-height:1.6;background:var(--paper);color:var(--ink);
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-x:clip;font-optical-sizing:auto}
+a{color:inherit}
+img,svg{display:block}
+img{max-width:100%;height:auto}
+button,input,select,textarea{font:inherit;color:inherit}
+em{font-style:italic}
+::selection{background:var(--accent);color:var(--ink)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.wrap{width:100%;max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
+section[id],[id=top]{scroll-margin-top:calc(var(--hdr) + 8px)}
+h1,h2,h3{font-weight:780;letter-spacing:-.022em;line-height:1.04;text-wrap:balance}
+h2{font-size:clamp(34px,4.4vw,58px)}
+h3{font-size:21px;letter-spacing:-.012em;line-height:1.2;font-weight:720}
+p{text-wrap:pretty}
+.lede{font-size:clamp(17px,1.4vw,19px);color:var(--ink-soft);max-width:46ch}
+.eyebrow{display:block;font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:18px}
+.ln-mask{padding:0 .08em .14em 0;margin:0 -.08em -.14em 0}
+.js:not(.ready) #heroTitle{visibility:hidden}
+
+/* buttons: one radius (pill), one label per intent */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:0 26px;border-radius:var(--r-pill);
+  font-size:17px;font-weight:680;font-stretch:96%;letter-spacing:-.005em;text-decoration:none;white-space:nowrap;border:0;cursor:pointer;
+  transition:transform .35s var(--ease),background-color .25s,box-shadow .25s}
+.btn svg{width:19px;height:19px;flex:none}
+.btn:hover{transform:translateY(-2px)}
+.btn:active{transform:translateY(0)}
+.btn-call{background:var(--accent);color:var(--ink);box-shadow:inset 0 0 0 1px rgba(20,34,26,.22)}
+.btn-call:hover{background:#b2df84}
+.btn-ghost{color:var(--paper);background:rgba(242,244,238,.1);box-shadow:inset 0 0 0 1.5px rgba(242,244,238,.7)}
+.btn-ghost:hover{background:rgba(242,244,238,.2)}
+.btn-line{color:var(--ink);background:transparent;box-shadow:inset 0 0 0 1.5px var(--ink)}
+.btn-line:hover{background:var(--ink);color:var(--paper)}
+
+/* header */
+.hdr{position:sticky;top:0;z-index:50;height:var(--hdr);background:rgba(242,244,238,.94);
+  -webkit-backdrop-filter:saturate(1.2) blur(10px);backdrop-filter:saturate(1.2) blur(10px);border-bottom:1px solid var(--line)}
+.hdr .wrap{height:100%;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:24px}
+.brand{display:inline-flex;align-items:center;gap:11px;text-decoration:none;min-height:44px}
+.mark{width:34px;height:34px;flex:none}
+.wm{display:flex;flex-direction:column;line-height:1}
+.wm b{font-size:19px;font-weight:820;font-stretch:112%;letter-spacing:-.02em}
+.wm span{font-size:11.5px;font-weight:600;font-stretch:112%;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);margin-top:4px}
+.nav{display:flex;justify-content:center;gap:4px}
+.nav a{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;font-size:15.5px;font-weight:560;text-decoration:none;color:var(--ink-soft);
+  border-radius:var(--r-pill);transition:color .2s,background-color .2s}
+.nav a:hover{color:var(--ink);background:var(--paper-2)}
+.hdr-call{min-height:46px;padding:0 20px;font-size:16px}
+.hdr-call .short{display:none}
+
+/* hero */
+.hero{position:relative;height:min(calc(100dvh - var(--hdr)),860px);min-height:560px;overflow:hidden;background:var(--pine);color:var(--paper);display:grid;align-items:end}
+.slides{position:absolute;inset:0}
+.slide{position:absolute;inset:0;opacity:0;transition:opacity 1.2s ease}
+.slide.on{opacity:1;z-index:2}
+.slide.prev{opacity:1;z-index:1}
+.slide img{width:100%;height:100%;object-fit:cover;object-position:50% 55%;transform-origin:50% 60%;will-change:transform}
+.slide.zoom img{animation:kb 9.2s linear forwards}
+.hero.paused .slide img{animation-play-state:paused}
+@keyframes kb{from{transform:scale(1)}to{transform:scale(1.08)}}
+.hero::after{content:"";position:absolute;inset:0;z-index:3;pointer-events:none;
+  background:linear-gradient(to top,rgba(11,21,15,.9) 0%,rgba(11,21,15,.7) 34%,rgba(11,21,15,.3) 64%,rgba(11,21,15,.12) 100%),
+             linear-gradient(90deg,rgba(11,21,15,.6) 0%,rgba(11,21,15,.25) 45%,rgba(11,21,15,0) 70%)}
+.hero-copy{position:relative;z-index:4;padding-bottom:clamp(40px,8vh,96px)}
+.hero-eyebrow{color:var(--accent)}
+.hero h1{font-size:clamp(42px,6.3vw,94px);max-width:11em;color:var(--paper)}
+.hero h1 em{font-weight:760}
+.hero-sub{margin-top:22px;font-size:clamp(17px,1.45vw,20px);line-height:1.5;max-width:40ch;color:rgba(242,244,238,.9)}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+
+/* trust row */
+.trust{border-bottom:1px solid var(--line);background:var(--paper)}
+.trust ul{list-style:none;display:grid;grid-template-columns:repeat(4,1fr)}
+.trust li{padding:30px 24px 30px 0;display:grid;gap:10px;align-content:start}
+.trust li + li{padding-left:24px;border-left:1px solid var(--line)}
+.slot{justify-self:start;display:inline-block;font-size:15px;font-weight:650;font-stretch:96%;padding:5px 12px;border-radius:var(--r-sm);
+  border:1.5px dashed var(--line-2);color:var(--ink-soft);background:var(--paper-2)}
+.slot.real{border-style:solid;border-color:var(--ink);background:var(--accent);color:var(--ink)}
+.trust b{display:block;font-size:17px;font-weight:720;letter-spacing:-.01em}
+.trust p{font-size:14.5px;line-height:1.45;color:var(--ink-soft)}
+
+/* services bento */
+.svc{padding:clamp(80px,11vw,140px) 0 clamp(72px,9vw,120px)}
+.sec-head{display:grid;grid-template-columns:7fr 5fr;gap:24px 56px;align-items:end;margin-bottom:clamp(36px,5vw,64px)}
+.bento{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:16px}
+.tile{background:var(--paper-2);border-radius:var(--r-lg);padding:28px;display:flex;flex-direction:column;gap:12px}
+.tile p{font-size:16px;line-height:1.55;color:var(--ink-soft)}
+.tile .when{margin-top:auto;padding-top:10px;font-size:14px;font-weight:650;color:var(--ink);display:flex;align-items:center;gap:8px}
+.tile .when::before{content:"";width:16px;height:3px;background:var(--accent);flex:none}
+.ico{width:30px;height:30px;color:var(--ink)}
+.t-feature{grid-column:1/7;grid-row:1/3;padding:0;overflow:hidden}
+.t-feature .ph{aspect-ratio:4/3;overflow:hidden}
+.t-feature .ph img{width:100%;height:100%;object-fit:cover;object-position:46% 55%;transition:transform 1.2s var(--ease)}
+.t-feature:hover .ph img{transform:scale(1.04)}
+.t-feature .body{padding:28px 30px 30px;display:flex;flex-direction:column;gap:12px;flex:1}
+.t-feature h3{font-size:clamp(24px,2.2vw,30px)}
+.t-a{grid-column:7/10;grid-row:1}
+.t-b{grid-column:10/13;grid-row:1}
+.t-c{grid-column:7/10;grid-row:2}
+.t-d{grid-column:10/13;grid-row:2}
+.t-snow{grid-column:1/13;background:transparent;border:1.5px solid var(--line-2);display:grid;grid-template-columns:auto minmax(0,1fr) minmax(0,1.6fr) auto;align-items:center;gap:20px 28px;padding:24px 28px}
+.t-snow .when{margin:0;padding:0}
+
+/* local band */
+.band{background:var(--pine);color:var(--on-pine);padding:clamp(80px,11vw,140px) 0}
+.band .eyebrow{color:var(--accent)}
+.band .lede{color:var(--on-pine-soft)}
+.track{list-style:none;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:28px;margin-bottom:clamp(64px,8vw,104px)}
+.track li{position:relative;padding-top:26px}
+.track .rule{position:absolute;left:0;right:0;top:0;height:2px;background:var(--line-pine)}
+.track .rule i{position:absolute;inset:0;background:var(--accent);transform-origin:0 50%}
+.track li:nth-child(n+4) .rule i{background:var(--on-pine-soft)}
+.track .mo{display:block;font-size:14px;font-weight:700;color:var(--accent);margin-bottom:10px;font-stretch:96%}
+.track li:nth-child(n+4) .mo{color:var(--on-pine-soft)}
+.track h3{color:var(--on-pine);margin-bottom:10px}
+.track p{font-size:15.5px;line-height:1.55;color:var(--on-pine-soft)}
+.why{display:grid;grid-template-columns:7fr 5fr;gap:clamp(28px,5vw,72px);align-items:center}
+.why .ph{border-radius:var(--r-lg);overflow:hidden;aspect-ratio:3/2}
+.why .ph img{width:100%;height:100%;object-fit:cover}
+.why h3{font-size:clamp(24px,2.3vw,32px);letter-spacing:-.02em;line-height:1.12;margin-bottom:18px}
+.why p{color:var(--on-pine-soft);max-width:48ch}
+.why p + p{margin-top:14px}
+
+/* how it works */
+.how{padding:clamp(80px,11vw,140px) 0}
+.how .wrap{display:grid;grid-template-columns:7fr 5fr;gap:clamp(32px,6vw,96px);align-items:start}
+.steps{list-style:none;margin-top:clamp(32px,4vw,48px);border-top:1px solid var(--line)}
+.steps li{display:grid;grid-template-columns:minmax(150px,220px) minmax(0,1fr);gap:8px 32px;padding:24px 0;border-bottom:1px solid var(--line)}
+.steps h3{display:flex;align-items:baseline;gap:12px}
+.steps h3::before{content:"";width:16px;height:3px;background:var(--accent);flex:none;transform:translateY(-5px)}
+.steps p{color:var(--ink-soft)}
+.how figure{border-radius:var(--r-lg);overflow:hidden;aspect-ratio:4/5;position:sticky;top:calc(var(--hdr) + 32px)}
+.how figure img{width:100%;height:100%;object-fit:cover;object-position:62% 50%}
+
+/* reviews */
+.revs{padding:0 0 clamp(80px,11vw,140px)}
+.note{display:flex;gap:10px;align-items:flex-start;font-size:15px;line-height:1.45;color:var(--ink-soft);border:1.5px dashed var(--line-2);border-radius:var(--r-sm);padding:12px 16px;max-width:620px;margin-top:20px}
+.note svg{width:18px;height:18px;flex:none;margin-top:2px}
+.rev-grid{display:grid;grid-template-columns:7fr 5fr;gap:16px;margin-top:clamp(32px,4vw,48px)}
+.rev-side{display:grid;gap:16px}
+.rev{background:var(--paper-2);border-radius:var(--r-lg);padding:clamp(26px,3vw,40px);display:flex;flex-direction:column;gap:20px}
+.rev svg{width:34px;height:26px;color:var(--ink)}
+.rev blockquote{font-size:18px;line-height:1.5}
+.rev.big blockquote{font-size:clamp(22px,2.3vw,30px);line-height:1.32;letter-spacing:-.015em;font-weight:520;font-style:italic}
+.rev figcaption{margin-top:auto;font-size:15px;font-weight:650;color:var(--ink-soft)}
+
+/* service area */
+.area{padding:clamp(72px,9vw,120px) 0;background:var(--paper-2)}
+.area .wrap{display:grid;grid-template-columns:5fr 7fr;gap:clamp(32px,6vw,96px);align-items:start}
+.hours{margin:28px 0 32px;display:grid;gap:0;border-top:1px solid var(--line)}
+.hours div{display:grid;grid-template-columns:150px 1fr;gap:16px;padding:14px 0;border-bottom:1px solid var(--line)}
+.hours dt{font-weight:700}
+.hours dd{color:var(--ink-soft)}
+.pills{list-style:none;display:flex;flex-wrap:wrap;gap:10px}
+.pills li{font-size:17px;font-weight:560;padding:10px 18px;border-radius:var(--r-pill);background:var(--paper);border:1px solid var(--line)}
+.area-note{margin-top:24px;font-size:15px;color:var(--ink-soft);max-width:52ch}
+
+/* contact */
+.contact{padding:clamp(80px,11vw,140px) 0}
+.contact .wrap{display:grid;grid-template-columns:5fr 7fr;gap:clamp(32px,6vw,96px);align-items:start}
+.callblock{margin-top:clamp(32px,4vw,48px);padding-top:28px;border-top:1px solid var(--line)}
+.callblock span{display:block;font-weight:700;margin-bottom:4px}
+.bignum{display:inline-flex;align-items:center;min-height:56px;font-size:clamp(34px,4vw,50px);font-weight:820;font-stretch:104%;letter-spacing:-.025em;text-decoration:none;
+  background-image:linear-gradient(var(--accent),var(--accent));background-size:100% 6px;background-repeat:no-repeat;background-position:0 86%}
+.callblock p{color:var(--ink-soft);font-size:15.5px;margin-top:6px}
+.form{background:var(--paper-2);border-radius:var(--r-lg);padding:clamp(24px,3.4vw,44px);display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.field{display:grid;gap:7px}
+.field.full{grid-column:1/-1}
+.field label{font-size:15px;font-weight:650}
+.field label small{font-weight:500;color:var(--ink-soft);font-size:14px}
+.field input,.field select,.field textarea{width:100%;font-size:17px;min-height:52px;padding:12px 14px;border-radius:var(--r-sm);border:1.5px solid var(--line-2);background:var(--paper);
+  -webkit-appearance:none;appearance:none;transition:border-color .2s,box-shadow .2s}
+.field textarea{min-height:110px;resize:vertical}
+.field select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2314221a' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 14px center;background-size:18px;padding-right:44px}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--ink);box-shadow:0 0 0 3px rgba(163,214,111,.55)}
+.form .btn{grid-column:1/-1;justify-self:start}
+.form-msg{grid-column:1/-1;font-size:15.5px;font-weight:600;color:var(--ink);min-height:1px}
+.form-msg:not(:empty){padding:12px 16px;border-radius:var(--r-sm);background:var(--paper);border:1.5px solid var(--accent)}
+.hp{display:none}
+
+/* footer */
+.foot{border-top:1px solid var(--line);padding:clamp(56px,7vw,88px) 0 88px}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px}
+.foot h4{font-size:14px;font-weight:700;margin-bottom:8px}
+.foot p,.foot li{font-size:15.5px;color:var(--ink-soft)}
+.foot ul{list-style:none}
+.foot a{text-decoration:none}
+.foot .flink{display:inline-flex;align-items:center;min-height:44px;font-weight:600;color:var(--ink)}
+.foot .flink:hover{text-decoration:underline;text-decoration-color:var(--accent);text-decoration-thickness:3px;text-underline-offset:5px}
+.foot-brand p{max-width:34ch;margin-top:14px}
+.foot-base{margin-top:48px;padding-top:20px;border-top:1px solid var(--line);font-size:14.5px;color:var(--ink-soft);display:flex;flex-wrap:wrap;gap:4px 8px;align-items:center}
+.foot-base a{display:inline-flex;align-items:center;min-height:44px;color:var(--ink);font-weight:650;text-decoration:underline;text-decoration-color:var(--accent);text-decoration-thickness:2px;text-underline-offset:4px}
+
+/* phone call bar */
+.callbar{display:none}
+
+/* SAMPLE BUILD badge (exact) */
+.ssp-sample{position:fixed;left:12px;bottom:12px;z-index:9999;display:flex;align-items:center;gap:8px;background:rgba(17,17,17,0.92);color:#fff;font:700 12px/1.3 -apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;letter-spacing:.02em;padding:9px 13px;border-radius:999px;box-shadow:0 4px 18px rgba(0,0,0,.35);text-decoration:none;max-width:calc(100vw - 24px)}
+.ssp-sample b{background:#7ed957;color:#111;border-radius:999px;padding:2px 8px;font-weight:800}
+
+@media (max-width:1100px){
+  .nav a.opt{display:none}
+  .bento{grid-template-columns:repeat(6,minmax(0,1fr))}
+  .t-feature{grid-column:1/-1;grid-row:auto;display:grid;grid-template-columns:1fr 1fr}
+  .t-feature .ph{aspect-ratio:auto;position:relative;min-height:340px}
+  .t-feature .ph img{position:absolute;inset:0}
+  .t-a,.t-c{grid-column:1/4;grid-row:auto}
+  .t-b,.t-d{grid-column:4/7;grid-row:auto}
+  .t-snow{grid-column:1/-1;grid-template-columns:auto 1fr;}
+  .t-snow p{grid-column:1/-1}
+  .track{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:44px}
+  .foot-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:860px){
+  .nav{display:none}
+  .hdr .wrap{grid-template-columns:1fr auto}
+  .sec-head,.why,.how .wrap,.area .wrap,.contact .wrap,.rev-grid{grid-template-columns:1fr}
+  .how figure{position:relative;top:0;aspect-ratio:4/3}
+  .trust ul{grid-template-columns:1fr 1fr}
+  .trust li{padding:24px 16px 24px 0}
+  .trust li:nth-child(odd){padding-left:0;border-left:0}
+  .trust li:nth-child(even){padding-left:16px}
+  .trust li:nth-child(n+3){border-top:1px solid var(--line)}
+}
+@media (max-width:760px){
+  :root{--hdr:64px}
+  body{font-size:16.5px;padding-bottom:calc(78px + env(safe-area-inset-bottom))}
+  .hdr-call{min-height:44px;padding:0 18px}
+  .hdr-call .long{display:none}
+  .hdr-call .short{display:inline}
+  .hero{height:max(500px,calc(100dvh - var(--hdr) - 78px - env(safe-area-inset-bottom)));min-height:0}
+  .hero::after{background:linear-gradient(to top,rgba(11,21,15,.92) 0%,rgba(11,21,15,.78) 40%,rgba(11,21,15,.35) 70%,rgba(11,21,15,.18) 100%)}
+  .hero-copy{padding-bottom:28px}
+  .hero-sub{margin-top:16px}
+  .hero-ctas{margin-top:24px;display:grid;grid-template-columns:1fr}
+  .hero-ctas .btn{width:100%}
+  .bento{grid-template-columns:1fr}
+  .t-feature{display:flex}
+  .t-feature .ph{aspect-ratio:4/3;min-height:0}
+  .t-feature .ph img{position:static}
+  .t-a,.t-b,.t-c,.t-d,.t-snow{grid-column:1/-1}
+  .t-snow{grid-template-columns:auto 1fr;padding:24px}
+  .t-snow .when{grid-column:1/-1}
+  .tile{padding:24px}
+  .t-feature .body{padding:24px}
+  .track{grid-template-columns:1fr;gap:0}
+  .track li{padding:0 0 30px 24px}
+  .track li:last-child{padding-bottom:0}
+  .track .rule{left:0;right:auto;top:6px;bottom:0;width:2px;height:auto}
+  .track .rule i{transform-origin:50% 0}
+  .steps li{grid-template-columns:1fr}
+  .hours div{grid-template-columns:1fr;gap:2px}
+  .form{grid-template-columns:1fr}
+  .form .btn{justify-self:stretch}
+  .foot-grid{grid-template-columns:1fr}
+  .foot{padding-bottom:40px}
+  .callbar{display:grid;grid-template-columns:1.4fr 1fr;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:60;
+    padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(242,244,238,.97);border-top:1px solid var(--line);
+    -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+  .callbar .btn{min-height:54px;padding:0 12px;font-size:16px;font-stretch:90%;gap:8px}
+  .callbar .btn svg{width:17px;height:17px}
+  .ssp-sample{top:calc(var(--hdr) + 8px);bottom:auto}
+}
+@media (max-width:380px){
+  .callbar .btn-call svg{display:none}
+  .callbar .btn{font-size:15.5px}
+}
+@media (prefers-reduced-motion:reduce){
+  .slide{transition:none}
+  .slide.zoom img,.slide img{animation:none!important;transform:none}
+  .slide:not(:first-child){display:none}
+  .btn,.t-feature .ph img{transition:none}
+}
+
+/* SiteSprintPro: compact sample badge on phones */
+@media (max-width:760px){.ssp-sample span{display:none}.ssp-sample{padding:6px 9px;font-size:11px;box-shadow:0 2px 10px rgba(0,0,0,.25)}}
+</style>
+</head>
+<body>
+
+<header class="hdr">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Shortgrass Lawn Co, back to top">
+      <svg class="mark" viewBox="0 0 32 32" aria-hidden="true">
+        <defs><clipPath id="mk"><rect width="32" height="32" rx="8"/></clipPath></defs>
+        <g clip-path="url(#mk)">
+          <rect width="32" height="32" fill="#16291f"/>
+          <path d="M3 13.5L9 8.2l3 2.4 5-5.6 7.6 7.2" fill="none" stroke="#eef2ea" stroke-opacity=".5" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+          <path d="M0 22L32 14V32H0Z" fill="#4f7d3a"/>
+          <path d="M4 32L11 19.25 16 18 9 32Z M17 32L22.5 16.4 27.5 15.1 22 32Z" fill="#a3d66f" fill-opacity=".45"/>
+          <path d="M0 22L32 14" stroke="#a3d66f" stroke-width="2.4"/>
+        </g>
+      </svg>
+      <span class="wm"><b>Shortgrass</b><span>Lawn Co</span></span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="#services">Services</a>
+      <a href="#fall">Fall prep</a>
+      <a href="#how" class="opt">How it works</a>
+      <a href="#area">Service area</a>
+      <a href="#quote" class="opt">Get a quote</a>
+    </nav>
+    <a class="btn btn-call hdr-call" href="tel:+17195550177" data-tel aria-label="Call Shortgrass Lawn Co at (719) 555-0177">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
+      <span class="long">Call <span data-phone-display>(719) 555-0177</span></span><span class="short">Call</span>
+    </a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" aria-label="Shortgrass Lawn Co">
+    <div class="slides" aria-hidden="true">
+      <div class="slide on zoom">
+        <picture>
+          <source media="(max-width: 700px)" srcset="img/hero-ranch-900x1350.webp" width="900" height="1350">
+          <img src="img/hero-ranch-1920.webp" srcset="img/hero-ranch-960.webp 960w, img/hero-ranch-1920.webp 1920w" sizes="100vw" width="1920" height="1080" alt="Brick ranch house with a freshly mowed, striped front lawn and rock-edged beds" fetchpriority="high" loading="eager" decoding="async">
+        </picture>
+      </div>
+      <div class="slide">
+        <picture>
+          <source media="(max-width: 700px)" srcset="img/hero-mowing-900x1350.webp" width="900" height="1350">
+          <img src="img/hero-mowing-1920.webp" srcset="img/hero-mowing-960.webp 960w, img/hero-mowing-1920.webp 1920w" sizes="100vw" width="1920" height="1080" alt="Push mower cutting the lawn in late afternoon light" loading="lazy" decoding="async">
+        </picture>
+      </div>
+      <div class="slide">
+        <picture>
+          <source media="(max-width: 700px)" srcset="img/hero-backyard-900x1350.webp" width="900" height="1350">
+          <img src="img/hero-backyard-1920.webp" srcset="img/hero-backyard-960.webp 960w, img/hero-backyard-1920.webp 1920w" sizes="100vw" width="1920" height="1080" alt="Backyard lawn with fresh mow stripes and a few fall leaves below a wooden deck" loading="lazy" decoding="async">
+        </picture>
+      </div>
+      <div class="slide">
+        <picture>
+          <source media="(max-width: 700px)" srcset="img/hero-stripes-900x1350.webp" width="900" height="1350">
+          <img src="img/hero-stripes-1920.webp" srcset="img/hero-stripes-960.webp 960w, img/hero-stripes-1920.webp 1920w" sizes="100vw" width="1920" height="1080" alt="Wide striped lawn in front of a white two-gable house" loading="lazy" decoding="async">
+        </picture>
+      </div>
+    </div>
+    <div class="wrap hero-copy">
+      <span class="eyebrow hero-eyebrow">Lawn care in Colorado Springs</span>
+      <h1 id="heroTitle">A yard you <em>never</em> have to think about.</h1>
+      <p class="hero-sub">Weekly mowing, sprinklers and seasonal cleanups across Colorado Springs. One crew, one schedule, one text when it's done.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-call" href="tel:+17195550177" data-tel>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
+          Call <span data-phone-display>(719) 555-0177</span>
+        </a>
+        <a class="btn btn-ghost" href="#quote">Get a quote</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="trust" aria-label="Business details">
+    <div class="wrap">
+      <ul>
+        <li data-reveal><span class="slot">Your rating</span><p><b>Google rating</b>Pulled from your Google profile, with the review count.</p></li>
+        <li data-reveal><span class="slot">Your number</span><p><b>Years in business</b>Your real number, or we leave it off.</p></li>
+        <li data-reveal><span class="slot">Your license</span><p><b>Licensed and insured</b>Your license and insurance carrier.</p></li>
+        <li data-reveal><span class="slot real">Free</span><p><b>Written estimates</b>We walk the yard and text you a price.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="svc" id="services">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 data-reveal>Everything the yard needs, on one schedule.</h2>
+        <p class="lede" data-reveal>Pick the services you want. We put them on the calendar, show up when we said, and text you when the work is done.</p>
+      </div>
+      <div class="bento">
+        <article class="tile t-feature" data-reveal>
+          <div class="ph">
+            <img src="img/edging-1400.webp" srcset="img/edging-700.webp 700w, img/edging-1400.webp 1400w" sizes="(max-width: 760px) 100vw, (max-width: 1100px) 50vw, 600px" width="1400" height="1050" alt="String trimmer cutting a clean edge where the lawn meets the street" loading="lazy" decoding="async">
+          </div>
+          <div class="body">
+            <svg class="ico" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 21h17l3-7H9"/><path d="M24 14l3.5-9"/><circle cx="9" cy="24.5" r="2.5"/><circle cx="19.5" cy="24.5" r="2.5"/><path d="M3 29h26"/></svg>
+            <h3>Weekly mowing and edging</h3>
+            <p>Cut at the right height for the season, trimmed along fences and beds, and edged clean along every walk and drive. Clippings get blown off the concrete before we leave.</p>
+            <span class="when">Same weekday, spring through fall</span>
+          </div>
+        </article>
+        <article class="tile t-a" data-reveal>
+          <svg class="ico" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h26"/><path d="M9 12v9M16 12v11M23 12v8"/><path d="M7.5 27h3M14.5 29h3M21.5 26h3"/><path d="M6 6c3-2 6-2 9 0s6 2 9 0"/></svg>
+          <h3>Aeration and overseeding</h3>
+          <p>Core aeration pulls plugs from packed clay so water and air reach the roots. Overseeding right after fills thin spots while the soil is open.</p>
+          <span class="when">Best in fall, also spring</span>
+        </article>
+        <article class="tile t-b" data-reveal>
+          <svg class="ico" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 29v-9"/><path d="M11 29h10"/><path d="M13.5 20h5"/><path d="M16 17c-5-1-9-5-11-11M16 17c5-1 9-5 11-11M16 17V6"/></svg>
+          <h3>Sprinkler startup and fall blowout</h3>
+          <p>Spring: we turn the system on, run every zone and fix heads that water the driveway. Fall: compressed air clears the lines before they freeze.</p>
+          <span class="when">Spring startup, fall blowout</span>
+        </article>
+        <article class="tile t-c" data-reveal>
+          <svg class="ico" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 26C6 15 13 7 26 6c0 13-8 20-20 20z"/><path d="M6 26l11-11"/></svg>
+          <h3>Spring and fall cleanup</h3>
+          <p>Leaves, needles and winter debris raked and hauled off. Beds cleared and perennials cut back so the yard starts the season clean.</p>
+          <span class="when">Spring and fall</span>
+        </article>
+        <article class="tile t-d" data-reveal>
+          <svg class="ico" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 3v12"/><path d="M12.5 3h7"/><path d="M11 15h10l-1.2 7.5a3.8 3.8 0 0 1-7.6 0z"/><path d="M3 29c4-2.5 8-2.5 13 0s9 2.5 13 0"/></svg>
+          <h3>Mulch and bed edging</h3>
+          <p>A crisp spade-cut edge between bed and lawn, then fresh mulch at a proper depth. It holds moisture in dry wind and keeps weeds down.</p>
+          <span class="when">Spring, or any time</span>
+        </article>
+        <article class="tile t-snow" data-reveal>
+          <svg class="ico" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 3v26M4.7 9.5l22.6 13M4.7 22.5l22.6-13"/><path d="M12.5 5.5L16 8l3.5-2.5M12.5 26.5L16 24l3.5 2.5"/></svg>
+          <h3>Snow removal</h3>
+          <p>Driveways, walks and steps cleared after each storm. It pairs with your summer plan, so one crew looks after the property all year.</p>
+          <span class="when">Winter</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="fall">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <span class="eyebrow" data-reveal>Fall checklist</span>
+          <h2 data-reveal>Get the yard ready for winter.</h2>
+        </div>
+        <p class="lede" data-reveal>Fall work is what sets up a Colorado Springs yard for next year. Here is what it needs from now until spring, and why.</p>
+      </div>
+      <ol class="track" id="track">
+        <li><span class="rule"><i></i></span><span class="mo">Before the first hard freeze</span><h3>Sprinkler blowout</h3><p>Compressed air clears every zone so trapped water can't freeze and crack pipes, valves and heads. Book it before the freeze, not after.</p></li>
+        <li><span class="rule"><i></i></span><span class="mo">September and October</span><h3>Core aeration and overseeding</h3><p>Clay packs down over a summer of foot traffic and wind. Pulling plugs now lets water and seed reach the roots while the soil is still warm.</p></li>
+        <li><span class="rule"><i></i></span><span class="mo">October and November</span><h3>Leaf cleanup</h3><p>Leaves left on the lawn all winter mat down and smother the grass under them. We rake, mulch-mow or haul them off, your call.</p></li>
+        <li><span class="rule"><i></i></span><span class="mo">February</span><h3>Lock in your spring crew</h3><p>People here lock in their spring crew in February. Fall customers get first call on spring spots, so there is nothing to chase.</p></li>
+        <li><span class="rule"><i></i></span><span class="mo">April</span><h3>Sprinkler startup</h3><p>We turn the water back on, check every zone and set the controller for deep, less frequent watering.</p></li>
+      </ol>
+      <div class="why">
+        <div class="ph" data-reveal>
+          <img src="img/sprinkler-1400.webp" srcset="img/sprinkler-700.webp 700w, img/sprinkler-1400.webp 1400w" sizes="(max-width: 860px) 100vw, 680px" width="1400" height="934" alt="Pop-up sprinkler head spraying a fan of water across the lawn" loading="lazy" decoding="async">
+        </div>
+        <div data-reveal>
+          <h3>Why aeration and deep watering pay off here</h3>
+          <p>A lot of yards in the Springs sit on clay-heavy soil, and the wind dries a lawn out fast. Clay packs tight, so short, frequent watering runs off or stays near the surface.</p>
+          <p>Core aeration opens the soil back up. Watering deeply and less often pushes roots down, where they ride out dry spells. We set your controller that way at spring startup, within whatever the current local watering rules allow.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="how" id="how">
+    <div class="wrap">
+      <div>
+        <h2 data-reveal>How it works</h2>
+        <p class="lede" data-reveal style="margin-top:18px">One call sets it up. After that, the yard is on our calendar, not yours.</p>
+        <ol class="steps">
+          <li data-reveal><h3>Call or text</h3><p>Tell us the address and what you want handled. A real person answers.</p></li>
+          <li data-reveal><h3>We walk the yard</h3><p>You get a written price by text before any work starts. No contract to sign on the spot.</p></li>
+          <li data-reveal><h3>Same crew, same day</h3><p>Mowing lands on the same weekday each week. If weather pushes us, we text you the new day.</p></li>
+          <li data-reveal><h3>A text when it's done</h3><p>Gate latched, clippings blown off the walks, and a photo of the finished yard if you want one.</p></li>
+        </ol>
+      </div>
+      <figure data-reveal>
+        <img src="img/bed-1400.webp" srcset="img/bed-700.webp 700w, img/bed-1400.webp 1400w" sizes="(max-width: 860px) 100vw, 480px" width="1400" height="934" alt="Tree ring bed with fresh mulch and flowers, edged clean against the lawn" loading="lazy" decoding="async">
+      </figure>
+    </div>
+  </section>
+
+  <section class="revs" id="reviews">
+    <div class="wrap">
+      <h2 data-reveal>What customers say</h2>
+      <p class="note" data-reveal><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/></svg>Sample layout. On your site these are your real Google reviews, quoted word for word.</p>
+      <div class="rev-grid">
+        <figure class="rev big" data-reveal>
+          <svg viewBox="0 0 34 26" fill="currentColor" aria-hidden="true"><path d="M0 26V15C0 6.5 4.7 1.4 13 0l1.6 3.6C9.7 5 7.4 8 7.2 12H13v14zm19 0V15c0-8.5 4.7-13.6 13-15l1.6 3.6C28.7 5 26.4 8 26.2 12H32v14z"/></svg>
+          <blockquote>“Your strongest Google review goes here, word for word. The best ones mention the crew by name or how the yard looked when they got home.”</blockquote>
+          <figcaption>First name, Google review</figcaption>
+        </figure>
+        <div class="rev-side">
+          <figure class="rev" data-reveal>
+            <blockquote>“A short review about showing up on the same day every week. Three lines at most.”</blockquote>
+            <figcaption>First name, Google review</figcaption>
+          </figure>
+          <figure class="rev" data-reveal>
+            <blockquote>“A review that mentions a fall blowout or cleanup, so new customers see you handle more than mowing.”</blockquote>
+            <figcaption>First name, Google review</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="area" id="area">
+    <div class="wrap">
+      <div>
+        <h2 data-reveal>Service area</h2>
+        <p class="lede" data-reveal style="margin-top:18px">We work across Colorado Springs and the towns right around it. Not sure you're on the route? Call or text and ask.</p>
+        <dl class="hours" data-reveal>
+          <div><dt>Calls and texts</dt><dd>Mon to Sat, 7 am to 6 pm</dd></div>
+          <div><dt>Crews out</dt><dd>Mon to Fri, plus Saturdays in spring and fall</dd></div>
+          <div><dt>Snow removal</dt><dd>After each storm, all winter</dd></div>
+        </dl>
+        <a class="btn btn-line" href="https://www.google.com/maps/search/?api=1&amp;query=Colorado+Springs,+CO" data-maps target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+          See the service area
+        </a>
+      </div>
+      <div data-reveal>
+        <ul class="pills" aria-label="Neighborhoods and towns we cover">
+          <li>Briargate</li><li>Northgate</li><li>Rockrimmon</li><li>Old Colorado City</li><li>Broadmoor</li><li>Cheyenne Mountain</li><li>Stetson Hills</li><li>Powers</li><li>Cimarron Hills</li><li>Security-Widefield</li><li>Fountain</li><li>Monument</li><li>Manitou Springs</li><li>Falcon</li>
+        </ul>
+        <p class="area-note">Service-area business: we come to you, there is no shop to visit. Bigger lots and HOA common areas get quoted after a walk-through.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="quote">
+    <div class="wrap">
+      <div>
+        <h2 data-reveal>Get a written quote</h2>
+        <p class="lede" data-reveal style="margin-top:18px">Send the address and what you want handled. We walk the yard and text you a price, usually within a couple of days.</p>
+        <div class="callblock" data-reveal>
+          <span>Rather talk? Call or text</span>
+          <a class="bignum" href="tel:+17195550177" data-tel data-phone-display>(719) 555-0177</a>
+          <p>Mon to Sat, 7 am to 6 pm.</p>
+        </div>
+      </div>
+      <form class="form" name="quote" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="quoteForm" data-reveal>
+        <input type="hidden" name="form-name" value="quote">
+        <p class="hp" hidden><label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+        <div class="field">
+          <label for="f-name">Name</label>
+          <input id="f-name" name="name" type="text" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="f-phone">Phone</label>
+          <input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required>
+        </div>
+        <div class="field full">
+          <label for="f-address">Address or neighborhood</label>
+          <input id="f-address" name="address" type="text" autocomplete="street-address">
+        </div>
+        <div class="field full">
+          <label for="f-service">What do you need?</label>
+          <select id="f-service" name="service">
+            <option>Weekly mowing and edging</option>
+            <option>Aeration and overseeding</option>
+            <option>Sprinkler blowout or startup</option>
+            <option>Spring or fall cleanup</option>
+            <option>Mulch and bed edging</option>
+            <option>Snow removal</option>
+            <option>Not sure yet</option>
+          </select>
+        </div>
+        <div class="field full">
+          <label for="f-details">Anything else? <small>(optional)</small></label>
+          <textarea id="f-details" name="details" rows="3"></textarea>
+        </div>
+        <button class="btn btn-call" type="submit">Get a quote</button>
+        <p class="form-msg" id="formMsg" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="brand" href="#top" aria-label="Shortgrass Lawn Co, back to top">
+          <svg class="mark" viewBox="0 0 32 32" aria-hidden="true">
+            <defs><clipPath id="mk2"><rect width="32" height="32" rx="8"/></clipPath></defs>
+            <g clip-path="url(#mk2)">
+              <rect width="32" height="32" fill="#16291f"/>
+              <path d="M3 13.5L9 8.2l3 2.4 5-5.6 7.6 7.2" fill="none" stroke="#eef2ea" stroke-opacity=".5" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+              <path d="M0 22L32 14V32H0Z" fill="#4f7d3a"/>
+              <path d="M4 32L11 19.25 16 18 9 32Z M17 32L22.5 16.4 27.5 15.1 22 32Z" fill="#a3d66f" fill-opacity=".45"/>
+              <path d="M0 22L32 14" stroke="#a3d66f" stroke-width="2.4"/>
+            </g>
+          </svg>
+          <span class="wm"><b>Shortgrass</b><span>Lawn Co</span></span>
+        </a>
+        <p>Mowing, sprinklers, aeration and seasonal cleanups across Colorado Springs.</p>
+      </div>
+      <div>
+        <h4>Call or text</h4>
+        <a class="flink" href="tel:+17195550177" data-tel data-phone-display>(719) 555-0177</a>
+      </div>
+      <div>
+        <h4>Hours</h4>
+        <p>Mon to Sat, 7 am to 6 pm</p>
+      </div>
+      <div>
+        <h4>Area</h4>
+        <p>Colorado Springs and nearby towns</p>
+        <a class="flink" href="#area">Service area</a>
+      </div>
+    </div>
+    <p class="foot-base">Shortgrass Lawn Co is a fictional business. <a href="../index.html">Sample build by SiteSprintPro</a>.</p>
+  </div>
+</footer>
+
+<div class="callbar" aria-label="Quick actions">
+  <a class="btn btn-call" href="tel:+17195550177" data-tel>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
+    Call <span data-phone-display>(719) 555-0177</span>
+  </a>
+  <a class="btn btn-line" href="#quote">Get a quote</a>
+</div>
+
+<a class="ssp-sample" href="../work/index.html" title="Back to the SiteSprintPro portfolio"><b>SAMPLE BUILD</b><span>Fictional business. Reviews and numbers are placeholders.</span></a>
+
+<!--@LIBS@-->
+<script>
+function init(){
+  var html = document.documentElement;
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var $ = function(s, c){ return (c || document).querySelector(s); };
+  var $$ = function(s, c){ return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
+
+  /* contact details from CONFIG */
+  $$('[data-tel]').forEach(function(a){ a.href = 'tel:' + CONFIG.phone; });
+  $$('[data-phone-display]').forEach(function(el){ el.textContent = CONFIG.phoneDisplay; });
+  $$('[data-maps]').forEach(function(a){ a.href = CONFIG.mapsUrl; });
+
+  /* form: sample only */
+  $('#quoteForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    $('#formMsg').textContent = 'Sample form. On your site this sends the lead straight to your phone and email.';
+  });
+
+  /* hero slider: 5.5 s hold, 1.2 s crossfade, slow zoom in CSS, paused off screen */
+  var hero = $('.hero'), slides = $$('.slide'), cur = 0, timer = null, onScreen = true;
+  function next(){
+    var a = slides[cur], n = (cur + 1) % slides.length, b = slides[n];
+    slides.forEach(function(s){ if (s !== a) s.classList.remove('prev'); });
+    a.classList.remove('on'); a.classList.add('prev');
+    b.classList.remove('zoom'); void b.offsetWidth; b.classList.add('on', 'zoom');
+    setTimeout(function(){ a.classList.remove('prev', 'zoom'); }, 1300);
+    cur = n; schedule();
+  }
+  function schedule(){ clearTimeout(timer); if (onScreen && !document.hidden) timer = setTimeout(next, 6700); }
+  if (!reduce && slides.length > 1) {
+    schedule();
+    if ('IntersectionObserver' in window) new IntersectionObserver(function(en){
+      onScreen = en[0].isIntersecting; hero.classList.toggle('paused', !onScreen);
+      if (onScreen) schedule(); else clearTimeout(timer);
+    }).observe(hero);
+    document.addEventListener('visibilitychange', function(){ if (document.hidden) clearTimeout(timer); else schedule(); });
+  }
+
+  if (!window.gsap || reduce) { html.classList.add('ready'); return; }
+
+  gsap.registerPlugin(ScrollTrigger, SplitText);
+
+  /* smooth scroll */
+  var lenis = new Lenis({ lerp: 0.1, smoothWheel: true });
+  lenis.on('scroll', ScrollTrigger.update);
+  gsap.ticker.add(function(t){ lenis.raf(t * 1000); });
+  gsap.ticker.lagSmoothing(0);
+  document.addEventListener('click', function(e){
+    var a = e.target.closest('a[href^="#"]'); if (!a) return;
+    var el = document.querySelector(a.getAttribute('href')); if (!el) return;
+    e.preventDefault();
+    var off = -(parseFloat(getComputedStyle(html).getPropertyValue('--hdr')) || 72);
+    lenis.scrollTo(el.id === 'top' ? 0 : el, { offset: off, duration: 1.2 });
+  });
+
+  /* the one orchestrated moment: the headline rises line by line */
+  var split = SplitText.create('#heroTitle', { type: 'lines,words', mask: 'lines', linesClass: 'ln' });
+  gsap.set('#heroTitle', { autoAlpha: 1 });
+  html.classList.add('ready');
+  gsap.from(split.words, { yPercent: 110, duration: 1.15, ease: 'expo.out', stagger: 0.055, delay: 0.1 });
+
+  /* reveals: transform and opacity, staggered, once */
+  gsap.set('[data-reveal]', { y: 30, autoAlpha: 0 });
+  ScrollTrigger.batch('[data-reveal]', { start: 'top 90%', once: true,
+    onEnter: function(els){ gsap.to(els, { y: 0, autoAlpha: 1, duration: 1, ease: 'expo.out', stagger: 0.08, overwrite: true }); } });
+
+  /* fall checklist: the season line draws stop by stop */
+  var mm = gsap.matchMedia();
+  mm.add({ wide: '(min-width: 761px)', narrow: '(max-width: 760px)' }, function(ctx){
+    var wide = ctx.conditions.wide;
+    gsap.set('#track .rule i', wide ? { scaleX: 0 } : { scaleY: 0 });
+    gsap.set('#track li > :not(.rule)', { y: 18, autoAlpha: 0 });
+    var tl = gsap.timeline({ scrollTrigger: { trigger: '#track', start: 'top 82%', once: true } });
+    $$('#track li').forEach(function(li, k){
+      tl.to(li.querySelector('.rule i'), wide ? { scaleX: 1, duration: 0.7, ease: 'power2.inOut' } : { scaleY: 1, duration: 0.6, ease: 'power2.inOut' }, k * 0.22)
+        .to(li.querySelectorAll(':scope > :not(.rule)'), { y: 0, autoAlpha: 1, duration: 0.8, ease: 'expo.out', stagger: 0.06 }, k * 0.22 + 0.2);
+    });
+  });
+
+  window.addEventListener('load', function(){ ScrollTrigger.refresh(); });
+}
+
+var CONFIG = {
+  phone: '+17195550177',
+  phoneDisplay: '(719) 555-0177',
+  email: 'hello@example.com',
+  mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Colorado+Springs,+CO'
+};
+if (document.fonts && document.fonts.ready) { document.fonts.ready.then(init); } else { init(); }
+</script>
+</body>
+</html>
