@@ -311,7 +311,48 @@ html.js:not(.ready) #heroTitle{visibility:hidden}
 /* SiteSprintPro: compact sample badge on phones */
 @media (max-width:760px){.ssp-sample span{display:none}.ssp-sample{padding:6px 9px;font-size:11px;box-shadow:0 2px 10px rgba(0,0,0,.25)}}
 </style>
-</head>
+<script>(function(h){try{var t=+sessionStorage.getItem('ssp-nav');sessionStorage.removeItem('ssp-nav');
+if(t&&Date.now()-t<6000&&!matchMedia('(prefers-reduced-motion: reduce)').matches){h.className+=' cur-in';h.setAttribute('data-fresh','1');}}catch(e){}})(document.documentElement);</script><style id="sspx-css">
+.sspx-ph{position:relative;min-height:clamp(320px,48svh,540px);display:flex;align-items:flex-end;overflow:hidden;background:#111;color:#fff;isolation:isolate;padding:calc(60px + 48px) clamp(20px,5vw,64px) clamp(34px,5vw,60px)}
+.sspx-ph .sx{position:absolute;inset:0;z-index:-2}
+.sspx-ph .sx picture,.sspx-ph .sx img{position:absolute;inset:0;width:100%;height:100%}
+.sspx-ph .sx img{object-fit:cover}
+.sspx-ph .sx picture:nth-child(1) img{animation:sspxA 14s infinite,sspxZ 7s ease-out infinite alternate}
+.sspx-ph .sx picture:nth-child(2) img{opacity:0;animation:sspxB 14s infinite,sspxZ 7s ease-out infinite alternate-reverse}
+@keyframes sspxA{0%,42%{opacity:1}50%,92%{opacity:0}100%{opacity:1}}
+@keyframes sspxB{0%,42%{opacity:0}50%,92%{opacity:1}100%{opacity:0}}
+@keyframes sspxZ{from{transform:scale(1.09)}to{transform:scale(1)}}
+.sspx-ph::after{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(0,0,0,.62),rgba(0,0,0,.22) 42%,rgba(0,0,0,.74))}
+.sspx-ph-in{width:100%;max-width:1240px;margin:0 auto}
+.sspx-crumb{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;font:600 .95rem/1.2 Archivo, "Helvetica Neue", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;margin:0 0 10px}
+.sspx-crumb a{color:#fff;min-height:44px;display:inline-flex;align-items:center;text-decoration:underline;text-underline-offset:4px}
+.sspx-crumb span{opacity:.8}
+.sspx-ph h1{font-family:Archivo, "Helvetica Neue", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;font-weight:800;letter-spacing:-0.176px;text-transform:none;font-size:clamp(2.6rem,7.4vw,5.4rem);line-height:.98;margin:0;color:#fff;text-wrap:balance}
+.sspx-ph p{font-family:Archivo, "Helvetica Neue", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;font-size:clamp(1.04rem,1.4vw,1.22rem);line-height:1.5;max-width:34em;margin:14px 0 0;color:rgba(255,255,255,.9)}
+.sspx-ph .rule{display:block;width:64px;height:4px;background:rgb(173, 74, 33);margin-top:20px}
+.sspx-mb{display:none;align-items:center;justify-content:center;gap:8px;min-height:48px;min-width:56px;padding:0 14px;border-radius:999px;border:1px solid currentColor;background:transparent;color:inherit;font:700 1rem/1 Archivo, "Helvetica Neue", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;cursor:pointer;flex:0 0 auto}
+.sspx-mb svg{width:18px;height:18px}
+.sspx-mb.on{display:inline-flex}
+.sspx-fab{position:fixed;right:14px;bottom:calc(16px + env(safe-area-inset-bottom));z-index:80;background:rgb(241, 243, 242);color:rgb(20, 32, 42);border-color:rgba(20,32,42,0.35);border-radius:999px;box-shadow:0 12px 30px -10px rgba(0,0,0,.55);transition:bottom .3s}
+.sspx-menu{position:fixed;inset:0;z-index:2147483600;background:rgb(241, 243, 242);color:rgb(20, 32, 42);display:flex;flex-direction:column;padding:calc(18px + env(safe-area-inset-top)) clamp(20px,6vw,40px) calc(24px + env(safe-area-inset-bottom));transform:translateY(100%);visibility:hidden;transition:transform .55s cubic-bezier(.2,.7,.1,1),visibility 0s linear .55s}
+.sspx-menu.open{transform:none;visibility:visible;transition:transform .55s cubic-bezier(.2,.7,.1,1)}
+.sspx-menu .top{display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:56px;font-family:Archivo, "Helvetica Neue", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;font-weight:800;font-size:1.15rem}
+.sspx-menu .x{display:grid;place-items:center;width:48px;height:48px;border-radius:999px;border:1px solid rgba(20,32,42,0.3);background:transparent;color:inherit;cursor:pointer}
+.sspx-menu .x svg{width:20px;height:20px}
+.sspx-menu ul{list-style:none;margin:18px 0 0;padding:0}
+.sspx-menu li{opacity:0;transform:translateY(16px);transition:opacity .3s,transform .5s cubic-bezier(.2,.7,.1,1)}
+.sspx-menu.open li{opacity:1;transform:none;transition-delay:calc(.14s + var(--i) * .05s)}
+.sspx-menu li a{display:flex;align-items:center;justify-content:space-between;min-height:66px;border-bottom:1px solid rgba(20,32,42,0.16);font-family:Archivo, "Helvetica Neue", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;font-weight:800;letter-spacing:-0.176px;text-transform:none;font-size:clamp(1.9rem,8vw,2.6rem);color:inherit;text-decoration:none}
+.sspx-menu li a[aria-current=page]{box-shadow:inset 5px 0 0 rgb(173, 74, 33);padding-left:16px}
+.sspx-menu .call{margin-top:auto;display:flex;align-items:center;justify-content:center;gap:10px;min-height:56px;border-radius:999px;background:rgb(173, 74, 33);color:rgb(247, 245, 242);font:700 1.05rem/1 Archivo, "Helvetica Neue", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;text-decoration:none}
+.sspx-menu .call svg{width:18px;height:18px}
+html.sspx-open,html.sspx-open body{overflow:hidden}
+.sspx-cur{position:fixed;inset:0;z-index:2147483646;background:rgb(20, 32, 42);color:rgb(241, 243, 242);display:grid;place-items:center;text-align:center;padding:24px;transform:translateY(101%);visibility:hidden;pointer-events:none;font-family:Archivo, "Helvetica Neue", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;font-weight:800;letter-spacing:-0.176px;text-transform:none;font-size:clamp(1.7rem,5vw,2.8rem);line-height:1}
+.sspx-cur span{display:block;width:48px;height:4px;margin:16px auto 0;background:rgb(173, 74, 33)}
+html.cur-in .sspx-cur,.sspx-cur.go{visibility:visible}
+html.cur-in .sspx-cur{transform:none}
+@media (prefers-reduced-motion:reduce){.sspx-ph .sx img{animation:none}.sspx-ph .sx picture:nth-child(2) img{opacity:0}.sspx-menu,.sspx-menu li{transition:none}html.cur-in .sspx-cur{transform:translateY(101%)}}
+</style></head>
 <body>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
@@ -338,11 +379,7 @@ html.js:not(.ready) #heroTitle{visibility:hidden}
       <svg class="mark" aria-hidden="true"><use href="#i-mark"/></svg>
       <span class="brand-name">Dipper<small>Plumbing</small></span>
     </a>
-    <nav class="nav" aria-label="Main">
-      <a href="#services">Services</a>
-      <a href="#freeze">Freeze prep</a>
-      <a href="#area">Service area</a>
-      <a href="#contact">Book a visit</a>
+    <nav class="nav" aria-label="Main"><a href="index.html" data-sspx aria-current="page">Home</a><a href="services.html" data-sspx>Services</a><a href="area.html" data-sspx>Service area</a><a href="contact.html" data-sspx>Book a visit</a>
     </nav>
     <a class="hdr-call" data-tel href="tel:+17195550118" aria-label="Call Dipper Plumbing">
       <svg aria-hidden="true"><use href="#i-phone"/></svg><span data-phone-display>(719) 555-0118</span>
@@ -421,43 +458,6 @@ html.js:not(.ready) #heroTitle{visibility:hidden}
   <p class="wrap t-note">Dashed boxes are placeholders. A real site shows the owner's actual rating, years and license number.</p>
 </section>
 
-<section class="svc" id="services" aria-labelledby="svcTitle">
-  <div class="wrap svc-grid">
-    <div class="svc-side">
-      <h2 id="svcTitle" data-reveal>What we fix</h2>
-      <p class="lede" data-reveal>Five kinds of calls, start to finish. If it carries water into your house or out of it, it is our job.</p>
-      <figure class="photo svc-photo" data-reveal>
-        <img src="img/services.webp" srcset="img/services-700.webp 700w, img/services.webp 1400w" sizes="(max-width: 900px) 92vw, 40vw" width="1400" height="1600" alt="Finished bathroom vanity with two matte black faucets" loading="lazy" decoding="async">
-      </figure>
-    </div>
-    <ul class="svc-list">
-      <li class="svc-item" data-reveal>
-        <div class="svc-head"><h3>Leaks, burst and frozen pipes</h3><span class="tag">Any hour, 7 days</span></div>
-        <p>Water where it should not be. We find where it is coming from, stop it, and repair the line, from a pinhole under a sink to a split pipe inside a wall.</p>
-        <p class="svc-meta">Frozen pipes thawed slowly, then checked for splits before the water goes back on.</p>
-      </li>
-      <li class="svc-item" data-reveal>
-        <div class="svc-head"><h3>Water heaters</h3><span class="tag">Tank and tankless</span></div>
-        <p>No hot water, rusty water, a tank that drips or rumbles. Repaired when that makes sense, replaced when it does not, and the old tank hauled away.</p>
-        <p class="svc-meta">Gas and electric, sized to how many showers your house runs in a morning.</p>
-      </li>
-      <li class="svc-item" data-reveal>
-        <div class="svc-head"><h3>Drain cleaning</h3></div>
-        <p>Kitchen sinks, tubs, showers, laundry and main lines. Cleared with the right cable or water jetter for the pipe, then tested with running water before we leave.</p>
-      </li>
-      <li class="svc-item" data-reveal>
-        <div class="svc-head"><h3>Sewer camera inspection</h3><span class="tag">You keep the video</span></div>
-        <p>A camera down the line shows roots, sags and breaks before anyone digs. You watch it with us, and the recording is yours.</p>
-        <p class="svc-meta">Worth doing before you buy an older house.</p>
-      </li>
-      <li class="svc-item" data-reveal>
-        <div class="svc-head"><h3>Fixtures and repipes</h3></div>
-        <p>Faucets, toilets, disposals, shutoff valves and outdoor spigots installed right. Whole-house repipes in PEX or copper when the old lines are done.</p>
-      </li>
-    </ul>
-  </div>
-</section>
-
 <section class="freeze" id="freeze" aria-labelledby="freezeTitle">
   <div class="wrap freeze-grid">
     <figure class="photo freeze-photo" data-reveal>
@@ -479,22 +479,9 @@ html.js:not(.ready) #heroTitle{visibility:hidden}
       </div>
       <div class="freeze-cta" data-reveal>
         <span>Rather have a plumber walk the house with you?</span>
-        <a class="btn btn-light" href="#contact">Book a visit<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="btn btn-light" href="contact.html">Book a visit<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
       </div>
     </div>
-  </div>
-</section>
-
-<section class="how" id="how" aria-labelledby="howTitle">
-  <div class="wrap">
-    <h2 id="howTitle" data-reveal>What happens when you call</h2>
-    <ol class="steps">
-      <li class="steps-line" aria-hidden="true"><i id="stepsFill"></i></li>
-      <li class="step" data-reveal><h3>A plumber answers.</h3><p>Not a call center. Tell us what you see, and we will tell you which valve to shut while we drive over.</p></li>
-      <li class="step" data-reveal><h3>We stop the water first.</h3><p>Then we find the cause. Shoe covers on and drop cloths down before any tool comes out.</p></li>
-      <li class="step" data-reveal><h3>You see the price.</h3><p>In writing, before work starts. Nothing happens until you say yes.</p></li>
-      <li class="step" data-reveal><h3>Fixed and cleaned up.</h3><p>We run the water with you watching, show you the old part, and leave the space clean.</p></li>
-    </ol>
   </div>
 </section>
 
@@ -524,66 +511,7 @@ html.js:not(.ready) #heroTitle{visibility:hidden}
   </div>
 </section>
 
-<section class="area" id="area" aria-labelledby="areaTitle">
-  <div class="wrap area-grid">
-    <div class="area-intro">
-      <h2 id="areaTitle" data-reveal>Where we work</h2>
-      <p data-reveal>We come to you. Colorado Springs and the towns around it, north to Monument, south to Fountain and east to Falcon.</p>
-      <a class="btn btn-line" data-maps href="https://www.google.com/maps/search/?api=1&amp;query=Colorado+Springs,+CO" target="_blank" rel="noopener" data-reveal>
-        <svg aria-hidden="true"><use href="#i-pin"/></svg>See the service area
-      </a>
-    </div>
-    <ul class="towns" data-reveal aria-label="Neighborhoods and towns we serve">
-      <li>Briargate</li><li>Northgate</li><li>Rockrimmon</li><li>Old Colorado City</li><li>Manitou Springs</li><li>Broadmoor</li>
-      <li>Cimarron Hills</li><li>Security-Widefield</li><li>Fountain</li><li>Falcon</li><li>Black Forest</li><li>Monument</li>
-      <li class="ask">Not listed? Call and ask.</li>
-    </ul>
-    <div class="hours" data-reveal>
-      <h3>Hours</h3>
-      <dl>
-        <div><dt>Leaks and burst pipes</dt><dd>Any hour, 7 days</dd></div>
-        <div><dt>Scheduled work</dt><dd>Monday to Saturday, 7am to 6pm</dd></div>
-        <div><dt>Sunday</dt><dd>Emergency calls only</dd></div>
-      </dl>
-    </div>
-  </div>
-</section>
 
-<section class="contact" id="contact" aria-labelledby="contactTitle">
-  <div class="wrap contact-grid">
-    <div class="contact-call">
-      <h2 id="contactTitle" data-reveal>Talk to a plumber</h2>
-      <a class="bignum" data-tel href="tel:+17195550118" aria-label="Call Dipper Plumbing" data-reveal>
-        <svg aria-hidden="true"><use href="#i-phone"/></svg><span data-phone-display>(719) 555-0118</span>
-      </a>
-      <p data-reveal>Leaks and burst pipes, any hour. Not sure what you are looking at? Send a photo and we reply with what we see and what to do next.</p>
-      <a class="btn btn-dark" data-sms href="sms:+17195550118" data-reveal><svg aria-hidden="true"><use href="#i-camera"/></svg>Text us a photo</a>
-    </div>
-    <form class="form" id="quoteForm" name="booking" method="POST" data-netlify="true" netlify-honeypot="bot-field" data-reveal>
-      <h3>Book a visit</h3>
-      <input type="hidden" name="form-name" value="booking">
-      <p class="hidden"><label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
-      <div class="form-row">
-        <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
-        <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required></div>
-      </div>
-      <div class="field"><label for="f-where">Neighborhood or address</label><input id="f-where" name="address" type="text" autocomplete="street-address"></div>
-      <div class="field"><label for="f-issue">What is going on?</label>
-        <select id="f-issue" name="issue">
-          <option>Leak or burst pipe</option>
-          <option>No hot water</option>
-          <option>Slow or clogged drain</option>
-          <option>Sewer camera inspection</option>
-          <option>Fixture or repipe quote</option>
-          <option>Something else</option>
-        </select>
-      </div>
-      <div class="field"><label for="f-msg">Details <i>(optional)</i></label><textarea id="f-msg" name="message" rows="3"></textarea></div>
-      <button class="btn btn-call" type="submit">Book a visit<svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
-      <p class="form-msg" id="formMsg" role="status"></p>
-    </form>
-  </div>
-</section>
 
 </main>
 
@@ -675,7 +603,7 @@ html.js:not(.ready) #heroTitle{visibility:hidden}
 function init(){
   var html = document.documentElement;
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var $ = function(s, c){ return (c || document).querySelector(s); };
+  var $ = function(s, c){ return (c || document).querySelector(s) || document.createElement('div'); };
   var $$ = function(s, c){ return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
 
   /* contact details come from CONFIG */
@@ -795,5 +723,56 @@ var CONFIG = {
 };
 if (document.fonts && document.fonts.ready) { document.fonts.ready.then(init); } else { init(); }
 </script>
-</body>
+<div class="sspx-menu" id="sspx-menu" inert role="dialog" aria-modal="true" aria-label="Menu"><div class="top"><span>Dipper Plumbing</span><button class="x" type="button" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div><ul><li style="--i:0"><a href="index.html" aria-current="page">Home</a></li><li style="--i:1"><a href="services.html">Services</a></li><li style="--i:2"><a href="area.html">Service area</a></li><li style="--i:3"><a href="contact.html">Book a visit</a></li></ul><a class="call" href="tel:+17195550118"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>Call (719) 555-0118</a></div><button class="sspx-mb sspx-fab" type="button" aria-controls="sspx-menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/></svg>Menu</button><div class="sspx-cur" aria-hidden="true">Dipper Plumbing<span></span></div><script>
+(function(){
+  var html=document.documentElement, cur=document.querySelector('.sspx-cur'), reduce=matchMedia('(prefers-reduced-motion: reduce)').matches, EASE='cubic-bezier(.76,0,.24,1)';
+  var navEntry=performance.getEntriesByType?performance.getEntriesByType('navigation')[0]:null;
+  var fromSite=false; try{ fromSite=!!document.referrer&&new URL(document.referrer).origin===location.origin; }catch(e){}
+  var fresh=html.hasAttribute('data-fresh')||(navEntry&&navEntry.type==='navigate'&&fromSite)||(top!==self&&!(navEntry&&navEntry.type==='back_forward'));
+  function toTop(){ if(scrollY!==0) scrollTo(0,0); try{ if(top!==self) html.scrollIntoView({block:'start',inline:'nearest'}); }catch(e){} }
+  if(fresh&&!location.hash){
+    var held=true, stop=function(){ held=false; };
+    addEventListener('touchstart',stop,{once:true,passive:true}); addEventListener('wheel',stop,{once:true,passive:true}); addEventListener('keydown',stop,{once:true});
+    toTop(); [60,180,400,800].forEach(function(ms){ setTimeout(function(){ if(held) toTop(); },ms); });
+    addEventListener('load',function(){ if(held) toTop(); setTimeout(stop,300); });
+  }
+  function reveal(){ if(!html.classList.contains('cur-in')) return; var done=function(){ html.classList.remove('cur-in'); };
+    if(!cur.animate){ done(); return; } var a=cur.animate([{transform:'translateY(0)'},{transform:'translateY(-101%)'}],{duration:640,easing:EASE,fill:'forwards'}); a.onfinish=function(){ done(); a.cancel(); }; }
+  var fontsIn=document.fonts&&document.fonts.ready?Promise.race([document.fonts.ready,new Promise(function(r){setTimeout(r,350);})]):Promise.resolve();
+  fontsIn.then(function(){ requestAnimationFrame(function(){ requestAnimationFrame(reveal); }); });
+  addEventListener('pageshow',function(e){ if(e.persisted){ html.classList.remove('cur-in'); cur.classList.remove('go'); if(cur.getAnimations) cur.getAnimations().forEach(function(x){x.cancel();}); setMenu(false); } });
+  function internal(a){ if(!a||(a.target&&a.target!=='_self')||a.hasAttribute('download')) return null; var h=a.getAttribute('href');
+    if(!h||h.charAt(0)==='#'||/^(tel|sms|mailto|javascript):/i.test(h)) return null; var u; try{ u=new URL(a.href,location.href); }catch(e){ return null; } return u.origin===location.origin?u:null; }
+  document.addEventListener('click',function(e){
+    if(e.defaultPrevented||e.button!==0||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey) return;
+    var a=e.target.closest&&e.target.closest('a'), u=internal(a); if(!u) return;
+    if(u.pathname===location.pathname&&u.search===location.search){ if(u.hash) return; e.preventDefault(); setMenu(false); scrollTo({top:0,behavior:reduce?'auto':'smooth'}); return; }
+    if(reduce||!cur.animate) return; e.preventDefault(); setMenu(false);
+    try{ sessionStorage.setItem('ssp-nav',String(Date.now())); }catch(x){}
+    var went=false, go=function(){ if(went) return; went=true; toTop(); location.href=u.href; };
+    cur.classList.add('go'); var a2=cur.animate([{transform:'translateY(101%)'},{transform:'translateY(0)'}],{duration:440,easing:EASE,fill:'forwards'}); a2.onfinish=go; setTimeout(go,560);
+  },true);
+  var seen={}; function pf(e){ var u=internal(e.target.closest&&e.target.closest('a')); if(!u||seen[u.href]||u.pathname===location.pathname) return; seen[u.href]=1;
+    var l=document.createElement('link'); l.rel='prefetch'; l.href=u.href; document.head.appendChild(l); }
+  document.addEventListener('touchstart',pf,{passive:true}); document.addEventListener('pointerover',pf,{passive:true});
+  var menu=document.getElementById('sspx-menu'), mb=null, fab=document.querySelector('.sspx-fab'), opener=null;
+  function setMenu(open){ if(!menu) return; menu.classList.toggle('open',open); html.classList.toggle('sspx-open',open);
+    [mb,fab].forEach(function(b){ if(b) b.setAttribute('aria-expanded',String(open)); });
+    if(open){ menu.removeAttribute('inert'); setTimeout(function(){ var f=menu.querySelector('a'); if(f) f.focus({preventScroll:true}); },80); }
+    else { menu.setAttribute('inert',''); if(opener){ opener.focus({preventScroll:true}); opener=null; } } }
+  [mb,fab].forEach(function(b){ if(b) b.addEventListener('click',function(){ opener=b; setMenu(true); }); });
+  var x=menu&&menu.querySelector('.x'); if(x) x.addEventListener('click',function(){ setMenu(false); });
+  document.addEventListener('keydown',function(e){ if(!menu||!menu.classList.contains('open')) return; if(e.key==='Escape'){ setMenu(false); return; }
+    if(e.key==='Tab'){ var f=[].slice.call(menu.querySelectorAll('a,button')), i=f.indexOf(document.activeElement);
+      if(e.shiftKey&&i<=0){ e.preventDefault(); f[f.length-1].focus(); } else if(!e.shiftKey&&i===f.length-1){ e.preventDefault(); f[0].focus(); } } });
+  function place(){
+    var links=[].slice.call(document.querySelectorAll('header [data-sspx]'));
+    var hidden=!links.length||links.every(function(a){ var r=a.getBoundingClientRect(); return !a.offsetParent||r.width===0||r.height===0; });
+    var cb=document.querySelector('.callbar'), cbOn=cb&&getComputedStyle(cb).display!=='none'&&cb.getBoundingClientRect().height>0;
+    if(fab){ fab.classList.toggle('on',hidden); fab.style.bottom=(cbOn?Math.round(innerHeight-cb.getBoundingClientRect().top)+12:16)+'px'; }
+    if(!hidden) setMenu(false);
+  }
+  place(); addEventListener('resize',place); addEventListener('load',place);
+})();
+</script></body>
 </html>

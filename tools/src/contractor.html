@@ -697,7 +697,7 @@ function init(){
   if (init.done) return; init.done = true;
   var html = document.documentElement;
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var $ = function(s, c){ return (c || document).querySelector(s); };
+  var $ = function(s, c){ return (c || document).querySelector(s) || document.createElement('div'); };
   var $$ = function(s, c){ return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
 
   /* contact details from CONFIG */

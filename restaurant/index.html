@@ -295,7 +295,48 @@ form .btn-call{width:100%;margin-top:22px;border:0;cursor:pointer;font-size:1.06
 /* SiteSprintPro: compact sample badge on phones */
 @media (max-width:760px){.ssp-sample span{display:none}.ssp-sample{padding:6px 9px;font-size:11px;box-shadow:0 2px 10px rgba(0,0,0,.25)}}
 </style>
-</head>
+<script>(function(h){try{var t=+sessionStorage.getItem('ssp-nav');sessionStorage.removeItem('ssp-nav');
+if(t&&Date.now()-t<6000&&!matchMedia('(prefers-reduced-motion: reduce)').matches){h.className+=' cur-in';h.setAttribute('data-fresh','1');}}catch(e){}})(document.documentElement);</script><style id="sspx-css">
+.sspx-ph{position:relative;min-height:clamp(320px,48svh,540px);display:flex;align-items:flex-end;overflow:hidden;background:#111;color:#fff;isolation:isolate;padding:calc(64px + 48px) clamp(20px,5vw,64px) clamp(34px,5vw,60px)}
+.sspx-ph .sx{position:absolute;inset:0;z-index:-2}
+.sspx-ph .sx picture,.sspx-ph .sx img{position:absolute;inset:0;width:100%;height:100%}
+.sspx-ph .sx img{object-fit:cover}
+.sspx-ph .sx picture:nth-child(1) img{animation:sspxA 14s infinite,sspxZ 7s ease-out infinite alternate}
+.sspx-ph .sx picture:nth-child(2) img{opacity:0;animation:sspxB 14s infinite,sspxZ 7s ease-out infinite alternate-reverse}
+@keyframes sspxA{0%,42%{opacity:1}50%,92%{opacity:0}100%{opacity:1}}
+@keyframes sspxB{0%,42%{opacity:0}50%,92%{opacity:1}100%{opacity:0}}
+@keyframes sspxZ{from{transform:scale(1.09)}to{transform:scale(1)}}
+.sspx-ph::after{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(0,0,0,.62),rgba(0,0,0,.22) 42%,rgba(0,0,0,.74))}
+.sspx-ph-in{width:100%;max-width:1240px;margin:0 auto}
+.sspx-crumb{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;font:600 .95rem/1.2 Archivo, "Arial Narrow", "Helvetica Neue", Arial, sans-serif;margin:0 0 10px}
+.sspx-crumb a{color:#fff;min-height:44px;display:inline-flex;align-items:center;text-decoration:underline;text-underline-offset:4px}
+.sspx-crumb span{opacity:.8}
+.sspx-ph h1{font-family:Archivo, "Arial Narrow", "Helvetica Neue", Arial, sans-serif;font-weight:800;letter-spacing:-0.184px;text-transform:uppercase;font-size:clamp(2.6rem,7.4vw,5.4rem);line-height:.98;margin:0;color:#fff;text-wrap:balance}
+.sspx-ph p{font-family:Archivo, "Arial Narrow", "Helvetica Neue", Arial, sans-serif;font-size:clamp(1.04rem,1.4vw,1.22rem);line-height:1.5;max-width:34em;margin:14px 0 0;color:rgba(255,255,255,.9)}
+.sspx-ph .rule{display:block;width:64px;height:4px;background:rgb(217, 98, 43);margin-top:20px}
+.sspx-mb{display:none;align-items:center;justify-content:center;gap:8px;min-height:48px;min-width:56px;padding:0 14px;border-radius:999px;border:1px solid currentColor;background:transparent;color:inherit;font:700 1rem/1 Archivo, "Arial Narrow", "Helvetica Neue", Arial, sans-serif;cursor:pointer;flex:0 0 auto}
+.sspx-mb svg{width:18px;height:18px}
+.sspx-mb.on{display:inline-flex}
+.sspx-fab{position:fixed;right:14px;bottom:calc(16px + env(safe-area-inset-bottom));z-index:80;background:rgb(22, 20, 18);color:rgb(241, 235, 227);border-color:rgba(241,235,227,0.35);border-radius:999px;box-shadow:0 12px 30px -10px rgba(0,0,0,.55);transition:bottom .3s}
+.sspx-menu{position:fixed;inset:0;z-index:2147483600;background:rgb(22, 20, 18);color:rgb(241, 235, 227);display:flex;flex-direction:column;padding:calc(18px + env(safe-area-inset-top)) clamp(20px,6vw,40px) calc(24px + env(safe-area-inset-bottom));transform:translateY(100%);visibility:hidden;transition:transform .55s cubic-bezier(.2,.7,.1,1),visibility 0s linear .55s}
+.sspx-menu.open{transform:none;visibility:visible;transition:transform .55s cubic-bezier(.2,.7,.1,1)}
+.sspx-menu .top{display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:56px;font-family:Archivo, "Arial Narrow", "Helvetica Neue", Arial, sans-serif;font-weight:800;font-size:1.15rem}
+.sspx-menu .x{display:grid;place-items:center;width:48px;height:48px;border-radius:999px;border:1px solid rgba(241,235,227,0.3);background:transparent;color:inherit;cursor:pointer}
+.sspx-menu .x svg{width:20px;height:20px}
+.sspx-menu ul{list-style:none;margin:18px 0 0;padding:0}
+.sspx-menu li{opacity:0;transform:translateY(16px);transition:opacity .3s,transform .5s cubic-bezier(.2,.7,.1,1)}
+.sspx-menu.open li{opacity:1;transform:none;transition-delay:calc(.14s + var(--i) * .05s)}
+.sspx-menu li a{display:flex;align-items:center;justify-content:space-between;min-height:66px;border-bottom:1px solid rgba(241,235,227,0.16);font-family:Archivo, "Arial Narrow", "Helvetica Neue", Arial, sans-serif;font-weight:800;letter-spacing:-0.184px;text-transform:uppercase;font-size:clamp(1.9rem,8vw,2.6rem);color:inherit;text-decoration:none}
+.sspx-menu li a[aria-current=page]{box-shadow:inset 5px 0 0 rgb(217, 98, 43);padding-left:16px}
+.sspx-menu .call{margin-top:auto;display:flex;align-items:center;justify-content:center;gap:10px;min-height:56px;border-radius:999px;background:rgb(217, 98, 43);color:rgb(27, 15, 8);font:700 1.05rem/1 Archivo, "Arial Narrow", "Helvetica Neue", Arial, sans-serif;text-decoration:none}
+.sspx-menu .call svg{width:18px;height:18px}
+html.sspx-open,html.sspx-open body{overflow:hidden}
+.sspx-cur{position:fixed;inset:0;z-index:2147483646;background:#26221e;color:rgb(241, 235, 227);display:grid;place-items:center;text-align:center;padding:24px;transform:translateY(101%);visibility:hidden;pointer-events:none;font-family:Archivo, "Arial Narrow", "Helvetica Neue", Arial, sans-serif;font-weight:800;letter-spacing:-0.184px;text-transform:uppercase;font-size:clamp(1.7rem,5vw,2.8rem);line-height:1}
+.sspx-cur span{display:block;width:48px;height:4px;margin:16px auto 0;background:rgb(217, 98, 43)}
+html.cur-in .sspx-cur,.sspx-cur.go{visibility:visible}
+html.cur-in .sspx-cur{transform:none}
+@media (prefers-reduced-motion:reduce){.sspx-ph .sx img{animation:none}.sspx-ph .sx picture:nth-child(2) img{opacity:0}.sspx-menu,.sspx-menu li{transition:none}html.cur-in .sspx-cur{transform:translateY(101%)}}
+</style></head>
 <body>
 <div class="top-sentinel" id="topSentinel" aria-hidden="true"></div>
 
@@ -319,11 +360,7 @@ form .btn-call{width:100%;margin-top:22px;border:0;cursor:pointer;font-size:1.06
     <span class="brand-txt"><b>Sawbuck</b><span>Fire Grill</span></span>
   </a>
   <nav class="nav" aria-label="Main">
-    <ul class="nav-links">
-      <li><a href="#menu">Menu</a></li>
-      <li><a href="#hours">Hours</a></li>
-      <li><a href="#book">Reservations</a></li>
-    </ul>
+    <ul class="nav-links"><li><a href="index.html" data-sspx aria-current="page">Home</a></li><li><a href="menu.html" data-sspx>Menu</a></li><li><a href="visit.html" data-sspx>Hours</a></li><li><a href="book.html" data-sspx>Reservations</a></li></ul>
     <a class="nav-num" href="tel:+17195550191" data-tel data-phone-display>(719) 555-0191</a>
     <a class="btn btn-call" href="tel:+17195550191" data-tel><svg aria-hidden="true"><use href="#i-phone"/></svg>Call to book</a>
   </nav>
@@ -355,7 +392,7 @@ form .btn-call{width:100%;margin-top:22px;border:0;cursor:pointer;font-size:1.06
       <p class="hero-sub">Steaks, chops and Colorado trout cooked over split oak. Dinner Tuesday to Sunday, bar seats held for walk-ins.</p>
       <div class="hero-ctas">
         <a class="btn btn-call" href="tel:+17195550191" data-tel><svg aria-hidden="true"><use href="#i-phone"/></svg>Call to book <span class="num" data-phone-display>(719) 555-0191</span></a>
-        <a class="btn btn-ghost" href="#menu">See the menu</a>
+        <a class="btn btn-ghost" href="menu.html">See the menu</a>
       </div>
       <div class="hero-where">
         <a class="link-dir" href="https://www.google.com/maps/search/?api=1&amp;query=Old+Colorado+City,+Colorado+Springs,+CO" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-pin"/></svg><span>Directions</span></a>
@@ -374,64 +411,6 @@ form .btn-call{width:100%;margin-top:22px;border:0;cursor:pointer;font-size:1.06
       <li data-reveal><span class="slot">Where your beef comes from</span><small>The ranch or supplier you buy from</small></li>
       <li data-reveal><span class="slot">Largest party you seat</span><small>So groups know before they call</small></li>
     </ul>
-  </div>
-</section>
-
-<section class="menu" id="menu">
-  <div class="wrap menu-grid">
-    <div class="menu-photo" data-reveal>
-      <picture><source media="(max-width: 700px)" srcset="img/menu-steak-700.webp" width="700" height="875"><img src="img/menu-steak-1400.webp" width="1400" height="1750" alt="Sliced steak, pink in the middle, on a wooden board with coarse salt" loading="lazy" decoding="async"></picture>
-    </div>
-    <div>
-      <p class="label">Sample menu</p>
-      <h2 class="display">Dinner menu</h2>
-      <p class="menu-intro">Short on purpose and built around the fire. It changes with the season, so call if you want to know what is on tonight.</p>
-      <div class="cats">
-        <div class="cat fire" data-reveal>
-          <h3>From the fire</h3>
-          <ul class="items">
-            <li class="item"><b>12 oz New York strip</b><i>$42</i><span>Herb butter, charred lemon</span></li>
-            <li class="item"><b>8 oz filet</b><i>$48</i><span>Red wine sauce, roasted shallot</span></li>
-            <li class="item"><b>Bone-in pork chop</b><i>$31</i><span>Apple mustard, grilled onions</span></li>
-            <li class="item"><b>Colorado lamb chops</b><i>$39</i><span>Mint and parsley salsa verde</span></li>
-            <li class="item"><b>Colorado trout</b><i>$28</i><span>Brown butter, almonds, lemon</span></li>
-            <li class="item"><b>Fire-grilled burger</b><i>$19</i><span>Aged cheddar, house pickles, fries</span></li>
-          </ul>
-        </div>
-        <div class="cat" data-reveal>
-          <h3>Starters</h3>
-          <ul class="items">
-            <li class="item"><b>Roasted bone marrow</b><i>$16</i><span>Grilled bread, parsley, shallot</span></li>
-            <li class="item"><b>Smoked trout dip</b><i>$14</i><span>Pickled onion, crackers</span></li>
-            <li class="item"><b>Charred Brussels sprouts</b><i>$12</i><span>Honey, chile, lime</span></li>
-            <li class="item"><b>Grilled flatbread</b><i>$11</i><span>Whipped feta, roasted garlic</span></li>
-          </ul>
-        </div>
-        <div class="cat" data-reveal>
-          <h3>Sides</h3>
-          <ul class="items">
-            <li class="item"><b>Fire-roasted potatoes</b><i>$9</i><span>Garlic aioli</span></li>
-            <li class="item"><b>Grilled corn</b><i>$9</i><span>Chile butter, cotija</span></li>
-            <li class="item"><b>Charred broccolini</b><i>$9</i><span>Lemon, chile flake</span></li>
-            <li class="item"><b>Smoked mac and cheese</b><i>$10</i><span>Sharp cheddar, toasted crumbs</span></li>
-          </ul>
-        </div>
-        <div class="cat" data-reveal>
-          <h3>Drinks</h3>
-          <ul class="items">
-            <li class="item"><b>House old fashioned</b><i>$13</i><span>Colorado whiskey, orange</span></li>
-            <li class="item"><b>Smoked Manhattan</b><i>$14</i><span>Rye, sweet vermouth, oak smoke</span></li>
-            <li class="item"><b>Colorado draft beer</b><i>$7</i><span>Ask what is pouring tonight</span></li>
-            <li class="item"><b>Wine by the glass</b><i>$10 to $15</i><span>Red, white and rosé</span></li>
-            <li class="item"><b>Grilled lemonade</b><i>$6</i><span>No alcohol, lemons charred on the grill</span></li>
-          </ul>
-        </div>
-        <div class="drinks-photo" data-reveal>
-          <picture><source media="(max-width: 700px)" srcset="img/bar-glass-700.webp" width="700" height="875"><img src="img/bar-glass-1400.webp" width="1400" height="1750" alt="A whiskey cocktail in a ribbed glass on the corner of a wood bar" loading="lazy" decoding="async"></picture>
-        </div>
-      </div>
-      <p class="menu-foot">Sample menu and prices. Your real menu goes here.</p>
-    </div>
   </div>
 </section>
 
@@ -494,87 +473,7 @@ form .btn-call{width:100%;margin-top:22px;border:0;cursor:pointer;font-size:1.06
   </div>
 </section>
 
-<section class="hours" id="hours">
-  <div class="wrap">
-    <h2 class="display" data-reveal>Hours and location</h2>
-    <div class="hours-grid">
-      <div data-reveal>
-        <table aria-label="Dinner hours">
-          <tbody>
-            <tr data-days="1"><th scope="row">Monday</th><td>Closed</td></tr>
-            <tr data-days="2,3,4"><th scope="row">Tuesday to Thursday</th><td>4 to 9 pm</td></tr>
-            <tr data-days="5,6"><th scope="row">Friday and Saturday</th><td>4 to 10 pm</td></tr>
-            <tr data-days="0"><th scope="row">Sunday</th><td>4 to 9 pm</td></tr>
-          </tbody>
-        </table>
-        <p class="hours-note">Last seating 30 minutes before close.</p>
-        <div class="place">
-          <h3>Old Colorado City, Colorado Springs</h3>
-          <p>Street parking and public lots close by.</p>
-          <a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&amp;query=Old+Colorado+City,+Colorado+Springs,+CO" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-pin"/></svg>Directions</a>
-        </div>
-      </div>
-      <div class="notes" data-reveal>
-        <div>
-          <h3>Reservations and large parties</h3>
-          <p>We take reservations by phone. The bar is first come. For 8 or more, call at least two days ahead so we can set one long table.</p>
-          <a class="call-inline" href="tel:+17195550191" data-tel data-phone-display>(719) 555-0191</a>
-        </div>
-        <div>
-          <h3>Private events</h3>
-          <p>The back room takes birthdays, rehearsal dinners and work dinners. Call to ask about open dates.</p>
-        </div>
-      </div>
-      <div class="room" data-reveal>
-        <picture><source media="(max-width: 700px)" srcset="img/room-back-700.webp" width="700" height="875"><img src="img/room-back-1400.webp" width="1400" height="1750" alt="A long banquette and marble tables in the back room" loading="lazy" decoding="async"></picture>
-      </div>
-    </div>
-  </div>
-</section>
 
-<section class="book" id="book">
-  <div class="callband">
-    <div class="wrap" data-reveal>
-      <h2 class="display">Call to book</h2>
-      <a class="bignum" href="tel:+17195550191" data-tel data-phone-display>(719) 555-0191</a>
-      <p>We answer from 2 pm, Tuesday to Sunday. Same-night tables are often open early in the week.</p>
-    </div>
-  </div>
-  <div class="formsec">
-    <div class="wrap form-grid">
-      <div class="intro" data-reveal>
-        <h3>Or send a request</h3>
-        <p>Tell us the night, the time and how many. We call back to confirm before the table is held.</p>
-      </div>
-      <form name="booking" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="bookForm" data-reveal>
-        <input type="hidden" name="form-name" value="booking">
-        <p class="hp"><label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
-        <div class="f-grid">
-          <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
-          <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required></div>
-          <div class="field"><label for="f-date">Date</label><input id="f-date" name="date" type="date" required></div>
-          <div class="field"><label for="f-time">Time</label>
-            <select id="f-time" name="time" required>
-              <option value="">Pick a time</option>
-              <option>4:00 pm</option><option>4:30 pm</option><option>5:00 pm</option><option>5:30 pm</option>
-              <option>6:00 pm</option><option>6:30 pm</option><option>7:00 pm</option><option>7:30 pm</option>
-              <option>8:00 pm</option><option>8:30 pm</option><option>9:00 pm (Fri and Sat)</option>
-            </select></div>
-          <div class="field"><label for="f-party">Party size</label>
-            <select id="f-party" name="party" required>
-              <option value="">How many</option>
-              <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option>
-              <option>8 or more</option>
-            </select></div>
-          <div class="field"><label for="f-occasion">Occasion (optional)</label><input id="f-occasion" name="occasion" type="text" placeholder="Birthday, anniversary"></div>
-          <div class="field f-wide"><label for="f-notes">Anything we should know</label><textarea id="f-notes" name="notes" rows="3" placeholder="High chair, allergies, coming from a hike"></textarea></div>
-        </div>
-        <button class="btn btn-call" type="submit">Request a table</button>
-        <p class="form-msg" id="formMsg" role="status" hidden></p>
-      </form>
-    </div>
-  </div>
-</section>
 </main>
 
 <footer class="foot">
@@ -600,8 +499,8 @@ form .btn-call{width:100%;margin-top:22px;border:0;cursor:pointer;font-size:1.06
       <div>
         <h4>Quick links</h4>
         <ul>
-          <li><a href="#menu">Menu</a></li>
-          <li><a href="#book">Reservations</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="book.html">Reservations</a></li>
           <li><a href="https://www.google.com/maps/search/?api=1&amp;query=Old+Colorado+City,+Colorado+Springs,+CO" target="_blank" rel="noopener">Directions</a></li>
         </ul>
       </div>
@@ -671,7 +570,7 @@ form .btn-call{width:100%;margin-top:22px;border:0;cursor:pointer;font-size:1.06
 function init(){
   var html = document.documentElement;
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var $ = function(s, c){ return (c || document).querySelector(s); };
+  var $ = function(s, c){ return (c || document).querySelector(s) || document.createElement('div'); };
   var $$ = function(s, c){ return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
 
   /* contact details from CONFIG */
@@ -778,5 +677,56 @@ var CONFIG = {
 };
 if (document.fonts && document.fonts.ready) { document.fonts.ready.then(init); } else { init(); }
 </script>
-</body>
+<div class="sspx-menu" id="sspx-menu" inert role="dialog" aria-modal="true" aria-label="Menu"><div class="top"><span>Sawbuck Fire Grill</span><button class="x" type="button" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div><ul><li style="--i:0"><a href="index.html" aria-current="page">Home</a></li><li style="--i:1"><a href="menu.html">Menu</a></li><li style="--i:2"><a href="visit.html">Hours</a></li><li style="--i:3"><a href="book.html">Reservations</a></li></ul><a class="call" href="tel:+17195550191"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>Call (719) 555-0191</a></div><button class="sspx-mb sspx-fab" type="button" aria-controls="sspx-menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/></svg>Menu</button><div class="sspx-cur" aria-hidden="true">Sawbuck Fire Grill<span></span></div><script>
+(function(){
+  var html=document.documentElement, cur=document.querySelector('.sspx-cur'), reduce=matchMedia('(prefers-reduced-motion: reduce)').matches, EASE='cubic-bezier(.76,0,.24,1)';
+  var navEntry=performance.getEntriesByType?performance.getEntriesByType('navigation')[0]:null;
+  var fromSite=false; try{ fromSite=!!document.referrer&&new URL(document.referrer).origin===location.origin; }catch(e){}
+  var fresh=html.hasAttribute('data-fresh')||(navEntry&&navEntry.type==='navigate'&&fromSite)||(top!==self&&!(navEntry&&navEntry.type==='back_forward'));
+  function toTop(){ if(scrollY!==0) scrollTo(0,0); try{ if(top!==self) html.scrollIntoView({block:'start',inline:'nearest'}); }catch(e){} }
+  if(fresh&&!location.hash){
+    var held=true, stop=function(){ held=false; };
+    addEventListener('touchstart',stop,{once:true,passive:true}); addEventListener('wheel',stop,{once:true,passive:true}); addEventListener('keydown',stop,{once:true});
+    toTop(); [60,180,400,800].forEach(function(ms){ setTimeout(function(){ if(held) toTop(); },ms); });
+    addEventListener('load',function(){ if(held) toTop(); setTimeout(stop,300); });
+  }
+  function reveal(){ if(!html.classList.contains('cur-in')) return; var done=function(){ html.classList.remove('cur-in'); };
+    if(!cur.animate){ done(); return; } var a=cur.animate([{transform:'translateY(0)'},{transform:'translateY(-101%)'}],{duration:640,easing:EASE,fill:'forwards'}); a.onfinish=function(){ done(); a.cancel(); }; }
+  var fontsIn=document.fonts&&document.fonts.ready?Promise.race([document.fonts.ready,new Promise(function(r){setTimeout(r,350);})]):Promise.resolve();
+  fontsIn.then(function(){ requestAnimationFrame(function(){ requestAnimationFrame(reveal); }); });
+  addEventListener('pageshow',function(e){ if(e.persisted){ html.classList.remove('cur-in'); cur.classList.remove('go'); if(cur.getAnimations) cur.getAnimations().forEach(function(x){x.cancel();}); setMenu(false); } });
+  function internal(a){ if(!a||(a.target&&a.target!=='_self')||a.hasAttribute('download')) return null; var h=a.getAttribute('href');
+    if(!h||h.charAt(0)==='#'||/^(tel|sms|mailto|javascript):/i.test(h)) return null; var u; try{ u=new URL(a.href,location.href); }catch(e){ return null; } return u.origin===location.origin?u:null; }
+  document.addEventListener('click',function(e){
+    if(e.defaultPrevented||e.button!==0||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey) return;
+    var a=e.target.closest&&e.target.closest('a'), u=internal(a); if(!u) return;
+    if(u.pathname===location.pathname&&u.search===location.search){ if(u.hash) return; e.preventDefault(); setMenu(false); scrollTo({top:0,behavior:reduce?'auto':'smooth'}); return; }
+    if(reduce||!cur.animate) return; e.preventDefault(); setMenu(false);
+    try{ sessionStorage.setItem('ssp-nav',String(Date.now())); }catch(x){}
+    var went=false, go=function(){ if(went) return; went=true; toTop(); location.href=u.href; };
+    cur.classList.add('go'); var a2=cur.animate([{transform:'translateY(101%)'},{transform:'translateY(0)'}],{duration:440,easing:EASE,fill:'forwards'}); a2.onfinish=go; setTimeout(go,560);
+  },true);
+  var seen={}; function pf(e){ var u=internal(e.target.closest&&e.target.closest('a')); if(!u||seen[u.href]||u.pathname===location.pathname) return; seen[u.href]=1;
+    var l=document.createElement('link'); l.rel='prefetch'; l.href=u.href; document.head.appendChild(l); }
+  document.addEventListener('touchstart',pf,{passive:true}); document.addEventListener('pointerover',pf,{passive:true});
+  var menu=document.getElementById('sspx-menu'), mb=null, fab=document.querySelector('.sspx-fab'), opener=null;
+  function setMenu(open){ if(!menu) return; menu.classList.toggle('open',open); html.classList.toggle('sspx-open',open);
+    [mb,fab].forEach(function(b){ if(b) b.setAttribute('aria-expanded',String(open)); });
+    if(open){ menu.removeAttribute('inert'); setTimeout(function(){ var f=menu.querySelector('a'); if(f) f.focus({preventScroll:true}); },80); }
+    else { menu.setAttribute('inert',''); if(opener){ opener.focus({preventScroll:true}); opener=null; } } }
+  [mb,fab].forEach(function(b){ if(b) b.addEventListener('click',function(){ opener=b; setMenu(true); }); });
+  var x=menu&&menu.querySelector('.x'); if(x) x.addEventListener('click',function(){ setMenu(false); });
+  document.addEventListener('keydown',function(e){ if(!menu||!menu.classList.contains('open')) return; if(e.key==='Escape'){ setMenu(false); return; }
+    if(e.key==='Tab'){ var f=[].slice.call(menu.querySelectorAll('a,button')), i=f.indexOf(document.activeElement);
+      if(e.shiftKey&&i<=0){ e.preventDefault(); f[f.length-1].focus(); } else if(!e.shiftKey&&i===f.length-1){ e.preventDefault(); f[0].focus(); } } });
+  function place(){
+    var links=[].slice.call(document.querySelectorAll('header [data-sspx]'));
+    var hidden=!links.length||links.every(function(a){ var r=a.getBoundingClientRect(); return !a.offsetParent||r.width===0||r.height===0; });
+    var cb=document.querySelector('.callbar'), cbOn=cb&&getComputedStyle(cb).display!=='none'&&cb.getBoundingClientRect().height>0;
+    if(fab){ fab.classList.toggle('on',hidden); fab.style.bottom=(cbOn?Math.round(innerHeight-cb.getBoundingClientRect().top)+12:16)+'px'; }
+    if(!hidden) setMenu(false);
+  }
+  place(); addEventListener('resize',place); addEventListener('load',place);
+})();
+</script></body>
 </html>

@@ -553,7 +553,7 @@ section[id]{scroll-margin-top:var(--head)}
 (function(){
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var started = false;
-  function $(s, c){ return (c || document).querySelector(s); }
+  function $(s, c){ return (c || document).querySelector(s) || document.createElement('div'); }
   function $$(s, c){ return Array.prototype.slice.call((c || document).querySelectorAll(s)); }
 
   function applyConfig(){

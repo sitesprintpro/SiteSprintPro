@@ -645,7 +645,7 @@ p{text-wrap:pretty}
 function init(){
   var html = document.documentElement;
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var $ = function(s, c){ return (c || document).querySelector(s); };
+  var $ = function(s, c){ return (c || document).querySelector(s) || document.createElement('div'); };
   var $$ = function(s, c){ return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
 
   /* contact details from CONFIG */
