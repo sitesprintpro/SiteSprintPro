@@ -11,8 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..800;1,6..96,400..800&amp;display=swap">
-<link rel="preload" as="image" href="img/hero-1-p.webp" media="(max-width: 700px)">
-<link rel="preload" as="image" href="img/hero-1-1920.webp" imagesrcset="img/hero-1-960.webp 960w, img/hero-1-1920.webp 1920w" imagesizes="100vw" media="(min-width: 701px)">
+<link rel="preload" as="image" href="img/hero-3-p.webp">
 <script>
   document.documentElement.classList.add('js');
   setTimeout(function(){ document.documentElement.classList.add('ready'); }, 2500);
@@ -63,8 +62,8 @@ p{text-wrap:pretty}
 .btn svg{width:16px;height:16px;flex:none}
 
 /* header */
-.site-head{position:fixed;inset:0 0 auto 0;z-index:50;height:var(--head);color:var(--on-dark)}
-.site-head::before{content:"";position:absolute;inset:0;background:var(--paper);border-bottom:1px solid var(--line);opacity:0;transition:opacity .3s ease}
+.site-head{position:fixed;inset:0 0 auto 0;z-index:50;height:var(--head);color:var(--ink)}
+.site-head::before{content:"";position:absolute;inset:0;background:var(--paper);border-bottom:1px solid var(--line)}
 .site-head.solid{color:var(--ink)}
 .site-head.solid::before{opacity:1}
 .head-in{position:relative;height:100%;display:flex;align-items:center;justify-content:space-between;gap:24px}
@@ -78,30 +77,27 @@ p{text-wrap:pretty}
   background:var(--accent);color:var(--on-accent);font:600 13px/1 var(--serif);letter-spacing:.12em;text-transform:uppercase;white-space:nowrap;transition:background-color .25s ease}
 .head-call:hover{background:var(--accent-deep)}
 
-/* hero */
-.hero{position:relative;height:min(92dvh,860px);min-height:560px;color:var(--on-dark);background:var(--ink);overflow:hidden;isolation:isolate}
-@supports not (height:1dvh){.hero{height:min(92vh,860px)}}
-.slides{position:absolute;inset:0;z-index:0}
+/* hero: arch frame. A tall arch (the same shape as the logo) holds the slideshow, the words sit beside it. */
+.hero{position:relative;color:var(--ink);background:var(--paper);padding-top:var(--head);overflow:hidden;isolation:isolate}
+.hero-wrap{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);column-gap:clamp(32px,7vw,112px);align-items:center;
+  min-height:calc(min(100dvh,900px) - var(--head));padding-block:clamp(28px,5vh,64px)}
+@supports not (height:1dvh){.hero-wrap{min-height:calc(min(100vh,900px) - var(--head))}}
+.arch{position:relative;justify-self:center;width:min(100%,460px);margin-left:22px}
+.arch::before{content:"";position:absolute;inset:0;border:1px solid var(--accent);border-radius:999px 999px 0 0;transform:translate(-22px,22px);z-index:0}
+.slides{position:relative;z-index:1;aspect-ratio:3/4.1;border-radius:999px 999px 0 0;overflow:hidden;background:var(--ink-2)}
 .slide{position:absolute;inset:0;opacity:0;transition:opacity 1.2s ease}
 .slide.on{opacity:1;z-index:2}
 .slide.off{opacity:1;z-index:1;transition:none}
-.slide picture,.slide img{width:100%;height:100%}
-.slide img{object-fit:cover;transform-origin:50% 50%}
+.slide img{width:100%;height:100%;object-fit:cover;object-position:50% 38%;transform-origin:50% 50%}
 .slide.on img,.slide.off img{animation:kb 7.9s linear both}
 .hero.paused .slide img{animation-play-state:paused}
-@keyframes kb{from{transform:scale(1)}to{transform:scale(1.08)}}
-.hero::after{content:"";position:absolute;inset:0;z-index:3;pointer-events:none;
-  background:linear-gradient(90deg,rgba(20,18,17,.72) 0%,rgba(20,18,17,.34) 48%,rgba(20,18,17,.12) 75%,rgba(20,18,17,.3) 100%),
-             linear-gradient(0deg,rgba(20,18,17,.86) 0%,rgba(20,18,17,.4) 34%,rgba(20,18,17,0) 62%),
-             linear-gradient(180deg,rgba(20,18,17,.5) 0%,rgba(20,18,17,0) 22%)}
-.hero-in{position:absolute;inset:auto 0 0 0;z-index:4;padding-bottom:clamp(40px,7dvh,84px)}
-.hero-grid{align-items:end;row-gap:28px}
-.hero-main{grid-column:1 / span 8}
-.hero-eyebrow{color:rgba(243,240,235,.86);margin-bottom:22px}
-#heroTitle{font-size:clamp(46px,7vw,112px);line-height:.98;letter-spacing:-.03em;font-weight:500}
+@keyframes kb{from{transform:scale(1)}to{transform:scale(1.07)}}
+.hero-copy{min-width:0}
+.hero-eyebrow{color:var(--accent);margin-bottom:20px}
+#heroTitle{font-size:clamp(44px,6vw,96px);line-height:.98;letter-spacing:-.03em;font-weight:500}
 #heroTitle em{font-weight:400;letter-spacing:-.02em}
-.hero-side{grid-column:9 / span 4;padding-bottom:10px}
-.hero-sub{font-size:19px;line-height:1.5;color:rgba(243,240,235,.92);max-width:32ch;margin-bottom:26px}
+.hero-rule{height:1px;background:var(--line-2);margin:clamp(20px,3vh,30px) 0}
+.hero-sub{font-size:19px;line-height:1.5;color:var(--muted);max-width:36ch;margin-bottom:26px}
 .hero-ctas{display:flex;flex-wrap:wrap;gap:12px}
 html.js:not(.ready) #heroTitle{visibility:hidden}
 .ln-mask{padding-bottom:.14em;margin-bottom:-.14em}
@@ -244,8 +240,7 @@ html.js:not(.ready) #heroTitle{visibility:hidden}
 
 /* tablet */
 @media (max-width:1100px){
-  .hero-main{grid-column:1 / span 12}
-  .hero-side{grid-column:1 / span 8}
+  .hero-wrap{column-gap:clamp(24px,5vw,56px)}
   .trust-in{grid-template-columns:repeat(4,minmax(0,1fr));row-gap:22px}
   .trust-note{grid-column:1 / -1;padding:0}
   .trust-item:nth-child(2){border-left:0;padding-left:0}
@@ -272,16 +267,16 @@ html.js:not(.ready) #heroTitle{visibility:hidden}
   .nav{display:none}
   .brand svg{height:26px}
   .head-call{padding:0 16px}
-  .hero{min-height:540px}
-  .hero::after{background:linear-gradient(180deg,rgba(20,18,17,.62) 0%,rgba(20,18,17,.12) 24%,rgba(20,18,17,.28) 42%,rgba(20,18,17,.82) 66%,rgba(20,18,17,.92) 100%)}
-  .hero-in{padding-bottom:30px}
-  .hero-main,.hero-side{grid-column:1 / -1}
-  .hero-grid{row-gap:18px}
-  .hero-eyebrow{margin-bottom:14px}
+  .hero-wrap{grid-template-columns:1fr;min-height:0;row-gap:24px;padding-block:52px 32px}
+  .arch{width:72%;margin-left:22px}
+  .slides{aspect-ratio:3/2.8}
+  .hero-eyebrow{margin-bottom:12px}
   #heroTitle{font-size:clamp(42px,12.4vw,54px)}
-  .hero-sub{font-size:17px;margin-bottom:20px}
+  .hero-rule{margin:16px 0}
+  .hero-sub{font-size:17px;margin-bottom:20px;max-width:none}
   .hero-ctas{display:grid;grid-template-columns:1fr;gap:10px}
   .hero-ctas .btn{width:100%}
+  .hero-ctas .btn-line{display:none}
   .trust{padding:26px 0}
   .trust-in{grid-template-columns:1fr 1fr;row-gap:18px}
   .trust-item{padding:4px 14px}
@@ -351,7 +346,9 @@ if(t&&Date.now()-t<6000&&!matchMedia('(prefers-reduced-motion: reduce)').matches
 .sspx-mb{display:none;align-items:center;justify-content:center;gap:8px;min-height:48px;min-width:56px;padding:0 14px;border-radius:999px;border:1px solid currentColor;background:transparent;color:inherit;font:700 1rem/1 "Bodoni Moda", "Bodoni 72", Didot, "Bodoni MT", "Libre Bodoni", Georgia, "Times New Roman", serif;cursor:pointer;flex:0 0 auto}
 .sspx-mb svg{width:18px;height:18px}
 .sspx-mb.on{display:inline-flex}
-.sspx-fab{position:fixed;right:14px;bottom:calc(16px + env(safe-area-inset-bottom));z-index:80;background:rgb(239, 236, 231);color:rgb(27, 26, 25);border-color:rgba(27,26,25,0.35);border-radius:999px;box-shadow:0 12px 30px -10px rgba(0,0,0,.55);transition:bottom .3s}
+.sspx-fab{position:fixed;right:14px;bottom:calc(16px + env(safe-area-inset-bottom));z-index:80;width:52px;height:52px;min-width:52px;padding:0;background:rgb(239, 236, 231);color:rgb(27, 26, 25);border-color:rgba(27,26,25,0.35);border-radius:50%;box-shadow:0 12px 30px -10px rgba(0,0,0,.55);transition:bottom .3s}
+.sspx-fab svg{width:22px;height:22px}
+.sspx-fab .sspx-l{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .sspx-menu{position:fixed;inset:0;z-index:2147483600;background:rgb(239, 236, 231);color:rgb(27, 26, 25);display:flex;flex-direction:column;padding:calc(18px + env(safe-area-inset-top)) clamp(20px,6vw,40px) calc(24px + env(safe-area-inset-bottom));transform:translateY(100%);visibility:hidden;transition:transform .55s cubic-bezier(.2,.7,.1,1),visibility 0s linear .55s}
 .sspx-menu.open{transform:none;visibility:visible;transition:transform .55s cubic-bezier(.2,.7,.1,1)}
 .sspx-menu .top{display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:56px;font-family:"Bodoni Moda", "Bodoni 72", Didot, "Bodoni MT", "Libre Bodoni", Georgia, "Times New Roman", serif;font-weight:500;font-size:1.15rem}
@@ -522,12 +519,7 @@ function init(){
     $('#formMsg').textContent = 'Sample form. On your site this sends the lead straight to your phone and email.';
   });
 
-  /* header turns solid once the hero is behind it */
   var head = $('#head'), hero = $('.hero');
-  if ('IntersectionObserver' in window) {
-    new IntersectionObserver(function(e){ head.classList.toggle('solid', !e[0].isIntersecting); },
-      { rootMargin: '-' + (head.offsetHeight || 72) + 'px 0px 0px 0px' }).observe(hero);
-  }
 
   /* hero slider: 5.5 s hold, 1.2 s crossfade, paused off screen */
   if (!reduce) (function(){
@@ -571,6 +563,7 @@ function init(){
   var split = SplitText.create('#heroTitle', { type: 'lines,words', mask: 'lines', linesClass: 'ln' });
   html.classList.add('ready');
   gsap.timeline({ defaults: { ease: 'expo.out' } })
+    .from('.arch', { y: 36, autoAlpha: 0, duration: 1.5 }, 0)
     .from('.hero-eyebrow', { y: 16, autoAlpha: 0, duration: 1 }, 0.05)
     .from(split.words, { yPercent: 110, duration: 1.35, stagger: 0.07 }, 0.12)
     .from('.hero-sub', { y: 24, autoAlpha: 0, duration: 1.1 }, 0.55)
@@ -603,7 +596,7 @@ var CONFIG = {
 };
 if (document.fonts && document.fonts.ready) { document.fonts.ready.then(init); } else { init(); }
 </script>
-<div class="sspx-menu" id="sspx-menu" inert role="dialog" aria-modal="true" aria-label="Menu"><div class="top"><span>Oriel Hair Studio</span><button class="x" type="button" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div><ul><li style="--i:0"><a href="index.html">Home</a></li><li style="--i:1"><a href="services.html">Services</a></li><li style="--i:2"><a href="visit.html" aria-current="page">Hours</a></li><li style="--i:3"><a href="book.html">Book a chair</a></li></ul><a class="call" href="tel:+17195550129"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>Call (719) 555-0129</a></div><button class="sspx-mb sspx-fab" type="button" aria-controls="sspx-menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/></svg>Menu</button><div class="sspx-cur" aria-hidden="true">Oriel Hair Studio<span></span></div><script>
+<div class="sspx-menu" id="sspx-menu" inert role="dialog" aria-modal="true" aria-label="Menu"><div class="top"><span>Oriel Hair Studio</span><button class="x" type="button" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div><ul><li style="--i:0"><a href="index.html">Home</a></li><li style="--i:1"><a href="services.html">Services</a></li><li style="--i:2"><a href="visit.html" aria-current="page">Hours</a></li><li style="--i:3"><a href="book.html">Book a chair</a></li></ul><a class="call" href="tel:+17195550129"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>Call (719) 555-0129</a></div><button class="sspx-mb sspx-fab" type="button" aria-controls="sspx-menu" aria-expanded="false" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/></svg><span class="sspx-l">Menu</span></button><div class="sspx-cur" aria-hidden="true">Oriel Hair Studio<span></span></div><script>
 (function(){
   var html=document.documentElement, cur=document.querySelector('.sspx-cur'), reduce=matchMedia('(prefers-reduced-motion: reduce)').matches, EASE='cubic-bezier(.76,0,.24,1)';
   var navEntry=performance.getEntriesByType?performance.getEntriesByType('navigation')[0]:null;

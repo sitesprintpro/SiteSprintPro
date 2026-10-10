@@ -4,7 +4,7 @@ from playwright.sync_api import sync_playwright
 from PIL import Image
 SITE = pathlib.Path("/home/claude/ssp-site"); OUT = SITE / "assets/shots"; OUT.mkdir(parents=True, exist_ok=True)
 SLUGS = sys.argv[1:] or ["hvac", "plumbing", "contractor", "lawn", "salon", "restaurant"]
-HIDE = ".ssp-sample{display:none!important}"
+HIDE = ".ssp-sample,.sspx-fab{display:none!important}"
 with sync_playwright() as p:
     b = p.chromium.launch()
     for s in SLUGS:

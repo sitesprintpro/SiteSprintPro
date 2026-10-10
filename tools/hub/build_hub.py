@@ -164,8 +164,22 @@ section{padding:clamp(72px,10vw,128px) 0}
 .filters button{min-height:44px;padding:0 18px;border-radius:var(--r3);border:1px solid var(--line2);background:transparent;color:var(--muted);font:600 .95rem var(--font);cursor:pointer}
 .filters button[aria-pressed=true]{background:var(--text);color:var(--bg);border-color:var(--text)}
 .sample-note{color:var(--faint);font-size:.92rem;margin-top:18px}
-.card.more{justify-content:flex-end;min-height:260px;background:var(--bg3)}
-.card.more .more-in{display:grid;gap:10px;padding:clamp(22px,3vw,32px)}
+.card.more{position:relative;justify-content:flex-end;min-height:0;overflow:hidden;background:var(--bg3)}
+/* every card fills its row: the narrow card's picture grows to match its neighbor, so no empty space */
+.work .card.w5 .shot{flex:1 1 auto;min-height:0}
+.work .card.w5 .shot .d{position:absolute;inset:0;height:100%;object-position:left top}
+.more-mosaic{position:absolute;inset:0 0 auto 0;height:58%;pointer-events:none}
+.more-mosaic img{position:absolute;width:44%;height:auto;border-radius:12px;border:1px solid var(--line2);box-shadow:0 26px 50px -18px rgba(0,0,0,.9);transition:transform .7s cubic-bezier(.2,.7,.1,1)}
+.more-mosaic img:nth-child(1){left:6%;top:14%;transform:rotate(-3deg)}
+.more-mosaic img:nth-child(2){left:28%;top:5%;transform:rotate(1.5deg);z-index:2}
+.more-mosaic img:nth-child(3){left:50%;top:16%;transform:rotate(4deg);z-index:3}
+@media (hover:hover) and (prefers-reduced-motion:no-preference){
+  .card.more:hover .more-mosaic img:nth-child(1){transform:rotate(-5deg) translate(-8px,-6px)}
+  .card.more:hover .more-mosaic img:nth-child(2){transform:rotate(1.5deg) translateY(-12px)}
+  .card.more:hover .more-mosaic img:nth-child(3){transform:rotate(6deg) translate(8px,-6px)}
+}
+@media (max-width:860px){.card.more{min-height:340px}}
+.card.more .more-in{position:relative;z-index:4;display:grid;gap:10px;padding:clamp(56px,5vw,64px) clamp(22px,3vw,32px) clamp(22px,3vw,32px);background:linear-gradient(to bottom,transparent,var(--bg3) 46%)}
 .card.more b{font-size:clamp(1.7rem,3vw,2.5rem);letter-spacing:-.03em;line-height:1.05}
 .card.more span{color:var(--muted)}
 .card.more .go{display:inline-flex;align-items:center;gap:6px;min-height:44px;color:var(--accent2);font-weight:700}
@@ -688,7 +702,7 @@ def build():
 
 <section id="work"><div class="wrap">
   <div class="sec-head"><h2 data-r>Find the one closest to your business.</h2><p class="lede" data-r>Six live samples. Open one on your phone, that's how your customers will see yours.</p></div>
-  <div class="work">{card(featured[0],'w7')}{card(featured[1],'w5')}{card(featured[2],'w5')}<a class="card w7 more" href="work/index.html" data-r><div class="more-in"><b>See all six samples</b><span>HVAC, plumbing, contractor, lawn care, salon and restaurant.</span><span class="go">Open the work {ICON['arrow']}</span></div></a></div>
+  <div class="work">{card(featured[0],'w7')}{card(featured[1],'w5')}{card(featured[2],'w5')}<a class="card w7 more" href="work/index.html" data-r><div class="more-mosaic" aria-hidden="true"><img src="{{root}}assets/shots/plumbing-desktop.webp" width="1200" height="750" alt="" loading="lazy" decoding="async"><img src="{{root}}assets/shots/contractor-desktop.webp" width="1200" height="750" alt="" loading="lazy" decoding="async"><img src="{{root}}assets/shots/lawn-desktop.webp" width="1200" height="750" alt="" loading="lazy" decoding="async"></div><div class="more-in"><b>See all six samples</b><span>HVAC, plumbing, contractor, lawn care, salon and restaurant.</span><span class="go">Open the work {ICON['arrow']}</span></div></a></div>
 </div></section>
 
 <section class="ridge" aria-labelledby="ridge-h">

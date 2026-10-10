@@ -106,7 +106,9 @@ def css(t, hdr_h):
 .sspx-mb{{display:none;align-items:center;justify-content:center;gap:8px;min-height:48px;min-width:56px;padding:0 14px;border-radius:{t['radius']};border:1px solid currentColor;background:transparent;color:inherit;font:700 1rem/1 {t['font']};cursor:pointer;flex:0 0 auto}}
 .sspx-mb svg{{width:18px;height:18px}}
 .sspx-mb.on{{display:inline-flex}}
-.sspx-fab{{position:fixed;right:14px;bottom:calc(16px + env(safe-area-inset-bottom));z-index:80;background:{t['bg']};color:{t['fg']};border-color:{rgba(t['fg'], .35)};border-radius:999px;box-shadow:0 12px 30px -10px rgba(0,0,0,.55);transition:bottom .3s}}
+.sspx-fab{{position:fixed;right:14px;bottom:calc(16px + env(safe-area-inset-bottom));z-index:80;width:52px;height:52px;min-width:52px;padding:0;background:{t['bg']};color:{t['fg']};border-color:{rgba(t['fg'], .35)};border-radius:50%;box-shadow:0 12px 30px -10px rgba(0,0,0,.55);transition:bottom .3s}}
+.sspx-fab svg{{width:22px;height:22px}}
+.sspx-fab .sspx-l{{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}}
 .sspx-menu{{position:fixed;inset:0;z-index:2147483600;background:{t['bg']};color:{t['fg']};display:flex;flex-direction:column;padding:calc(18px + env(safe-area-inset-top)) clamp(20px,6vw,40px) calc(24px + env(safe-area-inset-bottom));transform:translateY(100%);visibility:hidden;transition:transform .55s cubic-bezier(.2,.7,.1,1),visibility 0s linear .55s}}
 .sspx-menu.open{{transform:none;visibility:visible;transition:transform .55s cubic-bezier(.2,.7,.1,1)}}
 .sspx-menu .top{{display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:56px;font-family:{t['dfont']};font-weight:{t['dweight']};font-size:1.15rem}}
@@ -249,7 +251,7 @@ def build(slug):
         sheet = (f'<div class="sspx-menu" id="sspx-menu" inert role="dialog" aria-modal="true" aria-label="Menu">'
                  f'<div class="top"><span>{html.escape(name)}</span><button class="x" type="button" aria-label="Close menu">{X_ICON}</button></div>'
                  f'<ul>{menu_items}</ul><a class="call" href="{tel}">{PHONE}Call {phone_disp}</a></div>'
-                 f'<button class="sspx-mb sspx-fab" type="button" aria-controls="sspx-menu" aria-expanded="false">{MENU_ICON}Menu</button>'
+                 f'<button class="sspx-mb sspx-fab" type="button" aria-controls="sspx-menu" aria-expanded="false" aria-label="Menu">{MENU_ICON}<span class="sspx-l">Menu</span></button>'
                  f'<div class="sspx-cur" aria-hidden="true">{html.escape(name)}<span></span></div>')
         out = out.replace("</head>", HEAD_JS + css(t, int(t["hdrH"])) + "</head>", 1)
         out = out.replace("</body>", sheet + NAV_JS + "</body>", 1)
