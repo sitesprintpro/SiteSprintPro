@@ -69,7 +69,7 @@ def main():
     out = pathlib.Path(sys.argv[2]); out.mkdir(parents=True, exist_ok=True)
     results, shots, fails = {}, [], 0
     with sync_playwright() as p:
-        b = p.chromium.launch()
+        b = p.chromium.launch(args=["--allow-file-access-from-files"])  # CSS masks on file:// need it
         for name, w, h, dpr, ua, mobile in DEVICES:
             ctx = b.new_context(viewport={"width": w, "height": h}, device_scale_factor=dpr, is_mobile=mobile,
                                 has_touch=mobile, user_agent=ua) if ua else b.new_context(viewport={"width": w, "height": h})

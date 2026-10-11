@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Zero Gap Barbershop | Skin fades, tapers and lineups in Colorado Springs</title>
+<meta name="description" content="Sample build by SiteSprintPro. A fictional fade shop off Academy Blvd in Colorado Springs.">
+<meta property="og:title" content="Zero Gap Barbershop | Sample build by SiteSprintPro">
+<meta property="og:description" content="Skin fades, tapers and lineups off Academy Blvd. A sample site for a fictional barbershop.">
+<meta name="theme-color" content="#0d0c0b">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400..800&family=Permanent+Marker&family=Sedgwick+Ave+Display&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="img/frame-neck.webp">
+<script>
+  document.documentElement.classList.add('js');
+  setTimeout(function(){ document.documentElement.classList.add('ready'); }, 2500);
+</script>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+/* Zero Gap, Red paint: black wall, red and cream splatter, worn condensed caps, graffiti tag, taped torn photos, brush buttons */
+:root{
+  --bg:#0d0c0b; --bg-2:#151311; --bg-3:#1e1b18;
+  --text:#efe6d2; --muted:#bfb6a4; --line:rgba(239,230,210,.14); --line-2:rgba(239,230,210,.3);
+  --red:#d92e26; --red-hi:#ec463d; --red-ink:#b5211a; --on-red:#ffffff; --ink:#15120f;
+  --disp:'Anton',Impact,'Arial Narrow',sans-serif;
+  --font:'Archivo','Helvetica Neue',Arial,sans-serif;
+  --hand:'Permanent Marker','Comic Sans MS',cursive;
+  --tag:'Sedgwick Ave Display','Permanent Marker',cursive;
+  --ease:cubic-bezier(.19,1,.22,1);
+  --pad:clamp(16px,4vw,56px); --max:1280px; --hdr:84px;
+}
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+.lenis.lenis-stopped{overflow:clip}
+html{-webkit-text-size-adjust:100%;background:var(--bg);scroll-padding-top:calc(var(--hdr) + 12px)}
+body{font-family:var(--font);font-size:1.0625rem;font-weight:500;line-height:1.55;background:var(--bg);color:var(--text);
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-x:clip}
+body::after{content:'';position:fixed;inset:0;z-index:70;pointer-events:none;background:url(img/grain.webp) 0 0/256px;opacity:.07}
+main{overflow-x:clip}
+a{color:inherit;text-decoration:none}
+img,svg{display:block}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--red-hi);outline-offset:3px}
+::selection{background:var(--red);color:var(--on-red)}
+.wrap{max-width:var(--max);margin:0 auto}
+.display{font-family:var(--disp);font-weight:400;text-transform:uppercase;letter-spacing:.005em;line-height:.9}
+h2.display{font-size:clamp(3rem,7vw,6rem);text-wrap:balance}
+h2.display em{font-style:normal;color:var(--red)}
+.worn{-webkit-mask:url(img/grunge-lite.webp) 0 0/560px;mask:url(img/grunge-lite.webp) 0 0/560px}
+.under{display:block;width:min(360px,70%);height:24px;margin:12px 0 0;background:var(--red);-webkit-mask:url(img/brush-2.webp) center/100% 100% no-repeat;mask:url(img/brush-2.webp) center/100% 100% no-repeat}
+p{max-width:62ch}
+.muted{color:var(--muted)}
+.label{font:400 .95rem/1 var(--disp);letter-spacing:.2em;text-transform:uppercase;color:var(--red-hi);margin-bottom:14px}
+.splat{position:absolute;pointer-events:none;z-index:0;max-width:none;height:auto}
+.tape{position:absolute;z-index:3;width:118px;height:34px;background:rgba(239,230,210,.84);clip-path:polygon(0 8%,6% 0,12% 10%,20% 2%,100% 0,96% 30%,100% 55%,95% 80%,100% 100%,0 100%,5% 70%,0 45%)}
+.torn{-webkit-mask:url(img/torn.webp) center/100% 100% no-repeat;mask:url(img/torn.webp) center/100% 100% no-repeat}
+
+/* buttons: square, plus a red brush stroke for the main ask */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 26px;
+  font:400 1.05rem/1 var(--disp);letter-spacing:.07em;text-transform:uppercase;white-space:nowrap;border:1.5px solid transparent;
+  transition:background-color .2s ease,color .2s ease,border-color .2s ease,transform .15s ease}
+.btn:active{transform:scale(.97)}
+.btn svg{width:17px;height:17px;flex:none}
+.btn-red{background:var(--red);color:var(--on-red)}
+.btn-red:hover{background:var(--red-ink)}
+.btn-line{border-color:rgba(239,230,210,.6);color:var(--text)}
+.btn-line:hover{background:var(--text);color:var(--bg);border-color:var(--text)}
+.brush{position:relative;isolation:isolate;color:var(--on-red);min-height:72px;padding:0 60px 0 44px;font-size:1.4rem;border:0;background:none;cursor:pointer}
+.brush::before{content:'';position:absolute;inset:0;z-index:-1;background:var(--red);-webkit-mask:url(img/brush-2.webp) center/100% 100% no-repeat;mask:url(img/brush-2.webp) center/100% 100% no-repeat;transition:background-color .2s}
+.brush:hover::before{background:var(--red-ink)}
+
+/* header */
+.hdr{position:fixed;inset:0 0 auto 0;z-index:50;height:var(--hdr);display:flex;align-items:center;justify-content:space-between;gap:16px;padding:0 var(--pad);transition:background-color .3s ease,border-color .3s ease;border-bottom:1px solid transparent}
+.hdr.solid{background:rgba(13,12,11,.94);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-color:var(--line)}
+.brand{display:inline-flex;align-items:baseline;gap:12px;min-height:44px;padding-top:6px}
+.brand b{display:inline-block;font:400 2.2rem/1 var(--tag);color:var(--text);text-shadow:3px 3px 0 var(--red);transform:rotate(-4deg)}
+.brand small{font:400 .78rem/1 var(--disp);letter-spacing:.3em;color:var(--muted)}
+.nav{display:flex;align-items:center;gap:6px}
+.nav-links{display:flex;list-style:none;gap:4px;margin-right:10px}
+.nav-links a{display:inline-flex;align-items:center;min-height:44px;padding:0 13px;font:400 1.05rem/1 var(--disp);letter-spacing:.08em;text-transform:uppercase;transition:color .2s}
+.nav-links a:hover,.nav-links a[aria-current]{color:var(--red-hi)}
+.hdr .brush{min-height:56px;padding:0 40px 0 30px;font-size:1.05rem}
+.hdr-tel{display:inline-flex;align-items:center;min-height:44px;padding:0 12px;font:400 1.05rem/1 var(--disp);letter-spacing:.06em;font-variant-numeric:tabular-nums;text-decoration:underline;text-decoration-color:var(--red);text-decoration-thickness:2px;text-underline-offset:6px}
+.hdr-tel:hover{color:var(--red-hi)}
+@media (max-width:1100px){.hdr-tel{display:none}}
+
+/* hero: worn headline, taped photo, splatter, arrow to the brush button */
+.hero{position:relative;display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr);gap:clamp(16px,3vw,48px);align-items:center;
+  min-height:calc(100svh - 40px);max-height:1100px;padding:calc(var(--hdr) + 26px) var(--pad) 96px;overflow:clip}
+.hero .splat.r{width:min(980px,80vw);right:-14%;top:-22%}
+.hero .splat.w{width:min(700px,56vw);left:30%;bottom:-62%;opacity:.3;transform:rotate(40deg)}
+.copy{position:relative;z-index:2}
+.kick{font:400 1rem/1 var(--disp);letter-spacing:.22em;text-transform:uppercase;color:var(--red-hi)}
+.big{font:400 clamp(6rem,12.8vw,12.6rem)/.84 var(--disp);text-transform:uppercase;letter-spacing:-.005em;margin-top:14px}
+.big span{display:block}
+.big .l2{color:var(--red)}
+.script{display:block;font:400 clamp(2rem,3.6vw,3.4rem)/1 var(--hand);transform:rotate(-6deg);margin:-.35em 0 0 34%;text-shadow:0 3px 0 var(--bg),0 0 18px rgba(13,12,11,.9)}
+.sub{max-width:44ch;color:var(--muted);margin-top:22px}
+.act{display:flex;align-items:center;gap:18px;margin-top:26px}
+.arrow{width:120px;height:auto;margin-top:-30px;overflow:visible;flex:none}
+.arrow path{fill:none;stroke:var(--text);stroke-width:4;stroke-linecap:round;stroke-linejoin:round}
+.walk{font:400 1.25rem/1.1 var(--hand);transform:rotate(-5deg);margin-top:-46px}
+.or{margin-top:14px;font-weight:600;color:var(--muted)}
+.or a{display:inline-flex;align-items:center;min-height:44px;color:var(--text);font-weight:800;text-decoration:underline;text-decoration-color:var(--red);text-decoration-thickness:2px;text-underline-offset:6px}
+.pic{position:relative;z-index:1;justify-self:start;width:min(100%,540px);margin:0;transform:rotate(2.5deg)}
+.pic .ph{position:relative;aspect-ratio:4/5;background:var(--text);padding:14px}
+.pic .ph img{position:absolute;inset:14px;width:calc(100% - 28px);height:calc(100% - 28px);object-fit:cover;object-position:50% 30%}
+.pic .ph img+img{opacity:0;animation:frameB 18s infinite}
+.pic .ph img+img+img{animation-name:frameC}
+@keyframes frameB{0%,30%{opacity:0}35%,63%{opacity:1}68%,100%{opacity:0}}
+@keyframes frameC{0%,63%{opacity:0}68%,96%{opacity:1}100%{opacity:0}}
+.pic .tape.a{top:-12px;left:-22px;transform:rotate(-24deg)}
+.pic .tape.b{top:-10px;right:-26px;transform:rotate(30deg)}
+.sticker{position:absolute;left:-50px;bottom:40px;z-index:3;display:grid;place-items:center;width:136px;height:136px;border-radius:50%;background:var(--red);box-shadow:0 14px 30px rgba(0,0,0,.5);transform:rotate(-12deg);color:var(--on-red);text-align:center;font:400 1rem/1 var(--disp);letter-spacing:.06em;text-transform:uppercase}
+.sticker::before{content:'';position:absolute;inset:7px;border:2px dashed rgba(255,255,255,.7);border-radius:50%}
+.sticker b{display:block;font:400 2.6rem/.95 var(--disp)}
+/* intro: waits for the fonts so the stamp lands on the real letters */
+.js:not(.ready) .hero .copy,.js:not(.ready) .hero .pic,.js:not(.ready) .hero .splat{opacity:0}
+.ready .big span{animation:stamp .55s cubic-bezier(.2,1.2,.4,1) both}
+.ready .big .l2{animation-delay:.12s}
+.ready .script{animation:jot .5s .55s both}
+.ready .hero .splat.r{animation:pop .7s .1s cubic-bezier(.2,1.4,.4,1) both}
+.ready .hero .pic{animation:drop .8s .25s cubic-bezier(.2,1,.3,1) both}
+.ready .arrow path{stroke-dasharray:240;stroke-dashoffset:240;animation:draw .8s 1s cubic-bezier(.6,0,.3,1) forwards}
+.ready .arrow path+path{animation-delay:1.65s;animation-duration:.25s}
+@keyframes stamp{from{opacity:0;transform:scale(1.18) rotate(-2deg)}}
+@keyframes jot{from{opacity:0;transform:rotate(-6deg) translateY(10px)}}
+@keyframes pop{from{opacity:0;transform:scale(.6)}}
+@keyframes drop{from{opacity:0;transform:rotate(8deg) translateY(30px)}}
+@keyframes draw{to{stroke-dashoffset:0}}
+
+/* prices on a strip of tape */
+.tick{position:relative;z-index:3;width:110vw;margin:-52px 0 0 -5vw;transform:rotate(-1.6deg);background:var(--text);color:var(--ink);overflow:hidden;white-space:nowrap;
+  clip-path:polygon(0 6%,3% 0,40% 4%,70% 0,100% 5%,99% 50%,100% 96%,60% 100%,30% 95%,0 100%,1% 50%)}
+.tick-track{display:inline-flex;gap:34px;padding:15px 0 13px;font:400 1.35rem/1 var(--disp);text-transform:uppercase;letter-spacing:.03em;animation:tick 36s linear infinite}
+.tick-track b{color:var(--red-ink);font-weight:400}
+@keyframes tick{to{transform:translateX(-50%)}}
+
+/* trust row */
+.trust{padding:72px var(--pad) 40px}
+.trust-note{font-size:.9rem;color:var(--muted);margin-bottom:14px}
+.trust ul{list-style:none;display:grid;grid-template-columns:1fr 1fr}
+.trust li{padding:16px 16px 16px 0}
+.trust li:nth-child(even){padding-left:16px;border-left:1px solid var(--line)}
+.trust li:nth-child(n+3){border-top:1px solid var(--line)}
+.slot{display:inline-block;border:1.5px dashed rgba(236,70,61,.75);padding:5px 10px 4px;font:400 1.15rem/1.2 var(--disp);letter-spacing:.04em;text-transform:uppercase}
+.trust small{display:block;margin-top:8px;color:var(--muted);font-size:.9rem;line-height:1.4}
+@media (min-width:900px){
+  .trust ul{grid-template-columns:repeat(4,1fr)}
+  .trust li,.trust li:nth-child(even){padding:6px 24px;border-left:1px solid var(--line)}
+  .trust li:first-child{padding-left:0;border-left:0}
+  .trust li:nth-child(n+3){border-top:0}
+}
+
+/* recent cuts: a wall of taped photos */
+.work{position:relative;padding:clamp(72px,10vw,132px) var(--pad);overflow:clip}
+.work .splat.w{width:min(760px,70vw);right:-24%;top:-8%;opacity:.28}
+.work-head{position:relative;z-index:1;display:grid;gap:18px;margin-bottom:56px}
+.work-head p{color:var(--muted)}
+.cuts-grid{position:relative;z-index:1;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:34px 18px}
+.cut{position:relative;margin:0;transform:rotate(-2deg);transition:transform .5s var(--ease)}
+.cut:nth-child(2n){transform:rotate(1.6deg)}
+.cut:nth-child(3n){transform:rotate(-.8deg)}
+.cut .ph{background:var(--text);padding:10px}
+.cut img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;filter:grayscale(1) contrast(1.12);transition:filter .5s ease}
+.cut:hover{transform:rotate(0) scale(1.02)}
+.cut:hover img{filter:none}
+.cut::before{content:'';position:absolute;z-index:3;top:-12px;left:50%;width:96px;height:28px;margin-left:-48px;background:rgba(239,230,210,.84);transform:rotate(-4deg);clip-path:polygon(0 8%,6% 0,12% 10%,20% 2%,100% 0,96% 30%,100% 55%,95% 80%,100% 100%,0 100%,5% 70%,0 45%)}
+.cut figcaption{display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding:12px 2px 0;font:400 1.15rem/1.15 var(--disp);letter-spacing:.04em;text-transform:uppercase}
+.cut figcaption span{color:var(--red-hi)}
+.work-note{position:relative;z-index:1;margin-top:28px;font-size:.92rem;color:var(--muted)}
+@media (min-width:900px){
+  .cuts-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:48px 40px}
+  .cut:nth-child(3n+2){margin-top:56px}
+}
+
+/* reviews */
+.reviews{position:relative;padding:clamp(72px,10vw,132px) var(--pad);background:var(--bg-2);overflow:clip}
+.reviews .splat.r{width:min(640px,70vw);left:-22%;bottom:-40%;opacity:.38;transform:rotate(-30deg)}
+.reviews .wrap{position:relative;z-index:1}
+.rev-note{margin-top:22px;color:var(--muted);font-size:.95rem}
+.rev-grid{display:grid;grid-template-columns:1fr;gap:28px;margin-top:44px}
+.rev{margin:0}
+.rev blockquote{font-weight:600;line-height:1.4}
+.rev figcaption{margin-top:14px;font:400 .95rem/1 var(--disp);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.rev-main blockquote{position:relative;font-weight:700;font-size:clamp(1.35rem,2.4vw,1.9rem);line-height:1.32;max-width:30ch;padding-top:58px}
+.rev-main blockquote::before{content:'\201C';position:absolute;top:-10px;left:-4px;font:400 7rem/1 var(--disp);color:var(--red)}
+.rev-side{display:grid;gap:28px}
+.rev-side .rev{border-left:4px solid var(--red);padding-left:20px}
+.rev-side blockquote{font-size:1.12rem}
+@media (min-width:900px){ .rev-grid{grid-template-columns:7fr 5fr;gap:64px;align-items:start} }
+
+/* cuts and prices on torn paper */
+.cuts{position:relative;padding:clamp(72px,9vw,120px) var(--pad);overflow:clip}
+.cuts .splat.w{width:min(700px,60vw);right:-22%;top:-12%;opacity:.3}
+.cuts .wrap{position:relative;z-index:1}
+.price-grid{display:grid;grid-template-columns:1fr;gap:40px;margin-top:48px}
+.paper{background:var(--text);color:var(--ink);padding:40px clamp(24px,3.4vw,44px) 46px;transform:rotate(-1deg)}
+.paper+.paper{transform:rotate(.9deg)}
+.paper h3{font:400 1.6rem/1 var(--disp);text-transform:uppercase;letter-spacing:.03em;color:var(--red-ink);padding-bottom:12px;border-bottom:3px solid var(--ink)}
+.items{list-style:none}
+.item{position:relative;display:grid;grid-template-columns:1fr auto;column-gap:18px;padding:15px 0;border-bottom:2px solid rgba(21,18,15,.14)}
+.item b{font:400 1.45rem/1.1 var(--disp);letter-spacing:.02em;text-transform:uppercase}
+.item span{grid-column:1;color:#4a443c;font-size:.98rem;font-weight:600;line-height:1.4;margin-top:4px}
+.item i{grid-row:1;grid-column:2;font:400 1.6rem/1.05 var(--disp);font-style:normal;color:var(--red-ink);font-variant-numeric:tabular-nums}
+.circle{position:absolute;left:-18px;top:2px;width:calc(100% + 30px);height:52px;overflow:visible;pointer-events:none}
+.circle path{fill:none;stroke:var(--red-ink);stroke-width:3.5;stroke-linecap:round}
+.price-foot{margin-top:30px;font-size:.92rem;color:var(--muted)}
+@media (min-width:900px){ .price-grid{grid-template-columns:1fr 1fr;gap:56px} }
+
+/* how a cut goes */
+.how{position:relative;padding:clamp(72px,9vw,120px) var(--pad);background:var(--bg-2)}
+.steps{list-style:none;display:grid;grid-template-columns:1fr;gap:36px;margin-top:48px}
+.steps li{counter-increment:step}
+.steps li::before{content:counter(step,decimal-leading-zero);display:block;font:400 4rem/1 var(--disp);color:var(--red);margin-bottom:10px;-webkit-mask:url(img/grunge-lite.webp) 0 0/300px;mask:url(img/grunge-lite.webp) 0 0/300px}
+.steps h3{font:400 1.5rem/1.1 var(--disp);text-transform:uppercase;letter-spacing:.03em;margin-bottom:8px}
+.steps p{color:var(--muted)}
+@media (min-width:760px){ .steps{grid-template-columns:1fr 1fr;gap:44px 40px} }
+@media (min-width:1100px){ .steps{grid-template-columns:repeat(4,1fr)} }
+
+/* hours */
+.hours{padding:clamp(72px,9vw,120px) var(--pad)}
+.hours-grid{display:grid;grid-template-columns:1fr;gap:44px;margin-top:44px}
+table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+th,td{text-align:left;padding:15px 0;border-bottom:1px solid var(--line);font-size:1.02rem}
+th{font:400 1.2rem/1.2 var(--disp);letter-spacing:.04em;text-transform:uppercase}
+td{text-align:right;color:var(--muted);font-weight:700}
+tr.today th,tr.today td{color:var(--text)}
+tr.today th::after{content:'today';display:inline-block;margin-left:12px;font:400 1rem/1 var(--hand);color:var(--red-hi);text-transform:none;letter-spacing:0;transform:rotate(-6deg)}
+.hours-note{margin-top:14px;font-size:.95rem;color:var(--muted)}
+.place{margin-top:28px}
+.place h3,.notes h3{font:400 1.35rem/1.15 var(--disp);text-transform:uppercase;letter-spacing:.03em;margin-bottom:8px}
+.place p,.notes p{color:var(--muted)}
+.place .btn{margin-top:16px}
+.notes{display:grid;gap:30px;align-content:start}
+.notes .call-inline{display:inline-flex;align-items:center;min-height:44px;font-weight:800;font-variant-numeric:tabular-nums;text-decoration:underline;text-decoration-color:var(--red);text-underline-offset:6px;text-decoration-thickness:2px}
+.room{position:relative;margin:0;transform:rotate(-1.5deg)}
+.room .ph{background:var(--text);padding:12px}
+.room img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;filter:grayscale(1) contrast(1.1)}
+.room .tape{top:-12px;right:24px;transform:rotate(8deg)}
+@media (min-width:760px){ .hours-grid{grid-template-columns:1fr 1fr} .room{grid-column:1/-1} .room img{aspect-ratio:16/9} }
+@media (min-width:1100px){ .hours-grid{grid-template-columns:4fr 4fr 4fr;gap:56px} .room{grid-column:auto} .room img{aspect-ratio:4/5} }
+
+/* book */
+.callband{position:relative;background:var(--red);color:var(--on-red);padding:clamp(56px,7vw,104px) var(--pad);overflow:clip}
+.callband .splat{width:min(760px,90vw);right:-12%;top:-40%;filter:brightness(0);opacity:.28}
+.callband .wrap{position:relative;z-index:1}
+.callband h2{font-size:clamp(2.2rem,4.6vw,3.6rem)}
+.bignum{display:inline-flex;align-items:center;min-height:44px;margin-top:12px;font:400 clamp(3.2rem,12vw,9rem)/.95 var(--disp);letter-spacing:.005em;font-variant-numeric:tabular-nums;color:var(--text)}
+.bignum:hover{text-decoration:underline;text-decoration-thickness:4px;text-underline-offset:10px}
+.callband p{margin-top:12px;font-weight:700;max-width:52ch}
+.formsec{padding:clamp(64px,9vw,120px) var(--pad)}
+.form-grid{display:grid;grid-template-columns:1fr;gap:32px}
+.form-grid h3{font:400 clamp(2.4rem,4.4vw,3.6rem)/.95 var(--disp);text-transform:uppercase}
+.form-grid .intro p{margin-top:14px;color:var(--muted)}
+form{background:var(--bg-2);border:1px solid var(--line);padding:clamp(20px,3vw,32px)}
+.f-grid{display:grid;grid-template-columns:1fr;gap:18px}
+.field label{display:block;font:400 .95rem/1 var(--disp);letter-spacing:.12em;text-transform:uppercase;margin-bottom:9px}
+.field input,.field select,.field textarea{width:100%;min-height:50px;padding:12px 14px;font-size:17px;line-height:1.3;background:var(--bg);border:1px solid var(--line-2);border-radius:0;color:var(--text)}
+.field select{appearance:none;-webkit-appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),linear-gradient(135deg,var(--muted) 50%,transparent 50%);background-position:calc(100% - 20px) 50%,calc(100% - 14px) 50%;background-size:6px 6px;background-repeat:no-repeat;padding-right:40px}
+.field input::placeholder,.field textarea::placeholder{color:#8f877a}
+.field input:focus,.field select:focus,.field textarea:focus{outline:2px solid var(--red-hi);outline-offset:0;border-color:transparent}
+.field textarea{min-height:110px;resize:vertical}
+.field input[type=date]{color-scheme:dark}
+.f-wide{grid-column:1/-1}
+.hp{display:none}
+form .brush{display:flex;width:100%;margin-top:22px}
+.form-msg{margin-top:16px;padding:14px 16px;border-left:4px solid var(--red);background:var(--bg-3);font-weight:700}
+.form-msg[hidden]{display:none}
+@media (min-width:600px){ .f-grid{grid-template-columns:1fr 1fr} }
+@media (min-width:1000px){ .form-grid{grid-template-columns:5fr 7fr;gap:72px} }
+
+/* footer */
+.foot{padding:60px var(--pad) 40px;border-top:1px solid var(--line);background:var(--bg)}
+.foot-grid{display:grid;grid-template-columns:1fr;gap:32px}
+.foot .brand{margin-bottom:10px}
+.foot h4{font:400 1rem/1 var(--disp);letter-spacing:.14em;text-transform:uppercase;margin-bottom:10px}
+.foot p,.foot li{color:var(--muted);font-size:.98rem}
+.foot ul{list-style:none}
+.foot a{display:inline-flex;align-items:center;min-height:44px;font-weight:700}
+.foot a:hover{color:var(--red-hi)}
+.fineprint{margin-top:36px;padding-top:20px;border-top:1px solid var(--line);font-size:.9rem;color:var(--muted);display:flex;flex-wrap:wrap;gap:0 6px}
+.fineprint a{text-decoration:underline;text-underline-offset:4px}
+@media (min-width:760px){ .foot-grid{grid-template-columns:repeat(2,1fr)} }
+@media (min-width:1100px){ .foot-grid{grid-template-columns:4fr 3fr 3fr 2fr} }
+
+/* sub-page heads: same photos, black and white, with the red paint */
+body .sspx-ph .sx img{filter:grayscale(1) contrast(1.15)}
+body .sspx-ph::before{content:'';position:absolute;z-index:0;right:-14%;top:-40%;width:min(760px,80vw);aspect-ratio:1;background:url(img/splat-red.webp) center/contain no-repeat;opacity:.9;pointer-events:none}
+body .sspx-ph .sspx-ph-in{position:relative;z-index:1}
+body .sspx-ph h1{line-height:.9;-webkit-mask:url(img/grunge-lite.webp) 0 0/560px;mask:url(img/grunge-lite.webp) 0 0/560px}
+body .sspx-ph .rule{width:200px;height:20px;background:var(--red);-webkit-mask:url(img/brush-2.webp) center/100% 100% no-repeat;mask:url(img/brush-2.webp) center/100% 100% no-repeat}
+
+/* phones */
+.callbar{display:none}
+@media (max-width:760px){
+  :root{--hdr:72px}
+  .nav-links{display:none}
+  .brand b{font-size:1.75rem}.brand small{display:none}
+  .hdr .brush{min-height:48px;padding:0 30px 0 22px;font-size:.92rem}
+  .hero{display:flex;flex-direction:column;align-items:stretch;min-height:0;max-height:none;padding:calc(var(--hdr) + 50px) 16px 76px}
+  .hero .splat.r{width:125vw;right:-78%;top:-16%;opacity:.9}
+  .reviews .splat.r{opacity:.22}
+  .hero .splat.w{width:120vw;left:-60%;bottom:auto;top:52%}
+  .kick{font-size:.82rem;letter-spacing:.16em}
+  .big{font-size:min(37vw,10rem);margin-top:10px}
+  .script{font-size:2.1rem;margin:-.3em 0 0 30%}
+  .sub{font-size:16px;margin-top:16px}
+  .act{margin-top:18px;gap:8px}
+  .act .brush{min-height:62px;padding:0 40px 0 28px;font-size:1.15rem}
+  .arrow{width:62px;margin-top:-24px}.walk{font-size:.98rem;margin-top:-36px}
+  .or{display:none}
+  .pic{width:86%;margin-top:34px;justify-self:auto}
+  .tape{width:86px;height:26px}
+  .sticker{left:-26px;bottom:20px;width:104px;height:104px;font-size:.88rem}.sticker b{font-size:2.1rem}
+  .tick{margin-top:-40px}.tick-track{font-size:1.1rem}
+  .trust{padding-top:60px}
+  .cuts-grid{gap:30px 14px}
+  .cut::before{width:72px;margin-left:-36px;height:22px}
+  .cut figcaption{flex-direction:column;gap:2px;font-size:1rem}
+  .item b{font-size:1.25rem}.item i{font-size:1.4rem}
+  body{padding-bottom:calc(76px + env(safe-area-inset-bottom))}
+  .callbar{display:grid;grid-template-columns:1.3fr 1fr;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:60;
+    padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(13,12,11,.97);border-top:1px solid var(--line)}
+  .callbar .btn{min-height:50px;padding:0 10px;font-size:1rem;letter-spacing:.08em}
+}
+
+/* reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .pic .ph img+img{display:none}
+  *,*::before,*::after{transition:none!important;animation:none!important;scroll-behavior:auto!important}
+}
+
+/* sample badge (kept exactly) */
+.ssp-sample{position:fixed;left:12px;bottom:12px;z-index:9999;display:flex;align-items:center;gap:8px;background:rgba(17,17,17,0.92);color:#fff;font:700 12px/1.3 -apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;letter-spacing:.02em;padding:9px 13px;border-radius:999px;box-shadow:0 4px 18px rgba(0,0,0,.35);text-decoration:none;max-width:calc(100vw - 24px)}
+.ssp-sample b{background:#7ed957;color:#111;border-radius:999px;padding:2px 8px;font-weight:800}
+@media (max-width:760px){ .ssp-sample{top:calc(var(--hdr) + 8px);bottom:auto} }
+@media (max-width:760px){.ssp-sample span{display:none}.ssp-sample{padding:6px 9px;font-size:11px;box-shadow:0 2px 10px rgba(0,0,0,.25)}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></symbol>
+  </defs>
+</svg>
+
+<header class="hdr" id="hdr">
+  <a class="brand" href="#top" aria-label="Zero Gap Barbershop, home"><b>Zero Gap</b><small>BARBERSHOP</small></a>
+  <nav class="nav" aria-label="Main">
+    <ul class="nav-links">
+      <li><a href="#cuts">Cuts</a></li>
+      <li><a href="#hours">Hours</a></li>
+      <li><a href="#book">Book</a></li>
+    </ul>
+    <a class="hdr-tel" href="tel:+17195550168" data-tel data-phone-display>(719) 555-0168</a>
+    <a class="btn brush" href="#book">Book a chair</a>
+  </nav>
+</header>
+
+<main>
+<section class="hero" id="top" aria-label="Zero Gap Barbershop">
+  <img class="splat r" src="img/splat-red.webp" alt="" width="1400" height="1400">
+  <img class="splat w" src="img/splat-white.webp" alt="" width="1400" height="1400">
+  <div class="copy">
+    <p class="kick">Academy Blvd / Colorado Springs</p>
+    <h1 class="big worn"><span class="l1">Fresh</span><span class="l2">Fades</span></h1>
+    <span class="script" aria-hidden="true">on Academy.</span>
+    <p class="sub">Skin fades, tapers, lineups and beard work. Walk-ins till 6 pm on weekdays. Active duty $25 with ID.</p>
+    <div class="act">
+      <a class="btn brush" href="#book">Book a chair</a>
+      <svg class="arrow" viewBox="0 0 120 70" aria-hidden="true"><path d="M112 58C96 30 66 14 22 22"/><path d="M36 10 20 22l15 12"/></svg>
+      <span class="walk" aria-hidden="true">walk-ins<br>welcome</span>
+    </div>
+    <p class="or">or call <a href="tel:+17195550168" data-tel data-phone-display>(719) 555-0168</a></p>
+  </div>
+  <figure class="pic">
+    <span class="tape a" aria-hidden="true"></span><span class="tape b" aria-hidden="true"></span>
+    <div class="ph torn">
+      <img src="img/frame-neck.webp" width="880" height="1100" alt="Barber cleaning up a fade at the neckline with clippers" fetchpriority="high">
+      <img src="img/frame-design.webp" width="880" height="1100" alt="" loading="lazy" decoding="async">
+      <img src="img/frame-razor.webp" width="880" height="1100" alt="" loading="lazy" decoding="async">
+    </div>
+    <p class="sticker"><span>Skin fade<b>$35</b></span></p>
+  </figure>
+</section>
+<div class="tick" aria-label="Prices">
+  <div class="tick-track">
+    <span>Skin fade <b>$35</b></span><span>/</span><span>Taper <b>$30</b></span><span>/</span><span>Fade and beard <b>$45</b></span><span>/</span><span>Lineup <b>$15</b></span><span>/</span><span>Beard and hot towel <b>$20</b></span><span>/</span><span>Kids <b>$25</b></span><span>/</span><span>Active duty <b>$25</b></span><span>/</span>
+    <span aria-hidden="true">Skin fade <b>$35</b></span><span aria-hidden="true">/</span><span aria-hidden="true">Taper <b>$30</b></span><span aria-hidden="true">/</span><span aria-hidden="true">Fade and beard <b>$45</b></span><span aria-hidden="true">/</span><span aria-hidden="true">Lineup <b>$15</b></span><span aria-hidden="true">/</span><span aria-hidden="true">Beard and hot towel <b>$20</b></span><span aria-hidden="true">/</span><span aria-hidden="true">Kids <b>$25</b></span><span aria-hidden="true">/</span><span aria-hidden="true">Active duty <b>$25</b></span><span aria-hidden="true">/</span>
+  </div>
+</div>
+
+<section class="trust" aria-label="Placeholders for your details">
+  <div class="wrap">
+    <p class="trust-note">Placeholders. Your real details go here.</p>
+    <ul>
+      <li data-reveal><span class="slot">Your Google rating</span><small>Stars and review count, linked to your profile</small></li>
+      <li data-reveal><span class="slot">Years cutting</span><small>How long the shop or the barbers have been at it</small></li>
+      <li data-reveal><span class="slot">Chairs on the floor</span><small>So walk-ins know the wait</small></li>
+      <li data-reveal><span class="slot">Booking app</span><small>Squire, Booksy or your own link</small></li>
+    </ul>
+  </div>
+</section>
+
+<section class="work" id="work">
+  <img class="splat w" src="img/splat-white.webp" alt="" width="1400" height="1400" loading="lazy">
+  <div class="wrap">
+    <div class="work-head" data-reveal>
+      <h2 class="display worn">Recent <em>cuts</em></h2>
+      <p>Low, mid and high skin fades, tapers, parts and razor lineups. Your own photos go here, the same ones you post.</p>
+    </div>
+    <div class="cuts-grid">
+      <figure class="cut" data-reveal><div class="ph torn"><img src="img/cut-trim-800.webp" width="800" height="1000" alt="Mid skin fade with a hard part, side view" loading="lazy" decoding="async"></div><figcaption>Mid fade, hard part<span>$35</span></figcaption></figure>
+      <figure class="cut" data-reveal><div class="ph torn"><img src="img/cut-dark-800.webp" width="800" height="1000" alt="A barber edging the hairline with a trimmer" loading="lazy" decoding="async"></div><figcaption>Edge up<span>$15</span></figcaption></figure>
+      <figure class="cut" data-reveal><div class="ph torn"><img src="img/cut-design-800.webp" width="800" height="1000" alt="Skin fade with a curved part line" loading="lazy" decoding="async"></div><figcaption>Skin fade, curved part<span>$35</span></figcaption></figure>
+      <figure class="cut" data-reveal><div class="ph torn"><img src="img/cut-neck-800.webp" width="800" height="1000" alt="Taper at the neckline on curly hair" loading="lazy" decoding="async"></div><figcaption>Taper on curls<span>$30</span></figcaption></figure>
+      <figure class="cut" data-reveal><div class="ph torn"><img src="img/cut-comb-800.webp" width="800" height="1000" alt="Clippers and comb blending a fade" loading="lazy" decoding="async"></div><figcaption>Low fade and beard<span>$45</span></figcaption></figure>
+      <figure class="cut" data-reveal><div class="ph torn"><img src="img/cut-razor-800.webp" width="800" height="1000" alt="A straight razor cleaning up a part line" loading="lazy" decoding="async"></div><figcaption>Razor lineup<span>$15</span></figcaption></figure>
+    </div>
+    <p class="work-note">Sample photos. Your real cuts go here, in color when you tap them.</p>
+  </div>
+</section>
+
+<section class="reviews" id="reviews">
+  <img class="splat r" src="img/splat-red.webp" alt="" width="1400" height="1400" loading="lazy">
+  <div class="wrap">
+    <h2 class="display worn" data-reveal>What clients <em>say</em></h2>
+    <p class="rev-note" data-reveal>Sample layout. On your site these are your real Google reviews, quoted word for word.</p>
+    <div class="rev-grid">
+      <figure class="rev rev-main" data-reveal>
+        <blockquote>A client&rsquo;s review of their fade, quoted exactly as written on Google. The best ones name the barber.</blockquote>
+        <figcaption>First name, Google review</figcaption>
+      </figure>
+      <div class="rev-side">
+        <figure class="rev" data-reveal>
+          <blockquote>&ldquo;A review from someone who walked in and got taken fast, word for word.&rdquo;</blockquote>
+          <figcaption>First name, Google review</figcaption>
+        </figure>
+        <figure class="rev" data-reveal>
+          <blockquote>&ldquo;A review from a parent about their kid&rsquo;s cut, word for word.&rdquo;</blockquote>
+          <figcaption>First name, Google review</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cuts" id="cuts">
+  <img class="splat w" src="img/splat-white.webp" alt="" width="1400" height="1400" loading="lazy">
+  <div class="wrap">
+    <p class="label">Sample prices</p>
+    <h2 class="display worn" data-reveal><em>The</em> cuts</h2>
+    <span class="under" aria-hidden="true"></span>
+    <div class="price-grid">
+      <div class="paper torn" data-reveal>
+        <h3>Cuts</h3>
+        <ul class="items">
+          <li class="item"><b>Skin fade</b><i>$35</i><span>Low, mid or high. Bald at the bottom, blended up to your length.</span><svg class="circle" viewBox="0 0 400 60" preserveAspectRatio="none" aria-hidden="true"><path d="M30 8C120-2 330 0 388 18c14 18-40 34-190 36C60 56 4 46 10 26 16 10 80 4 150 6"/></svg></li>
+          <li class="item"><b>Taper</b><i>$30</i><span>Clean at the temples and neckline, more length kept on the sides.</span></li>
+          <li class="item"><b>Burst fade</b><i>$35</i><span>Curves around the ear. Works with curls and mohawks.</span></li>
+          <li class="item"><b>Scissor cut</b><i>$35</i><span>All scissors, for longer styles.</span></li>
+          <li class="item"><b>Buzz cut</b><i>$20</i><span>One guard all over, lined up.</span></li>
+          <li class="item"><b>Kids, 12 and under</b><i>$25</i><span>Any cut, same care.</span></li>
+          <li class="item"><b>Active duty, with ID</b><i>$25</i><span>Regulation or your own style, any branch.</span></li>
+        </ul>
+      </div>
+      <div class="paper torn" data-reveal>
+        <h3>Beard and extras</h3>
+        <ul class="items">
+          <li class="item"><b>Lineup</b><i>$15</i><span>Hairline, temples and neck, finished with a razor.</span></li>
+          <li class="item"><b>Fade and beard</b><i>$45</i><span>Any fade plus a full beard shape-up.</span></li>
+          <li class="item"><b>Beard and hot towel</b><i>$20</i><span>Trimmed, lined and finished with a hot towel.</span></li>
+          <li class="item"><b>Hot towel shave</b><i>$30</i><span>Straight razor, two hot towels.</span></li>
+          <li class="item"><b>Designs</b><i>$10+</i><span>Parts and freestyle designs, priced by detail.</span></li>
+        </ul>
+      </div>
+    </div>
+    <p class="price-foot">Sample menu and prices. Your real prices go here.</p>
+  </div>
+</section>
+
+<section class="how" id="how">
+  <div class="wrap">
+    <h2 class="display worn" data-reveal>How a cut <em>goes</em></h2>
+    <ul class="steps">
+      <li data-reveal><h3>Tell us the number</h3><p>Guard numbers, where the fade starts, how much length up top. We repeat it back before the clippers come out.</p></li>
+      <li data-reveal><h3>Clean tools, every client</h3><p>Clippers cleaned and disinfected between every cut. Fresh blade for every razor finish.</p></li>
+      <li data-reveal><h3>Lined up with a razor</h3><p>Every cut ends with a razor lineup on the hairline and neck, unless you ask us not to.</p></li>
+      <li data-reveal><h3>Walk in or book</h3><p>Walk-ins until 6 pm on weekdays. Book a chair online to skip the wait.</p></li>
+    </ul>
+  </div>
+</section>
+
+<section class="hours" id="hours">
+  <div class="wrap">
+    <h2 class="display worn" data-reveal>When to <em>pull up</em></h2>
+    <div class="hours-grid">
+      <div data-reveal>
+        <table aria-label="Shop hours">
+          <tbody>
+            <tr data-days="1"><th scope="row">Monday</th><td>Closed</td></tr>
+            <tr data-days="2,3,4,5"><th scope="row">Tuesday to Friday</th><td>9 am to 7 pm</td></tr>
+            <tr data-days="6"><th scope="row">Saturday</th><td>8 am to 5 pm</td></tr>
+            <tr data-days="0"><th scope="row">Sunday</th><td>10 am to 3 pm</td></tr>
+          </tbody>
+        </table>
+        <p class="hours-note">Walk-ins until 6 pm on weekdays. Last booking an hour before close.</p>
+        <div class="place">
+          <h3>Off Academy Blvd, Colorado Springs</h3>
+          <p>Free parking in the lot out front.</p>
+          <a class="btn btn-line" href="https://www.google.com/maps/search/?api=1&amp;query=Academy+Blvd,+Colorado+Springs,+CO" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-pin"/></svg>Directions</a>
+        </div>
+      </div>
+      <div class="notes" data-reveal>
+        <div>
+          <h3>Active duty and veterans</h3>
+          <p>Show your ID for a $25 cut, any branch. Regulation cuts done right the first time.</p>
+        </div>
+        <div>
+          <h3>Groups and events</h3>
+          <p>Weddings, proms and team cuts. Call to set up the chairs.</p>
+          <a class="call-inline" href="tel:+17195550168" data-tel data-phone-display>(719) 555-0168</a>
+        </div>
+      </div>
+      <figure class="room" data-reveal>
+        <span class="tape" aria-hidden="true"></span>
+        <div class="ph torn"><picture><source media="(max-width: 700px)" srcset="img/shop-700.webp" width="700" height="875"><img src="img/shop-1100.webp" width="1100" height="1375" alt="Barber chairs and mirrors in a clean shop" loading="lazy" decoding="async"></picture></div>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="book" id="book">
+  <div class="callband">
+    <img class="splat" src="img/splat-white.webp" alt="" width="1400" height="1400" loading="lazy">
+    <div class="wrap" data-reveal>
+      <h2 class="display">Call or text to book</h2>
+      <a class="bignum" href="tel:+17195550168" data-tel data-phone-display>(719) 555-0168</a>
+      <p>We pick up between cuts. Text works best during the day.</p>
+    </div>
+  </div>
+  <div class="formsec">
+    <div class="wrap form-grid">
+      <div class="intro" data-reveal>
+        <h3>Or request a chair</h3>
+        <p>Pick the cut, the day and a time. We text back to confirm before the chair is held.</p>
+      </div>
+      <form name="booking" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="bookForm" data-reveal>
+        <input type="hidden" name="form-name" value="booking">
+        <p class="hp"><label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+        <div class="f-grid">
+          <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
+          <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required></div>
+          <div class="field"><label for="f-cut">Cut</label>
+            <select id="f-cut" name="cut" required>
+              <option value="">Pick a cut</option>
+              <option>Skin fade</option><option>Taper</option><option>Fade and beard</option><option>Burst fade</option>
+              <option>Lineup</option><option>Beard and hot towel</option><option>Kids cut</option><option>Active duty cut</option>
+            </select></div>
+          <div class="field"><label for="f-barber">Barber</label>
+            <select id="f-barber" name="barber">
+              <option>First available</option><option>I have a barber, I'll say who below</option>
+            </select></div>
+          <div class="field"><label for="f-date">Day</label><input id="f-date" name="date" type="date" required></div>
+          <div class="field"><label for="f-time">Time</label>
+            <select id="f-time" name="time" required>
+              <option value="">Pick a time</option>
+              <option>9:00 am</option><option>10:00 am</option><option>11:00 am</option><option>12:00 pm</option>
+              <option>1:00 pm</option><option>2:00 pm</option><option>3:00 pm</option><option>4:00 pm</option><option>5:00 pm</option>
+            </select></div>
+          <div class="field f-wide"><label for="f-notes">Anything we should know</label><textarea id="f-notes" name="notes" rows="3" placeholder="Your barber's name, a design idea, a photo you'll show us"></textarea></div>
+        </div>
+        <button class="btn brush" type="submit">Request a chair</button>
+        <p class="form-msg" id="formMsg" role="status" hidden></p>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="#top" aria-label="Zero Gap Barbershop, home"><b>Zero Gap</b></a>
+        <p>Barbershop off Academy Blvd, Colorado Springs, CO</p>
+        <a href="tel:+17195550168" data-tel data-phone-display>(719) 555-0168</a>
+      </div>
+      <div>
+        <h4>Hours</h4>
+        <ul>
+          <li>Tuesday to Friday, 9 am to 7 pm</li>
+          <li>Saturday, 8 am to 5 pm</li>
+          <li>Sunday, 10 am to 3 pm</li>
+          <li>Closed Monday</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Quick links</h4>
+        <ul>
+          <li><a href="#cuts">Cuts and prices</a></li>
+          <li><a href="#book">Book a chair</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&amp;query=Academy+Blvd,+Colorado+Springs,+CO" target="_blank" rel="noopener">Directions</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Active duty</h4>
+        <p>$25 cuts with ID, any branch.</p>
+      </div>
+    </div>
+    <p class="fineprint"><span>Zero Gap Barbershop is a fictional business.</span> <a href="../index.html">Sample build by SiteSprintPro.</a></p>
+  </div>
+</footer>
+
+<nav class="callbar" aria-label="Quick actions">
+  <a class="btn btn-red" href="tel:+17195550168" data-tel><svg aria-hidden="true"><use href="#i-phone"/></svg>Call</a>
+  <a class="btn btn-line" href="#book">Book a chair</a>
+</nav>
+
+<a class="ssp-sample" href="../work/index.html" title="Back to the SiteSprintPro portfolio"><b>SAMPLE BUILD</b><span>Fictional business. Reviews and numbers are placeholders.</span></a>
+
+<!--@LIBS@-->
+<script>
+function init(){
+  var html = document.documentElement;
+  html.classList.add('ready');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var $ = function(s, c){ return (c || document).querySelector(s) || document.createElement('div'); };
+  var $$ = function(s, c){ return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
+
+  /* contact details from CONFIG */
+  $$('[data-tel]').forEach(function(a){ a.href = 'tel:' + CONFIG.phone; });
+  $$('[data-phone-display]').forEach(function(el){ el.textContent = CONFIG.phoneDisplay; });
+  $$('a[href*="google.com/maps"]').forEach(function(a){ a.href = CONFIG.directions; });
+
+  /* mark today's hours */
+  var day = String(new Date().getDay());
+  $$('tr[data-days]').forEach(function(tr){ if (tr.getAttribute('data-days').split(',').indexOf(day) > -1) tr.classList.add('today'); });
+
+  /* form: sample only */
+  var form = $('#bookForm'), msg = $('#formMsg');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    msg.textContent = 'Sample form. On your site this sends the request straight to your phone.';
+    msg.hidden = false;
+  });
+
+  /* header turns solid once the hero is behind it; pages without a hero get it solid right away */
+  var hdr = $('#hdr'), hero = document.querySelector('.hero');
+  if (hero && 'IntersectionObserver' in window) {
+    new IntersectionObserver(function(e){ hdr.classList.toggle('solid', !e[0].isIntersecting); },
+      { rootMargin: '-' + (hdr.offsetHeight || 84) + 'px 0px 0px 0px' }).observe(hero);
+  } else { hdr.classList.add('solid'); }
+
+  /* the frame's photo swap only runs while the hero is on screen */
+  if (hero && 'IntersectionObserver' in window) {
+    var fr = $$('.pic .ph img');
+    new IntersectionObserver(function(e){ fr.forEach(function(i){ i.style.animationPlayState = e[0].isIntersecting ? 'running' : 'paused'; }); }).observe(hero);
+  }
+
+  if (reduce || !window.gsap || !window.ScrollTrigger || !window.Lenis) return;
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  /* smooth scroll */
+  var lenis = new Lenis({ lerp: 0.1, smoothWheel: true });
+  lenis.on('scroll', ScrollTrigger.update);
+  gsap.ticker.add(function(t){ lenis.raf(t * 1000); });
+  gsap.ticker.lagSmoothing(0);
+  document.addEventListener('click', function(e){
+    var a = e.target.closest('a[href^="#"]'); if (!a) return;
+    var id = a.getAttribute('href'); var el = id.length > 1 && document.getElementById(id.slice(1));
+    if (!el) return;
+    e.preventDefault();
+    lenis.scrollTo(id === '#top' ? 0 : el, { offset: -(hdr.offsetHeight + 8), duration: 1.2 });
+  });
+
+  /* reveals: transform and opacity, once */
+  gsap.set('[data-reveal]', { y: 28, autoAlpha: 0 });
+  ScrollTrigger.batch('[data-reveal]', { start: 'top 90%', once: true,
+    onEnter: function(els){ gsap.to(els, { y: 0, autoAlpha: 1, duration: 1, ease: 'expo.out', stagger: 0.08, overwrite: true, clearProps: 'transform' }); } });
+
+  /* the red marker circle draws itself around the skin fade */
+  var ring = document.querySelector('.circle path');
+  if (ring) {
+    var len = ring.getTotalLength();
+    gsap.fromTo(ring, { strokeDasharray: len, strokeDashoffset: len }, { strokeDashoffset: 0, duration: 0.9, ease: 'power2.inOut',
+      scrollTrigger: { trigger: ring.closest('.paper'), start: 'top 70%', once: true } });
+  }
+
+  /* splatter drifts a little as you scroll past */
+  $$('section:not(.hero) .splat').forEach(function(s){
+    gsap.fromTo(s, { yPercent: -6 }, { yPercent: 6, ease: 'none', scrollTrigger: { trigger: s.parentNode, start: 'top bottom', end: 'bottom top', scrub: true } });
+  });
+
+  ScrollTrigger.refresh();
+}
+
+var CONFIG = {
+  phone: '+17195550168',
+  phoneDisplay: '(719) 555-0168',
+  email: 'hello@example.com',
+  directions: 'https://www.google.com/maps/search/?api=1&query=Academy+Blvd,+Colorado+Springs,+CO',
+  googleFormQuote: '', googleFormHOA: '', googleFormApply: ''
+};
+if (document.fonts && document.fonts.ready) { document.fonts.ready.then(init); } else { init(); }
+</script>
+</body>
+</html>

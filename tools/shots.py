@@ -3,10 +3,10 @@ import sys, pathlib
 from playwright.sync_api import sync_playwright
 from PIL import Image
 SITE = pathlib.Path("/home/claude/ssp-site"); OUT = SITE / "assets/shots"; OUT.mkdir(parents=True, exist_ok=True)
-SLUGS = sys.argv[1:] or ["hvac", "plumbing", "contractor", "lawn", "salon", "restaurant"]
+SLUGS = sys.argv[1:] or ["hvac", "plumbing", "contractor", "lawn", "salon", "restaurant", "barber"]
 HIDE = ".ssp-sample,.sspx-fab{display:none!important}"
 with sync_playwright() as p:
-    b = p.chromium.launch()
+    b = p.chromium.launch(args=["--allow-file-access-from-files"])  # CSS masks on file:// need it; same-origin on the live site
     for s in SLUGS:
         for kind, vp, dpr, mobile in [("desktop", (1440, 900), 1, False), ("phone", (390, 844), 2, True)]:
             ctx = b.new_context(viewport={"width": vp[0], "height": vp[1]}, device_scale_factor=dpr, is_mobile=mobile, has_touch=mobile)

@@ -46,6 +46,12 @@ PLAN = {
     ("visit.html", "Hours", "Hours and visit", "When we're open and where to park downtown.", ["hours"]),
     ("book.html", "Book a chair", "Booking", "Send a booking request and we'll confirm your time.", ["book"])],
     [(f"img/hero-{n}-1920.webp", f"img/hero-{n}-p.webp") for n in (1, 2, 3, 4)]),
+ "barber": ("Zero Gap Barbershop", [
+    ("index.html", "Home", None, None, ["hero", "trust", "work", "reviews"]),
+    ("cuts.html", "Cuts", "Cuts and prices", "Skin fades, tapers, lineups and beards, with the price next to every one.", ["cuts", "how"]),
+    ("visit.html", "Hours", "Hours and location", "Off Academy Blvd. Walk-ins until 6 pm on weekdays.", ["hours"]),
+    ("book.html", "Book", "Book a chair", "Call, text, or request a chair online.", ["book"])],
+    [(f"img/hero-{k}-1920.webp", f"img/hero-{k}-p.webp") for k in ("red", "dark", "part", "razor")]),
  "restaurant": ("Sawbuck Fire Grill", [
     ("index.html", "Home", None, None, ["hero", "trust", "local", "why", "reviews"]),
     ("menu.html", "Menu", "Menu", "Wood-fired dinner, cooked over oak.", ["menu"]),

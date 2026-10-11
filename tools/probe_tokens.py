@@ -18,7 +18,7 @@ JS = r"""() => {
 out = {}
 with sync_playwright() as p:
     b = p.chromium.launch()
-    for slug in ["hvac", "plumbing", "contractor", "lawn", "salon", "restaurant"]:
+    for slug in ["hvac", "plumbing", "contractor", "lawn", "salon", "restaurant", "barber"]:
         pg = b.new_page(viewport={"width": 390, "height": 844}, is_mobile=True, has_touch=True)
         pg.goto(f"file:///home/claude/ssp-work/full/{slug}.html"); pg.wait_for_timeout(1500)
         out[slug] = pg.evaluate(JS); pg.close()

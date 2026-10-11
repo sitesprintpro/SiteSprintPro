@@ -30,6 +30,8 @@ SAMPLES = [
      "line": "Mowing, aeration, sprinkler blowouts. A fall checklist and a service-area map."},
     {"slug": "salon", "niche": "Salon", "group": "beauty", "name": "Oriel Hair Studio",
      "line": "Cuts and color downtown. Editorial look, sample pricing, hours and a booking request."},
+    {"slug": "barber", "niche": "Barbershop", "group": "beauty", "name": "Zero Gap Barbershop",
+     "line": "Skin fades off Academy Blvd. Street-style paint, prices on a strip of tape, active duty pricing, chair requests."},
     {"slug": "restaurant", "niche": "Restaurant", "group": "food", "name": "Sawbuck Fire Grill",
      "line": "Wood-fired dinner in Old Colorado City. Full sample menu, hours, table requests."},
 ]
@@ -148,6 +150,7 @@ section{padding:clamp(72px,10vw,128px) 0}
 .card{grid-column:span 6;position:relative;display:flex;flex-direction:column;border:1px solid var(--line);border-radius:var(--r2);background:var(--bg2);text-decoration:none;overflow:hidden;transition:border-color .3s,transform .3s}
 .card:hover{border-color:var(--line2);transform:translateY(-3px)}
 .card.w7{grid-column:span 7}.card.w5{grid-column:span 5}
+@media (min-width:861px){.work .card:not(.w7):not(.w5):nth-child(odd):last-child{grid-column:4 / span 6}}
 .shot{position:relative;aspect-ratio:16/10;overflow:hidden;background:var(--bg3)}
 .shot .d{width:100%;height:100%;object-fit:cover;object-position:top;transition:transform .8s cubic-bezier(.2,.7,.1,1)}
 .card:hover .shot .d{transform:scale(1.03)}
@@ -682,7 +685,7 @@ def build():
           "description": "Websites for Colorado small businesses, built in Colorado Springs.", "url": CONFIG["domain"],
           "telephone": CONFIG["phone"], "email": CONFIG["email"],
           "areaServed": [{"@type": "City", "name": "Colorado Springs, Colorado"}, {"@type": "State", "name": "Colorado"}], "priceRange": "$697 to $1,197"}
-    featured = [s[0], s[5], s[4]]
+    featured = [s[0], s[6], s[4]]
     home = f"""
 <section class="hero"><canvas class="topo" aria-hidden="true"></canvas><div class="hx-bg" aria-hidden="true"><picture class="m"><source media="(max-width:760px)" srcset="assets/peak/peak-mist-p.webp"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" alt="" width="1588" height="1765"></picture><picture class="g"><source media="(max-width:760px)" srcset="assets/peak/peak-glow-p.webp"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" alt="" width="1588" height="1765"></picture></div><div class="hx-phone" aria-hidden="true"><picture><source media="(max-width:760px)" srcset="assets/reel/hvac-hero.webp"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" alt="" width="600" height="4200"></picture></div><div class="wrap">
   <div>
@@ -701,8 +704,8 @@ def build():
 <div class="towns" aria-label="Towns we build for"><div class="track">{town_ul(False)}{town_ul(True)}</div></div>
 
 <section id="work"><div class="wrap">
-  <div class="sec-head"><h2 data-r>Find the one closest to your business.</h2><p class="lede" data-r>Six live samples. Open one on your phone, that's how your customers will see yours.</p></div>
-  <div class="work">{card(featured[0],'w7')}{card(featured[1],'w5')}{card(featured[2],'w5')}<a class="card w7 more" href="work/index.html" data-r><div class="more-mosaic" aria-hidden="true"><img src="{{root}}assets/shots/plumbing-desktop.webp" width="1200" height="750" alt="" loading="lazy" decoding="async"><img src="{{root}}assets/shots/contractor-desktop.webp" width="1200" height="750" alt="" loading="lazy" decoding="async"><img src="{{root}}assets/shots/lawn-desktop.webp" width="1200" height="750" alt="" loading="lazy" decoding="async"></div><div class="more-in"><b>See all six samples</b><span>HVAC, plumbing, contractor, lawn care, salon and restaurant.</span><span class="go">Open the work {ICON['arrow']}</span></div></a></div>
+  <div class="sec-head"><h2 data-r>Find the one closest to your business.</h2><p class="lede" data-r>Seven live samples. Open one on your phone, that's how your customers will see yours.</p></div>
+  <div class="work">{card(featured[0],'w7')}{card(featured[1],'w5')}{card(featured[2],'w5')}<a class="card w7 more" href="work/index.html" data-r><div class="more-mosaic" aria-hidden="true"><img src="{{root}}assets/shots/plumbing-desktop.webp" width="1200" height="750" alt="" loading="lazy" decoding="async"><img src="{{root}}assets/shots/contractor-desktop.webp" width="1200" height="750" alt="" loading="lazy" decoding="async"><img src="{{root}}assets/shots/barber-desktop.webp" width="1200" height="750" alt="" loading="lazy" decoding="async"></div><div class="more-in"><b>See all seven samples</b><span>HVAC, plumbing, contractor, lawn care, salon, barbershop and restaurant.</span><span class="go">Open the work {ICON['arrow']}</span></div></a></div>
 </div></section>
 
 <section class="ridge" aria-labelledby="ridge-h">
@@ -762,11 +765,11 @@ def build():
     work = f"""
 <section class="phead"><div class="wrap">
   <h1 class="load">Sample sites</h1>
-  <p class="lede load d1">Six live samples for six kinds of business. Open one on your phone, or share it with someone who needs a site.</p>
+  <p class="lede load d1">Seven live samples for seven kinds of business. Open one on your phone, or share it with someone who needs a site.</p>
 </div></section>
 <section style="padding-top:0"><div class="wrap">
   <div class="filters" role="group" aria-label="Filter samples">
-    <button type="button" aria-pressed="true" data-f="all">All</button><button type="button" aria-pressed="false" data-f="trades">Trades</button><button type="button" aria-pressed="false" data-f="beauty">Beauty</button><button type="button" aria-pressed="false" data-f="food">Food</button>
+    <button type="button" aria-pressed="true" data-f="all">All</button><button type="button" aria-pressed="false" data-f="trades">Trades</button><button type="button" aria-pressed="false" data-f="beauty">Hair</button><button type="button" aria-pressed="false" data-f="food">Food</button>
   </div>
   <div class="work">{cards}</div>
   <p class="sample-note">Every sample is a fictional business. Reviews and numbers on them are placeholders. Your site uses your real ones.</p>
@@ -799,7 +802,7 @@ def build():
 })();
 """
     page("work/index.html", "Sample sites | SiteSprintPro",
-         "Live sample websites for HVAC, plumbing, contractors, lawn care, salons and restaurants in Colorado Springs.",
+         "Live sample websites for HVAC, plumbing, contractors, lawn care, salons, barbershops and restaurants in Colorado Springs.",
          work, active="work", script_extra=work_js)
 
     # PRICING
