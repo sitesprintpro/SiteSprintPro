@@ -443,7 +443,7 @@ fieldset.fld{border:0}
       <label><input type="radio" name="site" value="No" required>No</label><label><input type="radio" name="site" value="Yes, it needs work">Yes, it needs work</label><label><input type="radio" name="site" value="Only Facebook or Instagram">Only Facebook or Instagram</label></div></fieldset>
     <div class="fld"><label for="f-link">Link to your current site or Facebook page <span class="hint">(optional)</span></label><input id="f-link" name="link" type="text" inputmode="url"></div>
     <fieldset class="fld"><legend>Best way to reach you</legend><div class="choices">
-      <label><input type="radio" name="reach" value="Call" required>Call</label><label><input type="radio" name="reach" value="Text">Text</label><label><input type="radio" name="reach" value="Email">Email</label></div></fieldset>
+      <label><input type="radio" name="reach" value="Phone call" required>Call</label><label><input type="radio" name="reach" value="Text message">Text</label><label><input type="radio" name="reach" value="Email">Email</label></div></fieldset>
     <div class="fld" id="email-row" hidden><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email"></div>
     <div class="fld"><label for="f-src">Where did you find us? <span class="hint">(optional)</span></label><select id="f-src" name="source"><option value="">Choose one</option><option>Facebook group</option><option>SiteSprintPro Facebook Page</option><option>Someone told me</option><option>Google</option><option>Other</option></select></div>
     <div class="hp" aria-hidden="true"><label>Company<input name="company" tabindex="-1" autocomplete="off"></label></div>
@@ -560,7 +560,7 @@ fieldset.fld{border:0}
 
 
 (function(){
-  var FORM = {"action": "", "fields": {}}, PHONE = "+17194287932", EMAIL = "sitesprintproteam@gmail.com";
+  var FORM = {"action": "https://docs.google.com/forms/d/e/1FAIpQLSfbSCX25nrVf17B4pOUVCg3-yyvIbUzEsHU00p880wnZ9ZH-g/formResponse", "fields": {"name": "entry.483038588", "business": "entry.325573818", "phone": "entry.1260940934", "kind": "entry.1619601462", "site": "entry.1937382749", "reach": "entry.689619144", "email": "entry.1443511629", "source": "entry.342629485"}}, PHONE = "+17194287932", EMAIL = "sitesprintproteam@gmail.com";
   var f = document.getElementById('ask'), el = function(n){ return f.elements[n]; }, msg = document.getElementById('msg'), er = document.getElementById('email-row');
   var q = new URLSearchParams(location.search);
   if (q.get('src')) { var s = document.getElementById('f-src'); for (var i = 0; i < s.options.length; i++) if (s.options[i].text === q.get('src')) s.selectedIndex = i; }
@@ -579,7 +579,8 @@ fieldset.fld{border:0}
       reach: f.querySelector('input[name=reach]:checked').value, email: el('email').value, source: el('source').value };
     if (FORM.action) {
       var body = new URLSearchParams();
-      Object.keys(FORM.fields).forEach(function(key){ if (data[key]) body.append(FORM.fields[key], data[key]); });
+      // the form has no link question, so the link rides along with the website answer
+      Object.keys(FORM.fields).forEach(function(key){ var v = key === 'site' && data.link ? data.site + ', ' + data.link : data[key]; if (v) body.append(FORM.fields[key], v); });
       fetch(FORM.action, { method: 'POST', mode: 'no-cors', body: body }).then(function(){
         f.reset(); msg.textContent = 'Got it. We will reach out today. If it is urgent, call or text ' + "(719) 428-7932" + '.';
       }).catch(function(){ fallback(data); });
