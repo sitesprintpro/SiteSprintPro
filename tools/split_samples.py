@@ -126,10 +126,13 @@ html.sspx-open,html.sspx-open body{{overflow:hidden}}
 .sspx-cur span{{display:block;width:48px;height:4px;margin:16px auto 0;background:{t['acc']}}}
 html.cur-in .sspx-cur,.sspx-cur.go{{visibility:visible}}
 html.cur-in .sspx-cur{{transform:none}}
+@view-transition{{navigation:auto}}
+::view-transition-old(root),::view-transition-new(root){{animation:none;mix-blend-mode:normal}}
+@media (prefers-reduced-motion:reduce){{@view-transition{{navigation:none}}}}
 @media (prefers-reduced-motion:reduce){{.sspx-ph .sx img{{animation:none}}.sspx-ph .sx picture:nth-child(2) img{{opacity:0}}.sspx-menu,.sspx-menu li{{transition:none}}html.cur-in .sspx-cur{{transform:translateY(101%)}}}}
 </style>"""
 
-HEAD_JS = """<script>(function(h){try{var t=+sessionStorage.getItem('ssp-nav');sessionStorage.removeItem('ssp-nav');
+HEAD_JS = """<script>addEventListener('pagereveal',function(e){if(!e.viewTransition)return;var x=innerWidth/2,y=innerHeight/2;try{var p=JSON.parse(sessionStorage.getItem('sspx-tap')||'null');if(p&&Date.now()-p[2]<4000){x=p[0];y=p[1];}}catch(_){}var r=Math.hypot(Math.max(x,innerWidth-x),Math.max(y,innerHeight-y));e.viewTransition.ready.then(function(){document.documentElement.animate({clipPath:['circle(0px at '+x+'px '+y+'px)','circle('+r+'px at '+x+'px '+y+'px)']},{duration:720,easing:'cubic-bezier(.19,1,.22,1)',pseudoElement:'::view-transition-new(root)'});}).catch(function(){});});addEventListener('pointerdown',function(e){try{sessionStorage.setItem('sspx-tap',JSON.stringify([e.clientX,e.clientY,Date.now()]));}catch(_){}},true);</script><script>(function(h){try{var t=+sessionStorage.getItem('ssp-nav');sessionStorage.removeItem('ssp-nav');
 if(t&&Date.now()-t<6000&&!matchMedia('(prefers-reduced-motion: reduce)').matches){h.className+=' cur-in';h.setAttribute('data-fresh','1');}}catch(e){}})(document.documentElement);</script>"""
 
 MENU_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/></svg>'
@@ -138,6 +141,7 @@ PHONE = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width
 
 NAV_JS = r"""<script>
 (function(){
+  var VT='onpagereveal' in window&&!!(window.CSS&&CSS.supports('view-transition-name:a'));
   var html=document.documentElement, cur=document.querySelector('.sspx-cur'), reduce=matchMedia('(prefers-reduced-motion: reduce)').matches, EASE='cubic-bezier(.76,0,.24,1)';
   var navEntry=performance.getEntriesByType?performance.getEntriesByType('navigation')[0]:null;
   var fromSite=false; try{ fromSite=!!document.referrer&&new URL(document.referrer).origin===location.origin; }catch(e){}
@@ -160,6 +164,7 @@ NAV_JS = r"""<script>
     if(e.defaultPrevented||e.button!==0||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey) return;
     var a=e.target.closest&&e.target.closest('a'), u=internal(a); if(!u) return;
     if(u.pathname===location.pathname&&u.search===location.search){ if(u.hash) return; e.preventDefault(); setMenu(false); scrollTo({top:0,behavior:reduce?'auto':'smooth'}); return; }
+    if(VT&&u.pathname.replace(/[^/]*$/,'')===location.pathname.replace(/[^/]*$/,'')) return;
     if(reduce||!cur.animate) return; e.preventDefault(); setMenu(false);
     try{ sessionStorage.setItem('ssp-nav',String(Date.now())); }catch(x){}
     var went=false, go=function(){ if(went) return; went=true; toTop(); location.href=u.href; };
