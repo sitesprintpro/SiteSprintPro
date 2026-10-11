@@ -642,7 +642,7 @@ def card(s, size="", actions=False):
 FAQS = [
     ("Who will I be working with?", ["Don, from the first call to launch day. He plans your site, reviews every page and answers the phone. A production system handles the build and testing behind him, which is how the price stays flat and the timeline stays short."]),
     ("Do I own the website?", ["Yes. Once the balance is paid, the site, the files and the domain are yours. If you ever want to leave, you take everything with you."]),
-    ("Are there monthly fees?", ["No. The only recurring cost is your domain name, about $12 a year, paid to the registrar. A care plan is optional: $100 a quarter if you want us to handle changes."]),
+    ("Are there monthly fees?", ["No. The only recurring cost is your domain name, about $12 a year, paid to the registrar. A care plan is optional: $225 a quarter, prepaid, for up to 3 hours of changes. Your first quarter is free."]),
     ("How fast is it?", ["Standard sites go live 2 to 3 days after the deposit and your info. Pro builds get priority, usually 1 to 2 days."]),
     ("What do you need from me?", ["Your services, hours, service area, your logo if you have one, and 10 to 20 photos from your phone of real work, your crew or your space. We write all the words."]),
     ("I only have a Facebook page. Which option is that?", ["Starter, $697. We build up to 3 pages from what's already on your Facebook or Instagram page: your photos, hours, services and reviews. You don't have to write anything."]),
@@ -810,12 +810,13 @@ def build():
 </div></section>
 <section style="padding-top:0"><div class="wrap">
   <div class="prices">
-    <div class="price main"><span class="tag">Most picked</span><h3>Standard</h3><div class="amt">$897</div>
-      <ul><li>Up to 5 pages: home, services, about, gallery or hiring, contact</li><li>All the writing done for you</li><li>Live in 2 to 3 days after the deposit and your info</li><li>Tap to call on every page and a phone call bar</li><li>Quote or booking form that reaches your email</li><li>Google-ready setup and linked to your Google profile</li><li>2 rounds of changes, plus 2 free updates after launch</li></ul>
+    <div class="price main"><span class="tag">Recommended</span><h3>Standard</h3><div class="amt">$897</div>
+      <ul><li>Up to 5 pages: home, services, about, gallery or hiring, contact</li><li>All the writing done for you</li><li>Live in 2 to 3 days after the deposit and your info</li><li>Tap to call on every page and a phone call bar</li><li>Quote or booking form that reaches your email</li><li>Google-ready setup and linked to your Google profile</li><li>2 rounds of changes before launch</li></ul>
       <a class="btn btn-hot" href="../start/index.html">Get started</a></div>
     <div class="price"><h3>Pro</h3><div class="amt">$1,197</div><ul><li>Everything in Standard, up to 8 pages</li><li>Priority build, usually 1 to 2 days</li><li>Photo gallery, reviews section, booking link</li><li>A simple text logo if you don't have one</li><li>4 rounds of changes</li></ul></div>
     <div class="price"><h3>Starter: Facebook to website</h3><div class="amt">$697</div><ul><li>For a business with no website yet, only a Facebook or Instagram page</li><li>Up to 3 pages: home, services, contact</li><li>Built from what's already on your page: photos, hours, services, reviews. You don't write anything</li><li>Tap to call and a quote form, live in 2 to 3 days</li></ul></div>
   </div>
+  <p class="lede" style="margin-top:24px">Every site: you own it and the domain, no monthly fees, a free sample before you pay, and your first quarter of the care plan free ($225 value).</p>
 </div></section>
 <section style="padding-top:0"><div class="wrap">
   <div class="sec-head"><h2>What a monthly plan really costs</h2><p class="lede">A lot of website companies charge by the month. Move the sliders to see the total next to a one-time site.</p></div>
@@ -841,7 +842,8 @@ def build():
       <tr><td>Pro site</td><td class="n">$1,197</td><td class="s">One time</td></tr>
       <tr><td>Starter (Facebook to website)</td><td class="n">$697</td><td class="s">One time. Up to 3 pages built from your Facebook or Instagram page</td></tr>
       <tr><td>Refresh of a site you have</td><td class="n">$300 to $400</td><td class="s">When the existing site is worth keeping</td></tr>
-      <tr><td>Care plan</td><td class="n">$100 a quarter</td><td class="s">Optional. Text us changes (hours, prices, photos, a new service) and we make them. Cancel anytime.</td></tr>
+      <tr><td>Care plan</td><td class="n">$225 a quarter</td><td class="s">Optional and prepaid. Up to 3 hours of changes: hours, prices, photos, a new service. First quarter free with every site. Cancel anytime.</td></tr>
+      <tr><td>On-site photos</td><td class="n">$75</td><td class="s">Colorado Springs only. Up to 1 hour on site, edited set delivered with your site. Shot on iPhone, no portraits.</td></tr>
       <tr><td>Domain name</td><td class="n">About $12 a year</td><td class="s">Paid to the registrar, in your name</td></tr>
       <tr><td>Extra changes</td><td class="n">$75 an hour</td><td class="s">Only after the included rounds</td></tr>
     </tbody>
