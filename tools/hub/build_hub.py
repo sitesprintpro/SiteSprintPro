@@ -1,7 +1,7 @@
 """Build the SiteSprintPro hub pages into /home/claude/ssp-site.
 
 Every page is one self-contained HTML file (CSS and JS inline). Links are relative so the site works on
-GitHub Pages (project path), on sitesprintpro.com, and in a local preview.
+GitHub Pages (project path), on sitesprintpro.live, and in a local preview.
 Edit CONFIG and the copy below, then run: python3 build_hub.py
 """
 import json, pathlib, html
@@ -14,7 +14,7 @@ CONFIG = {
     "email": "sitesprintproteam@gmail.com",
     "owner": "Don",
     "ownerPhoto": "",  # e.g. "assets/don.jpg" once Don sends the Mt. Parish photo
-    "domain": "https://sitesprintpro.com/",
+    "domain": "https://sitesprintpro.live/",
     # Google Form wiring for /start. Fill after the form exists (see the spec, Inquiry form).
     "form": {"action": "", "fields": {}},
 }
