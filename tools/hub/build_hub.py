@@ -218,9 +218,11 @@ section{padding:clamp(72px,10vw,128px) 0}
   .hx-bg .g img{opacity:0;animation:glowup 2.8s .35s ease-out forwards}
   .hx-phone{display:block;position:absolute;left:50%;bottom:0;width:52%;margin-left:-26%;aspect-ratio:390/844;border-radius:40px;border:9px solid #07080a;background:#07080a;overflow:hidden;z-index:1;box-shadow:0 40px 90px -30px rgba(0,0,0,.95),0 0 0 1px var(--line2);transform:translateY(46%);animation:rise 1.4s .55s cubic-bezier(.2,.7,.1,1) both}
   .hx-phone img{position:absolute;left:0;top:0;width:100%;height:auto;max-width:none;animation:reelup 24s 2s linear infinite alternate}
+  .hx-phone .b img{opacity:0;animation:reelup 24s 2s linear infinite alternate,reelswap 16s ease-in-out infinite}
+  @keyframes reelswap{0%,44%{opacity:0}50%,94%{opacity:1}100%{opacity:0}}
   html.cur-in .hx-bg .g img,html.cur-in .hx-phone,html.cur-in .hx-phone img{animation-play-state:paused}
 }
-@media (max-width:760px) and (prefers-reduced-motion:reduce){.hx-bg .g img{opacity:1;animation:none}.hx-phone,.hx-phone img{animation:none}}
+@media (max-width:760px) and (prefers-reduced-motion:reduce){.hx-bg .g img{opacity:1;animation:none}.hx-phone,.hx-phone img{animation:none}.hx-phone .b{display:none}}
 
 /* towns we serve */
 .towns{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;padding:16px 0;position:relative}
@@ -241,6 +243,12 @@ section{padding:clamp(72px,10vw,128px) 0}
 .ridge h2 .w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.06em}
 .ridge h2 .w>span{display:inline-block}
 .ridge p{color:var(--muted);max-width:31em;margin-top:20px;font-size:clamp(1.05rem,1.5vw,1.22rem)}
+.rstats{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;max-width:760px;margin-top:30px}
+.rstats li{background:rgba(10,11,13,.55);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.14);border-radius:16px;padding:16px 18px}
+.rstats b{display:block;font-size:clamp(1.6rem,3.2vw,2.4rem);letter-spacing:-.03em;line-height:1}
+.rstats span{display:block;color:var(--muted);font-size:.92rem;margin-top:6px}
+.ridge .btns{margin-top:22px}
+@media (max-width:760px){.rstats{gap:8px}.rstats li{padding:12px}.rstats span{font-size:.78rem}.ridge .btns .btn{flex:1 1 auto}}
 
 /* the ridge at the bottom of every page */
 .horizon{position:relative;height:clamp(300px,44vw,680px);overflow:hidden;margin-top:clamp(32px,5vw,64px);pointer-events:none}
@@ -384,6 +392,7 @@ fieldset.fld{border:0}
 .choices label:has(input:checked){border-color:var(--accent2);background:rgba(226,98,42,.08)}
 .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 .form-msg{min-height:1.4em;color:var(--accent2);font-weight:600}
+.ref-note{grid-column:1/-1;margin-bottom:-8px;padding:12px 16px;border:1px solid rgba(240,122,69,.45);border-radius:var(--r3);color:var(--accent2);font-weight:700}
 .privacy-line{color:var(--faint);font-size:.9rem}
 .side-card{border:1px solid var(--line);border-radius:var(--r2);padding:24px;display:grid;gap:14px}
 .side-card .big-tel{font-size:1.8rem;font-weight:850;letter-spacing:-.02em;text-decoration:none;min-height:48px;display:inline-flex;align-items:center}
@@ -653,7 +662,9 @@ FAQS = [
     ("What do you need from me?", ["Your services, hours, service area, your logo if you have one, and 10 to 20 photos from your phone of real work, your crew or your space. We write all the words."]),
     ("I only have a Facebook page. Which option is that?", ["Starter, $697. We build up to 3 pages from what's already on your Facebook or Instagram page: your photos, hours, services and reviews. You don't have to write anything."]),
     ("I already have a website. Can you fix it?", ["Often, yes. A refresh of an existing site is $300 to $400 when the bones are good. If it's cheaper to rebuild, we'll tell you."]),
-    ("Will it help me show up on Google?", ["We connect the site to your Google Business Profile and set it up with the business details Google reads. Where you rank depends on your profile, your reviews and your competition, so nobody can honestly promise first place."]),
+    ("Will it help me show up on Google?", ["We connect the site to your Google Business Profile and set it up with the business details Google reads. Where you rank depends on your profile, your reviews and your competition, so nobody can honestly promise first place.",
+        "Pro adds local search setup: we set up or clean up your Google Business Profile, give you a review kit with a QR card for the counter, and list you on Apple Maps, Bing, Yelp and Facebook with the same name, address and phone."]),
+    ("Do you have a referral program?", ["Yes. Send a business our way, and when they buy, you both get $50 off: them on their site, you on your site or your next care plan quarter. Have them mention your name, or send them sitesprintpro.live/start?ref=yourname."]),
     ("Can you use my Google reviews?", ["Yes, your real reviews, quoted word for word with the reviewer's first name. Never made-up ones."]),
     ("Where do the photos come from?", ["Your own photos first. When a section needs more, we license stock photos for your business so you're covered. Never random images pulled off the internet."]),
     ("Do you use AI?", ["Yes, for the repetitive build and testing work. That's how you get a custom site in days at this price. Every site is planned and reviewed by Don, written for your business, and checked on real phone sizes before you see it."]),
@@ -675,10 +686,11 @@ FEATURES = [
 
 def build():
     s = SAMPLES
+    stage = sorted(s, key=lambda x: {"hvac": 0, "barber": 1}.get(x["slug"], 2))  # Zero Gap second in the hero rotation
     stage_imgs = "".join(
-        f'<img src="assets/shots/{x["slug"]}-desktop.webp" width="1200" height="750" alt="" class="{"on" if i == 0 else ""}" {"" if i == 0 else "loading=lazy"} decoding="async">' for i, x in enumerate(s))
+        f'<img src="assets/shots/{x["slug"]}-desktop.webp" width="1200" height="750" alt="" class="{"on" if i == 0 else ""}" {"" if i == 0 else "loading=lazy"} decoding="async">' for i, x in enumerate(stage))
     stage_phone = "".join(
-        f'<img src="assets/shots/{x["slug"]}-phone.webp" width="600" height="1298" alt="" class="{"on" if i == 0 else ""}" {"" if i == 0 else "loading=lazy"} decoding="async">' for i, x in enumerate(s))
+        f'<img src="assets/shots/{x["slug"]}-phone.webp" width="600" height="1298" alt="" class="{"on" if i == 0 else ""}" {"" if i == 0 else "loading=lazy"} decoding="async">' for i, x in enumerate(stage))
     feats = "".join(f'<li>{ICON["check"]}<div><b>{esc(a)}</b><span>{esc(b)}</span></div></li>' for a, b in FEATURES)
     towns = ["Colorado Springs", "Monument", "Fountain", "Manitou Springs", "Woodland Park", "Falcon", "Black Forest", "Peyton",
              "Security-Widefield", "Palmer Lake", "Cripple Creek", "Cañon City", "Pueblo", "Castle Rock"]
@@ -690,7 +702,7 @@ def build():
           "areaServed": [{"@type": "City", "name": "Colorado Springs, Colorado"}, {"@type": "State", "name": "Colorado"}], "priceRange": "$697 to $1,197"}
     featured = [s[0], s[6], s[4]]
     home = f"""
-<section class="hero"><canvas class="topo" aria-hidden="true"></canvas><div class="hx-bg" aria-hidden="true"><picture class="m"><source media="(max-width:760px)" srcset="assets/peak/peak-mist-p.webp"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" alt="" width="1588" height="1765"></picture><picture class="g"><source media="(max-width:760px)" srcset="assets/peak/peak-glow-p.webp"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" alt="" width="1588" height="1765"></picture></div><div class="hx-phone" aria-hidden="true"><picture><source media="(max-width:760px)" srcset="assets/reel/hvac-hero.webp"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" alt="" width="600" height="4200"></picture></div><div class="wrap">
+<section class="hero"><canvas class="topo" aria-hidden="true"></canvas><div class="hx-bg" aria-hidden="true"><picture class="m"><source media="(max-width:760px)" srcset="assets/peak/peak-mist-p.webp"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" alt="" width="1588" height="1765"></picture><picture class="g"><source media="(max-width:760px)" srcset="assets/peak/peak-glow-p.webp"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" alt="" width="1588" height="1765"></picture></div><div class="hx-phone" aria-hidden="true"><picture><source media="(max-width:760px)" srcset="assets/reel/hvac-hero.webp"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" alt="" width="600" height="4200"></picture><picture class="b"><source media="(max-width:760px)" srcset="assets/reel/barber-hero.webp"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" alt="" width="600" height="4200" loading="lazy"></picture></div><div class="wrap">
   <div>
     <h1 class="load">Websites for Springs businesses.</h1>
     <p class="lede load d1">Live in 2 to 3 days. One flat price, no monthly fees, and the site is yours.</p>
@@ -716,6 +728,8 @@ def build():
   <div class="wrap ridge-copy">
     <h2 id="ridge-h">Built under the Peak.</h2>
     <p>We're in Colorado Springs. We know the 10pm furnace call, the first hard freeze and Pikes Peak Regional permits. Your site will too.</p>
+    <ul class="rstats"><li><b>2 to 3 days</b><span>deposit to live</span></li><li><b>$0</b><span>monthly fees</span></li><li><b>7</b><span>live samples to open</span></li></ul>
+    <div class="btns">{tel_btn()}<a class="btn btn-line" href="start/index.html">Get started</a></div>
   </div>
 </section>
 
@@ -741,7 +755,7 @@ def build():
   <div data-r><a class="big-tel" href="tel:{CONFIG['phone']}">{CONFIG['phoneDisplay']}</a><div class="btns" style="margin-top:14px"><a class="btn btn-hot" href="start/index.html">Get started</a><a class="btn btn-line" href="sms:{CONFIG['phone']}">{ICON['chat']}Text us</a></div></div>
 </div></section>
 """
-    names = json.dumps([[x["slug"], x["niche"], x["name"]] for x in s])
+    names = json.dumps([[x["slug"], x["niche"], x["name"]] for x in stage])
     stage_js = f"""
 (function(){{
   var S = {names}, i = 0, reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -819,7 +833,7 @@ def build():
     <div class="price main"><span class="tag">Recommended</span><h3>Standard</h3><div class="amt">$897</div>
       <ul><li>Up to 5 pages: home, services, about, gallery or hiring, contact</li><li>All the writing done for you</li><li>Live in 2 to 3 days after the deposit and your info</li><li>Tap to call on every page and a phone call bar</li><li>Quote or booking form that reaches your email</li><li>Google-ready setup and linked to your Google profile</li><li>2 rounds of changes before launch</li></ul>
       <a class="btn btn-hot" href="../start/index.html">Get started</a></div>
-    <div class="price"><h3>Pro</h3><div class="amt">$1,197</div><ul><li>Everything in Standard, up to 8 pages</li><li>Priority build, usually 1 to 2 days</li><li>Photo gallery, reviews section, booking link</li><li>A simple text logo if you don't have one</li><li>4 rounds of changes</li></ul></div>
+    <div class="price"><h3>Pro</h3><div class="amt">$1,197</div><ul><li>Everything in Standard, up to 8 pages</li><li>Priority build, usually 1 to 2 days</li><li>Photo gallery, reviews section, booking link</li><li>A simple text logo if you don't have one</li><li>Local search setup: your Google Business Profile, a review kit with a QR card, and listings on Apple Maps, Bing, Yelp and Facebook</li><li>4 rounds of changes</li></ul></div>
     <div class="price"><h3>Starter: Facebook to website</h3><div class="amt">$697</div><ul><li>For a business with no website yet, only a Facebook or Instagram page</li><li>Up to 3 pages: home, services, contact</li><li>Built from what's already on your page: photos, hours, services, reviews. You don't write anything</li><li>Tap to call and a quote form, live in 2 to 3 days</li></ul></div>
   </div>
   <p class="lede" style="margin-top:24px">Every site: you own it and the domain, no monthly fees, a free sample before you pay, and your first quarter of the care plan free ($225 value).</p>
@@ -852,6 +866,7 @@ def build():
       <tr><td>On-site photos</td><td class="n">$75</td><td class="s">Colorado Springs only. Up to 1 hour on site, edited set delivered with your site. Shot on iPhone, no portraits.</td></tr>
       <tr><td>Domain name</td><td class="n">About $12 a year</td><td class="s">Paid to the registrar, in your name</td></tr>
       <tr><td>Extra changes</td><td class="n">$75 an hour</td><td class="s">Only after the included rounds</td></tr>
+      <tr><td>Referral</td><td class="n">$50 off, each</td><td class="s">Send a business our way. When they buy, you both get $50 off.</td></tr>
     </tbody>
   </table>
 </div></section>
@@ -997,6 +1012,9 @@ def build():
   var f = document.getElementById('ask'), el = function(n){{ return f.elements[n]; }}, msg = document.getElementById('msg'), er = document.getElementById('email-row');
   var q = new URLSearchParams(location.search);
   if (q.get('src')) {{ var s = document.getElementById('f-src'); for (var i = 0; i < s.options.length; i++) if (s.options[i].text === q.get('src')) s.selectedIndex = i; }}
+  var ref = (q.get('ref') || '').replace(/[^\\w .'-]/g, '').trim().slice(0, 40);
+  if (ref) {{ var s2 = document.getElementById('f-src'); for (var r = 0; r < s2.options.length; r++) if (s2.options[r].text === 'Someone told me') s2.selectedIndex = r;
+    var note = document.createElement('p'); note.className = 'ref-note'; note.textContent = 'Referred by ' + ref + '. You both get $50 off.'; f.parentNode.insertBefore(note, f); }}
   if (q.get('kind')) {{ var k = document.getElementById('f-kind'); for (var j = 0; j < k.options.length; j++) if (k.options[j].text === q.get('kind')) k.selectedIndex = j; }}
   f.querySelectorAll('input[name=reach]').forEach(function(r){{ r.addEventListener('change', function(){{ er.hidden = r.value !== 'Email' || !r.checked; }}); }});
   f.addEventListener('submit', function(e){{
@@ -1009,7 +1027,7 @@ def build():
     if (bad.length) {{ msg.textContent = 'Please fill in the highlighted questions.'; var first = f.querySelector('[name=' + bad[0] + ']'); first && first.focus(); return; }}
     var data = {{ name: el('name').value, business: el('business').value, phone: el('phone').value, kind: el('kind').value,
       site: f.querySelector('input[name=site]:checked').value, link: el('link').value,
-      reach: f.querySelector('input[name=reach]:checked').value, email: el('email').value, source: el('source').value }};
+      reach: f.querySelector('input[name=reach]:checked').value, email: el('email').value, source: el('source').value + (ref ? ' (ref: ' + ref + ')' : '') }};
     if (FORM.action) {{
       var body = new URLSearchParams();
       // the form has no link question, so the link rides along with the website answer

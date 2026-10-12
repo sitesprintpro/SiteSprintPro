@@ -98,7 +98,7 @@
     var glow = ridge.querySelector('.r-glow'), media = ridge.querySelector('.ridge-media');
     G.set(glow, { opacity: 0 });
     G.fromTo(media, { scale: 1.16 }, { scale: 1, ease: 'none', scrollTrigger: { trigger: ridge, start: 'top bottom', end: 'bottom bottom', scrub: true } });
-    G.to(glow, { opacity: 1, ease: 'none', scrollTrigger: { trigger: ridge, start: 'top 70%', end: 'center 40%', scrub: true } });
+    G.to(glow, { opacity: 1, ease: 'none', scrollTrigger: { trigger: ridge, start: 'top bottom', end: 'top 25%', scrub: true } });  // fully golden by the time the copy is in view
     var h2 = ridge.querySelector('h2');
     if (h2) {
       h2.innerHTML = h2.textContent.split(' ').map(function (w) { return '<span class="w"><span>' + w + '</span></span>'; }).join(' ');

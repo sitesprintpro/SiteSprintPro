@@ -201,9 +201,11 @@ section{padding:clamp(72px,10vw,128px) 0}
   .hx-bg .g img{opacity:0;animation:glowup 2.8s .35s ease-out forwards}
   .hx-phone{display:block;position:absolute;left:50%;bottom:0;width:52%;margin-left:-26%;aspect-ratio:390/844;border-radius:40px;border:9px solid #07080a;background:#07080a;overflow:hidden;z-index:1;box-shadow:0 40px 90px -30px rgba(0,0,0,.95),0 0 0 1px var(--line2);transform:translateY(46%);animation:rise 1.4s .55s cubic-bezier(.2,.7,.1,1) both}
   .hx-phone img{position:absolute;left:0;top:0;width:100%;height:auto;max-width:none;animation:reelup 24s 2s linear infinite alternate}
+  .hx-phone .b img{opacity:0;animation:reelup 24s 2s linear infinite alternate,reelswap 16s ease-in-out infinite}
+  @keyframes reelswap{0%,44%{opacity:0}50%,94%{opacity:1}100%{opacity:0}}
   html.cur-in .hx-bg .g img,html.cur-in .hx-phone,html.cur-in .hx-phone img{animation-play-state:paused}
 }
-@media (max-width:760px) and (prefers-reduced-motion:reduce){.hx-bg .g img{opacity:1;animation:none}.hx-phone,.hx-phone img{animation:none}}
+@media (max-width:760px) and (prefers-reduced-motion:reduce){.hx-bg .g img{opacity:1;animation:none}.hx-phone,.hx-phone img{animation:none}.hx-phone .b{display:none}}
 
 /* towns we serve */
 .towns{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;padding:16px 0;position:relative}
@@ -224,6 +226,12 @@ section{padding:clamp(72px,10vw,128px) 0}
 .ridge h2 .w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.06em}
 .ridge h2 .w>span{display:inline-block}
 .ridge p{color:var(--muted);max-width:31em;margin-top:20px;font-size:clamp(1.05rem,1.5vw,1.22rem)}
+.rstats{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;max-width:760px;margin-top:30px}
+.rstats li{background:rgba(10,11,13,.55);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.14);border-radius:16px;padding:16px 18px}
+.rstats b{display:block;font-size:clamp(1.6rem,3.2vw,2.4rem);letter-spacing:-.03em;line-height:1}
+.rstats span{display:block;color:var(--muted);font-size:.92rem;margin-top:6px}
+.ridge .btns{margin-top:22px}
+@media (max-width:760px){.rstats{gap:8px}.rstats li{padding:12px}.rstats span{font-size:.78rem}.ridge .btns .btn{flex:1 1 auto}}
 
 /* the ridge at the bottom of every page */
 .horizon{position:relative;height:clamp(300px,44vw,680px);overflow:hidden;margin-top:clamp(32px,5vw,64px);pointer-events:none}
@@ -367,6 +375,7 @@ fieldset.fld{border:0}
 .choices label:has(input:checked){border-color:var(--accent2);background:rgba(226,98,42,.08)}
 .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 .form-msg{min-height:1.4em;color:var(--accent2);font-weight:600}
+.ref-note{grid-column:1/-1;margin-bottom:-8px;padding:12px 16px;border:1px solid rgba(240,122,69,.45);border-radius:var(--r3);color:var(--accent2);font-weight:700}
 .privacy-line{color:var(--faint);font-size:.9rem}
 .side-card{border:1px solid var(--line);border-radius:var(--r2);padding:24px;display:grid;gap:14px}
 .side-card .big-tel{font-size:1.8rem;font-weight:850;letter-spacing:-.02em;text-decoration:none;min-height:48px;display:inline-flex;align-items:center}

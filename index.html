@@ -201,9 +201,11 @@ section{padding:clamp(72px,10vw,128px) 0}
   .hx-bg .g img{opacity:0;animation:glowup 2.8s .35s ease-out forwards}
   .hx-phone{display:block;position:absolute;left:50%;bottom:0;width:52%;margin-left:-26%;aspect-ratio:390/844;border-radius:40px;border:9px solid #07080a;background:#07080a;overflow:hidden;z-index:1;box-shadow:0 40px 90px -30px rgba(0,0,0,.95),0 0 0 1px var(--line2);transform:translateY(46%);animation:rise 1.4s .55s cubic-bezier(.2,.7,.1,1) both}
   .hx-phone img{position:absolute;left:0;top:0;width:100%;height:auto;max-width:none;animation:reelup 24s 2s linear infinite alternate}
+  .hx-phone .b img{opacity:0;animation:reelup 24s 2s linear infinite alternate,reelswap 16s ease-in-out infinite}
+  @keyframes reelswap{0%,44%{opacity:0}50%,94%{opacity:1}100%{opacity:0}}
   html.cur-in .hx-bg .g img,html.cur-in .hx-phone,html.cur-in .hx-phone img{animation-play-state:paused}
 }
-@media (max-width:760px) and (prefers-reduced-motion:reduce){.hx-bg .g img{opacity:1;animation:none}.hx-phone,.hx-phone img{animation:none}}
+@media (max-width:760px) and (prefers-reduced-motion:reduce){.hx-bg .g img{opacity:1;animation:none}.hx-phone,.hx-phone img{animation:none}.hx-phone .b{display:none}}
 
 /* towns we serve */
 .towns{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;padding:16px 0;position:relative}
@@ -224,6 +226,12 @@ section{padding:clamp(72px,10vw,128px) 0}
 .ridge h2 .w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.06em}
 .ridge h2 .w>span{display:inline-block}
 .ridge p{color:var(--muted);max-width:31em;margin-top:20px;font-size:clamp(1.05rem,1.5vw,1.22rem)}
+.rstats{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;max-width:760px;margin-top:30px}
+.rstats li{background:rgba(10,11,13,.55);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.14);border-radius:16px;padding:16px 18px}
+.rstats b{display:block;font-size:clamp(1.6rem,3.2vw,2.4rem);letter-spacing:-.03em;line-height:1}
+.rstats span{display:block;color:var(--muted);font-size:.92rem;margin-top:6px}
+.ridge .btns{margin-top:22px}
+@media (max-width:760px){.rstats{gap:8px}.rstats li{padding:12px}.rstats span{font-size:.78rem}.ridge .btns .btn{flex:1 1 auto}}
 
 /* the ridge at the bottom of every page */
 .horizon{position:relative;height:clamp(300px,44vw,680px);overflow:hidden;margin-top:clamp(32px,5vw,64px);pointer-events:none}
@@ -367,6 +375,7 @@ fieldset.fld{border:0}
 .choices label:has(input:checked){border-color:var(--accent2);background:rgba(226,98,42,.08)}
 .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 .form-msg{min-height:1.4em;color:var(--accent2);font-weight:600}
+.ref-note{grid-column:1/-1;margin-bottom:-8px;padding:12px 16px;border:1px solid rgba(240,122,69,.45);border-radius:var(--r3);color:var(--accent2);font-weight:700}
 .privacy-line{color:var(--faint);font-size:.9rem}
 .side-card{border:1px solid var(--line);border-radius:var(--r2);padding:24px;display:grid;gap:14px}
 .side-card .big-tel{font-size:1.8rem;font-weight:850;letter-spacing:-.02em;text-decoration:none;min-height:48px;display:inline-flex;align-items:center}
@@ -432,7 +441,7 @@ fieldset.fld{border:0}
 </div>
 <main id="main">
 
-<section class="hero"><canvas class="topo" aria-hidden="true"></canvas><div class="hx-bg" aria-hidden="true"><picture class="m"><source media="(max-width:760px)" srcset="assets/peak/peak-mist-p.webp"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" alt="" width="1588" height="1765"></picture><picture class="g"><source media="(max-width:760px)" srcset="assets/peak/peak-glow-p.webp"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" alt="" width="1588" height="1765"></picture></div><div class="hx-phone" aria-hidden="true"><picture><source media="(max-width:760px)" srcset="assets/reel/hvac-hero.webp"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" alt="" width="600" height="4200"></picture></div><div class="wrap">
+<section class="hero"><canvas class="topo" aria-hidden="true"></canvas><div class="hx-bg" aria-hidden="true"><picture class="m"><source media="(max-width:760px)" srcset="assets/peak/peak-mist-p.webp"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" alt="" width="1588" height="1765"></picture><picture class="g"><source media="(max-width:760px)" srcset="assets/peak/peak-glow-p.webp"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" alt="" width="1588" height="1765"></picture></div><div class="hx-phone" aria-hidden="true"><picture><source media="(max-width:760px)" srcset="assets/reel/hvac-hero.webp"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" alt="" width="600" height="4200"></picture><picture class="b"><source media="(max-width:760px)" srcset="assets/reel/barber-hero.webp"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" alt="" width="600" height="4200" loading="lazy"></picture></div><div class="wrap">
   <div>
     <h1 class="load">Websites for Springs businesses.</h1>
     <p class="lede load d1">Live in 2 to 3 days. One flat price, no monthly fees, and the site is yours.</p>
@@ -440,8 +449,8 @@ fieldset.fld{border:0}
     <p class="small-note load d3">Or text the same number. You get Don, not a call center.</p>
   </div>
   <div class="stage load d2" aria-label="Sample sites, cycling">
-    <div class="desk"><img src="assets/shots/hvac-desktop.webp" width="1200" height="750" alt="" class="on"  decoding="async"><img src="assets/shots/plumbing-desktop.webp" width="1200" height="750" alt="" class="" loading=lazy decoding="async"><img src="assets/shots/contractor-desktop.webp" width="1200" height="750" alt="" class="" loading=lazy decoding="async"><img src="assets/shots/lawn-desktop.webp" width="1200" height="750" alt="" class="" loading=lazy decoding="async"><img src="assets/shots/salon-desktop.webp" width="1200" height="750" alt="" class="" loading=lazy decoding="async"><img src="assets/shots/barber-desktop.webp" width="1200" height="750" alt="" class="" loading=lazy decoding="async"><img src="assets/shots/restaurant-desktop.webp" width="1200" height="750" alt="" class="" loading=lazy decoding="async"></div>
-    <div class="phone"><img src="assets/shots/hvac-phone.webp" width="600" height="1298" alt="" class="on"  decoding="async"><img src="assets/shots/plumbing-phone.webp" width="600" height="1298" alt="" class="" loading=lazy decoding="async"><img src="assets/shots/contractor-phone.webp" width="600" height="1298" alt="" class="" loading=lazy decoding="async"><img src="assets/shots/lawn-phone.webp" width="600" height="1298" alt="" class="" loading=lazy decoding="async"><img src="assets/shots/salon-phone.webp" width="600" height="1298" alt="" class="" loading=lazy decoding="async"><img src="assets/shots/barber-phone.webp" width="600" height="1298" alt="" class="" loading=lazy decoding="async"><img src="assets/shots/restaurant-phone.webp" width="600" height="1298" alt="" class="" loading=lazy decoding="async"></div>
+    <div class="desk"><img src="assets/shots/hvac-desktop.webp" width="1200" height="750" alt="" class="on"  decoding="async"><img src="assets/shots/barber-desktop.webp" width="1200" height="750" alt="" class="" loading=lazy decoding="async"><img src="assets/shots/plumbing-desktop.webp" width="1200" height="750" alt="" class="" loading=lazy decoding="async"><img src="assets/shots/contractor-desktop.webp" width="1200" height="750" alt="" class="" loading=lazy decoding="async"><img src="assets/shots/lawn-desktop.webp" width="1200" height="750" alt="" class="" loading=lazy decoding="async"><img src="assets/shots/salon-desktop.webp" width="1200" height="750" alt="" class="" loading=lazy decoding="async"><img src="assets/shots/restaurant-desktop.webp" width="1200" height="750" alt="" class="" loading=lazy decoding="async"></div>
+    <div class="phone"><img src="assets/shots/hvac-phone.webp" width="600" height="1298" alt="" class="on"  decoding="async"><img src="assets/shots/barber-phone.webp" width="600" height="1298" alt="" class="" loading=lazy decoding="async"><img src="assets/shots/plumbing-phone.webp" width="600" height="1298" alt="" class="" loading=lazy decoding="async"><img src="assets/shots/contractor-phone.webp" width="600" height="1298" alt="" class="" loading=lazy decoding="async"><img src="assets/shots/lawn-phone.webp" width="600" height="1298" alt="" class="" loading=lazy decoding="async"><img src="assets/shots/salon-phone.webp" width="600" height="1298" alt="" class="" loading=lazy decoding="async"><img src="assets/shots/restaurant-phone.webp" width="600" height="1298" alt="" class="" loading=lazy decoding="async"></div>
     <div class="stage-cap" aria-live="polite"><span id="capNiche">HVAC sample</span><b id="capName">Kestrel Heating &amp; Air</b><a id="capLink" href="hvac/index.html">Open it <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:18px;height:18px"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
   </div>
 </div></section>
@@ -458,6 +467,8 @@ fieldset.fld{border:0}
   <div class="wrap ridge-copy">
     <h2 id="ridge-h">Built under the Peak.</h2>
     <p>We're in Colorado Springs. We know the 10pm furnace call, the first hard freeze and Pikes Peak Regional permits. Your site will too.</p>
+    <ul class="rstats"><li><b>2 to 3 days</b><span>deposit to live</span></li><li><b>$0</b><span>monthly fees</span></li><li><b>7</b><span>live samples to open</span></li></ul>
+    <div class="btns"><a class="btn btn-hot" href="tel:+17194287932"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>Call (719) 428-7932</a><a class="btn btn-line" href="start/index.html">Get started</a></div>
   </div>
 </section>
 
@@ -583,7 +594,7 @@ fieldset.fld{border:0}
 
 
 (function(){
-  var S = [["hvac", "HVAC", "Kestrel Heating & Air"], ["plumbing", "Plumbing", "Dipper Plumbing"], ["contractor", "Contractor", "Ledgerline Builders"], ["lawn", "Lawn care", "Shortgrass Lawn Co"], ["salon", "Salon", "Oriel Hair Studio"], ["barber", "Barbershop", "Zero Gap Barbershop"], ["restaurant", "Restaurant", "Sawbuck Fire Grill"]], i = 0, reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var S = [["hvac", "HVAC", "Kestrel Heating & Air"], ["barber", "Barbershop", "Zero Gap Barbershop"], ["plumbing", "Plumbing", "Dipper Plumbing"], ["contractor", "Contractor", "Ledgerline Builders"], ["lawn", "Lawn care", "Shortgrass Lawn Co"], ["salon", "Salon", "Oriel Hair Studio"], ["restaurant", "Restaurant", "Sawbuck Fire Grill"]], i = 0, reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   var d = document.querySelectorAll('.stage .desk img'), p = document.querySelectorAll('.stage .phone img');
   var n = document.getElementById('capNiche'), nm = document.getElementById('capName'), l = document.getElementById('capLink');
   if (!d.length || reduce) return;
